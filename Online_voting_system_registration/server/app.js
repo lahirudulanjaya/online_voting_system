@@ -1,17 +1,21 @@
 require('./config/config');
 require('./model/db');
-
+require('./config/passportconfig');
 
 const express = require('express');
 const bodyParser =require('body-parser');
 const cors = require('cors');
+const passport = require('passport');
+
 
 const rtsIndex = require('./router/index.router');
 
 var app = express();
 //middleware
-app.use(bodyParser.json()); //to pass json data to nodejs
+//app.get('/',(req,res) => res.send("hello "));
 app.use(cors());// run both node and angular
+app.use(bodyParser.json());
+app.use(passport.initialize());
 app.use('/api',rtsIndex);
 app.use((err, req, res, next) => {
     if (err.name === 'ValidationError') {

@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 
-import { UserService } from '../../shared/user.service'
+import { UserService } from '../../shared/user.service';
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css'],
-  providers: [UserService]
+
+
 })
 export class SignUpComponent implements OnInit {
 
@@ -37,9 +38,12 @@ export class SignUpComponent implements OnInit {
 
  resetForm(form: NgForm) {
     this.userService.selectedUser = {
-      fullName: '',
+      userName: '',
+      registrationnumber:'',
       email: '',
-      password: ''
+      password: '',
+      cpassword:''
+
     };
     form.resetForm();
     this.serverErrorMessages = '';
