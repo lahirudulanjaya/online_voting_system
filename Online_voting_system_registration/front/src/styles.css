@@ -29,6 +29,8 @@ h2 {
   color: #cccccc;
 }
 
+
+
 /* STRUCTURE */
 
 .wrapper {
@@ -37,7 +39,6 @@ h2 {
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  min-height: 100%;
   padding: 20px;
 }
 
@@ -64,6 +65,8 @@ h2 {
   border-radius: 0 0 10px 10px;
 }
 
+
+
 /* TABS */
 
 h2.inactive {
@@ -74,6 +77,8 @@ h2.active {
   color: #0d0d0d;
   border-bottom: 2px solid #5fbae9;
 }
+
+
 
 /* FORM TYPOGRAPHY*/
 
@@ -113,8 +118,8 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
 }
 
 input[type=submit]:disabled{
-  background-color: #f5f6f6;
-  color: #7d7d7d;
+  background-color: grey;
+  color: white;
 }
 
 input[type=text],input[type=password] {
@@ -154,6 +159,8 @@ border-bottom: 2px solid #ed5558;
 label.validation-message{
   color:#ed5558;
 }
+
+
 
 /* ANIMATIONS */
 
@@ -266,7 +273,7 @@ label.validation-message{
 }
 
 #icon {
-  width:60%;
+  width:50%;
 }
 
 * {
@@ -286,4 +293,108 @@ label.validation-message{
   background-color:#249424; /* Green */
   color: white;
   margin-bottom: 15px;
+}
+
+/* Table Styles */
+.table-fill {
+  background: white;
+  border-radius:3px;
+  border-collapse: collapse;
+  height: 320px;
+  margin: auto;
+  max-width: 600px;
+  padding:5px;
+  width: 100%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  animation: float 5s infinite;
+}
+
+th {
+  color:#D5DDE5;;
+  background:#1b1e24;
+  border-bottom:4px solid #9ea7af;
+  border-right: 1px solid #343a45;
+  font-size:23px;
+  font-weight: 100;
+  padding:24px;
+  text-align:left;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  vertical-align:middle;
+}
+
+th:first-child {
+  border-top-left-radius:3px;
+}
+
+th:last-child {
+  border-top-right-radius:3px;
+  border-right:none;
+}
+
+tr {
+  border-top: 1px solid #C1C3D1;
+  border-bottom-: 1px solid #C1C3D1;
+  color:#666B85;
+  font-size:16px;
+  font-weight:normal;
+  text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+}
+
+tr:first-child {
+  border-top:none;
+}
+
+tr:last-child {
+  border-bottom:none;
+}
+
+tr:nth-child(odd) td {
+  background:#EBEBEB;
+}
+
+tr:last-child td:first-child {
+  border-bottom-left-radius:3px;
+}
+
+tr:last-child td:last-child {
+  border-bottom-right-radius:3px;
+}
+
+td {
+  background:#FFFFFF;
+  padding:20px;
+  text-align:left;
+  vertical-align:middle;
+  font-weight:300;
+  font-size:18px;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid #C1C3D1;
+}
+
+td:last-child {
+  border-right: 0px;
+}
+
+th.text-left {
+  text-align: left;
+}
+
+th.text-center {
+  text-align: center;
+}
+
+th.text-right {
+  text-align: right;
+}
+
+td.text-left {
+  text-align: left;
+}
+
+td.text-center {
+  text-align: center;
+}
+
+td.text-right {
+  text-align: right;
 }

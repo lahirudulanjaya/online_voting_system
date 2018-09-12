@@ -7,12 +7,18 @@ import { UserComponent } from './user/user.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
-
+import {UserService} from './shared/user.service';
+import { SignInComponent } from './user/sign-in/sign-in.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import {ConfirmEqualValidatorDirective} from './shared/confirm-validate.directive';
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
-    SignUpComponent
+    SignUpComponent,
+    SignInComponent,
+    UserProfileComponent,
+    ConfirmEqualValidatorDirective
   ],
   imports: [
     BrowserModule,
@@ -21,7 +27,7 @@ import { appRoutes } from './routes';
     HttpClientModule
 
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
