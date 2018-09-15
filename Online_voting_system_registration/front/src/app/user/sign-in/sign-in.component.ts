@@ -34,13 +34,13 @@ export class SignInComponent implements OnInit {
   //  console.log(this.userDetails);
     this.userService.login(form.value).subscribe(
       res => {
-    //    this.userService.setToken(res['token']);
-      //  if(userName == "Admin"){
-        //  this.router.navigateByUrl('/dashboard');
-        //  this.userService.deleteToken();
-        //  }
-    //    else{
-          this.router.navigateByUrl('/userprofile');
+		
+		if(form.value.userName=="Admin"){
+			this.router.navigateByUrl('/dashboard');
+		}
+		else{
+			this.router.navigateByUrl('/userprofile');
+		}
 
         
 
