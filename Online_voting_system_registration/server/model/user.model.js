@@ -24,6 +24,7 @@ var userSchema = new mongoose.Schema({
         minlength : [4,'Password must be atleast 4 character long']
     },
     cpassword:{
+
         type:String,
         required: 'Password can\'t be empty',
     },

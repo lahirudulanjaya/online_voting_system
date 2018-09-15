@@ -5,5 +5,4 @@ export class User {
   password: string;
   cpassword:string;
 
-
 }
