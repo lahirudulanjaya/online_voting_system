@@ -3,6 +3,7 @@ import { UserComponent } from './user/user.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 import {SignInComponent} from './user/sign-in/sign-in.component';
 import {UserProfileComponent} from './user-profile/user-profile.component';
+import {AdminDashboardComponent} from './admin-dashboard/admin-dashboard.component';
 
 export const appRoutes: Routes = [
     {
@@ -16,6 +17,9 @@ export const appRoutes: Routes = [
     {
         path: 'userprofile', component: UserProfileComponent,
 
+    },
+    {
+      path : 'dashboard', component : AdminDashboardComponent,
     },
     {
         path: '', redirectTo: '/login', pathMatch: 'full'
