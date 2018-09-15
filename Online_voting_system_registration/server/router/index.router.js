@@ -7,4 +7,5 @@ router.post('/register', ctrlUser.register);
 router.post('/authenticate',ctrlUser.authenticate);
 router.get('/userprofile',Jwtverify.verifyJwtToken,ctrlUser.userprofile);
 
+
 module.exports = router
