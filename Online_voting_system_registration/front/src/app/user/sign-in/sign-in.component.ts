@@ -15,8 +15,7 @@ export class SignInComponent implements OnInit {
   constructor(private userService: UserService,private router : Router) { }
   model ={
       userName :'',
-      password:'',
-      type :null
+      password:''
     };
   serverErrorMessages:string;
   ngOnInit() {
@@ -31,21 +30,22 @@ export class SignInComponent implements OnInit {
    );
  }
   onSubmit(form : NgForm){
-  //  console.log(this.userDetails);
-    this.userService.login(form.value).subscribe(
-      res => {
-		
-		if(form.value.userName=="Admin"){
-			this.router.navigateByUrl('/dashboard');
-		}
-		else{
-			this.router.navigateByUrl('/userprofile');
-		}
 
-        
+    this.userService.login(form.value).subscribe(
+
+      res => {
+       this.userService.setToken(res['token']);
+       if(form.value.userName=="Admin"){
+          this.router.navigateByUrl('/dashboard');
+        }
+      else{
+          this.router.navigateByUrl('/userprofile');
+        }
+
 
       },
       err => {
+
         this.serverErrorMessages = err.error.message;
       }
     );

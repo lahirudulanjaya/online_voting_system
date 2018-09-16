@@ -13,6 +13,7 @@ import { UserService } from '../../shared/user.service';
 export class SignUpComponent implements OnInit {
 
   emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
   showSucessMessage: boolean;
   serverErrorMessages: string;
   constructor(private userService: UserService) { }

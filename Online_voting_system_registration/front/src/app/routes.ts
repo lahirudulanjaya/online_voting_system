@@ -20,7 +20,7 @@ export const appRoutes: Routes = [
 
     },
     {
-      path : 'dashboard', component : AdminDashboardComponent,
+      path : 'dashboard', component : AdminDashboardComponent,canActivate:[AuthGuard]
     },
     {
         path: '', redirectTo: '/login', pathMatch: 'full'
