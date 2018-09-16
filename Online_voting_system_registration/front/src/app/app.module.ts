@@ -16,6 +16,7 @@ import { MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButt
 import { LayoutModule } from '@angular/cdk/layout';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import {SelectRequredValidatorDirective} from './shared/Select-validate.directive';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     SignInComponent,
     UserProfileComponent,
     ConfirmEqualValidatorDirective,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    SelectRequredValidatorDirective
   ],
   imports: [
     BrowserModule,
