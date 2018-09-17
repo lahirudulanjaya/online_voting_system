@@ -18,6 +18,11 @@ var userSchema = new mongoose.Schema({
         required: 'Email can\'t be empty',
         unique: true
     },
+    phonenumber: {
+        type: String,
+        required: 'Phone number can\'t be empty',
+        unique: true
+    },
     password: {
         type: String,
         required: 'Password can\'t be empty',

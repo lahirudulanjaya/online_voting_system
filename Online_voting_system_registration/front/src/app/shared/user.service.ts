@@ -13,6 +13,7 @@ export class UserService {
     userName: '',
     registrationnumber:'',
     email: '',
+    phonenumber :'',
     password: '',
     cpassword:''
 
