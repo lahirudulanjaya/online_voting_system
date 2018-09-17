@@ -17,6 +17,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import {SelectRequredValidatorDirective} from './shared/Select-validate.directive';
+import { ElectionComponent } from './election/election.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {SelectRequredValidatorDirective} from './shared/Select-validate.directiv
     UserProfileComponent,
     ConfirmEqualValidatorDirective,
     AdminDashboardComponent,
-    SelectRequredValidatorDirective
+    SelectRequredValidatorDirective,
+    ElectionComponent
   ],
   imports: [
     BrowserModule,

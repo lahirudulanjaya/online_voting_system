@@ -1,4 +1,21 @@
+<div class ="horizontal">
+  <li>UCSC Student Union Online Voting System</li>
+
+  <li style="float:right"><a class="active" href="/login">Logout</a></li>
+</div>
+
+
+<div class="sidenav">
+  <a href="/dashboard">Dashboard</a>
+  <a href="#">Member</a>
+  <a href="#">Election</a>
+  <a href="#">Rules and Regulations</a>
+
+
+</div>
+
 <div class="grid-container">
+
   <h1 class="mat-h1">Dashboard</h1>
   <mat-grid-list cols="2" rowHeight="350px">
     <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
@@ -6,6 +23,7 @@
         <mat-card-header>
           <mat-card-title>
             {{card.title}}
+
             <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
               <mat-icon>more_vert</mat-icon>
             </button>
@@ -22,3 +40,5 @@
     </mat-grid-tile>
   </mat-grid-list>
 </div>
+
+<router-outlet></router-outlet>

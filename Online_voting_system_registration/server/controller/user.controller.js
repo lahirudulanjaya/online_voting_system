@@ -11,6 +11,7 @@ module.exports.register = (req, res, next) => {
     user.userName = req.body.userName;
     user.registrationnumber=req.body.registrationnumber;
     user.email = req.body.email;
+    user.phonenumber=req.body.phonenumber;
     user.password = req.body.password;
     user.cpassword=req.body.cpassword;
 
@@ -47,7 +48,7 @@ module.exports.userprofile = (req, res, next) =>{
             if (!user)
                 return res.status(404).json({ status: false, message: 'User record not found.' });
             else
-                return res.status(200).json({ status: true, user : _.pick(user,['userName','email','registrationnumber']) });
+                return res.status(200).json({ status: true, user : _.pick(user,['userName','email','registrationnumber','phonenumber']) });
         }
     );
 }

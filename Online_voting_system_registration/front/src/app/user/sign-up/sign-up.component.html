@@ -23,6 +23,12 @@
     <label *ngIf="email.errors.pattern" class="validation-message">Invalid email address.</label>
   </div>
 
+  <input type="text" #phonenumber="ngModel" [(ngModel)]="userService.selectedUser.phonenumber" name="phonenumber" placeholder="Phone Number"
+  required  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !registrationnumber.valid }">
+  <div *ngIf="signUpForm.submitted && !phonenumber.valid">
+    <label class="validation-message">This field is required.</label>
+  </div>
+
   <input type="password"  #password="ngModel" [(ngModel)]="userService.selectedUser.password" name="password" placeholder="Password"
   minlength="8" required [pattern]="re" [ngClass]="{'invalid-textbox' :signUpForm.submitted && !password.valid }">
   <div *ngIf="signUpForm.submitted && password.errors">
