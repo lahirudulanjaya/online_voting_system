@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+input[type=date], select, textarea {
+    width: 50%;
+    color: blue;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    font-size: 15px;
+}
+input[type=time], select, textarea {
+    width: 50%;
+    color: blue;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    font-size: 15px;
+}
+input[type=submit] {
+    background-color: blue;
+    color: white;
+    width:35%;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: center;
+}

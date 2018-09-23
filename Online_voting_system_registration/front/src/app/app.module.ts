@@ -17,8 +17,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import {SelectRequredValidatorDirective} from './shared/Select-validate.directive';
-import { ElectionComponent } from './election/election.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ElectionComponent } from './admin/election/election.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 
@@ -32,7 +32,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ConfirmEqualValidatorDirective,
     AdminDashboardComponent,
     SelectRequredValidatorDirective,
-    ElectionComponent
+    ElectionComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

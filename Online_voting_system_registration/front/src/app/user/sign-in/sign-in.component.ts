@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { UserService } from '../../shared/user.service';
 import {NgForm} from '@angular/forms';
+var admin=0;
 
 @Component({
   selector: 'app-sign-in',
@@ -37,6 +38,7 @@ export class SignInComponent implements OnInit {
        this.userService.setToken(res['token']);
        if(form.value.userName=="Admin"){
           this.router.navigateByUrl('/dashboard');
+          admin=1;
         }
       else{
           this.router.navigateByUrl('/userprofile');
