@@ -13,10 +13,10 @@ passport.use(
                         return done(err);
                     // unknown user
                     else if (!user)
-                        return done(null, false, { message: 'Username number is not found' });
+                        return done(null, false, { message: 'Invalid Username' });
                     // wrong password
                     else if (!user.verifyPassword(password))
-                        return done(null, false, { message: 'Wrong password.' });
+                        return done(null, false, { message: 'Invalid Password.' });
                     // authentication succeeded
                     else
                         return done(null, user);

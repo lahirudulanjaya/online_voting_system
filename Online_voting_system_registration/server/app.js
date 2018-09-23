@@ -12,18 +12,18 @@ const rtsIndex = require('./router/index.router');
 var app = express();
 
 
-//middleware
+// middleware
 // connect nodejs and angular
 app.use(cors());
 app.use(bodyParser.json());
-//use passport for authentication
+// use passport for authentication
 app.use(passport.initialize());
 
 app.use('/api',rtsIndex);
 
 
 app.use((err, req, res, next) => {
-    if (err.name === 'ValidationError') {
+    if(err.name === 'ValidationError') {
         var valErrors = [];
         Object.keys(err.errors).forEach(key => valErrors.push(err.errors[key].message));
         res.status(422).send(valErrors)

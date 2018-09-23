@@ -8,13 +8,11 @@ var electionSchema = new mongoose.Schema({
     },
     date:{
         type:Date,
-        required: 'Date can\'t be empty',
-        unique:true
+        required: 'Date can\'t be empty'
     },
     stime: {
         type: String,
-        required: 'Starting Time can\'t be empty',
-        unique: true
+        required: 'Starting Time can\'t be empty'
     },
     etime: {
         type: String,
