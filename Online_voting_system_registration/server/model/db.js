@@ -12,3 +12,4 @@ mongoose.connect(process.env.mongodb_url,(err) =>{
 require('./user.model');
 require('./election.model');
 require('./rules.model');
+require('./email.model');

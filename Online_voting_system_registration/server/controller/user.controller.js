@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const User = mongoose.model('user');
 const passport = require('passport');
+const Email = mongoose.model('email');
 
 const _ = require('lodash');
 
@@ -14,22 +15,40 @@ module.exports.register = (req, res, next) => {
     user.phonenumber=req.body.phonenumber;
     user.password = req.body.password;
     user.cpassword=req.body.cpassword;
+    user.randomString = req.body.randomString;
+    user.isvalid =req.body.isvalid;
 
+        Email.findOne({registrationnumber:user.registrationnumber},'email',function(err,result){
+            if(err)
+                throw err;
+            else if(!result)
+                res.status(422).send('Details of email not found');
+            else{
+                if(result.email==user.email){
+                    user.save((err, doc) => {
+                        if (!err)
+                            res.send(doc);
+                        else 
+                        {
+                                if (err.code === 11000){
+                                    res.status(422).send('Data you entered has already been used');
+                                }                               
+                                else{
+                                    return next(err);
+                                    }
+                        }
+                        });
+                }
+                else{
+                    res.status(422).send('Enter Correct Email Address');
+                }
 
-    user.save((err, doc) => {
-
-        if (!err)
-            res.send(doc);
-        else {
-          if (err.code === 11000)
-              res.status(422).send('Data you entered has already been used');
-          else
-              return next(err);
-
-        }
-
-    });
+            }
+        });
+    
 }
+
+
 
 module.exports.authenticate = (req, res, next) => {
     // call for passport authentication
@@ -52,3 +71,4 @@ module.exports.userprofile = (req, res, next) =>{
         }
     );
 }
+

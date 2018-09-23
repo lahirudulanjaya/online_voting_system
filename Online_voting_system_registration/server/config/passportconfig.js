@@ -17,6 +17,9 @@ passport.use(
                     // wrong password
                     else if (!user.verifyPassword(password))
                         return done(null, false, { message: 'Invalid Password.' });
+                    // unconfiremed Email
+                    else if(!user.verifyEmail())
+                        return done(null,false, {message : 'please verify email address'});
                     // authentication succeeded
                     else
                         return done(null, user);
