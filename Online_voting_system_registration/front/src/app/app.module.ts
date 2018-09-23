@@ -12,14 +12,13 @@ import { SignInComponent } from './user/sign-in/sign-in.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import {ConfirmEqualValidatorDirective} from './shared/confirm-validate.directive';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-import { MatGridListModule, MatFormFieldModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule, MatDatepickerModule } from '@angular/material';
+import { MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import {SelectRequredValidatorDirective} from './shared/Select-validate.directive';
 import { ElectionComponent } from './admin/election/election.component';
 import { AdminComponent } from './admin/admin.component';
-
 
 
 @NgModule({
@@ -45,10 +44,8 @@ import { AdminComponent } from './admin/admin.component';
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
-    LayoutModule,
-    NgbModule,
-    MatDatepickerModule,
-    MatFormFieldModule
+    LayoutModule
+
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
