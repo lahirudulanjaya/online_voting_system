@@ -19,6 +19,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import {SelectRequredValidatorDirective} from './shared/Select-validate.directive';
 import { ElectionComponent } from './admin/election/election.component';
 import { AdminComponent } from './admin/admin.component';
+import { VerifyComponent } from './user/verify/verify.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { AdminComponent } from './admin/admin.component';
     AdminDashboardComponent,
     SelectRequredValidatorDirective,
     ElectionComponent,
-    AdminComponent
+    AdminComponent,
+    VerifyComponent
   ],
   imports: [
     BrowserModule,

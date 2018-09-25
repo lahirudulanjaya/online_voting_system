@@ -37,7 +37,13 @@ var userSchema = new mongoose.Schema({
         required: 'Password can\'t be empty',
     },
     saltSecret: String,
-    randomstring : String,
+    
+    randomstring: {
+
+        type: String,
+        
+    },
+
     isvalid :Boolean
 
 });
@@ -48,7 +54,9 @@ userSchema.path('email').validate((val) => {
    return emailRegex.test(val);
 }, 'Invalid e-mail.');
 
-var randomcode= randomstring.generate();
+
+
+
 
 userSchema.pre('save', function (next) {
     bcrypt.genSalt(10, (err, salt) => {
@@ -56,7 +64,6 @@ userSchema.pre('save', function (next) {
             this.password = hash;
             this.cpassword= hash;
             this.saltSecret = salt;
-            this.randomstring=randomcode;
             this.isvalid = false;
             next();
         });
