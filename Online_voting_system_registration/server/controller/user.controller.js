@@ -3,8 +3,9 @@ const bcrypt = require('bcryptjs');
 const User = mongoose.model('user');
 const passport = require('passport');
 const Email = mongoose.model('email');
-
+const mailer = require('../misc/mailer');
 const _ = require('lodash');
+const randomstring = require('randomstring');
 
 
 module.exports.register = (req, res, next) => {
@@ -15,8 +16,23 @@ module.exports.register = (req, res, next) => {
     user.phonenumber=req.body.phonenumber;
     user.password = req.body.password;
     user.cpassword=req.body.cpassword;
-    user.randomString = req.body.randomString;
-    user.isvalid =req.body.isvalid;
+    user.randomstring =randomstring.generate();
+
+    const html = `Hi there,
+        <br/>
+        Thank you for registering!
+        <br/><br/>
+        Please verify your email by typing the following token:
+        <br/>
+        Token: <b>${user.randomstring}</b>
+        <br/>
+        On the following page:
+        <a href="http://localhost:4200/verify">http://localhost:4200/verify</a>
+        <br/><br/>
+        Have a pleasant day.` ;
+
+console.log(user.randomstring);
+
 
         Email.findOne({registrationnumber:user.registrationnumber},'email',function(err,result){
             if(err)
@@ -26,8 +42,13 @@ module.exports.register = (req, res, next) => {
             else{
                 if(result.email==user.email){
                     user.save((err, doc) => {
-                        if (!err)
+                        if (!err){
+                            
                             res.send(doc);
+                            mailer.sendEmail('evotingucsc@gmail.com', user.email, 'Please verify your email!', html)
+                            
+                        }
+
                         else 
                         {
                                 if (err.code === 11000){
@@ -38,6 +59,7 @@ module.exports.register = (req, res, next) => {
                                     }
                         }
                         });
+
                 }
                 else{
                     res.status(422).send('Enter Correct Email Address');
@@ -45,8 +67,8 @@ module.exports.register = (req, res, next) => {
 
             }
         });
-    
-}
+    }
+
 
 
 

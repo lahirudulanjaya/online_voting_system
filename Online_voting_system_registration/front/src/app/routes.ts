@@ -7,6 +7,7 @@ import {AdminDashboardComponent} from './admin-dashboard/admin-dashboard.compone
 import { AuthGuard } from './auth/auth.guard';
 import{ElectionComponent} from './admin/election/election.component';
 import{AdminComponent} from './admin/admin.component';
+import{VerifyComponent} from './user/verify/verify.component';
 
 export const appRoutes: Routes = [
     {
@@ -31,5 +32,8 @@ export const appRoutes: Routes = [
     },
     {
         path: '', redirectTo: '/login', pathMatch: 'full'
+    },
+    {
+        path : 'verify', component : VerifyComponent,
     }
 ];
