@@ -23,7 +23,7 @@ export const appRoutes: Routes = [
 
     },
     {
-      path : 'dashboard', component : AdminDashboardComponent,canActivate:[AuthGuard]
+      path : 'dashboard', component : AdminDashboardComponent,
 
     },
     {
