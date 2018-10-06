@@ -11,7 +11,7 @@ import {UserService} from './shared/user.service';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import {ConfirmEqualValidatorDirective} from './shared/confirm-validate.directive';
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+
 import { MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AuthGuard } from './auth/auth.guard';
@@ -20,6 +20,9 @@ import {SelectRequredValidatorDirective} from './shared/Select-validate.directiv
 import { ElectionComponent } from './admin/election/election.component';
 import { AdminComponent } from './admin/admin.component';
 import { VerifyComponent } from './user/verify/verify.component';
+import { DashbordComponent } from './admin/dashbord/dashbord.component';
+import { SidebarComponent } from './admin/components/sidebar/sidebar.component';
+import { HeaderComponent } from './admin/components/header/header.component';
 
 
 @NgModule({
@@ -30,11 +33,13 @@ import { VerifyComponent } from './user/verify/verify.component';
     SignInComponent,
     UserProfileComponent,
     ConfirmEqualValidatorDirective,
-    AdminDashboardComponent,
     SelectRequredValidatorDirective,
     ElectionComponent,
     AdminComponent,
-    VerifyComponent
+    VerifyComponent,
+    DashbordComponent,
+    SidebarComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
