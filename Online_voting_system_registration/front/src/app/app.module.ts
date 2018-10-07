@@ -19,6 +19,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import {SelectRequredValidatorDirective} from './shared/Select-validate.directive';
 import { ElectionComponent } from './admin/election/election.component';
 import { AdminComponent } from './admin/admin.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 
