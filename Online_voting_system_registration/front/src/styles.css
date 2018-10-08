@@ -123,17 +123,17 @@ input[type=submit]:disabled{
 }
 
 input[type=text],input[type=password] {
-  background-color: #f6f6f6;
+  background-color: white;
   border: none;
   color: #0d0d0d;
-  padding: 15px 32px;
-  text-align: center;
+  padding: 15px 25px;
+  text-align: left;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 14px;
   margin: 5px;
   width: 85%;
-  border: 2px solid #f6f6f6;
+  border: 1px solid #BEC0C2;
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   -ms-transition: all 0.5s ease-in-out;
@@ -144,8 +144,7 @@ input[type=text],input[type=password] {
 }
 
 input[type=text]:focus,input[type=password]:focus {
-  background-color: #fff;
-  border-bottom: 2px solid #5fbae9;
+  border: 2px solid #5fbae9;
 }
 
 input[type=text]:placeholder {
@@ -153,7 +152,7 @@ input[type=text]:placeholder {
 }
 
 input[type=text].invalid-textbox,input[type=password].invalid-textbox{
-border-bottom: 2px solid #ed5558;
+border: 2px solid #ed5558;
 }
 
 label.validation-message{
