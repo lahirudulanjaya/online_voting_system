@@ -5,5 +5,4 @@ export class User {
   phonenumber:string;
   password: string;
   cpassword:string;
-
 }
