@@ -20,6 +20,7 @@ import { SelectRequredValidatorDirective } from './shared/Select-validate.direct
 import { ElectionComponent } from './admin/election/election.component';
 import { AdminComponent } from './admin/admin.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RulesComponent } from './admin/rules/rules.component';
 
 
 
@@ -34,7 +35,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AdminDashboardComponent,
     SelectRequredValidatorDirective,
     ElectionComponent,
-    AdminComponent
+    AdminComponent,
+    RulesComponent
   ],
   imports: [
     BrowserModule,
