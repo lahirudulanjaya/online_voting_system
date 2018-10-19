@@ -4,7 +4,7 @@ require('./model/db');
 require('./config/passportconfig');
 
 const express = require('express');
-const bodyParser =require('body-parser');
+const bodyParser = require('body-parser');
 const cors = require('cors');
 const passport = require('passport');
 const rtsIndex = require('./router/index.router');
