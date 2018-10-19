@@ -94,3 +94,16 @@ module.exports.userprofile = (req, res, next) =>{
     );
 }
 
+module.exports.getuserprofiles=(req,res,next) =>{
+    User.find({}, function(err, users) {
+        var userMap = {};
+    
+        users.forEach(function(user) {
+          userMap[user._id] = user;
+        });
+    
+        res.json(userMap); 
+        console.log(userMap); 
+      });
+}
+

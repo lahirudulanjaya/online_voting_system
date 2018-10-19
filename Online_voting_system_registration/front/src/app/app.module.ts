@@ -12,7 +12,7 @@ import { SignInComponent } from './user/sign-in/sign-in.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import {ConfirmEqualValidatorDirective} from './shared/confirm-validate.directive';
 
-import { MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule } from '@angular/material';
+import { MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
@@ -20,9 +20,12 @@ import {SelectRequredValidatorDirective} from './shared/Select-validate.directiv
 import { ElectionComponent } from './admin/election/election.component';
 import { AdminComponent } from './admin/admin.component';
 import { VerifyComponent } from './user/verify/verify.component';
-import { DashbordComponent } from './admin/dashbord/dashbord.component';
+
 import { SidebarComponent } from './admin/components/sidebar/sidebar.component';
 import { HeaderComponent } from './admin/components/header/header.component';
+
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { MemberComponent } from './admin/member/member.component';
 
 
 @NgModule({
@@ -37,9 +40,13 @@ import { HeaderComponent } from './admin/components/header/header.component';
     ElectionComponent,
     AdminComponent,
     VerifyComponent,
-    DashbordComponent,
+    
     SidebarComponent,
-    HeaderComponent
+    HeaderComponent,
+   
+     DashboardComponent,
+   
+     MemberComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +58,10 @@ import { HeaderComponent } from './admin/components/header/header.component';
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
-    LayoutModule
+    LayoutModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
 
   ],
   providers: [{

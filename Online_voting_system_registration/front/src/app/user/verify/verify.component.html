@@ -1,18 +1,18 @@
 
-<h1>Confirm Your Email</h1>
+<div id ="confirm"><h1>Confirm Your Email</h1></div>
 
 
 
 
-  <form #verifyForm="ngForm"  (ngSubmit)="verifyForm.valid && onSubmit(verifyForm)" >
+  <form #verifyForm="ngForm" class="verifyform" (ngSubmit)="verifyForm.valid && onSubmit(verifyForm)" >
 
 
-    <label>Please Insert Your token that you recived via Email<br></label>
+    <label>Please Insert Your token that you recived via Email</label><br>
     <input type="text" #randomstring="ngModel" [(ngModel)]="tokenService.selectedToken.randomstring"  name="randomstring" placeholder="Paste your token here"
     required  [ngClass]="{'invalid-textbox' :verifyForm.submitted && !randomstring.valid}">
     <div *ngIf="verifyForm.submitted && !randomstring.valid">
       <label class="validation-message">This field is required.</label>
-    </div>
+    </div><br><br>
 
   
 

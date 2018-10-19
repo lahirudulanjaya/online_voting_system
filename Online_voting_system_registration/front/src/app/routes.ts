@@ -7,7 +7,8 @@ import { AuthGuard } from './auth/auth.guard';
 import{ElectionComponent} from './admin/election/election.component';
 import{AdminComponent} from './admin/admin.component';
 import{VerifyComponent} from './user/verify/verify.component';
-import{DashbordComponent} from './admin/dashbord/dashbord.component';
+import{DashboardComponent} from './admin/dashboard/dashboard.component';
+import{MemberComponent} from './admin/member/member.component';
 
 export const appRoutes: Routes = [
     {
@@ -23,12 +24,16 @@ export const appRoutes: Routes = [
 
     },
     {
-      path : 'dashboard', component : DashbordComponent,
+      path : 'dashboard', component : DashboardComponent,
 
     },
     {
-        path: 'election', component: AdminComponent,
-        children:  [{path: '',component:ElectionComponent}]
+        path: 'election', component:ElectionComponent,
+        
+    },
+    {
+        path: 'members', component:MemberComponent,
+        
     },
     {
         path: '', redirectTo: '/login', pathMatch: 'full'
