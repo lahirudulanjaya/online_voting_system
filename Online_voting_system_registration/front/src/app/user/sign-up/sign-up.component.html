@@ -1,7 +1,3 @@
-<div>
-  <img src="/assets/img/User.png" id="icon" alt="User Icon" />
-</div>
-
 <form #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
   <input type="hidden" name ="_id" #_id ="ngModel" [(ngModel)]="userService.selectedUser._id">
   <input type="text" #userName="ngModel" [(ngModel)]="userService.selectedUser.userName" name="userName" placeholder="User Name" 
