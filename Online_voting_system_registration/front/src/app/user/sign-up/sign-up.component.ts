@@ -30,10 +30,7 @@ export class SignUpComponent implements OnInit {
         this.resetForm(form);
       },
       err => {
-      //  if (err.status === 422) {
-        //  this.serverErrorMessages = err.error.join('<br/>');
-      //  }
-      //  else
+     
           this.serverErrorMessages = err.error;
       }
     );
@@ -41,6 +38,7 @@ export class SignUpComponent implements OnInit {
 
  resetForm(form: NgForm) {
     this.userService.selectedUser = {
+      _id :'',
       userName: '',
       registrationnumber:'',
       email: '',

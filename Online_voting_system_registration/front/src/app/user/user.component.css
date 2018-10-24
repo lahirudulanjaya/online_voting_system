@@ -1,8 +1,11 @@
+
+
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
 /* BASIC */
 
 html {
+
   background: black;
   }
   
@@ -192,6 +195,9 @@ html {
   * {
     box-sizing: border-box;
   }
+
+
+  
   
   
   .alert {
@@ -207,5 +213,6 @@ html {
     color: white;
     margin-bottom: 15px;
   }
-  
-  
+
+
+

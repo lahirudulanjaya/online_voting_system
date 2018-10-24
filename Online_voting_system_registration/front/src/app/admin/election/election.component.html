@@ -1,9 +1,13 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div id="setelection"><h2>set election</h2></div>
 <div>
   <img src="/assets/img/time.png" id="icon" alt="User Icon" />
 </div>
 
 
-  <form #electionForm="ngForm"  (ngSubmit)="electionForm.valid && onSubmit(electionForm)" >
+  <form #electionForm="ngForm" class ="electionform" (ngSubmit)="electionForm.valid && onSubmit(electionForm)" >
 
 
     <label>Election Name</label>
@@ -16,11 +20,11 @@
   <div>
 
 
-        <label for="electiondate">Election Date</label>
+        <label for="electiondate">Choose Election Date</label>
         <input type="date"  [(ngModel)]="electionService.selectedElection.date" name="date" placeholder="Election Date"
                value="2018-07-22"
-               min="2018-01-01" max="2020-12-31" >
-
+               min="2018-01-01" max="2020-12-31" ><br>
+               <label>Election Date</label>
                <input type="text"  #date="ngModel" [(ngModel)]="electionService.selectedElection.date" name="date" placeholder="Election Date"
                required [ngClass]="{'invalid-textbox' :electionForm.submitted && !date.valid }">
                <div *ngIf="electionForm.submitted && !date.valid">
@@ -31,12 +35,13 @@
 
 
     <div >
-            <label>Start Time:</label>
+            <label>Choose Start Time:</label>
             <input type="time" [(ngModel)]="electionService.selectedElection.stime" name="stime" placeholder="Starting TIme"
-                   min="9:00" max="18:00">
-
+                   min="9:00" max="18:00"><br>
+            <label>Start Time:</label>
                    <input type="text" #stime="ngModel"  [(ngModel)]="electionService.selectedElection.stime" name="stime" placeholder="Starting TIme"
                    required [ngClass]="{'invalid-textbox' :electionForm.submitted && !stime.valid }">
+
                    <div *ngIf="electionForm.submitted && !stime.valid" >
                      <label class="validation-message">This field is required.</label>
                    </div>
@@ -44,9 +49,10 @@
 
 
     <div >
-            <label>End Time:</label>
+            <label>Choose End Time:</label>
             <input type="time" [(ngModel)]="electionService.selectedElection.etime" name="etime" placeholder="Ending TIme"
-                   min="9:00" max="18:00" >
+                   min="9:00" max="18:00" ><br>
+                   <label>End Time</label>
                <input type="text" #etime="ngModel" [(ngModel)]="electionService.selectedElection.etime" name="etime" placeholder="Ending TIme"
                    required [ngClass]="{'invalid-textbox' :electionForm.submitted && !date.valid }">
                    <div *ngIf="electionForm.submitted  && !etime.valid">

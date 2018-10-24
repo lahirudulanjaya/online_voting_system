@@ -144,7 +144,7 @@ input[type=text],input[type=password] {
 }
 
 input[type=text]:focus,input[type=password]:focus {
-  border: 2px solid #5fbae9;
+  border:  2px solid #5fbae9;
 }
 
 input[type=text]:placeholder {
@@ -152,7 +152,7 @@ input[type=text]:placeholder {
 }
 
 input[type=text].invalid-textbox,input[type=password].invalid-textbox{
-border: 2px solid #ed5558;
+  border-bottom: 2px solid #ed5558;
 }
 
 label.validation-message{
@@ -209,4 +209,9 @@ label.validation-message{
   background-color:#249424; /* Green */
   color: white;
   margin-bottom: 15px;
+
 }
+
+
+
+

@@ -1,0 +1,140 @@
+<!--
+<div class="row">
+  <div class="col s12">
+    <div class="card">
+      <div class="card-content white-text">
+        <div class="row">
+          <div class ="col 5">
+            <form #memberform ="ngForm" (ngSubmit)="onSubmit(memberform)">
+              <input type="hidden" name ="_id" #_id ="ngModel" [(ngModel)]="userservice.selectedUser._id">
+              <div class ="row">
+                <div class ="input-field col s12">
+                  <input type ="text" name="name" #userName = "ngModel"[(ngModel)]="userservice.selectedUser.userName" placeholder="Name">
+                  <label>User Name :
+                    <label class ="red-text">*</label>
+                  </label>
+                </div>
+              </div>
+              <div class ="row">
+                  <div class ="input-field col s12">
+                    <input type ="text" name="name" #registrationnumber = "ngModel"[(ngModel)]="userservice.selectedUser.registrationnumber">
+                    <label>Registration Number:
+                      <label class ="red-text">*</label>
+                    </label>
+                  </div>
+                </div>
+                <div class ="row">
+                    <div class ="input-field col s12">
+                      <input type ="text" name="name" #email = "ngModel"[(ngModel)]="userservice.selectedUser.email">
+                      <label>Email Address :
+                        <label class ="red-text">*</label>
+                      </label>
+                    </div>
+                  </div>
+                  <div class ="row">
+                      <div class ="input-field col s12">
+                        <input type ="text" name="name" #phonenumber = "ngModel"[(ngModel)]="userservice.selectedUser.phonenumber">
+                        <label>Phone Number :
+                          <label class ="red-text">*</label>
+                        </label>
+                      </div>
+                    </div>
+                    
+              
+        </form>
+        <div class ="col 7">
+          <table class ="members">
+            <thead>
+              <tr>
+                <th>User Name</th>
+                <th>Registration Number</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <tr *ngFor ="let member of users">
+                  <td>{{member.userName}}</td>
+                  <td>{{member.registrationnumber}}</td>
+                  <td>{{member.phonenumber}}</td>
+                  <td>{{member.email}}</td>
+                </tr>
+            
+            </thead>
+          
+          </table>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="row">
+<div class="column">
+    <h2 class ="head"> Member Details</h2>  
+<form #memberform ="ngForm" (ngSubmit)="Onsubmit(memberform)">
+
+  <div class="example-container">
+
+      <input type="hidden" name ="_id" #_id ="ngModel" [(ngModel)]="userService.selectedUser._id">
+    
+    <mat-form-field>
+      <input matInput type="text" placeholder="User Name" name ="userName" #userName = "ngModel" [(ngModel)]="userService.selectedUser.userName" required>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" placeholder="Registration Number" name ="registrationnumber" #registrationnumber = "ngModel" [(ngModel)]="userService.selectedUser.registrationnumber" required>
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput type="text" placeholder="Phone Number" name ="phonenumber" #phonenumber = "ngModel" [(ngModel)]="userService.selectedUser.phonenumber" required>
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput type="email" placeholder="Email Address" name ="email" #email = "ngModel" [(ngModel)]="userService.selectedUser.email" required>
+      </mat-form-field>
+
+      <div class="example-button-row">
+          <button mat-raised-button color="primary" type="submit">Update</button>
+      </div>
+     
+      
+  </div>
+  </form>
+    </div>
+    
+  <div class="column">
+
+ <h2 class ="head">Registered Members</h2>  
+  <table class ="members">
+   
+      <thead>
+        <tr>
+          <th>User Name</th>
+          <th>Registration Number</th>
+          <th>Phone Number</th>
+          <th>Email</th>
+          
+          <tr *ngFor ="let member of users">
+            <td>{{member.userName}}</td>
+            <td>{{member.registrationnumber}}</td>
+            <td>{{member.phonenumber}}</td>
+            <td>{{member.email}}</td>
+            <td><mat-icon (click)="Onedit(member)">create</mat-icon></td>
+            <td><mat-icon (click) ="Ondelete(member._id)">delete</mat-icon></td>
+          </tr>
+      
+      </thead>
+    
+    </table>
+  </div>
+  </div>
+    
+  
+
+  <div class="success" *ngIf="showSucessMessage">
+    Saved successfully
+  </div>
+  
+
+  <div class="alert" *ngIf="serverErrorMessages">
+    {{serverErrorMessages}}
+  </div>
