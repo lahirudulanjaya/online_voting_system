@@ -138,7 +138,8 @@ input[type=text]:placeholder {
 }
 
 input[type=text].invalid-textbox,input[type=password].invalid-textbox{
-  border-bottom: 2px solid #ed5558;
+  border: 2px solid #ed5558;
+  background-color: #f7d3db;
 }
 
 label.validation-message{
