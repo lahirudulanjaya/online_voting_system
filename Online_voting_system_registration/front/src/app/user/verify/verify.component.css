@@ -9,11 +9,14 @@
     margin-top: 10px;
     margin-left :500px;
 }
-label.validation-message{
-  width: 200px;
+.red-text{
+
   color:#ed5558;
-  margin-left: 260px;
+
   
+}
+label.label{
+  color: red;
 }
 
 .electionform{
@@ -41,7 +44,7 @@ input[type=text],input[type=password],input[type=time],input[type=date],select{
 }
 label{
     width: 100%;
-    display :inline-block;
+   
     color: black;
     font-size: 25px;
     
@@ -103,7 +106,7 @@ input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
     display: inline-block;
     font-size: 16px;
     margin: 5px;
-    width: 60%;
+    width: 80%;
     border: 2px solid #f6f6f6;
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;

@@ -1,0 +1,75 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 90%;
+}
+
+table, td, th {    
+  
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  width: 50%;
+background: #404952	;
+}
+th{
+  color:#FFFF33;
+}
+
+th, td {
+  padding: 15px;
+}
+td{
+  color:white;
+}
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 42%;
+  padding: 2px;
+ 
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+* {
+  box-sizing: border-box;
+}
+
+.row{
+  margin-left: 200px;
+  margin-top: 100px;
+}
+input[type=text].invalid-textbox,input[type=password].invalid-textbox{
+  border-bottom: 2px solid #ed5558;
+}
+
+label.validation-message{
+  color:#ed5558;
+  font-size: 14px;
+}
+.alert {
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
+
+.success{
+  padding: 20px;
+  background-color:#249424; /* Green */
+  color: white;
+  margin-bottom: 15px;
+}
+.head{
+  color: #053241;
+}

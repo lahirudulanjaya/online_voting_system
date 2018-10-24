@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
@@ -10,14 +10,15 @@ import { appRoutes } from './routes';
 import { UserService } from './shared/user.service';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-
-
-
-import {  MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
-
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import {  MatTableModule,MatDividerModule, MatPaginatorModule, MatSortModule} from '@angular/material';
+import 'hammerjs';
 import { ConfirmEqualValidatorDirective } from './shared/confirm-validate.directive';
-
-import { MatGridListModule, MatFormFieldModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule, MatDatepickerModule } from '@angular/material';
+import { ChartsModule } from 'ng2-charts';
+import { SliderModule } from 'angular-image-slider';
+import {
+   MatGridListModule,MatOptionModule,MatSelectModule, MatFormFieldModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule ,MatDatepickerModule,MatInputModule,
+  } from '@angular/material';
 
 import { LayoutModule } from '@angular/cdk/layout';
 import { AuthGuard } from './auth/auth.guard';
@@ -71,7 +72,17 @@ import { MemberComponent } from './admin/member/member.component';
     LayoutModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    NgbModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatDividerModule,
+    ChartsModule,
+    SliderModule
 
   ],
   providers: [{

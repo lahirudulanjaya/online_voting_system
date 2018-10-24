@@ -12,7 +12,7 @@ module.exports.verify = (req, res) => {
         if(err)
             console.log(err);
         else if(!result){
-            res.status(422).send("Invalid Token");
+            res.status(422).send("Invalid Key");
         }
         else{
             res.send(result);

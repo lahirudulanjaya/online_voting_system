@@ -44,7 +44,9 @@ var userSchema = new mongoose.Schema({
         
     },
 
-    isvalid :Boolean
+    isvalid :Boolean,
+    
+    isadmin :false
 
 });
 // Custom validation for email
@@ -71,11 +73,13 @@ userSchema.pre('save', function (next) {
 });
 
 //methods
-userSchema.methods.verifyPassword = function(password){
+userSchema.methods.verifyPassword = function(password)
+{
   return bcrypt.compareSync(password,this.password);
 }
 
-userSchema.methods.verifyEmail = function(){
+userSchema.methods.verifyEmail = function()
+{
     return this.isvalid;
 }
 

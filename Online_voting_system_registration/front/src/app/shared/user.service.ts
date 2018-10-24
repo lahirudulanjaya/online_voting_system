@@ -9,7 +9,9 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class UserService {
+  users :User[];
   selectedUser: User = {
+    _id:'',
     userName: '',
     registrationnumber:'',
     email: '',
@@ -57,8 +59,24 @@ export class UserService {
       return false;
   }
 
-  getUserProfile() {
+  getUserProfiles() {
   return this.http.get(environment.apiBaseUrl + '/getuserprofiles');
+}
+getUserProfile() {
+  return this.http.get(environment.apiBaseUrl + '/userProfile');
+}
+putuserprofile(user :User)
+{
+   this.http.put(environment.apiBaseUrl+'/updateuser',user).subscribe((res)=>{
+    location.reload();
+  });
+  
+}
+deleteuserprofile(_id :string){
+  if(confirm('Are you sure you want to delete this user?')==true)
+      this.http.delete(environment.apiBaseUrl+'/delete'+'/'+_id).subscribe((res)=>{
+        location.reload();
+      }); 
 }
 
 

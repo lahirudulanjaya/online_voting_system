@@ -6,7 +6,7 @@ const Email = mongoose.model('email');
 const mailer = require('../misc/mailer');
 const _ = require('lodash');
 const randomstring = require('randomstring');
-
+const ObjectId =require('mongoose').Types.ObjectId;
 
 module.exports.register = (req, res, next) => {
     var user = new User();
@@ -17,7 +17,7 @@ module.exports.register = (req, res, next) => {
     user.password = req.body.password;
     user.cpassword=req.body.cpassword;
     user.randomstring =randomstring.generate();
-
+    user.isadmin =false;
     const html = `Hi there,
         <br/>
         Thank you for registering!
@@ -95,15 +95,45 @@ module.exports.userprofile = (req, res, next) =>{
 }
 
 module.exports.getuserprofiles=(req,res,next) =>{
-    User.find({}, function(err, users) {
-        var userMap = {};
-    
-        users.forEach(function(user) {
-          userMap[user._id] = user;
-        });
-    
-        res.json(userMap); 
-        console.log(userMap); 
+    User.find({isadmin:false,isvalid:true},{userName:true,email:true,registrationnumber:true,phonenumber:true}, function(err, users) {
+        if(err){
+            res.send("something went wrong");
+            next;
+        }
+        res.status(200).json(users);
+        
       });
+    
 }
 
+module.exports.putuserprofile=(req,res,next) =>{
+  
+    var user= {
+        userName:req.body.userName,
+        registrationnumber:req.body.registrationnumber,
+        phonenumber:req.body.phonenumber,
+        email:req.body.email,
+
+    };
+    User.findByIdAndUpdate({_id:req.body._id},{$set :user},{upsert:true},(err,doc)=>{
+        if(!err){
+            res.send(doc);
+        }
+        else{
+            res.status(422).send("update failed");
+        }
+    })
+}
+    
+
+module.exports.deleteuserprofile=(req,res,next) =>{
+    User.findOneAndRemove({_id:req.params.id},function(err,doc){
+        if(err){
+            res.status(404).json({ status: false, message: "delete faild" });
+        }
+        else{
+            res.send(doc);
+        }
+    })
+    
+}

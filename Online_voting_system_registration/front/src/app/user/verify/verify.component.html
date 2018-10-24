@@ -7,11 +7,11 @@
   <form #verifyForm="ngForm" class="verifyform" (ngSubmit)="verifyForm.valid && onSubmit(verifyForm)" >
 
 
-    <label>Please Insert Your token that you recived via Email</label><br>
+    <label>Please enter your activation code here<label class="red-text"> *</label></label><br><br>
     <input type="text" #randomstring="ngModel" [(ngModel)]="tokenService.selectedToken.randomstring"  name="randomstring" placeholder="Paste your token here"
     required  [ngClass]="{'invalid-textbox' :verifyForm.submitted && !randomstring.valid}">
     <div *ngIf="verifyForm.submitted && !randomstring.valid">
-      <label class="validation-message">This field is required.</label>
+      <label class="validation-message"></label>
     </div><br><br>
 
   

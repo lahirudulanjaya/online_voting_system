@@ -2,7 +2,8 @@
   margin-top: 10px;
   margin-left :500px;
 }
-label.validation-message{
+label.validation-message
+{
 width: 200px;
 color:#ed5558;
 margin-left: 260px;

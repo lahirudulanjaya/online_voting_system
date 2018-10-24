@@ -15,7 +15,8 @@ router.get('/userprofile',Jwtverify.verifyJwtToken,ctrlUser.userprofile);
 router.post('/setemail',ctrlEmail.setemail);
 router.put('/verify',ctrlToken.verify);
 router.get('/getuserprofiles',ctrlUser.getuserprofiles);
-
+router.put('/updateuser',ctrlUser.putuserprofile);
+router.delete('/delete/:id',ctrlUser.deleteuserprofile);
 
 
 module.exports = router
