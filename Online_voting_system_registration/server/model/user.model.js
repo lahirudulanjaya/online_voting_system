@@ -8,12 +8,12 @@ var userSchema = new mongoose.Schema({
     userName: {
         type: String,
         required: 'Full name can\'t be empty',
-        unique : true
+        unique : true,
     },
     registrationnumber:{
         type:String,
         required: 'Registration Number can\'t be empty',
-        unique :true
+        unique :true,
     },
     email: {
         type: String,
@@ -24,7 +24,7 @@ var userSchema = new mongoose.Schema({
     phonenumber: {
         type: String,
         required: 'Phone number can\'t be empty',
-        unique: true
+        unique: true,
     },
     password: {
         type: String,

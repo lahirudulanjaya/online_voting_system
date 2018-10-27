@@ -27,17 +27,24 @@ import { SelectRequredValidatorDirective } from './shared/Select-validate.direct
 import { ElectionComponent } from './admin/election/election.component';
 import { AdminComponent } from './admin/admin.component';
 
+// For MDB Angular Free
+import { CarouselModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md'
 import { VerifyComponent } from './user/verify/verify.component';
 
 import { SidebarComponent } from './admin/components/sidebar/sidebar.component';
 import { HeaderComponent } from './admin/components/header/header.component';
-
+import {SlideshowModule} from 'ng-simple-slideshow';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RulesComponent } from './admin/rules/rules.component';
 
 
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { MemberComponent } from './admin/member/member.component';
+import { UserdashboardComponent } from './user-profile/userdashboard/userdashboard.component';
+import { ProfileComponent } from './user-profile/profile/profile.component';
+import { UsersidebarComponent } from './user-profile/Components/usersidebar/usersidebar.component';
+import { UserheaderComponent } from './user-profile/Components/userheader/userheader.component';
+import { CandidateComponent } from './user-profile/candidate/candidate.component';
 
 
 @NgModule({
@@ -56,7 +63,12 @@ import { MemberComponent } from './admin/member/member.component';
     HeaderComponent,
     DashboardComponent,
     MemberComponent,
-    RulesComponent
+    RulesComponent,
+    UserdashboardComponent,
+    ProfileComponent,
+    UsersidebarComponent,
+    UserheaderComponent,
+    CandidateComponent
 
   ],
   imports: [
@@ -82,7 +94,11 @@ import { MemberComponent } from './admin/member/member.component';
     MatOptionModule,
     MatDividerModule,
     ChartsModule,
-    SliderModule
+    SliderModule,
+    SlideshowModule,
+    CarouselModule,
+     WavesModule, 
+     ButtonsModule
 
   ],
   providers: [{

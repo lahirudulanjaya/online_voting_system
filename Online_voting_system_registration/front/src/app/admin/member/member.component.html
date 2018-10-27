@@ -73,7 +73,7 @@
 <div class="row">
 <div class="column">
     <h2 class ="head"> Member Details</h2>  
-<form #memberform ="ngForm" (ngSubmit)="Onsubmit(memberform)">
+<form #memberform ="ngForm" (ngSubmit)="memberform.valid && Onsubmit(memberform) ">
 
   <div class="example-container">
 

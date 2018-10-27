@@ -41,7 +41,7 @@ export class SignInComponent implements OnInit {
           admin=1;
         }
       else{
-          this.router.navigateByUrl('/userprofile');
+          this.router.navigateByUrl('/userprofile/dashboard');
         }
 
 

@@ -9,9 +9,9 @@ import{AdminComponent} from './admin/admin.component';
 import{VerifyComponent} from './user/verify/verify.component';
 import{DashboardComponent} from './admin/dashboard/dashboard.component';
 import{MemberComponent} from './admin/member/member.component';
-
+import{UserdashboardComponent} from './user-profile/userdashboard/userdashboard.component';
 import { RulesComponent } from './admin/rules/rules.component';
-
+import { CandidateComponent} from './user-profile/candidate/candidate.component';
 
 export const appRoutes: Routes = [
     {
@@ -24,6 +24,11 @@ export const appRoutes: Routes = [
     },
     {
         path: 'userprofile', component: UserProfileComponent,
+        children:[
+            {path : 'dashboard',component :UserdashboardComponent},
+            {path :'election' ,component :CandidateComponent}
+        ]
+
     },
     {
       path : 'dashboard', component : DashboardComponent,
@@ -47,4 +52,5 @@ export const appRoutes: Routes = [
     {
         path : 'verify', component : VerifyComponent,
     }
+    
 ];

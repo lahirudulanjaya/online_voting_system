@@ -6,6 +6,9 @@ const ctrlElection = require('../controller/election.controller');
 const ctrlRules = require('../controller/rules.controller');
 const ctrlEmail = require('../controller/email.controller');
 const ctrlToken = require('../controller/token.controller');
+const ctrlCandidate= require('../controller/candidate.controller');
+
+
 
 router.post('/register', ctrlUser.register);
 router.post('/setelection',ctrlElection.setelection);
@@ -17,6 +20,6 @@ router.put('/verify',ctrlToken.verify);
 router.get('/getuserprofiles',ctrlUser.getuserprofiles);
 router.put('/updateuser',ctrlUser.putuserprofile);
 router.delete('/delete/:id',ctrlUser.deleteuserprofile);
-
+router.post('/candidate',ctrlCandidate.setcandidate);
 
 module.exports = router

@@ -22,8 +22,7 @@
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-    
-    color: rgb(115, 171, 228);
+    color: #f1f1f1;
 }
 
 /* Style page content */

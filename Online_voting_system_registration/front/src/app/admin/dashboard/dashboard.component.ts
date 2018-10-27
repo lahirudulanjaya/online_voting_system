@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {SlideshowModule} from 'ng-simple-slideshow';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -6,10 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-  public imagesUrl;
+  public imageUrls;
  
 ngOnInit() {
-    this.imagesUrl = [
+    this.imageUrls = [
     
     ];
 }
@@ -56,6 +58,7 @@ ngOnInit() {
      * assign it;
      */
   }
+  
   constructor() {
 
   }

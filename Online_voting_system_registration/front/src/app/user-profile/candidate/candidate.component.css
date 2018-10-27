@@ -1,0 +1,36 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+    margin-top:100px;
+    margin-left: 300px;
+  }
+  
+  .example-container > * {
+     
+    width: 50%;
+  }
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
+
+.alert {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+    width:50%;
+    margin-left: 200px;
+    
+  }
+  
+  .success{
+    padding: 20px;
+    background-color:#249424; /* Green */
+    color: white;
+    margin-bottom: 15px;
+    width:50%;
+    margin-left: 200px;
+  
+  }
+  
