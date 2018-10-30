@@ -4,6 +4,20 @@
   width:50%;
 }
 
-#sidebar-space {
-  width: 230px;
+/* Spacing for sidebar and header */
+#spacing {
+  padding-left: 220px;
+  padding-top: 130px;
+}
+
+.card {
+  height: 150px;
+}
+
+.card-text {
+  text-align: right;
+}
+
+.material-icons {
+  font-size: 35px;
 }
