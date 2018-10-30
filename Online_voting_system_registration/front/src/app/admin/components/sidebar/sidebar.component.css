@@ -8,13 +8,14 @@
     background-color: #111; /* Black */
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 20px;
-    margin-top: 85px;
+    margin-top: 100px;
 }
 
 /* The navigation menu links */
 .sidenav a {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
+    text-align: left;
     font-size: 25px;
     color: #818181;
     display: block;
@@ -36,4 +37,7 @@
 @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
+}
+.material-icons{
+    float: right;
 }

@@ -14,7 +14,7 @@ router.post('/register', ctrlUser.register);
 router.post('/setelection',ctrlElection.setelection);
 router.post('/authenticate',ctrlUser.authenticate);
 router.post('/setrules',ctrlRules.setrules);
-router.get('/userprofile',Jwtverify.verifyJwtToken,ctrlUser.userprofile);
+router.get('/userprofile',ctrlUser.userprofile);
 router.post('/setemail',ctrlEmail.setemail);
 router.put('/verify',ctrlToken.verify);
 router.get('/getuserprofiles',ctrlUser.getuserprofiles);

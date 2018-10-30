@@ -7,13 +7,16 @@
     width: 100%;
     margin-left: 0px;
     left: 0;
+    height: 100px;
   }
   
   .header a {
     float: left;
     color: #f1f1f1;
-    text-align: center;
-    padding: 12px;
+    text-align: 5px;
+   
+    padding: 10px;
+    
     text-decoration: none;
     font-size: 18px; 
     line-height: 25px;
@@ -23,6 +26,7 @@
   .header a.logo {
     font-size: 25px;
     font-weight: bold;
+    float:left;
   }
   
   .header a:hover {
@@ -43,7 +47,12 @@
 }
 
 #icon {
-  width:50%;
+  float:left;
+  width:10%;
+  height: 2%;
+  background-size: 10px;
+  left:0;
+  margin-left:0px;
 }
 
 * {

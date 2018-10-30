@@ -37,7 +37,7 @@ export class SignInComponent implements OnInit {
       res => {
        this.userService.setToken(res['token']);
        if(form.value.userName=="Admin"){
-          this.router.navigateByUrl('/dashboard');
+          this.router.navigateByUrl('/admin/dashboard');
           admin=1;
         }
       else{

@@ -91,14 +91,11 @@ export class DashboardComponent {
     public ngOnInit() {
         this.cards = [
             new Card({
-                content: `New York City comprises 5 boroughs sitting where the
-                  Hudson River meets the Atlantic Ocean. At its core is Manhattan,
-                  a densely populated borough that’s among the world’s major commercial,
-                  financial and cultural centers.`,
+                content: `The University of Colombo School of Computing (UCSC) is a higher educational institute affiliated to the University of Colombo in Sri Lanka providing Computer Science and Information and Communication Technology education.`,
                 icons: ["favorite", "bookmark", "share"],
                 imageUrl: "https://lh3.googleusercontent.com/p/AF1QipPRbjCvXYP8tpdV0RSXxoKhGXO9ssG1hFyfr47e=s1600-w400",
-                subtitle: "City in New York",
-                title: "UCSC"
+                subtitle: "UCSC",
+                title: "University of Colombo School of Computing"
             }),
             new Card({
                 icons: ["favorite", "bookmark", "share"],

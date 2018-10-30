@@ -31,26 +31,21 @@ export const appRoutes: Routes = [
 
     },
     {
-      path : 'dashboard', component : DashboardComponent,
-
-    },
-    {
-        path: 'election', component:ElectionComponent,
-        
-    },
-    {
-        path: 'members', component:MemberComponent,
-        
-    },
-    {
-        path: 'rules', component: AdminComponent,
-        children: [{ path: '', component: RulesComponent }]
-    },
-    {
         path: '', redirectTo: '/login', pathMatch: 'full'
     },
     {
         path : 'verify', component : VerifyComponent,
+    },
+    {
+            path: 'admin', component: AdminComponent,
+            children:[
+                {path : 'dashboard',component : DashboardComponent,},
+                {path :'election' ,component:ElectionComponent,},
+                {path : 'members' ,component:MemberComponent,},
+                { path: 'rules', component: RulesComponent}
+            ]
+
+        
     }
     
 ];

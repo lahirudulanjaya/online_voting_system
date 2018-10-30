@@ -23,9 +23,8 @@
   <input type="text" #phonenumber="ngModel" [(ngModel)]="userService.selectedUser.phonenumber" name="phonenumber" placeholder="Phone Number"
   required [pattern]="phone"  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !registrationnumber.valid }">
   <div *ngIf="signUpForm.submitted && !phonenumber.valid">
-     <label *ngIf="phonenumber.errors.required" class="validation-message"><br></label>
+     <label *ngIf="phonenumber.errors.required" class="validation-message"></label>
     <label *ngIf="phonenumber.errors.pattern" class="validation-message">Invalid Phonenumber.</label> 
-
   </div>
 
   <input type="password"  #password="ngModel" [(ngModel)]="userService.selectedUser.password" name="password" placeholder="Password"
@@ -52,7 +51,7 @@
 
 <!-- Success message -->
 <div class="success" *ngIf="showSucessMessage">
-  Saved successfully
+  Saved successfully. Please Verify your email address.
 </div>
 
 <!-- Error message -->
