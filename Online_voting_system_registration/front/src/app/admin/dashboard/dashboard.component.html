@@ -1,35 +1,34 @@
 <app-header></app-header>
 <app-sidebar></app-sidebar>
 
-<div class ="gr">
-  <div style="display: block">
-    <canvas baseChart
-            [datasets]="barChartData"
-            [labels]="barChartLabels"
-            [options]="barChartOptions"
-            [legend]="barChartLegend"
-            [chartType]="barChartType"
-            (chartHover)="chartHovered($event)"
-            (chartClick)="chartClicked($event)"></canvas>
+
+
+  <div class="sample-wrapper">
+      <div class="sample-content">
+          <!--New York City Card Begins-->
+          <article class="sample-column card-wrapper">
+              <igx-card>
+                  <div class="overflow-hidden">
+                      <img width="100%" height="100%" [src]="cards[0].imageUrl">
+                  </div>
+                  <igx-card-header>
+                      <h3 class="igx-card-header__title">{{ cards[0].title }}</h3>
+                      <h5 class="igx-card-header__subtitle">{{ cards[0].subtitle }}</h5>
+                  </igx-card-header>
+                  <igx-card-content>
+                      <p class="igx-card-content__text">{{ cards[0].content }}</p>
+                  </igx-card-content>
+                  <igx-card-actions>
+                      <div class="igx-card-actions__igroup--end">
+                          <span igxButton="icon" igxRipple igxRippleCentered="true" *ngFor="let icon of cards[0].icons">
+                              <igx-icon fontSet="material" [name]="icon"></igx-icon>
+                          </span>
+                      </div>
+                  </igx-card-actions>
+              </igx-card>
+          </article>
+          <!--New York City Card End-->
+  
+          </div>
   </div>
-  <button (click)="randomize()">Update</button>
-</div>
-<!--Carousel Wrapper-->
-<mdb-carousel [isControls]="true" [animation]="'slide'">
-    <!--First slide-->
-    <mdb-carousel-item>
-        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg" alt="First slide">
-    </mdb-carousel-item>
-    <!--/First slide-->
-    <!--Second slide-->
-    <mdb-carousel-item>
-        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(129).jpg" alt="Second slide">
-    </mdb-carousel-item>
-    <!--/Second slide-->
-    <!--Third slide-->
-    <mdb-carousel-item>
-        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg" alt="Third slide">
-    </mdb-carousel-item>
-    <!--/Third slide-->
-</mdb-carousel>
-<!--/.Carousel Wrapper-->
+  

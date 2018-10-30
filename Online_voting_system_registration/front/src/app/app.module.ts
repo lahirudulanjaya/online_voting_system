@@ -45,6 +45,13 @@ import { ProfileComponent } from './user-profile/profile/profile.component';
 import { UsersidebarComponent } from './user-profile/Components/usersidebar/usersidebar.component';
 import { UserheaderComponent } from './user-profile/Components/userheader/userheader.component';
 import { CandidateComponent } from './user-profile/candidate/candidate.component';
+import { 
+	IgxAvatarModule,
+	IgxButtonModule,
+	IgxIconModule,
+	IgxCardModule,
+	IgxRippleModule
+ } from "igniteui-angular";
 
 
 @NgModule({
@@ -98,7 +105,12 @@ import { CandidateComponent } from './user-profile/candidate/candidate.component
     SlideshowModule,
     CarouselModule,
      WavesModule, 
-     ButtonsModule
+     ButtonsModule,
+     IgxAvatarModule,
+	 IgxButtonModule,
+	IgxIconModule,
+	IgxCardModule,
+	IgxRippleModule
 
   ],
   providers: [{

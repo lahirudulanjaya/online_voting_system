@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import {RulesService} from '../../shared/rules.service';
+import {NgForm} from '@angular/forms';
 @Component({
   selector: 'app-rules',
   templateUrl: './rules.component.html',
@@ -21,8 +22,22 @@ export class RulesComponent implements OnInit {
     ];
 
 
-  constructor() { }
+  constructor(private rulesService: RulesService) { }
+  showSucessMessage: boolean;
+  serverErrorMessages: string;
+  Onsubmit(form: NgForm){
+    this.rulesService.postRules(form.value).subscribe(
+      res =>{
+        this.serverErrorMessages='';
+        this.showSucessMessage = true;
+        setTimeout(() => this.showSucessMessage = false, 4000);
+      },
+      err =>{
+        this.serverErrorMessages = err.error;
 
+      } 
+    )
+    }
   ngOnInit() {
   }
 

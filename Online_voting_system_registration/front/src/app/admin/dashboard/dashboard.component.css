@@ -29,3 +29,13 @@
   width: 60%;
   margin-left:200px;
 }
+.card-wrapper {
+  margin-top: 100px;
+  margin-left :300px;
+  max-width: 320px;
+  min-width: 220px;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}

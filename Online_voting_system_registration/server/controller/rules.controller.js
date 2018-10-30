@@ -3,7 +3,8 @@ const Rules = mongoose.model('rules');
 
 module.exports.setrules = (req, res, next) => {
     var rules = new Rules();
-    rules.content=req.body.content;
+    rules.election=req.body.election;
+    rules.rules =req.body.rules;
 
 
     rules.save((err, doc) => {
