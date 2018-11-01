@@ -1,34 +1,56 @@
-<app-header></app-header>
-<app-sidebar></app-sidebar>
-
-
-
-  <div class="sample-wrapper">
-      <div class="sample-content">
-          <!--New York City Card Begins-->
-          <article class="sample-column card-wrapper">
-              <igx-card>
-                  <div class="overflow-hidden">
-                      <img width="100%" height="100%" [src]="cards[0].imageUrl">
-                  </div>
-                  <igx-card-header>
-                      <h3 class="igx-card-header__title">{{ cards[0].title }}</h3>
-                      <h5 class="igx-card-header__subtitle">{{ cards[0].subtitle }}</h5>
-                  </igx-card-header>
-                  <igx-card-content>
-                      <p class="igx-card-content__text">{{ cards[0].content }}</p>
-                  </igx-card-content>
-                  <igx-card-actions>
-                      <div class="igx-card-actions__igroup--end">
-                          <span igxButton="icon" igxRipple igxRippleCentered="true" *ngFor="let icon of cards[0].icons">
-                              <igx-icon fontSet="material" [name]="icon"></igx-icon>
-                          </span>
-                      </div>
-                  </igx-card-actions>
-              </igx-card>
-          </article>
-          <!--New York City Card End-->
-  
+<div>
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  <div class="container" id="spacing">
+    <div class="row justify-content-md-center">
+      <div class="col-sm">
+        <div class="card-deck">
+          <div class="card text-white bg-primary">
+            <div class="card-body">
+              <div class="card-icon">
+                <i class="material-icons">people</i>
+              </div>
+              <div class="card-text">
+                <h2 class="card-title">10</h2>
+                <h4 class="card-title">Candidates</h4>
+              </div>
+            </div>
           </div>
+          <div class="card text-white bg-success">
+            <div class="card-body">
+              <div class="card-icon">
+                <i class="material-icons">how_to_reg</i>
+              </div>
+              <div class="card-text">
+                <h2 class="card-title">200</h2>
+                <h4 class="card-title">Voters</h4>
+              </div>
+            </div>
+          </div>
+          <div class="card text-white bg-danger">
+            <div class="card-body">
+              <div class="card-icon">
+                <i class="material-icons">people</i>
+              </div>
+              <div class="card-text">
+                <h2 class="card-title">10</h2>
+                <h4 class="card-title">Candidates</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gr">
+          <div style="display: block">
+            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+              [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+          </div>
+          <button (click)="randomize()">Update</button>
+        </div>
+      </div>
+
+    </div>
   </div>
-  
+</div>
+
+

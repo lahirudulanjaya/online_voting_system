@@ -1,41 +1,25 @@
-.grid-container {
-  margin: 20px;
-}
-
-.dashboard-card {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  bottom: 15px;
-}
-
-.more-button {
-  position: absolute;
-  top: 5px;
-  right: 10px;
-}
-
-.dashboard-card-content {
-  text-align: center;
-}
 .gr{
   margin-left:200px;
   margin-top: 100px;
   width:50%;
 }
 
-.imgs{
-  width: 60%;
-  margin-left:200px;
-}
-.card-wrapper {
-  margin-top: 100px;
-  margin-left :300px;
-  max-width: 320px;
-  min-width: 220px;
+/* Spacing for sidebar and header */
+#spacing {
+  padding-left: 220px;
+  padding-top: 130px;
 }
 
-.overflow-hidden {
-  overflow: hidden;
+.card {
+  height: 150px;
+}
+
+.card-text {
+  text-align: right;
+}
+
+
+.material-icons {
+  font-size: 35px;
+
 }
