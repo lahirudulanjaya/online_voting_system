@@ -4,7 +4,7 @@ var electionSchema = new mongoose.Schema({
     Name: {
         type: String,
         required: 'Name can\'t be empty',
-
+        unique : true,
     },
     date:{
         type:Date,

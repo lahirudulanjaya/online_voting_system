@@ -1,3 +1,29 @@
-<p>
-  rules works!
-</p>
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<form #rulesform = "ngForm"  (ngSubmit)="rulesform.valid && Onsubmit(rulesform)">
+    <div class="rules-container">
+        <h2>Set Rules and Regulation</h2>
+        <mat-form-field>
+        
+                <mat-select placeholder="Select Election" name ="election" #election = "ngModel"  [(ngModel)]="rulesService.selectedRules.election" required>
+                  <mat-option value="ucsc"  >UCSC Union Election 2018</mat-option>
+                  <mat-option value="ucsc">UCSC Union Election 2019</mat-option>
+                </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+                <textarea matInput type="text" placeholder="Paste Rules and Regulation here" name ="rules" #rules = "ngModel" [(ngModel)]="rulesService.selectedRules.rules" required></textarea>
+         </mat-form-field>
+         <div class="example-button-row">
+                <button mat-raised-button color="primary" type="submit">Submit</button>
+            </div>
+         </div>
+</form>
+<div class="success" *ngIf="showSucessMessage">
+        Saved successfully
+      </div>
+      
+      <!-- Error message -->
+      <div class="alert" *ngIf="serverErrorMessages">
+        {{serverErrorMessages}}
+      </div>

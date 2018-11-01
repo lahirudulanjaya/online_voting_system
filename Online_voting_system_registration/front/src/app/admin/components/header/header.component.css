@@ -1,3 +1,4 @@
+
 .navbar {
   background-color: #3F51B5;
 }
@@ -10,6 +11,7 @@
 #navbar-dropdown {
   color: white;
   padding: 16px;
+
 }
 
 * {

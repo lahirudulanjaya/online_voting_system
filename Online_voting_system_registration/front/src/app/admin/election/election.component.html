@@ -14,7 +14,7 @@
     <input type="text" #Name="ngModel" [(ngModel)]="electionService.selectedElection.Name" name="Name" placeholder="Election Name"
     required  [ngClass]="{'invalid-textbox' :electionForm.submitted && !Name.valid }">
     <div *ngIf="electionForm.submitted && !Name.valid">
-      <label class="validation-message">This field is required.</label>
+      
     </div>
 
   <div>
@@ -28,7 +28,7 @@
                <input type="text"  #date="ngModel" [(ngModel)]="electionService.selectedElection.date" name="date" placeholder="Election Date"
                required [ngClass]="{'invalid-textbox' :electionForm.submitted && !date.valid }">
                <div *ngIf="electionForm.submitted && !date.valid">
-                 <label class="validation-message">This field is required.</label>
+                 
                </div>
   </div>
 
@@ -43,7 +43,7 @@
                    required [ngClass]="{'invalid-textbox' :electionForm.submitted && !stime.valid }">
 
                    <div *ngIf="electionForm.submitted && !stime.valid" >
-                     <label class="validation-message">This field is required.</label>
+                     
                    </div>
     </div>
 
@@ -56,7 +56,7 @@
                <input type="text" #etime="ngModel" [(ngModel)]="electionService.selectedElection.etime" name="etime" placeholder="Ending TIme"
                    required [ngClass]="{'invalid-textbox' :electionForm.submitted && !date.valid }">
                    <div *ngIf="electionForm.submitted  && !etime.valid">
-                     <label class="validation-message">This field is required.</label>
+                     
                    </div>
     </div>
 
