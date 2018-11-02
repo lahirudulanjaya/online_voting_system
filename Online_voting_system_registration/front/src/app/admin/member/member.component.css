@@ -14,8 +14,9 @@ table, td, th {
 
 table {
   border-collapse: collapse;
-  width: 50%;
+  width: 40%;
 background: #404952	;
+
 }
 th{
   color:#FFFF33;
@@ -30,7 +31,7 @@ td{
 /* Create two equal columns that floats next to each other */
 .column {
   float: left;
-  width: 42%;
+  width: 40%;
   padding: 2px;
  
 }
@@ -46,7 +47,7 @@ td{
 }
 
 .row{
-  margin-left: 200px;
+  margin-left: 230px;
   margin-top: 100px;
 }
 input[type=text].invalid-textbox,input[type=password].invalid-textbox{
