@@ -1,0 +1,31 @@
+.voter-toolbar {
+    margin-top: 75px;
+}
+
+.toolbar-title {
+    margin-left: 230px;
+}
+
+i {
+    vertical-align: middle;
+}
+
+.container {
+    margin-top: 20px;
+    margin-left: 300px;
+    margin-bottom: 40px;
+}
+
+table {
+    width: 100%;
+}
+  
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+.mat-header-cell {
+    color: white;
+    background-color: #3F51B5;
+}

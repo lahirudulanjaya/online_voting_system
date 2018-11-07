@@ -17,9 +17,8 @@ import { ConfirmEqualValidatorDirective } from './shared/confirm-validate.direct
 import { ChartsModule } from 'ng2-charts';
 import { SliderModule } from 'angular-image-slider';
 import {
-   MatGridListModule,MatOptionModule,MatSelectModule, MatFormFieldModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule ,MatDatepickerModule,MatInputModule,
+   MatGridListModule,MatOptionModule,MatSelectModule, MatFormFieldModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule, MatDatepickerModule, MatInputModule, MatToolbarModule
   } from '@angular/material';
-
 import { LayoutModule } from '@angular/cdk/layout';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
@@ -52,6 +51,7 @@ import {
 	IgxCardModule,
 	IgxRippleModule
  } from "igniteui-angular";
+import { VoterComponent } from './admin/voter/voter.component';
 
 
 @NgModule({
@@ -75,7 +75,8 @@ import {
     ProfileComponent,
     UsersidebarComponent,
     UserheaderComponent,
-    CandidateComponent
+    CandidateComponent,
+    VoterComponent
 
   ],
   imports: [
@@ -110,7 +111,8 @@ import {
 	 IgxButtonModule,
 	IgxIconModule,
 	IgxCardModule,
-	IgxRippleModule
+  IgxRippleModule,
+  MatToolbarModule
 
   ],
   providers: [{
