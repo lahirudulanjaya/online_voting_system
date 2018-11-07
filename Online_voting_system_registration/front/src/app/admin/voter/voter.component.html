@@ -57,7 +57,40 @@
     </div>
 
     <div class="col-4">
-      <p>shdgsaudhuahdusahdauhduahd</p>
+      <mat-card class="voter-card">
+
+        <!-- Card Header with voter image and name -->
+        <mat-card-header>
+          <div mat-card-avatar class="voter-header-image"></div>
+        </mat-card-header>
+        <mat-card-header>
+          <mat-card-title>Voter Name</mat-card-title>
+        </mat-card-header>
+
+        <!-- Voter details-->
+        <div class="voter-details">
+          <mat-card-content>
+            <ul>
+              <li>
+                <mat-label>Registration No.: </mat-label>
+              </li>
+              <li>
+                <mat-label>Academic Year: </mat-label>
+              </li>
+              <li>
+                <mat-label>Telephone No.: </mat-label>
+              </li>
+            </ul>
+          </mat-card-content>
+
+          <!-- Buttons to Edit and Delete Voters -->
+          <mat-card-actions>
+            <button mat-raised-button color="primary">Edit Voter</button>
+            <button mat-stroked-button color="warn">Delete Voter</button>
+          </mat-card-actions>
+        </div>
+      </mat-card>
+
     </div>
   </div>
 </div>
