@@ -170,7 +170,7 @@ html {
     bottom: -10px;
     width: 0;
     height: 2px;
-    background-color: #56baed;
+    background-color: #3F51B5;
     content: "";
     transition: width 0.2s;
   }

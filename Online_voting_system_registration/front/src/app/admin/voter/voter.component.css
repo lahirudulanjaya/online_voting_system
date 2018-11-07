@@ -92,3 +92,11 @@ ul li {
 .mat-card-actions .mat-stroked-button {
     margin-left: 20px;
 }
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.toolbar-button {
+    margin: 10px;
+}
