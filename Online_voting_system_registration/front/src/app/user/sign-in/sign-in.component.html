@@ -1,16 +1,27 @@
 <form #signInForm="ngForm" (ngSubmit)="signInForm.valid && onSubmit(signInForm)">
-  <input type="text" name="userName" #userName="ngModel" [(ngModel)]="model.userName" placeholder="User Name" required
-    [ngClass]="{'invalid-textbox' :signInForm.submitted && !userName.valid }">
-  <div *ngIf="signInForm.submitted && !userName.valid">
-    <!-- <label class="validation-message">This field is required.</label> -->
-  </div>
 
-  <input type="password" name="password" #password="ngModel" [(ngModel)]="model.password" placeholder="Password"
-    required minlength="4" [ngClass]="{'invalid-textbox' :signInForm.submitted && !password.valid }">
-  <div *ngIf="signInForm.submitted && password.errors?.minlength">
-    <!-- <label class="validation-message">Minimum 4 characters.</label> -->
+  <!-- Form content -->
+  <div class="login-container">
+
+    <!-- User Name -->
+    <mat-form-field appearance="standard">
+      <mat-label>User Name</mat-label>
+      <input matInput name="userName" #userName="ngModel" [(ngModel)]="model.userName" required [ngClass]="{'invalid-textbox' :signInForm.submitted && !userName.valid }">
+    </mat-form-field>
+
+    <!-- Password -->
+    <mat-form-field appearance="standard">
+      <mat-label>Password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" name="password" #password="ngModel" [(ngModel)]="model.password"
+        required minlength="4" [ngClass]="{'invalid-textbox' :signInForm.submitted && !password.valid }">
+    </mat-form-field>
+    <div *ngIf="signInForm.submitted && password.errors?.minlength">
+      <!-- <label class="validation-message">Minimum 4 characters.</label> -->
+    </div>
+
+    <!-- Submit -->
+    <input type="submit" value="Log In">
   </div>
-  <input type="submit" value="Sign In">
 
 </form>
 
