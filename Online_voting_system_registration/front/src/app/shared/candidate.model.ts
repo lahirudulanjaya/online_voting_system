@@ -1,4 +1,5 @@
-export class Candidate {
+export class Candidate 
+{
     election:string;
     candidatename :string;
     registrationnumber :string;
