@@ -1,64 +1,77 @@
 <app-header></app-header>
 <app-sidebar></app-sidebar>
 
-<div id="setelection"><h2>set election</h2></div>
+<div class="election-toolbar">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <!-- Page title -->
+      <span class="toolbar-title">
+        <i class="material-icons">how_to_vote</i>
+        &nbsp; Elections
+      </span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+
+<div id="setelection">
+  <h2>set election</h2>
+</div>
 
 
-  <form #electionForm="ngForm" class ="electionform" (ngSubmit)="electionForm.valid && onSubmit(electionForm)" >
+<form #electionForm="ngForm" class="electionform" (ngSubmit)="electionForm.valid && onSubmit(electionForm)">
 
 
-    <label>Election Name</label>
-    <input type="text" #Name="ngModel" [(ngModel)]="electionService.selectedElection.Name" name="Name" placeholder="Election Name"
-    required  [ngClass]="{'invalid-textbox' :electionForm.submitted && !Name.valid }">
-    <div *ngIf="electionForm.submitted && !Name.valid">
-      
-    </div>
+  <label>Election Name</label>
+  <input type="text" #Name="ngModel" [(ngModel)]="electionService.selectedElection.Name" name="Name" placeholder="Election Name"
+    required [ngClass]="{'invalid-textbox' :electionForm.submitted && !Name.valid }">
+  <div *ngIf="electionForm.submitted && !Name.valid">
+
+  </div>
 
   <div>
 
 
-        <label for="electiondate">Choose Election Date</label>
-        <input type="date"  [(ngModel)]="electionService.selectedElection.date" name="date" placeholder="Election Date"
-               value="2018-07-22"
-               min="2018-01-01" max="2020-12-31" ><br>
-               <label>Election Date</label>
-               <input type="text"  #date="ngModel" [(ngModel)]="electionService.selectedElection.date" name="date" placeholder="Election Date"
-               required [ngClass]="{'invalid-textbox' :electionForm.submitted && !date.valid }">
-               <div *ngIf="electionForm.submitted && !date.valid">
-                 
-               </div>
+    <label for="electiondate">Choose Election Date</label>
+    <input type="date" [(ngModel)]="electionService.selectedElection.date" name="date" placeholder="Election Date"
+      value="2018-07-22" min="2018-01-01" max="2020-12-31"><br>
+    <label>Election Date</label>
+    <input type="text" #date="ngModel" [(ngModel)]="electionService.selectedElection.date" name="date" placeholder="Election Date"
+      required [ngClass]="{'invalid-textbox' :electionForm.submitted && !date.valid }">
+    <div *ngIf="electionForm.submitted && !date.valid">
+
+    </div>
   </div>
 
 
 
-    <div >
-            <label>Choose Start Time:</label>
-            <input type="time" [(ngModel)]="electionService.selectedElection.stime" name="stime" placeholder="Starting TIme"
-                   min="9:00" max="18:00"><br>
-            <label>Start Time:</label>
-                   <input type="text" #stime="ngModel"  [(ngModel)]="electionService.selectedElection.stime" name="stime" placeholder="Starting TIme"
-                   required [ngClass]="{'invalid-textbox' :electionForm.submitted && !stime.valid }">
+  <div>
+    <label>Choose Start Time:</label>
+    <input type="time" [(ngModel)]="electionService.selectedElection.stime" name="stime" placeholder="Starting TIme"
+      min="9:00" max="18:00"><br>
+    <label>Start Time:</label>
+    <input type="text" #stime="ngModel" [(ngModel)]="electionService.selectedElection.stime" name="stime" placeholder="Starting TIme"
+      required [ngClass]="{'invalid-textbox' :electionForm.submitted && !stime.valid }">
 
-                   <div *ngIf="electionForm.submitted && !stime.valid" >
-                     
-                   </div>
+    <div *ngIf="electionForm.submitted && !stime.valid">
+
     </div>
+  </div>
 
 
-    <div >
-            <label>Choose End Time:</label>
-            <input type="time" [(ngModel)]="electionService.selectedElection.etime" name="etime" placeholder="Ending TIme"
-                   min="9:00" max="18:00" ><br>
-                   <label>End Time</label>
-               <input type="text" #etime="ngModel" [(ngModel)]="electionService.selectedElection.etime" name="etime" placeholder="Ending TIme"
-                   required [ngClass]="{'invalid-textbox' :electionForm.submitted && !date.valid }">
-                   <div *ngIf="electionForm.submitted  && !etime.valid">
-                     
-                   </div>
+  <div>
+    <label>Choose End Time:</label>
+    <input type="time" [(ngModel)]="electionService.selectedElection.etime" name="etime" placeholder="Ending TIme" min="9:00"
+      max="18:00"><br>
+    <label>End Time</label>
+    <input type="text" #etime="ngModel" [(ngModel)]="electionService.selectedElection.etime" name="etime" placeholder="Ending TIme"
+      required [ngClass]="{'invalid-textbox' :electionForm.submitted && !date.valid }">
+    <div *ngIf="electionForm.submitted  && !etime.valid">
+
     </div>
+  </div>
 
 
-      <input type="submit" value="Set Election">
+  <input type="submit" value="Set Election">
 
 </form>
 

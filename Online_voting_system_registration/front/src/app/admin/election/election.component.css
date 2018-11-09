@@ -1,3 +1,19 @@
+.election-toolbar {
+  margin-top: 75px;
+}
+
+.toolbar-title {
+  margin-left: 230px;
+}
+
+.mat-toolbar {
+  background-color: #ebedf7;
+}
+
+i {
+  vertical-align: middle;
+}
+
 #icon{
   margin-top: 10px;
   margin-left :500px;
