@@ -42,6 +42,9 @@ passport.use(
                             port.write(otp); 
                             port.write(Buffer([0x1A]));
                             port.write('^z');
+                        
+                        
+
                         console.log(otp);
                         return done(null, user);
 

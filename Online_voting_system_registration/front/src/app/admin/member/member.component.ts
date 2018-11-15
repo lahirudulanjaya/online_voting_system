@@ -17,7 +17,7 @@ export class MemberComponent implements OnInit {
   ngOnInit() {
     this.userService.getUserProfiles().subscribe(
       users =>{
-          console.log(users);
+          //console.log(users);
           this.users=users as User[];
       })
      
