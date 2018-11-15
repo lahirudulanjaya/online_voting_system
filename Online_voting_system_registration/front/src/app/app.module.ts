@@ -11,15 +11,16 @@ import { UserService } from './shared/user.service';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
-import {  MatTableModule,MatDividerModule, MatPaginatorModule, MatSortModule} from '@angular/material';
+import {  MatTableModule, MatDividerModule, MatPaginatorModule, MatSortModule} from '@angular/material';
 import 'hammerjs';
 import { ConfirmEqualValidatorDirective } from './shared/confirm-validate.directive';
 import { ChartsModule } from 'ng2-charts';
 import { SliderModule } from 'angular-image-slider';
 import {
-   MatGridListModule,MatOptionModule,MatSelectModule, MatFormFieldModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule ,MatDatepickerModule,MatInputModule,
+   MatGridListModule, MatOptionModule, MatSelectModule, MatFormFieldModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule, MatInputModule, MatToolbarModule, MatStepperModule
   } from '@angular/material';
-
+import { MatDatepickerModule } from '@angular/material';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
@@ -52,6 +53,7 @@ import {
 	IgxCardModule,
 	IgxRippleModule
  } from "igniteui-angular";
+import { VoterComponent } from './admin/voter/voter.component';
 
 
 @NgModule({
@@ -75,7 +77,8 @@ import {
     ProfileComponent,
     UsersidebarComponent,
     UserheaderComponent,
-    CandidateComponent
+    CandidateComponent,
+    VoterComponent
 
   ],
   imports: [
@@ -100,24 +103,27 @@ import {
     MatSelectModule,
     MatOptionModule,
     MatDividerModule,
+    MatStepperModule,
     ChartsModule,
     SliderModule,
     SlideshowModule,
     CarouselModule,
-     WavesModule, 
-     ButtonsModule,
-     IgxAvatarModule,
-	 IgxButtonModule,
-	IgxIconModule,
-	IgxCardModule,
-	IgxRippleModule
-
+    WavesModule, 
+    ButtonsModule,
+    IgxAvatarModule,
+	  IgxButtonModule,
+	  IgxIconModule,
+	  IgxCardModule,
+    IgxRippleModule,
+    MatToolbarModule,
+    MatDatepickerModule,
+    MatMomentDateModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-  },UserService,AuthGuard],
+  }, UserService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

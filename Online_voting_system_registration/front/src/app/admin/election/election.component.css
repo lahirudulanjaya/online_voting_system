@@ -1,3 +1,34 @@
+.election-container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.election-toolbar {
+  margin-top: 75px;
+}
+
+.toolbar-title {
+  margin-left: 230px;
+}
+
+.mat-toolbar {
+  background-color: #ebedf7;
+}
+
+i {
+  vertical-align: middle;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar-button {
+  margin: 10px;
+}
+
 #icon{
   margin-top: 10px;
   margin-left :500px;
@@ -9,15 +40,6 @@ color:#ed5558;
 margin-left: 260px;
 
 }
-
-.electionform{
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-  margin-left: 400px;
-  width: 600px;
-}
-
 
 #setelection{
   margin-left: 500px;
@@ -155,88 +177,4 @@ input[type=text].invalid-textbox,input[type=password].invalid-textbox{
 
 * {
   box-sizing: border-box;
-}
-
-
-
-/* ANIMATIONS */
-
-/* Simple CSS3 Fade-in-down Animation */
-.fadeInDown {
--webkit-animation-name: fadeInDown;
-animation-name: fadeInDown;
--webkit-animation-duration: 1s;
-animation-duration: 1s;
--webkit-animation-fill-mode: both;
-animation-fill-mode: both;
-}
-
-@-webkit-keyframes fadeInDown {
-0% {
-  opacity: 0;
-  -webkit-transform: translate3d(0, -100%, 0);
-  transform: translate3d(0, -100%, 0);
-}
-100% {
-  opacity: 1;
-  -webkit-transform: none;
-  transform: none;
-}
-}
-
-@keyframes fadeInDown {
-0% {
-  opacity: 0;
-  -webkit-transform: translate3d(0, -100%, 0);
-  transform: translate3d(0, -100%, 0);
-}
-100% {
-  opacity: 1;
-  -webkit-transform: none;
-  transform: none;
-}
-}
-
-/* Simple CSS3 Fade-in Animation */
-@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-
-.fadeIn {
-opacity:0;
--webkit-animation:fadeIn ease-in 1;
--moz-animation:fadeIn ease-in 1;
-animation:fadeIn ease-in 1;
-
--webkit-animation-fill-mode:forwards;
--moz-animation-fill-mode:forwards;
-animation-fill-mode:forwards;
-
--webkit-animation-duration:1s;
--moz-animation-duration:1s;
-animation-duration:1s;
-}
-
-.fadeIn.first {
--webkit-animation-delay: 0.4s;
--moz-animation-delay: 0.4s;
-animation-delay: 0.4s;
-}
-
-.fadeIn.second {
--webkit-animation-delay: 0.6s;
--moz-animation-delay: 0.6s;
-animation-delay: 0.6s;
-}
-
-.fadeIn.third {
--webkit-animation-delay: 0.8s;
--moz-animation-delay: 0.8s;
-animation-delay: 0.8s;
-}
-
-.fadeIn.fourth {
--webkit-animation-delay: 1s;
--moz-animation-delay: 1s;
-animation-delay: 1s;
 }

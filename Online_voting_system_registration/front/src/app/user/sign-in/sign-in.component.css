@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
-/* BASIC */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10%;
+  padding-right: 10%;
+}
 
 a {
   color: #92badd;
@@ -11,7 +16,6 @@ a {
 
 h2 {
   font-family: "Poppins", sans-serif;
-
   text-align: center;
   font-size: 16px;
   font-weight: 600;
@@ -62,18 +66,14 @@ h2.active {
 
 input[type=button], input[type=submit], input[type=reset]  {
   cursor: pointer;
-  background-color: #56baed;
+  background-color: #3F51B5;
   border: none;
   color: white;
   padding: 15px 80px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-
   font-size: 16px;
-
-  -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
-  box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   margin: 5px 20px 40px 20px;
@@ -85,7 +85,7 @@ input[type=button], input[type=submit], input[type=reset]  {
 }
 
 input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
-  background-color: #39ace7;
+  background-color: #5262bc;
 }
 
 input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
@@ -99,48 +99,6 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
 input[type=submit]:disabled{
   background-color: grey;
   color: white;
-}
-
-input[type=text],input[type=password] {
-
-  background-color: white;
-  border: none;
-  color: #0d0d0d;
-  padding: 15px 25px;
-  text-align: left;
-
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 5px;
-  width: 85%;
-
-  border: 1px solid #BEC0C2;
-
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -ms-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-  -webkit-border-radius: 5px 5px 5px 5px;
-  border-radius: 5px 5px 5px 5px;
-}
-
-input[type=text]:focus,input[type=password]:focus {
-
-  border: 2px solid #5fbae9;
-
-}
-
-input[type=text]:placeholder {
-  color: #cccccc;
-}
-
-input[type=text].invalid-textbox,input[type=password].invalid-textbox{
-
-border: 2px solid #ed5558;
-background-color: #f7d3db;
-
 }
 
 label.validation-message{
@@ -240,7 +198,7 @@ label.validation-message{
   bottom: -10px;
   width: 0;
   height: 2px;
-  background-color: #56baed;
+  background-color: #3F51B5;
   content: "";
   transition: width 0.2s;
 }

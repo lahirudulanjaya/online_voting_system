@@ -1,3 +1,6 @@
+i {
+  vertical-align: middle;
+}
 
 .navbar {
   background-color: #3F51B5;
@@ -6,12 +9,6 @@
 .navbar-brand {
   color: white;
   padding: 16px;
-}
-
-#navbar-dropdown {
-  color: white;
-  padding: 16px;
-
 }
 
 * {
