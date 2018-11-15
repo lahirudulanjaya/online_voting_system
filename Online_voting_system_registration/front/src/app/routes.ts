@@ -13,7 +13,7 @@ import { UserdashboardComponent} from './user-profile/userdashboard/userdashboar
 import { RulesComponent } from './admin/rules/rules.component';
 import { VoterComponent } from './admin/voter/voter.component';
 import { CandidateComponent} from './user-profile/candidate/candidate.component';
-
+import {RsaComponent} from './user/rsa/rsa.component';
 export const appRoutes: Routes = [
     {
         path: 'signup', component: UserComponent,
@@ -48,6 +48,8 @@ export const appRoutes: Routes = [
             ]
 
         
+    },{
+        path :'getkey' ,component:RsaComponent
     }
     
 ];

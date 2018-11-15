@@ -54,6 +54,7 @@ import {
 	IgxRippleModule
  } from "igniteui-angular";
 import { VoterComponent } from './admin/voter/voter.component';
+import {RsaComponent} from './user/rsa/rsa.component';
 
 
 @NgModule({
@@ -78,7 +79,8 @@ import { VoterComponent } from './admin/voter/voter.component';
     UsersidebarComponent,
     UserheaderComponent,
     CandidateComponent,
-    VoterComponent
+    VoterComponent,
+    RsaComponent
 
   ],
   imports: [
