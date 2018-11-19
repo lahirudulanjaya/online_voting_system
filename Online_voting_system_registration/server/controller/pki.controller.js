@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 const  Pki= mongoose.model('pki');
-
-
 var generateRSAKeypair = require('generate-rsa-keypair')
 
-var pair = generateRSAKeypair()
+var arr =[];
+
 var private;
 module.exports.generate = (req, res, next) => {
 var pki = new Pki();
@@ -22,13 +21,17 @@ pki.save((err,doc)=>{
 })
 
 }
-module.exports.generate=(req,res,next)=>{
-   // console.log(pair.private);
+module.exports.getkey=(req,res,next)=>{
+
+
+   var pair = generateRSAKeypair()
+
    var pri =pair.private;
    var pub =pair.public;
-   var arr =[];
-    arr.push(pub);
-    arr.push(pri);
+  
+    arr[1]=pri;
+    arr[0]=pub;
+    console.log(pub);
     res.send(arr);
     
 }

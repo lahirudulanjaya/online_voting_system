@@ -6,20 +6,22 @@ import { RsaService} from '../../shared/rsa.service';
   styleUrls: ['./rsa.component.css']
 })
 export class RsaComponent implements OnInit {
-  arr=[];
-  public;
-  private;
+  arr:Array<string>;
+  public=null;
+  private=null;
   constructor(private rsaService :RsaService) { }
 
   ngOnInit() {
+   
     
   }
   getkey(){
     this.rsaService.getkeys().subscribe(
       arr=>{
-        this.arr=arr as [];
-      }
-    )
+        this.arr=arr as Array<string>;
+      })
+   this.public=this.arr[0];
+   this.private=this.arr[1];
    
     
   }
