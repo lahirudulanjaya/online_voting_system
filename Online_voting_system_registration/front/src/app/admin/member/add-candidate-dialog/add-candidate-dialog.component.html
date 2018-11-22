@@ -1,6 +1,36 @@
 <h1 mat-dialog-title>Hi {{data.name}}</h1>
 <div mat-dialog-content>
-  <p>What's your favorite animal?</p>
+  <form #memberform="ngForm" (ngSubmit)="memberform.valid && Onsubmit(memberform) ">
+    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedUser._id">
+
+    <!-- User name -->
+    <mat-form-field appearance="standard">
+      <mat-label>User Name</mat-label>
+      <input matInput type="text" name="userName" #userName="ngModel" [(ngModel)]="userService.selectedUser.userName"
+        required>
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>Reagistration Number</mat-label>
+      <input matInput type="text" name="registrationnumber" #registrationnumber="ngModel"
+        [(ngModel)]="userService.selectedUser.registrationnumber" required>
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>Phone Number</mat-label>
+      <input matInput type="text" name="phonenumber" #phonenumber="ngModel" [(ngModel)]="userService.selectedUser.phonenumber"
+        required>
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>Email Address</mat-label>
+      <input matInput type="email" name="email" #email="ngModel" [(ngModel)]="userService.selectedUser.email"
+        required>
+    </mat-form-field>
+
+    <div class="example-button-row">
+      <button mat-raised-button color="primary" type="submit">Update</button>
+    </div>
+
+  </form>
+
   <mat-form-field>
     <input matInput [(ngModel)]="data.animal">
   </mat-form-field>

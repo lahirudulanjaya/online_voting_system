@@ -40,14 +40,11 @@ export const appRoutes: Routes = [
     {
             path: 'admin', component: AdminComponent,
             children: [
-                { path : 'dashboard', component : DashboardComponent,},
+                { path : 'overview', component : DashboardComponent,},
                 { path : 'election', component: ElectionComponent,},
                 { path : 'candidates', component: MemberComponent,},
                 { path: 'rules', component: RulesComponent,},
                 { path: 'voters', component: VoterComponent}
-            ]
-
-        
-    }
-    
+            ]      
+    }    
 ];
