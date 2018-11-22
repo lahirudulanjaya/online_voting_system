@@ -1,55 +1,85 @@
-<div>
-  <app-header></app-header>
-  <app-sidebar></app-sidebar>
-  <div class="container" id="spacing">
-    <div class="row justify-content-md-center">
-      <div class="col-sm">
-        <div class="card-deck">
-          <div class="card text-white bg-primary">
-            <div class="card-body">
-              <div class="card-icon">
-                <i class="material-icons">people</i>
-              </div>
-              <div class="card-text">
-                <h2 class="card-title">10</h2>
-                <h4 class="card-title">Candidates</h4>
-              </div>
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="overview-toolbar">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <!-- Page title -->
+      <span class="toolbar-title">
+        <i class="material-icons">home</i>
+        &nbsp; Overview
+      </span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+
+<div class="container" id="spacing">
+  <div class="row justify-content-md-center">
+    <div class="col-12">
+      <div class="card-deck">
+        <div class="card text-white number-card">
+          <div class="card-body">
+            <div class="card-icon">
+              <i class="material-icons">people</i>
             </div>
-          </div>
-          <div class="card text-white bg-success">
-            <div class="card-body">
-              <div class="card-icon">
-                <i class="material-icons">how_to_reg</i>
-              </div>
-              <div class="card-text">
-                <h2 class="card-title">200</h2>
-                <h4 class="card-title">Voters</h4>
-              </div>
-            </div>
-          </div>
-          <div class="card text-white bg-danger">
-            <div class="card-body">
-              <div class="card-icon">
-                <i class="material-icons">people</i>
-              </div>
-              <div class="card-text">
-                <h2 class="card-title">10</h2>
-                <h4 class="card-title">Candidates</h4>
-              </div>
+            <div class="card-text">
+              <h2 class="card-title">10</h2>
+              <h4 class="card-title">Candidates</h4>
             </div>
           </div>
         </div>
-        <div class="gr">
+        <div class="card text-white number-card">
+          <div class="card-body">
+            <div class="card-icon">
+              <i class="material-icons">how_to_reg</i>
+            </div>
+            <div class="card-text">
+              <h2 class="card-title">200</h2>
+              <h4 class="card-title">Voters</h4>
+            </div>
+          </div>
+        </div>
+        <div class="card text-white number-card">
+          <div class="card-body">
+            <div class="card-icon">
+              <i class="material-icons">people</i>
+            </div>
+            <div class="card-text">
+              <h2 class="card-title">10</h2>
+              <h4 class="card-title">Candidates</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts and Graphs-->
+      <div class="card-deck">
+        <div class="card">
+          <div class="card-body">
+            <div style="display: block">
+              <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <div style="display: block">
+              <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
           <div style="display: block">
             <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
               [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
           </div>
-          <button (click)="randomize()">Update</button>
         </div>
       </div>
-
     </div>
   </div>
 </div>
-
-

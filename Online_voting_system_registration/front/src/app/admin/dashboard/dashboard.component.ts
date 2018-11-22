@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {SlideshowModule} from 'ng-simple-slideshow';
 
 interface ICard {
   title?: string;
