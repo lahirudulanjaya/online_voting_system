@@ -39,12 +39,12 @@ export const appRoutes: Routes = [
     },
     {
             path: 'admin', component: AdminComponent,
-            children:[
-                {path : 'dashboard',component : DashboardComponent,},
-                {path :'election' ,component:ElectionComponent,},
-                {path : 'members' ,component:MemberComponent,},
+            children: [
+                { path : 'dashboard', component : DashboardComponent,},
+                { path : 'election', component: ElectionComponent,},
+                { path : 'candidates', component: MemberComponent,},
                 { path: 'rules', component: RulesComponent,},
-                {path: 'voter', component: VoterComponent}
+                { path: 'voters', component: VoterComponent}
             ]
 
         
