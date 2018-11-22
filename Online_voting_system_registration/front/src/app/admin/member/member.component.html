@@ -1,73 +1,3 @@
-<!--
-<div class="row">
-  <div class="col s12">
-    <div class="card">
-      <div class="card-content white-text">
-        <div class="row">
-          <div class ="col 5">
-            <form #memberform ="ngForm" (ngSubmit)="onSubmit(memberform)">
-              <input type="hidden" name ="_id" #_id ="ngModel" [(ngModel)]="userservice.selectedUser._id">
-              <div class ="row">
-                <div class ="input-field col s12">
-                  <input type ="text" name="name" #userName = "ngModel"[(ngModel)]="userservice.selectedUser.userName" placeholder="Name">
-                  <label>User Name :
-                    <label class ="red-text">*</label>
-                  </label>
-                </div>
-              </div>
-              <div class ="row">
-                  <div class ="input-field col s12">
-                    <input type ="text" name="name" #registrationnumber = "ngModel"[(ngModel)]="userservice.selectedUser.registrationnumber">
-                    <label>Registration Number:
-                      <label class ="red-text">*</label>
-                    </label>
-                  </div>
-                </div>
-                <div class ="row">
-                    <div class ="input-field col s12">
-                      <input type ="text" name="name" #email = "ngModel"[(ngModel)]="userservice.selectedUser.email">
-                      <label>Email Address :
-                        <label class ="red-text">*</label>
-                      </label>
-                    </div>
-                  </div>
-                  <div class ="row">
-                      <div class ="input-field col s12">
-                        <input type ="text" name="name" #phonenumber = "ngModel"[(ngModel)]="userservice.selectedUser.phonenumber">
-                        <label>Phone Number :
-                          <label class ="red-text">*</label>
-                        </label>
-                      </div>
-                    </div>
-                    
-              
-        </form>
-        <div class ="col 7">
-          <table class ="members">
-            <thead>
-              <tr>
-                <th>User Name</th>
-                <th>Registration Number</th>
-                <th>Phone Number</th>
-                <th>Email</th>
-                <tr *ngFor ="let member of users">
-                  <td>{{member.userName}}</td>
-                  <td>{{member.registrationnumber}}</td>
-                  <td>{{member.phonenumber}}</td>
-                  <td>{{member.email}}</td>
-                </tr>
-            
-            </thead>
-          
-          </table>
-        </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
--->
 <app-header></app-header>
 <app-sidebar></app-sidebar>
 
@@ -88,7 +18,7 @@
         &nbsp; Import
       </button>
 
-      <button mat-flat-button color="primary" class="toolbar-button">
+      <button mat-flat-button color="primary" class="toolbar-button" (click)="openAddCandidateDialog()">
         <i class="material-icons">add</i>
         &nbsp; Add Candidate
       </button>
@@ -180,8 +110,8 @@
   </div>
 </div>
 
-<div class="row">
-<!-- <div class="column">
+<!-- <div class="row">
+<div class="column">
     <h2 class ="head"> Member Details</h2>  
 <form #memberform ="ngForm" (ngSubmit)="memberform.valid && Onsubmit(memberform) ">
 
@@ -209,7 +139,7 @@
       
   </div>
   </form>
-    </div> -->
+    </div>
     
   <div class="column">
 
@@ -236,7 +166,7 @@
     
     </table>
   </div>
-  </div>
+  </div> -->
     
   
 

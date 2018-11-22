@@ -54,6 +54,8 @@ import {
 	IgxRippleModule
  } from "igniteui-angular";
 import { VoterComponent } from './admin/voter/voter.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { AddCandidateDialogComponent } from './admin/member/add-candidate-dialog/add-candidate-dialog.component';
 
 
 @NgModule({
@@ -78,7 +80,8 @@ import { VoterComponent } from './admin/voter/voter.component';
     UsersidebarComponent,
     UserheaderComponent,
     CandidateComponent,
-    VoterComponent
+    VoterComponent,
+    AddCandidateDialogComponent
 
   ],
   imports: [
@@ -117,7 +120,11 @@ import { VoterComponent } from './admin/voter/voter.component';
     IgxRippleModule,
     MatToolbarModule,
     MatDatepickerModule,
-    MatMomentDateModule
+    MatMomentDateModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    AddCandidateDialogComponent
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

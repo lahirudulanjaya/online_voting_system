@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService} from '../../shared/user.service';
-import {Router} from '@angular/router';
-import {User} from '../../shared/user.model';
-import {NgForm} from '@angular/forms';
+import { UserService } from '../../shared/user.service';
+import { Router } from '@angular/router';
+import { User } from '../../shared/user.model';
+import { NgForm } from '@angular/forms';
+import { MatDialog } from '@angular/material';
+import { AddCandidateDialogComponent } from './././add-candidate-dialog/add-candidate-dialog.component';
 
 @Component({
   selector: 'app-member',
@@ -16,7 +18,17 @@ export class MemberComponent implements OnInit {
   showSucessMessage: boolean;
   users: User[];
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router, public dialog: MatDialog) { }
+
+  openAddCandidateDialog(): void {
+    const dialogRef = this.dialog.open(AddCandidateDialogComponent, {
+
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 
   ngOnInit() {
     this.userService.getUserProfiles().subscribe(
