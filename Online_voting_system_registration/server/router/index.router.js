@@ -7,19 +7,21 @@ const ctrlRules = require('../controller/rules.controller');
 const ctrlEmail = require('../controller/email.controller');
 const ctrlToken = require('../controller/token.controller');
 const ctrlCandidate= require('../controller/candidate.controller');
-
+const ctrlRsa = require('../controller/pki.controller');
 
 
 router.post('/register', ctrlUser.register);
 router.post('/setelection',ctrlElection.setelection);
 router.post('/authenticate',ctrlUser.authenticate);
 router.post('/setrules',ctrlRules.setrules);
-router.get('/userprofile',ctrlUser.userprofile);
+router.get('/userprofile',ctrlUser.authenticate,ctrlUser.userprofile);
 router.post('/setemail',ctrlEmail.setemail);
 router.put('/verify',ctrlToken.verify);
 router.get('/getuserprofiles',ctrlUser.getuserprofiles);
 router.put('/updateuser',ctrlUser.putuserprofile);
 router.delete('/delete/:id',ctrlUser.deleteuserprofile);
 router.post('/candidate',ctrlCandidate.setcandidate);
+router.get('/getkeys',ctrlRsa.getkey);
+
 
 module.exports = router

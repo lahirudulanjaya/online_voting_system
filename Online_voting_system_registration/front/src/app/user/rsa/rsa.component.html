@@ -1,0 +1,14 @@
+<h1>Generate Your Keys</h1>
+<h5>we will save your public key in our database. please save your private key</h5>
+<mat-form-field class = "public">
+        <textarea matInput type="text" placeholder="public key" name ="public" value ={{public}} matTextareaAutosize matAutosizeMinRows=10 matAutosizeMaxRows=20 required></textarea>
+ </mat-form-field>
+ <mat-form-field class ="private">
+        <textarea matInput type="text" placeholder="private key" name ="private" value ={{private}} matTextareaAutosize matAutosizeMinRows=10 matAutosizeMaxRows=20 required></textarea>
+ </mat-form-field>
+ <div class="button">
+        <button mat-raised-button color="primary" (click)="getkey()" >Generate your keys</button>
+        <button id ="d" mat-raised-button color="primary" >Download privatekey</button>
+</div>
+
+        

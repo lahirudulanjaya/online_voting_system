@@ -31,17 +31,20 @@ passport.use(
                     // authentication succeeded
                     else{
                         
-
+                           
                             console.log('Serial communication open');
                             port.write("AT");
                             port.write('\r');
                             port.write("AT+CMGF=1");
                             port.write('\r');
-                            port.write("AT+CMGS=\"" + "0758034032" + "\"");
+                            port.write("AT+CMGS=\"" + user.phonenumber + "\"");
                             port.write('\r');
                             port.write(otp); 
                             port.write(Buffer([0x1A]));
                             port.write('^z');
+                        
+                        
+
                         console.log(otp);
                         return done(null, user);
 
