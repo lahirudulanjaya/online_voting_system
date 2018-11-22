@@ -56,6 +56,8 @@ import {
 import { VoterComponent } from './admin/voter/voter.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AddCandidateDialogComponent } from './admin/member/add-candidate-dialog/add-candidate-dialog.component';
+import {RsaComponent} from './user/rsa/rsa.component';
+
 
 
 @NgModule({
@@ -81,8 +83,8 @@ import { AddCandidateDialogComponent } from './admin/member/add-candidate-dialog
     UserheaderComponent,
     CandidateComponent,
     VoterComponent,
-    AddCandidateDialogComponent
-
+    AddCandidateDialogComponent,
+    RsaComponent
   ],
   imports: [
     BrowserModule,
