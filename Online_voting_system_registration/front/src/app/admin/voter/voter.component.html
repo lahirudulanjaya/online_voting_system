@@ -11,7 +11,7 @@
       </span>
 
       <!-- Import, Add, Delete Voters buttons -->
-      <span class="example-spacer"></span>
+      <span class="toolbar-spacer"></span>
 
       <button mat-stroked-button color="primary" class="toolbar-button">
         <i class="material-icons">cloud_upload</i>
@@ -45,13 +45,13 @@
         <table mat-table [dataSource]="dataSource">
 
           <!-- Registration No. Column -->
-          <ng-container matColumnDef="name">
+          <ng-container matColumnDef="registrationNumber">
             <th mat-header-cell *matHeaderCellDef> Registration No. </th>
             <td mat-cell *matCellDef="let element"> {{element.registrationNumber}} </td>
           </ng-container>
 
           <!-- Name Column -->
-          <ng-container matColumnDef="registrationNumber">
+          <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef> Name </th>
             <td mat-cell *matCellDef="let element"> {{element.name}} </td>
           </ng-container>

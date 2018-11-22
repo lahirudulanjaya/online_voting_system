@@ -2,22 +2,22 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 
 export interface VoterElement {
-  name: string;
   registrationNumber: string;
+  name: string;
   academicYear: string;
 }
 
 const ELEMENT_DATA: VoterElement[] = [
-  { name: 'Sanduni K.', registrationNumber: '2016/CS/01', academicYear: '2015/2016' },
-  { name: 'Lahiru D.', registrationNumber: '2016/CS/02', academicYear: '2015/2016' },
-  { name: 'Sanduni D.', registrationNumber: '2016/CS/03', academicYear: '2015/2016' },
-  { name: 'Hashini P.', registrationNumber: '2016/CS/04', academicYear: '2015/2016' },
-  { name: 'Dasuni G.', registrationNumber: '2016/CS/05', academicYear: '2015/2016' },
-  { name: 'Tharushi J.', registrationNumber: '2016/CS/06', academicYear: '2015/2016' },
-  { name: 'Ashera S.', registrationNumber: '2016/CS/07', academicYear: '2015/2016' },
-  { name: 'Tikiri D.', registrationNumber: '2016/CS/08', academicYear: '2015/2016' },
-  { name: 'Vindula S.', registrationNumber: '2016/CS/09', academicYear: '2015/2016' },
-  { name: 'Hiruni M.', registrationNumber: '2016/CS/10', academicYear: '2015/2016' },
+  { registrationNumber: '2016/CS/01', name: 'Sanduni K.', academicYear: '2015/2016' },
+  { registrationNumber: '2016/CS/02', name: 'Lahiru D.', academicYear: '2015/2016' },
+  { registrationNumber: '2016/CS/03', name: 'Sanduni D.', academicYear: '2015/2016' },
+  { registrationNumber: '2016/CS/04', name: 'Hashini P.', academicYear: '2015/2016' },
+  { registrationNumber: '2016/CS/05', name: 'Dasuni G.', academicYear: '2015/2016' },
+  { registrationNumber: '2016/CS/06', name: 'Tharushi J.', academicYear: '2015/2016' },
+  { registrationNumber: '2016/CS/07', name: 'Ashera S.', academicYear: '2015/2016' },
+  { registrationNumber: '2016/CS/08', name: 'Tikiri D.', academicYear: '2015/2016' },
+  { registrationNumber: '2016/CS/09', name: 'Vindula S.', academicYear: '2015/2016' },
+  { registrationNumber: '2016/CS/10', name: 'Hiruni M.', academicYear: '2015/2016' },
 ];
 
 
