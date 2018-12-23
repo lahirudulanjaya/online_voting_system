@@ -46,7 +46,12 @@ var userSchema = new mongoose.Schema({
 
     isvalid :Boolean,
     
-    isadmin :false
+    isadmin :false,
+
+    rsa :{
+        type:Boolean,
+        default:true
+    }
 
 });
 // Custom validation for email

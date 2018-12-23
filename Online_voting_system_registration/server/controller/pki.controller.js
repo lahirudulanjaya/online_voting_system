@@ -10,6 +10,8 @@ var pki = new Pki();
 pki.registrationnumber = req.body.registrationnumber;
 pki.publickey = pair.public;
 private = pair.private;
+var pri= "";
+var pub= "";
 
 pki.save((err,doc)=>{
     if(!err){
@@ -26,14 +28,22 @@ module.exports.getkey=(req,res,next)=>{
 
    var pair = generateRSAKeypair()
 
-   var pri =pair.private;
-   var pub =pair.public;
+    pri =pair.private;
+    pub =pair.public;
   
     arr[1]=pri;
     arr[0]=pub;
     console.log(pub);
     res.send(arr);
     
+}
+
+module.exports.downloadprivate=(req,res,next)=>{
+    res.setHeader('Content-type', "application/octet-stream");
+
+    res.setHeader('Content-disposition', 'attachment; filename=privatekey.txt');
+    
+    res.json(pri);
 }
 
 

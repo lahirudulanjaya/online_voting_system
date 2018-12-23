@@ -14,6 +14,7 @@ import { RulesComponent } from './admin/rules/rules.component';
 import { VoterComponent } from './admin/voter/voter.component';
 import { CandidateComponent} from './user-profile/candidate/candidate.component';
 import {RsaComponent} from './user/rsa/rsa.component';
+import { ProfileComponent } from './user-profile/profile/profile.component';
 export const appRoutes: Routes = [
     {
         path: 'signup', component: UserComponent,
@@ -27,7 +28,9 @@ export const appRoutes: Routes = [
         path: 'userprofile', component: UserProfileComponent,
         children:[
             {path : 'dashboard', component :UserdashboardComponent},
-            {path : 'election' , component :CandidateComponent}
+            {path : 'election' , component :CandidateComponent},
+            {path : 'getkeys' , component:RsaComponent},
+            {path : 'profile' , component:ProfileComponent}
         ]
 
     },
@@ -44,7 +47,18 @@ export const appRoutes: Routes = [
                 { path : 'election', component: ElectionComponent,},
                 { path : 'candidates', component: MemberComponent,},
                 { path: 'rules', component: RulesComponent,},
+<<<<<<< HEAD
+                {path: 'voter', component: VoterComponent}
+            ]
+
+        
+    },{
+        path :'getkey' ,component:RsaComponent,
+    }
+    
+=======
                 { path: 'voters', component: VoterComponent}
             ]      
     }    
+>>>>>>> c30fe59cdd94515f3475e3464783f25b541c1413
 ];

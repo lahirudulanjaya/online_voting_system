@@ -12,5 +12,15 @@ export class RsaService {
   getkeys(){
     return this.http.get(environment.apiBaseUrl+'/getkeys');
   }
-  
+  downloadprivate()
+  {
+    return this.http.get(environment.apiBaseUrl+'/privatekey',{
+    responseType : 'blob',
+    headers:new HttpHeaders().append('Content-Type','application/json')
+    });
+  }
+  isexist(_id:string)
+  {
+    return this.http.get(environment.apiBaseUrl+'/isrsa'+'/'+_id);
+  } 
 }
