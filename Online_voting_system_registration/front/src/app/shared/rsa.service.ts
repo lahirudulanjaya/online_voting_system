@@ -2,10 +2,18 @@ import { Injectable } from '@angular/core';
 import{ Rsa} from './rsa.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
 export class RsaService {
+  
+  selectedrsa:Rsa ={
+      registrationnumber: '',
+      publickey: '',
+      
+    }
+  
 
   constructor(private http: HttpClient) { }
 
@@ -23,4 +31,7 @@ export class RsaService {
   {
     return this.http.get(environment.apiBaseUrl+'/isrsa'+'/'+_id);
   } 
+  putrsa(rsa : Rsa){
+    return this.http.post(environment.apiBaseUrl+'/savepki',rsa);
+  }
 }

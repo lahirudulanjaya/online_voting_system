@@ -1,28 +1,30 @@
 const mongoose = require('mongoose');
-const  Pki= mongoose.model('pki');
+const  Email= mongoose.model('email');
 var generateRSAKeypair = require('generate-rsa-keypair')
 
 var arr =[];
 
 var private;
-module.exports.generate = (req, res, next) => {
-var pki = new Pki();
-pki.registrationnumber = req.body.registrationnumber;
-pki.publickey = pair.public;
-private = pair.private;
-var pri= "";
-var pub= "";
-
-pki.save((err,doc)=>{
-    if(!err){
-        res.send(doc);
+module.exports.savepki = (req, res, next) => {
+Email.findOneAndUpdate({registrationnumber:req.body.registrationnumber},{$set:{publickey:req.body.publickey}},
+function(err,result){
+    if(err)
+        console.log(err);
+    else if(!result){
+        res.status(422).send("Invalid Key");
     }
-    else{
-        return next(err);
+    else
+    {
+        res.send(result);
     }
-})
-
 }
+);
+}
+
+
+
+
+
 module.exports.getkey=(req,res,next)=>{
 
 

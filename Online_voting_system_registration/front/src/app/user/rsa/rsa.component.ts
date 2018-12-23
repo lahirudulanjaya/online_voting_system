@@ -4,6 +4,7 @@ import * as jsPDF from 'jspdf';
 import { UserService } from '../../shared/user.service';
 import { Router } from "@angular/router";
 import {User} from '../../shared/user.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-rsa',
@@ -11,7 +12,9 @@ import {User} from '../../shared/user.model';
   styleUrls: ['./rsa.component.css']
 })
 export class RsaComponent implements OnInit {
-  registration="weeeee";
+  showSucessMessage: boolean;
+  serverErrorMessages: string;
+  registration;
   rsa =false;
   arr:Array<string>;
   public="";
@@ -22,12 +25,17 @@ export class RsaComponent implements OnInit {
  
 
   ngOnInit() {
+    this.rsaService.getkeys().subscribe(
+      arr=>{
+        this.arr=arr as Array<string>;
+      })
     this.userService.getUserProfile().subscribe(
       res => {
         this.userDetails = res['user'];
         this.rsaService.isexist(this.userDetails.registrationnumber).subscribe(
           rsa=>{
             this.rsa=rsa as boolean;
+            this.registration=this.userDetails.registrationnumber;
           }
       
         )
@@ -45,14 +53,15 @@ export class RsaComponent implements OnInit {
   }
 
   getkey(){
-    if(!this.rsa){
+    if(this.rsa){
     this.rsaService.getkeys().subscribe(
       arr=>{
         this.arr=arr as Array<string>;
       })
     
-   this.public=this.arr[0];
-   this.private=this.arr[1];
+    this.public=this.arr[0];
+    this.private=this.arr[1];
+    
     }
     else{
       alert("you have already get keys");
@@ -63,6 +72,7 @@ export class RsaComponent implements OnInit {
   }
   download()
   {
+    
     let doc = new jsPDF();
 
     doc.text('some text here',1,1);
@@ -70,6 +80,28 @@ export class RsaComponent implements OnInit {
 
   }
 
+  
+    Onsave(form: NgForm) {
+    
+      this.rsaService.putrsa(form.value).subscribe(
+        res =>{
+          this.serverErrorMessages='';
+          this.showSucessMessage = true;
+          setTimeout(() => this.showSucessMessage = false, 4000);
+        },
+        err =>{
+          this.serverErrorMessages = err.error;
+  
+        } 
+      )
+    }
+    
 
 
-}
+    
+    
+  }
+
+
+
+

@@ -4,20 +4,32 @@
 
 <button type ="button" (click)="download()"> click</button>
 
-<form id =form>
-        {{rsa}}
+<form #rsaform = "ngForm"  id=form >
+        
         
 <h1>Generate Your Keys</h1>
-{{registration}}
 <h5>we will save your public key in our database. please save your private key</h5>
+<input  name ="registrationnumber" value={{registration}} #registrationnumber = "ngModel"  [(ngModel)]="rsaService.selectedrsa.registrationnumber" hidden >
 <mat-form-field class = "public">
-        <textarea matInput type="text" placeholder="public key" name ="public" value ={{public}} matTextareaAutosize matAutosizeMinRows=10 matAutosizeMaxRows=20 required></textarea>
+        <textarea matInput type="text" placeholder="public key" name ="publickey" value ={{public}} #election = "ngModel"  [(ngModel)]="rsaService.selectedrsa.publickey" matTextareaAutosize matAutosizeMinRows=10 matAutosizeMaxRows=20></textarea>
  </mat-form-field>
  <mat-form-field class ="private">
         <textarea matInput type="text" placeholder="private key" name ="private" value ={{private}} matTextareaAutosize matAutosizeMinRows=10 matAutosizeMaxRows=20 required></textarea>
  </mat-form-field>
  <div class="button">
-        <button mat-raised-button color="primary" (click)="getkey()" >Generate your keys</button>
-        <button mat-raised-button color="primary" type =button (click)="download()" >Download privatekey</button>
+        <button mat-raised-button color="primary" onclick="this.disabled=true" (click)="getkey()" >Generate your keys</button>
+        
 </div>
+<div>
+<button mat-raised-button color="primary" type="submit" (click)="download()">Download Your Private Key</button>
+</div>
+
 </form> 
+<div class="success" *ngIf="showSucessMessage">
+                Saved successfully
+              </div>
+              
+              <!-- Error message -->
+              <div class="alert" *ngIf="serverErrorMessages">
+                {{serverErrorMessages}}
+              </div>

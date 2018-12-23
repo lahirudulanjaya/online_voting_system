@@ -47,7 +47,6 @@ export const appRoutes: Routes = [
                 { path : 'election', component: ElectionComponent,},
                 { path : 'candidates', component: MemberComponent,},
                 { path: 'rules', component: RulesComponent,},
-<<<<<<< HEAD
                 {path: 'voter', component: VoterComponent}
             ]
 
@@ -56,9 +55,5 @@ export const appRoutes: Routes = [
         path :'getkey' ,component:RsaComponent,
     }
     
-=======
-                { path: 'voters', component: VoterComponent}
-            ]      
-    }    
->>>>>>> c30fe59cdd94515f3475e3464783f25b541c1413
+
 ];
