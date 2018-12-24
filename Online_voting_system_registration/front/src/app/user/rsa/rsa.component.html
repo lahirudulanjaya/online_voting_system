@@ -5,9 +5,11 @@
 
 
 <form #rsaform = "ngForm"  id=form (ngSubmit)="Onsave(rsaform)">
+
         
         
 <h1>Generate Your Keys</h1>
+
 <h5>we will save your public key in our database. please save your private key</h5>
 <input type="hidden" name ="_id" #_id ="ngModel" [(ngModel)]="rsaService.selectedrsa._id">
 
@@ -23,9 +25,10 @@
         
 </div>
 <div>
-<button mat-raised-button color="primary" type="submit">Submit</button></div>
-<button type ="button" (click)="download()"> click</button>
-
-
+<button mat-raised-button color="primary" type="submit">Submit</button>
+</div>
+<div>
+<a mat-raised-button color="primary" [href]="fileUrl" download="privatekey.txt">Click here for download privatekey</a>
+</div>
 </form> 
 

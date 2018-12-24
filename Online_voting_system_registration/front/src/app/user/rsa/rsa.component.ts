@@ -5,6 +5,7 @@ import { UserService } from '../../shared/user.service';
 import { Router } from "@angular/router";
 import {User} from '../../shared/user.model';
 import { NgForm } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-rsa',
@@ -20,14 +21,18 @@ export class RsaComponent implements OnInit {
   public="";
   private="";
   userDetails: User;
-  constructor(private userService: UserService, private router: Router,private rsaService :RsaService) { }
+  constructor(private userService: UserService, private router: Router,private rsaService :RsaService,private sanitizer: DomSanitizer) { }
 
- 
+  fileUrl;
 
   ngOnInit() {
     this.rsaService.getkeys().subscribe(
       arr=>{
         this.arr=arr as Array<string>;
+        const data = arr[1];
+        const blob = new Blob([data], { type: 'application/octet-stream' });
+
+        this.fileUrl = this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(blob));
       })
     this.userService.getUserProfile().subscribe(
       res => {
