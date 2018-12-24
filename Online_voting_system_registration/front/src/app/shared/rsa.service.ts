@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import{ Rsa} from './rsa.model';
+import{Email} from './email.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
@@ -8,8 +8,10 @@ import { environment } from '../../environments/environment';
 })
 export class RsaService {
   
-  selectedrsa:Rsa ={
+  selectedrsa:Email ={
+    _id:'',
       registrationnumber: '',
+      email:'',
       publickey: '',
       
     }
@@ -31,7 +33,7 @@ export class RsaService {
   {
     return this.http.get(environment.apiBaseUrl+'/isrsa'+'/'+_id);
   } 
-  putrsa(rsa : Rsa){
-    return this.http.post(environment.apiBaseUrl+'/savepki',rsa);
+  putrsa(rsa : Email){
+    return this.http.put(environment.apiBaseUrl+'/savepki',rsa);
   }
 }

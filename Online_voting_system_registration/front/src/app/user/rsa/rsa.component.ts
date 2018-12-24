@@ -59,8 +59,12 @@ export class RsaComponent implements OnInit {
         this.arr=arr as Array<string>;
       })
     
-    this.public=this.arr[0];
     this.private=this.arr[1];
+    this.rsaService.selectedrsa._id=this.userDetails._id;
+    this.rsaService.selectedrsa.email=this.userDetails.email;
+    this.rsaService.selectedrsa.publickey=this.arr[0];
+    this.rsaService.selectedrsa.registrationnumber=this.userDetails.registrationnumber;
+
     
     }
     else{
@@ -89,7 +93,8 @@ export class RsaComponent implements OnInit {
           this.showSucessMessage = true;
           setTimeout(() => this.showSucessMessage = false, 4000);
         },
-        err =>{
+        err =>
+        {
           this.serverErrorMessages = err.error;
   
         } 

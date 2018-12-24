@@ -20,6 +20,23 @@ function(err,result){
 }
 );
 }
+module.exports.putpki=(req,res,next) =>{
+  
+    var email= {
+        registrationnumber:req.body.registrationnumber,
+        email:req.body.email,
+        publickey:req.body.publickey
+
+    };
+    Email.findByIdAndUpdate({_id:req.body._id},{$set :email},{upsert:true},(err,doc)=>{
+        if(!err){
+            res.send(doc);
+        }
+        else{
+            res.status(422).send("update failed");
+        }
+    })
+}
 
 
 

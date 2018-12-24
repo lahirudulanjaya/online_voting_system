@@ -24,6 +24,7 @@ module.exports.pki=(req,res,next)=>{
                 throw err;
         else if(!result.publickey)
                 res.send(true);
+                
         else
                 res.send(false);
 });
