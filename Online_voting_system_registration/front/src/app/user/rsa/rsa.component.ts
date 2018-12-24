@@ -76,26 +76,25 @@ export class RsaComponent implements OnInit {
   }
   download()
   {
+    this.rsaService.downloadprivate().subscribe(
+      data=> console.log(data),
+      error=>console.log(error)
+    );
     
-    let doc = new jsPDF();
-
-    doc.text('some text here',1,1);
-    doc.save('private.pdf');
 
   }
 
   
-    Onsave(form: NgForm) {
+    Onsave(form: NgForm)
+     {
     
       this.rsaService.putrsa(form.value).subscribe(
         res =>{
-          this.serverErrorMessages='';
-          this.showSucessMessage = true;
-          setTimeout(() => this.showSucessMessage = false, 4000);
+          alert('success')
         },
         err =>
         {
-          this.serverErrorMessages = err.error;
+          alert('failed')
   
         } 
       )

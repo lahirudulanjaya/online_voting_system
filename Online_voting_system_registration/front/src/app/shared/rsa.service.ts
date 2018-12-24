@@ -24,7 +24,7 @@ export class RsaService {
   }
   downloadprivate()
   {
-    return this.http.get(environment.apiBaseUrl+'/privatekey',{
+    return this.http.post(environment.apiBaseUrl+'/privatekey',{
     responseType : 'blob',
     headers:new HttpHeaders().append('Content-Type','application/json')
     });

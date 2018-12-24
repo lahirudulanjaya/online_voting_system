@@ -2,7 +2,7 @@
 <app-userheader></app-userheader>
 <app-usersidebar></app-usersidebar>
 
-<button type ="button" (click)="download()"> click</button>
+
 
 <form #rsaform = "ngForm"  id=form (ngSubmit)="Onsave(rsaform)">
         
@@ -24,13 +24,8 @@
 </div>
 <div>
 <button mat-raised-button color="primary" type="submit">Submit</button></div>
+<button type ="button" (click)="download()"> click</button>
+
 
 </form> 
-<div class="success" *ngIf="showSucessMessage">
-                Saved successfully
-              </div>
-              
-              <!-- Error message -->
-              <div class="alert" *ngIf="serverErrorMessages">
-                {{serverErrorMessages}}
-              </div>
+

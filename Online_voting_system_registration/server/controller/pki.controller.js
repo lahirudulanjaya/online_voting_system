@@ -57,12 +57,8 @@ module.exports.getkey=(req,res,next)=>{
     
 }
 
-module.exports.downloadprivate=(req,res,next)=>{
-    res.setHeader('Content-type', "application/octet-stream");
-
-    res.setHeader('Content-disposition', 'attachment; filename=privatekey.txt');
-    
-    res.json(pri);
+module.exports.downloadprivate=(req,res,next)=>{ 
+    res.sendFile(arr[1]);
 }
 
 
