@@ -26,5 +26,19 @@ module.exports.setcandidate = (req,res,next) => {
             }
 
         });
+        
 
+       
+
+}
+module.exports.getcandidateprofiles=(req,res,next) =>{
+    Candidate.find({},{},function(err, candidates) {
+        if(err){
+            res.send("something went wrong");
+            next;
+        }
+        res.status(200).json(candidates);
+        
+      });
+    
 }

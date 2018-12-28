@@ -1,14 +1,39 @@
 
-  vote
-  <form class="example-container">
-
-  <label>Float label: </label>
-      <mat-radio-group>
-        <mat-radio-button value="auto">Auto</mat-radio-button>
-        <mat-radio-button value="always">Always</mat-radio-button>
-        <mat-radio-button value="never">Never</mat-radio-button>
-  </mat-radio-group>
-  </form>
+ Union Election
 
 
+    <mat-grid-list cols="3" rowHeight="3:2">
 
+  <div *ngFor ="let candidate of candidates ; let i = index">
+
+  <mat-grid-tile>
+ <mat-card class="candidate-card" >
+
+
+
+ <mat-card-header  >
+  <div mat-card-avatar class="example-header-image"></div>
+  <mat-card-title>name : {{candidate.candidatename}}</mat-card-title>
+  <mat-card-subtitle>regisatration number: {{candidate.registrationnumber}}</mat-card-subtitle>
+</mat-card-header>
+<div>
+<mat-radio-button value="1">Vice president</mat-radio-button>
+</div>
+<div>
+  <mat-radio-button value="2">Secritary</mat-radio-button>
+</div>
+<div>
+  <mat-radio-button value="3">Treasurer</mat-radio-button>
+</div>
+<div>
+  <mat-radio-button value="4">Editor</mat-radio-button>
+</div>
+<div>
+  <mat-radio-button value="5">Member</mat-radio-button>
+</div>
+
+
+ </mat-card>
+  </mat-grid-tile>
+</div>
+</mat-grid-list>

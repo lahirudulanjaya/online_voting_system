@@ -25,6 +25,7 @@ router.get('/getkeys',ctrlRsa.getkey);
 router.post('/privatekey',ctrlRsa.downloadprivate);
 router.get('/isrsa/:id',ctrlEmail.pki);
 router.put('/savepki',ctrlRsa.savepki);
+router.get('/getcandidateprofiles',ctrlCandidate.getcandidateprofiles);
 
 
 module.exports = router

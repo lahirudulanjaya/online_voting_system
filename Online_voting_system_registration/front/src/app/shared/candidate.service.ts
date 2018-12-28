@@ -24,5 +24,8 @@ export class CandidateService {
   postcandidate(candidate: Candidate){
     return this.HTTP.post(environment.apiBaseUrl+'/candidate',candidate);
   }
+  getCandidateProfiles() {
+    return this.HTTP.get(environment.apiBaseUrl + '/getcandidateprofiles');
+  }
   
 }
