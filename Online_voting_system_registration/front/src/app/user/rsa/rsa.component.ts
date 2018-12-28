@@ -58,7 +58,7 @@ export class RsaComponent implements OnInit {
   }
 
   getkey(){
-    if(this.rsa){
+    if(!this.rsa){
     this.rsaService.getkeys().subscribe(
       arr=>{
         this.arr=arr as Array<string>;

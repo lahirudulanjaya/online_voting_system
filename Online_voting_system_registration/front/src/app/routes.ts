@@ -15,6 +15,7 @@ import { VoterComponent } from './admin/voter/voter.component';
 import { CandidateComponent} from './user-profile/candidate/candidate.component';
 import {RsaComponent} from './user/rsa/rsa.component';
 import { ProfileComponent } from './user-profile/profile/profile.component';
+import{VoteComponent } from './user/vote/vote.component';
 export const appRoutes: Routes = [
     {
         path: 'signup', component: UserComponent,
@@ -53,6 +54,9 @@ export const appRoutes: Routes = [
         
     },{
         path :'getkey' ,component:RsaComponent,
+    },
+    {
+        path: 'voting' ,component:VoteComponent
     }
     
 

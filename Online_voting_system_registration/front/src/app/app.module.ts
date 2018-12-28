@@ -57,6 +57,8 @@ import { VoterComponent } from './admin/voter/voter.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AddCandidateDialogComponent } from './admin/member/add-candidate-dialog/add-candidate-dialog.component';
 import {RsaComponent} from './user/rsa/rsa.component';
+import { VoteComponent } from './user/vote/vote.component';
+import { MatRadioModule } from '@angular/material';
 
 
 
@@ -84,7 +86,8 @@ import {RsaComponent} from './user/rsa/rsa.component';
     CandidateComponent,
     VoterComponent,
     AddCandidateDialogComponent,
-    RsaComponent
+    RsaComponent,
+    VoteComponent
   ],
   imports: [
     BrowserModule,
@@ -123,7 +126,8 @@ import {RsaComponent} from './user/rsa/rsa.component';
     MatToolbarModule,
     MatDatepickerModule,
     MatMomentDateModule,
-    MatDialogModule
+    MatDialogModule,
+    MatRadioModule
   ],
   entryComponents: [
     AddCandidateDialogComponent
