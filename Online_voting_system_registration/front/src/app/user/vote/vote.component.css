@@ -1,3 +1,10 @@
 .candidate-card {
     max-width: 300px;
   }
+  
+  .mat-radio-button {
+    size: 0mm;
+  }
+  #ss{
+    width: 1em;
+  }

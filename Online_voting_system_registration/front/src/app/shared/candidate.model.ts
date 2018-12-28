@@ -4,6 +4,5 @@ export class Candidate
     candidatename :string;
     registrationnumber :string;
     iscs :string;
-    position:string;
     description:string;
 }

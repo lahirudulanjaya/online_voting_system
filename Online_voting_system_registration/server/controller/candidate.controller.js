@@ -7,7 +7,6 @@ module.exports.setcandidate = (req,res,next) => {
         candidate.candidatename = req.body.candidatename;
         candidate.registrationnumber=req.body.registrationnumber;
         candidate.iscs = req.body.iscs;
-        candidate.position=req.body.position;
         candidate.description=req.body.description;
 
         candidate.save((err,doc) => {

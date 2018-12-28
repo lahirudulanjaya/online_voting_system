@@ -19,14 +19,7 @@
           <mat-option value="is">Information System</mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field>
-          <mat-select  placeholder="Select Position" name ="position" #position = "ngModel" [(ngModel)]="candidateService.selectedCandidate.position" required>
-            <mat-option value="cs" >Vice Precident</mat-option>
-            <mat-option value="is">Secretary</mat-option>
-            <mat-option value="ts">Treasurer</mat-option>
-            <mat-option value="is">Editor</mat-option>
-          </mat-select>
-        </mat-form-field>
+  
       <mat-form-field>
         <textarea matInput type="text" placeholder="Description" name ="description" #description = "ngModel" [(ngModel)]="candidateService.selectedCandidate.description" required></textarea>
     </mat-form-field>

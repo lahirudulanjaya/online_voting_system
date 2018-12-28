@@ -12,7 +12,6 @@ export class CandidateService {
     candidatename :'',
     registrationnumber :'',
     iscs :'',
-    position:'',
     description:'',
 
 

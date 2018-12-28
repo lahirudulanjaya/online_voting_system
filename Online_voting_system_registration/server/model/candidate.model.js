@@ -20,11 +20,6 @@ var candidateschema =new mongoose.Schema(
             required :'can\'t empty',
            
         },
-        position:{
-            type:String,
-            required :'can\'t empty',
-          
-        },
         description:{
             type:String,
             required :'can\'t empty',
