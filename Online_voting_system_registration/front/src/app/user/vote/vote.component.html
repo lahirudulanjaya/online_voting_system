@@ -2,40 +2,115 @@
  Union Election
 
 
-    <mat-grid-list cols="3" rowHeight="3:2">
-
+  <mat-grid-list cols="3" rowHeight="3:2">
+    <h2>Vote for Vice precident</h2>
   <div *ngFor ="let candidate of candidates ; let i = index">
-
+  <div *ngIf="(candidate.post == 'VP')">
   <mat-grid-tile>
- <mat-card class="candidate-card" >
-
-
-
- <mat-card-header  >
+  <mat-card class="candidate-card">
+  <mat-card-header  >
   <div mat-card-avatar class="example-header-image"></div>
   <mat-card-title>name : {{candidate.candidatename}}</mat-card-title>
   <mat-card-subtitle>regisatration number: {{candidate.registrationnumber}}</mat-card-subtitle>
-</mat-card-header>
-<mat-radio-group>
-
-<div>
-<mat-radio-button id ="ss" value="1">Vice president</mat-radio-button>
-</div>
-<div>
-  <mat-radio-button value="2">Secritary</mat-radio-button>
-</div>
-<div>
-  <mat-radio-button value="3">Treasurer</mat-radio-button>
-</div>
-<div>
-  <mat-radio-button value="4">Editor</mat-radio-button>
-</div>
-<div>
-  <mat-radio-button value="5">Member</mat-radio-button>
-</div>
+  </mat-card-header>
+  <mat-radio-group name ="VP">
+  <mat-radio-button  value="1">VOTE</mat-radio-button>
 </mat-radio-group>
-
- </mat-card>
+  </mat-card>
   </mat-grid-tile>
+  </div>
+  </div>
+  </mat-grid-list>
+
+  <mat-grid-list cols="3" rowHeight="3:2">
+  <h2>Vote for Secretary</h2>
+  <div *ngFor ="let candidate of candidates ; let i = index">
+  <div *ngIf="(candidate.post == 'SE')">
+  <mat-grid-tile>
+  <mat-card class="candidate-card">
+  <mat-card-header  >
+  <div mat-card-avatar class="example-header-image"></div>
+  <mat-card-title>name : {{candidate.candidatename}}</mat-card-title>
+  <mat-card-subtitle>regisatration number: {{candidate.registrationnumber}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-radio-group name ="SE">
+  <mat-radio-button  value="1">VOTE</mat-radio-button>
+  </mat-radio-group>
+  </mat-card>
+  </mat-grid-tile>
+  </div>
+  </div>
+  </mat-grid-list>
+
+  <mat-grid-list cols="3" rowHeight="3:2">
+      <h2>Vote for Tresurer</h2>
+    <div *ngFor ="let candidate of candidates ; let i = index">
+    <div *ngIf="(candidate.post == 'TR')">
+    <mat-grid-tile>
+    <mat-card class="candidate-card">
+    <mat-card-header  >
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>name : {{candidate.candidatename}}</mat-card-title>
+    <mat-card-subtitle>regisatration number: {{candidate.registrationnumber}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-radio-group name ="TR">
+    <mat-radio-button  value="1">VOTE</mat-radio-button>
+    </mat-radio-group>
+    </mat-card>
+    </mat-grid-tile>
+    </div>
+    </div>
+    </mat-grid-list>
+
+    <mat-grid-list cols="3" rowHeight="3:2">
+        <h2>Vote for Editor</h2>
+      <div *ngFor ="let candidate of candidates ; let i = index">
+      <div *ngIf="(candidate.post == 'ED')">
+      <mat-grid-tile>
+      <mat-card class="candidate-card">
+      <mat-card-header  >
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>name : {{candidate.candidatename}}</mat-card-title>
+      <mat-card-subtitle>regisatration number: {{candidate.registrationnumber}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-radio-group name ="ED">
+      <mat-radio-button  value="1">VOTE</mat-radio-button>
+      </mat-radio-group>
+      </mat-card>
+      </mat-grid-tile>
+      </div>
+      </div>
+      </mat-grid-list>
+
+      <mat-grid-list cols="3" rowHeight="3:2">
+          <h2>Vote for Commite Members</h2>
+        <div *ngFor ="let candidate of candidates ; let i = index">
+        <div *ngIf="(candidate.post == 'CM')">
+        <mat-grid-tile>
+        <mat-card class="candidate-card">
+        <mat-card-header  >
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>name : {{candidate.candidatename}}</mat-card-title>
+        <mat-card-subtitle>regisatration number: {{candidate.registrationnumber}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-radio-group name ="CM">
+        <mat-radio-button  value="1">VOTE</mat-radio-button>
+        </mat-radio-group>
+        </mat-card>
+        </mat-grid-tile>
+        </div>
+        </div>
+        </mat-grid-list>
+<form>
+  <div class =key>
+  <mat-form-field class = "public">
+    <textarea matInput type="text" placeholder="public key" name ="publickey" [(ngModel)]="pub" matTextareaAutosize matAutosizeMinRows=10 matAutosizeMaxRows=20></textarea>
+</mat-form-field>
+<mat-form-field class ="private">
+    <textarea matInput type="text" placeholder="Enter Your private key" name ="private" [(ngModel)]="pri" matTextareaAutosize matAutosizeMinRows=10 matAutosizeMaxRows=20 required></textarea>
+</mat-form-field>
 </div>
-</mat-grid-list>
+<button mat-raised-button color="primary" (click)="check()">Vote Now</button>
+</form>
+
+ 

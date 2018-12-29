@@ -58,7 +58,7 @@ export class RsaComponent implements OnInit {
   }
 
   getkey(){
-    if(!this.rsa){
+    if(this.rsa==true){
     this.rsaService.getkeys().subscribe(
       arr=>{
         this.arr=arr as Array<string>;
@@ -79,15 +79,7 @@ export class RsaComponent implements OnInit {
    
     
   }
-  download()
-  {
-    this.rsaService.downloadprivate().subscribe(
-      data=> console.log(data),
-      error=>console.log(error)
-    );
-    
-
-  }
+ 
 
   
     Onsave(form: NgForm)

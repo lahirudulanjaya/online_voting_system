@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const  Email= mongoose.model('email');
 var generateRSAKeypair = require('generate-rsa-keypair')
-
+var forge = require('node-forge');
 var arr =[];
 
 var private;
@@ -60,5 +60,6 @@ module.exports.getkey=(req,res,next)=>{
 module.exports.downloadprivate=(req,res,next)=>{ 
     res.sendFile(arr[1]);
 }
+
 
 

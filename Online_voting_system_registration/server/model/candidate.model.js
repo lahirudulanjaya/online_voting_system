@@ -5,6 +5,9 @@ var candidateschema =new mongoose.Schema(
         election:{
             type:String
         },
+        post:{
+            type:String
+        },
         candidatename:{
             type:String,
             required :'can\'t empty',
@@ -19,12 +22,8 @@ var candidateschema =new mongoose.Schema(
             type:String,
             required :'can\'t empty',
            
-        },
-        description:{
-            type:String,
-            required :'can\'t empty',
-            
         }
+        
 }
 )
 mongoose.model('candidate',candidateschema);

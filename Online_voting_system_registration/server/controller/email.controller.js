@@ -19,13 +19,12 @@ module.exports.setemail = (req, res, next) => {
 }
 
 module.exports.pki=(req,res,next)=>{
-    Email.findOne({registrationnumber:req.params.id},'email',function(err,result){
+    Email.findOne({registrationnumber:req.params.id},function(err,result){
         if(err)
                 throw err;
-        else if(!result.publickey)
-                res.send(true);
-                
-        else
+        else if(result.publickey)
                 res.send(false);
+        else
+                res.send(true);
 });
 }

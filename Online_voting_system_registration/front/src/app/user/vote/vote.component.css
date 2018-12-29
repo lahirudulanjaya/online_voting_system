@@ -8,3 +8,8 @@
   #ss{
     width: 1em;
   }
+
+ 
+  .key > * {
+    width: 50%;
+  }

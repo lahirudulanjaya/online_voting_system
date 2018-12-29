@@ -9,10 +9,10 @@ export class CandidateService {
 
   selectedCandidate:Candidate ={
     election:'',
+    post:'',
     candidatename :'',
     registrationnumber :'',
-    iscs :'',
-    description:'',
+    iscs :''
 
 
   };
