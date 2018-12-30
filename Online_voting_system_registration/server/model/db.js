@@ -16,3 +16,4 @@ require('./rules.model');
 require('./email.model');
 require('./candidate.model');
 require('./pki.model');
+require('./vote.model');

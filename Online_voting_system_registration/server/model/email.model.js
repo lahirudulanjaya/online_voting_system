@@ -13,6 +13,9 @@ var emailSchema = new mongoose.Schema({
     publickey:{
         type:String
 
+    },
+    phonenumber:{
+        type:String
     }
   });
 

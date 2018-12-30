@@ -13,12 +13,12 @@ var candidateschema =new mongoose.Schema(
             required :'can\'t empty',
             unique : true,
         },
-        registrationnumber:{
+        regnumber:{
             type:String,
             required :'can\'t empty',
             unique : true,
         },
-        iscs:{
+        degree:{
             type:String,
             required :'can\'t empty',
            

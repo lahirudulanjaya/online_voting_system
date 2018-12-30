@@ -7,8 +7,8 @@ module.exports.setcandidate = (req,res,next) =>
         candidate.election =req.body.election;
         candidate.post=req.body.post;
         candidate.candidatename = req.body.candidatename;
-        candidate.registrationnumber=req.body.registrationnumber;
-        candidate.iscs = req.body.iscs;
+        candidate.regnumber=req.body.registrationnumber;
+        candidate.degree = req.body.iscs;
 
         candidate.save((err,doc) => {
             if (!err){

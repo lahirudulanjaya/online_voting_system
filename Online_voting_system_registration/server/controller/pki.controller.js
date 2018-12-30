@@ -17,8 +17,7 @@ function(err,result){
     {
         res.send(result);
     }
-}
-);
+});
 }
 module.exports.putpki=(req,res,next) =>{
   

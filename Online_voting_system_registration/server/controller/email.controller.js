@@ -6,7 +6,7 @@ module.exports.setemail = (req, res, next) => {
     email.email = req.body.email;
     email.registrationnumber = req.body.registrationnumber;
     email.publickey = req.body.publickey;
-   
+    
     email.save((err, doc) => {
 
         if (!err)
@@ -26,5 +26,15 @@ module.exports.pki=(req,res,next)=>{
                 res.send(false);
         else
                 res.send(true);
+});
+}
+module.exports.getpublic=(req,res,next)=>{
+    Email.findOne({registrationnumber:req.params.id},"publickey",function(err,result){
+        if(err)
+                throw err;   
+        else if(!result)  
+              res.status(422).send("public key dosen't found");  
+        else
+                res.send(result);
 });
 }

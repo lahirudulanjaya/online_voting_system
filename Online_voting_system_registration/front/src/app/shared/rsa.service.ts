@@ -7,14 +7,13 @@ import * as forge from 'node-forge';
 @Injectable({
   providedIn: 'root'
 })
-export class RsaService {
-  
+export class RsaService
+{  
   selectedrsa:Email ={
-    _id:'',
+      _id:'',
       registrationnumber: '',
       email:'',
-      publickey: '',
-      
+      publickey: '',    
     }
     private forge: any;
     
@@ -22,6 +21,9 @@ export class RsaService {
 
   constructor(private http: HttpClient) { 
     
+  }
+  getpublickey(id:string){
+    return this.http.get(environment.apiBaseUrl+'/getpublic'+'/'+id);
   }
 
   getkeys(){
