@@ -8,7 +8,7 @@ const ctrlEmail = require('../controller/email.controller');
 const ctrlToken = require('../controller/token.controller');
 const ctrlCandidate= require('../controller/candidate.controller');
 const ctrlRsa = require('../controller/pki.controller');
-
+const ctrlVote =require('../controller/vote.controller');
 
 router.post('/register', ctrlUser.register);
 router.post('/setelection',ctrlElection.setelection);
@@ -27,5 +27,6 @@ router.get('/isrsa/:id',ctrlEmail.pki);
 router.put('/savepki',ctrlRsa.savepki);
 router.get('/getcandidateprofiles',ctrlCandidate.getcandidateprofiles);
 router.get('/getpublic/:id',ctrlEmail.getpublic);
+router.post('/postvote',ctrlVote.postvote);
 
 module.exports = router
