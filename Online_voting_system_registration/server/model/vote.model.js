@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 var voteschema = new mongoose.Schema({
-    VP:string,
-    SE:string,
-    TR:string,
-    ED:string,
-    CM:string
+    VP:String,
+    SE:String,
+    TR:String,
+    ED:String,
+    CM:[String]
 
 
 })

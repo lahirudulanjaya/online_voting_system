@@ -28,5 +28,5 @@ router.put('/savepki',ctrlRsa.savepki);
 router.get('/getcandidateprofiles',ctrlCandidate.getcandidateprofiles);
 router.get('/getpublic/:id',ctrlEmail.getpublic);
 router.post('/postvote',ctrlVote.postvote);
-
+router.put('/confirmvote',ctrlUser.updateuservote);
 module.exports = router

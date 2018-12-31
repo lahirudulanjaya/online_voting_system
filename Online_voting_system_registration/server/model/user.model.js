@@ -51,6 +51,10 @@ var userSchema = new mongoose.Schema({
     rsa :{
         type:Boolean,
         default:true
+    },
+    isvote:{
+        type:Boolean,
+        default:false
     }
 
 });

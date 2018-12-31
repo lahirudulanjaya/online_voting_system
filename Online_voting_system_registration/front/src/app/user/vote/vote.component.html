@@ -107,10 +107,21 @@
     <textarea matInput type="text" placeholder="public key" name ="publickey" [(ngModel)]="pub" matTextareaAutosize matAutosizeMinRows=10 matAutosizeMaxRows=20></textarea>
 </mat-form-field>
 <mat-form-field class ="private">
-    <textarea matInput type="text" placeholder="Enter Your private key" name ="private" [(ngModel)]="arr" matTextareaAutosize matAutosizeMinRows=10 matAutosizeMaxRows=20 required></textarea>
+    <textarea matInput type="text" placeholder="Enter Your private key" name ="private" [(ngModel)]="pri" matTextareaAutosize matAutosizeMinRows=10 matAutosizeMaxRows=20 required></textarea>
 </mat-form-field>
 </div>
-<button mat-raised-button color="primary" (click)="check()">Vote Now</button>
+<button mat-raised-button color="primary" [disabled]="isDisabled" (click)="check()">Vote Now</button>
+<div class="success" *ngIf="showSucessMessage">
+  Your Vote Saved successfully
+</div>
+
+<!-- Error message -->
+<div class="alert" *ngIf="serverErrorMessages">
+  {{serverErrorMessages}}
+</div>
+
+
+
 </form>
 
- 
+

@@ -14,6 +14,9 @@ import {VoteService} from '../../shared/vote.service';
   styleUrls: ['./vote.component.css']
 })
 export class VoteComponent implements OnInit {
+  isDisabled=false;
+  showSucessMessage: boolean;
+  serverErrorMessages: string;
   myModel;
   vote=new Vote();
   arr :Array<string>;
@@ -58,18 +61,70 @@ export class VoteComponent implements OnInit {
         
     }
   check(){
-    if(this.rsaservice.verifyprivate(this.pri,this.pub))
+    if(this.user.isvote==false){
+        if(this.rsaservice.verifyprivate(this.pri,this.pub)) //compaire public private key is they matched
     {
       alert('verifyed');
+      if((this.arr.length ==4) &&(this.vote.ED && this.vote.SE && this.vote.TR && this.vote.VP)){//check voter's vote is elibible or not
+        alert('vote eligible');
+        if(confirm("Confirm your Vote")){
+         
+          
+          this.postvote(); // post the vote
+        }
+        else{
+
+        }
+        
+      }
+      else{
+        alert('vote is not eligible');
+      }
     }
     else{
       alert('not verify');
     }
+  }
+  else{
+    alert('you have already voted');
+    this.isDisabled=true;
+  }
     
   
   }
 
-  change(){
+  postvote(){
+    this.vote.CM=this.arr;
+    this.voteservice.postvote(this.vote).subscribe(
+      res=>{
+  
+      this.serverErrorMessages='';
+      this.showSucessMessage = true;
+      setTimeout(() => this.showSucessMessage = false, 4000);
+      
+     
+      },
+      err =>{
+        this.serverErrorMessages = err.error;
+      }
+    )
+    if(!this.user.isvote){
+      this.usersevice.updatevote(this.user).subscribe(
+        res=>{
+            alert('you have succesfully voted')
+        },
+        err=>{
+          alert('errr');
+        }
+      )
+    }
+
+    
+  }
+  
+  
+
+  change(){ // count the number of checked box selected
     this.arr=[];
     this.num=0;
     this.candidates.forEach(item=>{

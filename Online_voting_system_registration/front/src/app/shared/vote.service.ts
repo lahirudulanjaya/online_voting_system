@@ -12,7 +12,7 @@ export class VoteService {
 
 postvote(vote:Vote){
   
-  this.http.post(environment.apiBaseUrl+'/postvote',vote);
+  return this.http.post(environment.apiBaseUrl+'/postvote',vote);
 
 }
 
