@@ -8,7 +8,14 @@ var emailSchema = new mongoose.Schema({
     },
     email:{
         type:String,
-        required: 'can\'t be empty'
+        
+    },
+    publickey:{
+        type:String
+
+    },
+    phonenumber:{
+        type:String
     }
   });
 

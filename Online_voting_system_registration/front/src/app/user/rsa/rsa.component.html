@@ -1,14 +1,34 @@
+
+<app-userheader></app-userheader>
+<app-usersidebar></app-usersidebar>
+
+
+
+<form #rsaform = "ngForm"  id=form (ngSubmit)="Onsave(rsaform)">
+
+        
+        
 <h1>Generate Your Keys</h1>
+
 <h5>we will save your public key in our database. please save your private key</h5>
+<input type="hidden" name ="_id" #_id ="ngModel" [(ngModel)]="rsaService.selectedrsa._id">
+
+<input  name ="registrationnumber"  #registrationnumber = "ngModel"  [(ngModel)]="rsaService.selectedrsa.registrationnumber" hidden >
 <mat-form-field class = "public">
-        <textarea matInput type="text" placeholder="public key" name ="public" value ={{public}} matTextareaAutosize matAutosizeMinRows=10 matAutosizeMaxRows=20 required></textarea>
+        <textarea matInput type="text" placeholder="public key" name ="publickey"  #election = "ngModel"  [(ngModel)]="rsaService.selectedrsa.publickey" matTextareaAutosize matAutosizeMinRows=10 matAutosizeMaxRows=20></textarea>
  </mat-form-field>
  <mat-form-field class ="private">
         <textarea matInput type="text" placeholder="private key" name ="private" value ={{private}} matTextareaAutosize matAutosizeMinRows=10 matAutosizeMaxRows=20 required></textarea>
  </mat-form-field>
  <div class="button">
-        <button mat-raised-button color="primary" (click)="getkey()" >Generate your keys</button>
-        <button id ="d" mat-raised-button color="primary" >Download privatekey</button>
-</div>
-
+        <button mat-raised-button color="primary" onclick="this.disabled=true" (click)="getkey()" >Generate your keys</button>
         
+</div>
+<div>
+<button mat-raised-button color="primary" type="submit">Submit</button>
+</div>
+<div>
+<a mat-raised-button color="primary" [href]="fileUrl" download="privatekey.txt">Click here for download privatekey</a>
+</div>
+</form> 
+

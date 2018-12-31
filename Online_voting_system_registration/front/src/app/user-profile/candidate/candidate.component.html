@@ -12,6 +12,18 @@
     <mat-form-field>
         <input matInput type="text" placeholder="Registration Number" name ="registrationnumber" #registrationnumber = "ngModel" [(ngModel)]="candidateService.selectedCandidate.registrationnumber" required>
       </mat-form-field>
+      <mat-form-field>
+        
+        <mat-select placeholder="Select Your post" name ="post" #post = "ngModel"  [(ngModel)]="candidateService.selectedCandidate.post" required>
+          <mat-option value="VP">Vice Precident</mat-option>
+          <mat-option value="SE">Secritary</mat-option>
+          <mat-option value="TR">Tresure</mat-option>
+          <mat-option value="ED">Editor</mat-option>
+          <mat-option value="CM">Commite member</mat-option>
+
+
+        </mat-select>
+      </mat-form-field>
          <mat-form-field>
         
         <mat-select placeholder="Select Your Course" name ="iscs" #icsc = "ngModel"  [(ngModel)]="candidateService.selectedCandidate.iscs" required>
@@ -19,17 +31,8 @@
           <mat-option value="is">Information System</mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field>
-          <mat-select  placeholder="Select Position" name ="position" #position = "ngModel" [(ngModel)]="candidateService.selectedCandidate.position" required>
-            <mat-option value="cs" >Vice Precident</mat-option>
-            <mat-option value="is">Secretary</mat-option>
-            <mat-option value="ts">Treasurer</mat-option>
-            <mat-option value="is">Editor</mat-option>
-          </mat-select>
-        </mat-form-field>
-      <mat-form-field>
-        <textarea matInput type="text" placeholder="Description" name ="description" #description = "ngModel" [(ngModel)]="candidateService.selectedCandidate.description" required></textarea>
-    </mat-form-field>
+  
+      
     <div class ="btn">
     <button mat-raised-button color="primary" type ="submit">Submit</button>
     </div>

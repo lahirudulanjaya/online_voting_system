@@ -1,0 +1,34 @@
+.candidate-card {
+    max-width: 300px;
+  }
+  
+  .mat-radio-button {
+    size: 0mm;
+  }
+  #ss{
+    width: 1em;
+  }
+
+ 
+  .key > * {
+    width: 50%;
+  }
+  .alert {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+    width:50%;
+    margin-left: 200px;
+    
+  }
+  
+  .success{
+    padding: 20px;
+    background-color:#249424; /* Green */
+    color: white;
+    margin-bottom: 15px;
+    width:50%;
+    margin-left: 200px;
+  
+  }

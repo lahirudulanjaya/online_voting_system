@@ -2,8 +2,8 @@ export class Candidate
 {
     election:string;
     candidatename :string;
-    registrationnumber :string;
-    iscs :string;
-    position:string;
-    description:string;
+    post:string;
+    regnumber :string;
+    degree :string;
+    checked:boolean;
 }

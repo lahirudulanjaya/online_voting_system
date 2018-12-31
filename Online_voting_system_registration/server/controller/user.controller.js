@@ -89,7 +89,7 @@ module.exports.userprofile = (req, res, next) =>{
             if (!user)
                 return res.status(404).json({ status: false, message: 'User record not found.' });
             else
-                return res.status(200).json({ status: true, user : _.pick(user,['userName','email','registrationnumber','phonenumber']) });
+                return res.status(200).json({ status: true, user : _.pick(user,['userName','email','registrationnumber','phonenumber','rsa','isvote']) });
         }
     );
 }
@@ -137,3 +137,21 @@ module.exports.deleteuserprofile=(req,res,next) =>{
     })
     
 }
+
+module.exports.updateuservote= (req, res) => {
+
+    User.findOneAndUpdate({registrationnumber:req.body.registrationnumber},{$set:{isvote:true}},(err,result)=>{
+        if(err){
+            res.status(422).send(err);
+        }
+        else{
+            res.send(result);
+        }
+
+
+
+    })
+
+
+}
+

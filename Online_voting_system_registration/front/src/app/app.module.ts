@@ -31,6 +31,7 @@ import { AdminComponent } from './admin/admin.component';
 // For MDB Angular Free
 import { CarouselModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md'
 import { VerifyComponent } from './user/verify/verify.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { SidebarComponent } from './admin/components/sidebar/sidebar.component';
 import { HeaderComponent } from './admin/components/header/header.component';
@@ -57,6 +58,8 @@ import { VoterComponent } from './admin/voter/voter.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AddCandidateDialogComponent } from './admin/member/add-candidate-dialog/add-candidate-dialog.component';
 import {RsaComponent} from './user/rsa/rsa.component';
+import { VoteComponent } from './user/vote/vote.component';
+import { MatRadioModule } from '@angular/material';
 
 
 
@@ -84,7 +87,8 @@ import {RsaComponent} from './user/rsa/rsa.component';
     CandidateComponent,
     VoterComponent,
     AddCandidateDialogComponent,
-    RsaComponent
+    RsaComponent,
+    VoteComponent
   ],
   imports: [
     BrowserModule,
@@ -96,6 +100,7 @@ import {RsaComponent} from './user/rsa/rsa.component';
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
+    MatCheckboxModule,
     LayoutModule,
     MatTableModule,
     MatPaginatorModule,
@@ -123,7 +128,8 @@ import {RsaComponent} from './user/rsa/rsa.component';
     MatToolbarModule,
     MatDatepickerModule,
     MatMomentDateModule,
-    MatDialogModule
+    MatDialogModule,
+    MatRadioModule
   ],
   entryComponents: [
     AddCandidateDialogComponent

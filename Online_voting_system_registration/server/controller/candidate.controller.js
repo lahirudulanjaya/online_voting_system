@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 const Candidate = mongoose.model('candidate');
 
-module.exports.setcandidate = (req,res,next) => {
+module.exports.setcandidate = (req,res,next) => 
+{
         var candidate = new Candidate();
         candidate.election =req.body.election;
+        candidate.post=req.body.post;
         candidate.candidatename = req.body.candidatename;
-        candidate.registrationnumber=req.body.registrationnumber;
-        candidate.iscs = req.body.iscs;
-        candidate.position=req.body.position;
-        candidate.description=req.body.description;
+        candidate.regnumber=req.body.registrationnumber;
+        candidate.degree = req.body.iscs;
 
         candidate.save((err,doc) => {
             if (!err){
@@ -26,5 +26,19 @@ module.exports.setcandidate = (req,res,next) => {
             }
 
         });
+        
 
+       
+
+}
+module.exports.getcandidateprofiles=(req,res,next) =>{
+    Candidate.find({},{},function(err, candidates) {
+        if(err){
+            res.send("something went wrong");
+            next;
+        }
+        res.status(200).json(candidates);
+        
+      });
+    
 }

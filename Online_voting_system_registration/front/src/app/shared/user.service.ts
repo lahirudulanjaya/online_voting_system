@@ -17,7 +17,8 @@ export class UserService {
     email: '',
     phonenumber :'',
     password: '',
-    cpassword:''
+    cpassword:'',
+    isvote :null,
 
   };
 
@@ -72,11 +73,15 @@ putuserprofile(user :User)
   });
   
 }
-deleteuserprofile(_id :string){
+deleteuserprofile(_id :string)
+{
   if(confirm('Are you sure you want to delete this user?')==true)
       this.http.delete(environment.apiBaseUrl+'/delete'+'/'+_id).subscribe((res)=>{
         location.reload();
       }); 
+}
+updatevote(user:User){
+  return this.http.put(environment.apiBaseUrl+'/confirmvote',user);
 }
 
 

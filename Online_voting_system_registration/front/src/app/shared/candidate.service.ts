@@ -9,12 +9,11 @@ export class CandidateService {
 
   selectedCandidate:Candidate ={
     election:'',
+    post:'',
     candidatename :'',
-    registrationnumber :'',
-    iscs :'',
-    position:'',
-    description:'',
-
+    regnumber :'',
+    degree :'',
+    checked: false
 
   };
   
@@ -23,6 +22,9 @@ export class CandidateService {
   constructor(private HTTP :HttpClient) {}
   postcandidate(candidate: Candidate){
     return this.HTTP.post(environment.apiBaseUrl+'/candidate',candidate);
+  }
+  getCandidateProfiles() {
+    return this.HTTP.get(environment.apiBaseUrl + '/getcandidateprofiles');
   }
   
 }
