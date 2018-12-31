@@ -8,6 +8,8 @@ import {User} from '../../shared/user.model';
 import {Email} from '../../shared/email.model';
 import {Vote} from '../../shared/vote.model';
 import {VoteService} from '../../shared/vote.service';
+
+
 @Component({
   selector: 'app-vote',
   templateUrl: './vote.component.html',
@@ -30,7 +32,7 @@ export class VoteComponent implements OnInit {
   constructor(private candidateservice :CandidateService,private rsaservice:RsaService,private usersevice:UserService,private voteservice:VoteService) {
     
    }
-   
+
   
   ngOnInit() {
    

@@ -45,7 +45,8 @@ export class SignUpComponent implements OnInit {
       email: '',
       phonenumber:'',
       password: '',
-      cpassword:''
+      cpassword:'',
+      isvote:null
 
 
     };
