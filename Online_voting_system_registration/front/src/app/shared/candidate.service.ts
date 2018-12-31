@@ -11,9 +11,9 @@ export class CandidateService {
     election:'',
     post:'',
     candidatename :'',
-    registrationnumber :'',
-    iscs :''
-
+    regnumber :'',
+    degree :'',
+    checked: false
 
   };
   

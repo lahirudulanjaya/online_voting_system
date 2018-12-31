@@ -6,23 +6,33 @@ import {RsaService} from '../../shared/rsa.service';
 import { UserService } from '../../shared/user.service';
 import {User} from '../../shared/user.model';
 import {Email} from '../../shared/email.model';
+import {Vote} from '../../shared/vote.model';
+import {VoteService} from '../../shared/vote.service';
 @Component({
   selector: 'app-vote',
   templateUrl: './vote.component.html',
   styleUrls: ['./vote.component.css']
 })
 export class VoteComponent implements OnInit {
+  myModel;
+  vote=new Vote();
+  arr :Array<string>;
+  num;
   user:User;
   reg;//registration number
   candidates :Candidate[]; //for retrive candidates
   rsa:Email; //for retrive public key
   pub:string;
   pri:string;
-  constructor(private candidateservice :CandidateService,private rsaservice:RsaService,private usersevice:UserService) {
+  constructor(private candidateservice :CandidateService,private rsaservice:RsaService,private usersevice:UserService,private voteservice:VoteService) {
     
    }
+   
   
   ngOnInit() {
+   
+    
+    
     this.usersevice.getUserProfile().subscribe(
       res =>{
         this.user= res['user'];
@@ -59,10 +69,22 @@ export class VoteComponent implements OnInit {
   
   }
 
+  change(){
+    this.arr=[];
+    this.num=0;
+    this.candidates.forEach(item=>{
+      console.log(item)
+      if(item.checked){
+        this.num= this.num+1
+        this.arr.push(item.regnumber);
+      }
+      else{
+      }
 
-
-
-
+    })
   }
+  
+}
+  
   
 

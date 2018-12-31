@@ -3,6 +3,7 @@ export class Candidate
     election:string;
     candidatename :string;
     post:string;
-    registrationnumber :string;
-    iscs :string;
+    regnumber :string;
+    degree :string;
+    checked:boolean;
 }

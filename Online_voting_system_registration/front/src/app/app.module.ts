@@ -31,6 +31,7 @@ import { AdminComponent } from './admin/admin.component';
 // For MDB Angular Free
 import { CarouselModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md'
 import { VerifyComponent } from './user/verify/verify.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { SidebarComponent } from './admin/components/sidebar/sidebar.component';
 import { HeaderComponent } from './admin/components/header/header.component';
@@ -99,6 +100,7 @@ import { MatRadioModule } from '@angular/material';
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
+    MatCheckboxModule,
     LayoutModule,
     MatTableModule,
     MatPaginatorModule,
