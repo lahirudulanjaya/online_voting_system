@@ -3,7 +3,10 @@ import{Email} from './email.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import * as forge from 'node-forge';
+import { Observable } from 'rxjs/Observable';
 
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 @Injectable({
   providedIn: 'root'
 })

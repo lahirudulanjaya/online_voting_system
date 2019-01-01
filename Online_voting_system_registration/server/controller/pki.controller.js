@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const  Email= mongoose.model('email');
-var generateRSAKeypair = require('generate-rsa-keypair')
 var forge = require('node-forge');
 var arr =[];
 
@@ -43,17 +42,14 @@ module.exports.putpki=(req,res,next) =>{
 
 module.exports.getkey=(req,res,next)=>{
 
+ var pair=forge.pki.rsa.generateKeyPair({bits: 2048, workers: 5}, function(err, keypair) {
+arr[0] = forge.pki.publicKeyToPem(keypair.publicKey);
+arr[1] =forge.pki.privateKeyToPem(keypair.privateKey);
+res.send(arr);
+});
 
-   var pair = generateRSAKeypair()
 
-    pri =pair.private;
-    pub =pair.public;
-  
-    arr[1]=pri;
-    arr[0]=pub;
-    console.log(pub);
-    res.send(arr);
-    
+
 }
 
 module.exports.downloadprivate=(req,res,next)=>{ 

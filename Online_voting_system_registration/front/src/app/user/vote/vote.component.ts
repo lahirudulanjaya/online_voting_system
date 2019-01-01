@@ -9,11 +9,11 @@ import {Email} from '../../shared/email.model';
 import {Vote} from '../../shared/vote.model';
 import {VoteService} from '../../shared/vote.service';
 
-
 @Component({
   selector: 'app-vote',
   templateUrl: './vote.component.html',
-  styleUrls: ['./vote.component.css']
+  styleUrls: ['./vote.component.css'],
+  providers:[VoteService,UserService,RsaService,CandidateService]
 })
 export class VoteComponent implements OnInit {
   isDisabled=false;

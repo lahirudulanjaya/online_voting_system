@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Candidate} from './candidate.model';
+import { Observable } from 'rxjs/Observable';
+
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 @Injectable({
   providedIn: 'root'
 })

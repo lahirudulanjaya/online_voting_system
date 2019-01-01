@@ -42,7 +42,8 @@
     "node-forge": "^0.7.6",
     "npm": "^6.4.1",
     "randomstring": "^1.1.5",
-    "rxjs": "~6.2.0",
+    "rxjs": "^6.2.2",
+    "rxjs-compat": "^6.3.3",
     "uikit": "^3.0.0-rc.20",
     "zone.js": "~0.8.26"
   },
