@@ -1,47 +1,46 @@
-.gr{
-    margin-left:200px;
-    margin-top: 100px;
-    width:50%;
-  }
-  
-  .imgs{
-    width: 40%;
-    margin-left:200px;
-  }
-  .grid-container {
-    margin: 20px;
-  }
-  
-  .dashboard-card {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    right: 15px;
-    bottom: 15px;
-  }
-  
-  .more-button {
-    position: absolute;
-    top: 5px;
-    right: 10px;
-  }
-  
-  .dashboard-card-content {
-    text-align: center;
-  }
-  
-  .sample-content{
-   
-    width: 320px;
-    display: inline-block;
-    padding-right:100px;
-    
-  }
-  .sample-wrapper{
-    margin-top: 100px;
-    margin-left :200px;
-  }
-  
-  .overflow-hidden {
-    overflow: hidden;
-  }
+.overview-toolbar {
+  margin-top: 75px;
+}
+
+.toolbar-title {
+  margin-left: 230px;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar-button {
+  margin: 10px;
+}
+
+.mat-toolbar {
+  background-color: #ebedf7;
+}
+
+i {
+  vertical-align: middle;
+}
+
+.container {
+  margin-top: 20px;
+  margin-left: 300px;
+  margin-bottom: 40px;
+}
+
+.number-card {
+  height: 150px;
+  background-color: #3F51B5;
+}
+
+.card-text {
+  text-align: right;
+}
+
+.material-icons {
+  font-size: 35px;
+}
+
+.card-deck {
+  margin-bottom: 30px;
+}

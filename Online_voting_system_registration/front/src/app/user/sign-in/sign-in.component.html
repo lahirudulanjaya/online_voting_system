@@ -13,7 +13,7 @@
     <mat-form-field appearance="standard">
       <mat-label>Password</mat-label>
       <input matInput [type]="hide ? 'password' : 'text'" name="password" #password="ngModel" [(ngModel)]="model.password"
-        required minlength="4" [ngClass]="{'invalid-textbox' :signInForm.submitted && !password.valid }">
+        required [ngClass]="{'invalid-textbox' :signInForm.submitted && !password.valid }">
     </mat-form-field>
     <div *ngIf="signInForm.submitted && password.errors?.minlength">
       <!-- <label class="validation-message">Minimum 4 characters.</label> -->
