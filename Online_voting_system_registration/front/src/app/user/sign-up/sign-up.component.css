@@ -156,6 +156,20 @@ label.validation-message{
 
 }
 
+/* Header design */
+i {
+  vertical-align: middle;
+}
 
+.navbar {
+  background-color: #3F51B5;
+}
 
+.navbar-brand {
+  color: white;
+  padding: 16px;
+}
 
+* {
+  box-sizing: border-box;
+}
