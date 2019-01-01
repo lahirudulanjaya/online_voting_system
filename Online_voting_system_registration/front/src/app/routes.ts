@@ -15,7 +15,7 @@ import { VoterComponent } from './admin/voter/voter.component';
 import { CandidateComponent} from './user-profile/candidate/candidate.component';
 import {RsaComponent} from './user/rsa/rsa.component';
 import { ProfileComponent } from './user-profile/profile/profile.component';
-import{VoteComponent } from './user/vote/vote.component';
+import { VoteComponent } from './user/vote/vote.component';
 export const appRoutes: Routes = [
     {
         path: 'signup', component: UserComponent,
@@ -28,10 +28,10 @@ export const appRoutes: Routes = [
     {
         path: 'userprofile', component: UserProfileComponent,
         children:[
-            {path : 'dashboard', component :UserdashboardComponent},
-            {path : 'election' , component :CandidateComponent},
-            {path : 'getkeys' , component:RsaComponent},
-            {path : 'profile' , component:ProfileComponent}
+            {path : 'overview', component: UserdashboardComponent},
+            {path : 'election' , component: CandidateComponent},
+            {path : 'getkeys' , component: RsaComponent},
+            {path : 'profile' , component: ProfileComponent}
         ]
 
     },
@@ -47,17 +47,14 @@ export const appRoutes: Routes = [
                 { path : 'overview', component : DashboardComponent,},
                 { path : 'election', component: ElectionComponent,},
                 { path : 'candidates', component: MemberComponent,},
-                { path: 'rules', component: RulesComponent,},
-                {path: 'voter', component: VoterComponent}
-            ]
-
-        
-    },{
-        path :'getkey' ,component:RsaComponent,
+                { path : 'rules', component: RulesComponent,},
+                { path : 'voter', component: VoterComponent}
+            ] 
     },
     {
-        path: 'voting' ,component:VoteComponent
+        path : 'getkey', component: RsaComponent,
+    },
+    {
+        path: 'voting', component: VoteComponent
     }
-    
-
 ];
