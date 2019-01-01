@@ -1,25 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
-
-export interface VoterElement {
-  registrationNumber: string;
-  name: string;
-  academicYear: string;
-}
-
-const ELEMENT_DATA: VoterElement[] = [
-  { registrationNumber: '2016/CS/01', name: 'Sanduni K.', academicYear: '2015/2016' },
-  { registrationNumber: '2016/CS/02', name: 'Lahiru D.', academicYear: '2015/2016' },
-  { registrationNumber: '2016/CS/03', name: 'Sanduni D.', academicYear: '2015/2016' },
-  { registrationNumber: '2016/CS/04', name: 'Hashini P.', academicYear: '2015/2016' },
-  { registrationNumber: '2016/CS/05', name: 'Dasuni G.', academicYear: '2015/2016' },
-  { registrationNumber: '2016/CS/06', name: 'Tharushi J.', academicYear: '2015/2016' },
-  { registrationNumber: '2016/CS/07', name: 'Ashera S.', academicYear: '2015/2016' },
-  { registrationNumber: '2016/CS/08', name: 'Tikiri D.', academicYear: '2015/2016' },
-  { registrationNumber: '2016/CS/09', name: 'Vindula S.', academicYear: '2015/2016' },
-  { registrationNumber: '2016/CS/10', name: 'Hiruni M.', academicYear: '2015/2016' },
-];
-
+import { UserService } from '../../shared/user.service';
+import { Router } from '@angular/router';
+import { User } from '../../shared/user.model';
+import { NgForm } from '@angular/forms';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-voter',
@@ -27,18 +12,32 @@ const ELEMENT_DATA: VoterElement[] = [
   styleUrls: ['./voter.component.css']
 })
 export class VoterComponent implements OnInit {
-  displayedColumns: string[] = ['registrationNumber', 'name', 'academicYear'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  serverErrorMessages: string;
+  showSucessMessage: boolean;
+  users: User[];
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  constructor(private userService: UserService, private router: Router, public dialog: MatDialog) { }
+  displayedColumns: string[] = ['userName', 'registrationnumber', 'phonenumber','email'];
+  dataSource = this.users;
 
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  
+
+  
+
+  ngOnInit() {
+    this.userService.getUserProfiles().subscribe(
+      users =>{
+          this.users=users as User[];
+      })
+      }
+      Onedit(member: User) {
+        this.userService.selectedUser = member;
+      }
+      Onsubmit(form: NgForm) {
+        this.userService.putuserprofile(form.value);
+      }
+      Ondelete(id: string) {
+        this.userService.deleteuserprofile(id);
+      }
   }
-    constructor() { }
 
-    ngOnInit() {
-      this.dataSource.paginator = this.paginator;
-    }
-
-  }

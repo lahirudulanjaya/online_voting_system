@@ -32,24 +32,29 @@
 
       <!-- Voters table -->
       <div class="mat-elevation-z8">
-        <table mat-table [dataSource]="dataSource">
-
-          <!-- Registration No. Column -->
-          <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef> User Name </th>
-            <td mat-cell *matCellDef="let element"> {{element.registrationNumber}} </td>
-          </ng-container>
-
+        <table mat-table [dataSource]="users">
+ 
           <!-- Name Column -->
-          <ng-container matColumnDef="registrationNumber">
-            <th mat-header-cell *matHeaderCellDef> Name </th>
-            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          <ng-container matColumnDef="userName">
+            <th mat-header-cell *matHeaderCellDef> User Name </th>
+            <td mat-cell *matCellDef="let element" (click)="Onedit(element)"> {{element.userName}} </td>
           </ng-container>
 
-          <!-- Academic Year Column -->
-          <ng-container matColumnDef="academicYear">
-            <th mat-header-cell *matHeaderCellDef> Academic Year </th>
-            <td mat-cell *matCellDef="let element"> {{element.academicYear}} </td>
+         <!-- Registration No. Column -->
+          <ng-container matColumnDef="registrationnumber">
+            <th mat-header-cell *matHeaderCellDef> Registration Number </th>
+            <td mat-cell *matCellDef="let element" (click)="Onedit(element)"> {{element.registrationnumber}} </td>
+          </ng-container>
+
+          <!-- Phone number -->
+          <ng-container matColumnDef="phonenumber">
+            <th mat-header-cell *matHeaderCellDef> Telephone No </th>
+            <td mat-cell *matCellDef="let element" (click)="Onedit(element)" > {{element.phonenumber}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let element" (click)="Onedit(element)"> {{element.email}} </td>
           </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -77,21 +82,25 @@
           <mat-card-content>
             <ul>
               <li>
-                <mat-label>Registration No.: </mat-label>
+                <mat-label>User Name.:{{userService.selectedUser.userName}} </mat-label>
               </li>
               <li>
-                <mat-label>Academic Year: </mat-label>
+                <mat-label>Registration Number: {{userService.selectedUser.registrationnumber}} </mat-label>
               </li>
               <li>
-                <mat-label>Telephone No.: </mat-label>
+                <mat-label>Telephone No.: {{userService.selectedUser.phonenumber}}</mat-label>
               </li>
+              <li>
+                <mat-label>Email : {{userService.selectedUser.email}}</mat-label>
+              </li>
+
             </ul>
           </mat-card-content>
 
           <!-- Buttons to Edit and Delete Candidates -->
           <mat-card-actions>
             <button mat-flat-button color="primary" data-toggle="modal" data-target="#editCandidateModal">Edit Candidate</button>
-            <button mat-stroked-button color="warn">Delete Candidate</button>
+            <button mat-stroked-button color="warn" (click)="Ondelete(userService.selectedUser._id)">Delete Candidate</button>
           </mat-card-actions>
         </div>
       </mat-card>
@@ -101,6 +110,8 @@
 </div>
 
 <!-- Edit Candidate Modal -->
+<form #memberform="ngForm" (ngSubmit)="memberform.valid && Onsubmit(memberform) ">
+
 <div class="modal fade" id="editCandidateModal" tabindex="-1" role="dialog" aria-labelledby="editCandidateTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -115,7 +126,6 @@
 
       <!-- Modal Body -->
       <div class="modal-body">
-        <form #memberform="ngForm" (ngSubmit)="memberform.valid && Onsubmit(memberform) ">
           <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedUser._id">
       
           <!-- User Name -->
@@ -145,7 +155,7 @@
             <input matInput type="email" name="email" #email="ngModel" [(ngModel)]="userService.selectedUser.email"
               required>
           </mat-form-field>      
-        </form>
+       
       </div>
 
       <!-- Modal Footer -->
@@ -153,9 +163,11 @@
         <button mat-button type="button" data-dismiss="modal">Cancel</button>
         <button mat-raised-button color="primary" type="submit">Save changes</button>
       </div>
+   
     </div>
   </div>
 </div>
+</form>
 
 <!-- <div class="row">
 <div class="column">

@@ -19,6 +19,10 @@ export class MemberComponent implements OnInit {
   users: User[];
 
   constructor(private userService: UserService, private router: Router, public dialog: MatDialog) { }
+  displayedColumns: string[] = ['userName', 'registrationnumber', 'phonenumber','email'];
+  dataSource = this.users;
+
+  
 
   openAddCandidateDialog(): void {
     const dialogRef = this.dialog.open(AddCandidateDialogComponent, {
@@ -33,12 +37,8 @@ export class MemberComponent implements OnInit {
   ngOnInit() {
     this.userService.getUserProfiles().subscribe(
       users =>{
-          //console.log(users);
           this.users=users as User[];
       })
-     
-        
-
       }
       Onedit(member: User) {
         this.userService.selectedUser = member;
