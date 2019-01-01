@@ -31,7 +31,6 @@
     "chart.js": "^2.7.3",
     "core-js": "^2.5.4",
     "file-saver": "^2.0.0",
-    "generate-rsa-keypair": "^0.1.2",
     "hammerjs": "^2.0.8",
     "igniteui-angular": "^6.1.8",
     "jspdf": "^1.5.2",
