@@ -3,7 +3,6 @@
   <form #memberform="ngForm" (ngSubmit)="memberform.valid && Onsubmit(memberform) ">
     <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedUser._id">
 
-    <!-- User name -->
     <mat-form-field appearance="standard">
       <mat-label>User Name</mat-label>
       <input matInput type="text" name="userName" #userName="ngModel" [(ngModel)]="userService.selectedUser.userName"
