@@ -90,7 +90,7 @@
 
           <!-- Buttons to Edit and Delete Voters -->
           <mat-card-actions>
-            <button mat-flat-button color="primary">Edit Voter</button>
+            <button mat-flat-button color="primary" data-toggle="modal" data-target="#editVoterModal">Edit Voter</button>
             <button mat-stroked-button color="warn">Delete Voter</button>
           </mat-card-actions>
         </div>
@@ -100,3 +100,60 @@
   </div>
 </div>
 
+<!-- Edit Voter Modal -->
+<div class="modal fade" id="editVoterModal" tabindex="-1" role="dialog" aria-labelledby="editVoterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h5 class="modal-title" id="editVoterTitle">Edit Voter</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+  
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <form #memberform="ngForm" (ngSubmit)="memberform.valid && Onsubmit(memberform) ">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedUser._id">
+        
+            <!-- User Name -->
+            <mat-form-field appearance="standard">
+              <mat-label>User Name</mat-label>
+              <input matInput type="text" name="userName" #userName="ngModel" [(ngModel)]="userService.selectedUser.userName"
+                required>
+            </mat-form-field>
+  
+            <!-- Registration Number -->
+            <mat-form-field appearance="standard">
+              <mat-label>Registration Number</mat-label>
+              <input matInput type="text" name="registrationnumber" #registrationnumber="ngModel"
+                [(ngModel)]="userService.selectedUser.registrationnumber" required>
+            </mat-form-field>
+  
+            <!-- Phone Number -->
+            <mat-form-field appearance="standard">
+              <mat-label>Phone Number</mat-label>
+              <input matInput type="text" name="phonenumber" #phonenumber="ngModel" [(ngModel)]="userService.selectedUser.phonenumber"
+                required>
+            </mat-form-field>
+  
+            <!-- Email Address -->
+            <mat-form-field appearance="standard">
+              <mat-label>Email Address</mat-label>
+              <input matInput type="email" name="email" #email="ngModel" [(ngModel)]="userService.selectedUser.email"
+                required>
+            </mat-form-field>      
+          </form>
+        </div>
+  
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+          <button mat-button type="button" data-dismiss="modal">Cancel</button>
+          <button mat-raised-button color="primary" type="submit">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
