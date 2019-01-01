@@ -1,10 +1,3 @@
-.election-container {
-  display: flex;
-  flex-direction: column;
-  padding-left: 10%;
-  padding-right: 10%;
-}
-
 .election-toolbar {
   margin-top: 75px;
 }
@@ -33,12 +26,16 @@ i {
   margin-top: 10px;
   margin-left :500px;
 }
+
+.mat-form-field {
+  width: 100%;
+}
+
 label.validation-message
 {
-width: 200px;
-color:#ed5558;
-margin-left: 260px;
-
+  width: 200px;
+  color:#ed5558;
+  margin-left: 260px;
 }
 
 #setelection{

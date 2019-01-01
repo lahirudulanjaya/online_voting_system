@@ -1,5 +1,5 @@
-<!-- <app-header></app-header>
-<app-sidebar></app-sidebar> -->
+<app-header></app-header>
+<app-sidebar></app-sidebar>
 
 <div class="election-toolbar">
   <mat-toolbar>
@@ -13,7 +13,7 @@
       <!-- Add & Delete Elections buttons -->
       <span class="example-spacer"></span>
 
-      <button mat-flat-button color="primary" class="toolbar-button">
+      <button mat-flat-button color="primary" class="toolbar-button" data-toggle="modal" data-target="#addElectionModal">
         <i class="material-icons">add</i>
         &nbsp; Add Election
       </button>
@@ -26,28 +26,100 @@
   </mat-toolbar>
 </div>
 
+<!-- Add Election Modal -->
+<div class="modal fade" id="addElectionModal" tabindex="-1" role="dialog" aria-labelledby="addElectionTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title" id="addElectionTitle">New Election</h5>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <form #electionForm="ngForm" class="electionform" (ngSubmit)="electionForm.valid && onSubmit(electionForm)">
+          <!-- <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedUser._id"> -->
+      
+          <!-- Election name -->
+          <mat-form-field appearance="standard">
+            <mat-label>Election Name</mat-label>
+            <input matInput #Name="ngModel" [(ngModel)]="electionService.selectedElection.Name" name="Name" required
+              [ngClass]="{'invalid-textbox' :electionForm.submitted && !Name.valid }">
+          </mat-form-field><br>
+
+          <!-- Election Date -->
+          <mat-form-field appearance="standard">
+            <input matInput [matDatepicker]="picker" placeholder="Election Date" [(ngModel)]="electionService.selectedElection.date"
+              name="date" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <!-- <input type="text" #date="ngModel" [(ngModel)]="electionService.selectedElection.date" name="date" placeholder="Election Date"
+              required [ngClass]="{'invalid-textbox' :electionForm.submitted && !date.valid }"> -->
+          </mat-form-field>
+
+          <label>Choose Start Time:</label>
+          <input type="time" [(ngModel)]="electionService.selectedElection.stime" name="stime" placeholder="Starting TIme"
+            min="9:00" max="18:00"><br>
+          <label>Start Time:</label>
+          <input type="text" #stime="ngModel" [(ngModel)]="electionService.selectedElection.stime" name="stime" placeholder="Starting TIme"
+            required [ngClass]="{'invalid-textbox' :electionForm.submitted && !stime.valid }">
+      
+          <div *ngIf="electionForm.submitted && !stime.valid">
+      
+          </div>
+
+          <label>Choose End Time:</label>
+          <input type="time" [(ngModel)]="electionService.selectedElection.etime" name="etime" placeholder="Ending TIme" min="9:00"
+            max="18:00"><br>
+          <label>End Time</label>
+          <input type="text" #etime="ngModel" [(ngModel)]="electionService.selectedElection.etime" name="etime" placeholder="Ending TIme"
+            required [ngClass]="{'invalid-textbox' :electionForm.submitted && !date.valid }">
+          <div *ngIf="electionForm.submitted  && !etime.valid">
+      
+          </div>
+        </form>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button mat-button type="button" data-dismiss="modal">Cancel</button>
+        <button mat-raised-button color="primary" type="submit">Set Election</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="success" *ngIf="showSucessMessage">
+  Saved successfully
+</div>
+
+<div class="alert" *ngIf="serverErrorMessages">
+  {{serverErrorMessages}}
+</div>
+
 <!-- Set election form -->
-<form #electionForm="ngForm" class="electionform" (ngSubmit)="electionForm.valid && onSubmit(electionForm)">
+<!-- <form #electionForm="ngForm" class="electionform" (ngSubmit)="electionForm.valid && onSubmit(electionForm)"> -->
 
   <!-- Form content -->
-  <div class="election-container">
+  <!-- <div class="election-container"> -->
 
     <!-- Election name -->
-    <mat-form-field appearance="standard">
+    <!-- <mat-form-field appearance="standard">
       <mat-label>Election Name</mat-label>
       <input matInput #Name="ngModel" [(ngModel)]="electionService.selectedElection.Name" name="Name" required
         [ngClass]="{'invalid-textbox' :electionForm.submitted && !Name.valid }">
-    </mat-form-field>
+    </mat-form-field> -->
 
     <!-- Election Date -->
-    <mat-form-field>
+    <!-- <mat-form-field>
       <input matInput [matDatepicker]="picker" placeholder="Election Date" [(ngModel)]="electionService.selectedElection.date"
         name="date" required>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
+      <mat-datepicker #picker></mat-datepicker> -->
       <!-- <input type="text" #date="ngModel" [(ngModel)]="electionService.selectedElection.date" name="date" placeholder="Election Date"
         required [ngClass]="{'invalid-textbox' :electionForm.submitted && !date.valid }"> -->
-    </mat-form-field>
+    <!-- </mat-form-field>
   </div>
 
   <div>
@@ -79,14 +151,4 @@
 
   <input type="submit" value="Set Election">
 
-</form>
-
-
-
-<div class="success" *ngIf="showSucessMessage">
-  Saved successfully
-</div>
-
-<div class="alert" *ngIf="serverErrorMessages">
-  {{serverErrorMessages}}
-</div>
+</form> -->
