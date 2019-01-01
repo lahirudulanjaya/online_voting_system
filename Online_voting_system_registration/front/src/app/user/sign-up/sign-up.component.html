@@ -1,3 +1,9 @@
+<nav class="navbar navbar-expand-lg fixed-top shadow">
+  <img src="/src/assets/img/Copy of UCSC_logo-Converted-white (1).png" width="40" height="40" class="d-inline-block align-top"
+    alt="">
+  <li class="navbar-brand">UCSC Online Voting System</li>
+</nav>
+
 <form #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
   <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedUser._id">
 
@@ -43,7 +49,7 @@
     </mat-form-field>
     <div *ngIf="signUpForm.submitted && !phonenumber.valid">
       <label *ngIf="phonenumber.errors.required" class="validation-message"></label>
-      <label *ngIf="phonenumber.errors.pattern" class="validation-message">Invalid Phonenumber.</label>
+      <label *ngIf="phonenumber.errors.pattern" class="validation-message">Invalid Phone Number.</label>
     </div>
 
     <!-- Password -->
@@ -55,7 +61,7 @@
     <div *ngIf="signUpForm.submitted && password.errors">
       <label *ngIf="password.errors.required" class="validation-message"></label>
       <label *ngIf="password.errors.minlength" class="validation-message">Enter atleast 8 characters.<br></label>
-      <label *ngIf="password.errors.pattern" class="validation-message">Password must include atleast one number, one
+      <label *ngIf="password.errors.pattern" class="validation-message">Password must include at least one number, one
         upper case letter and one lower case letter</label>
     </div>
 
@@ -67,7 +73,7 @@
     </mat-form-field>
     <div *ngIf="signUpForm.submitted && cpassword.errors">
       <label *ngIf="cpassword.errors.required" class="validation-message"></label>
-      <label *ngIf="cpassword.errors.minlength" class="validation-message">Enter atleast 8 characters.<br></label>
+      <label *ngIf="cpassword.errors.minlength" class="validation-message">Enter at least 8 characters.<br></label>
       <label *ngIf="cpassword.errors.notEqual" class="validation-message">Password and confirm password doesn't match</label>
     </div>
 
