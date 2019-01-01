@@ -26,14 +26,7 @@ export class RsaComponent implements OnInit {
   fileUrl;
 
   ngOnInit() {
-    this.rsaService.getkeys().subscribe(
-      arr=>{
-        this.arr=arr as Array<string>;
-        const data = arr[1];
-        const blob = new Blob([data], { type: 'application/octet-stream' });
-
-        this.fileUrl = this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(blob));
-      })
+    
     this.userService.getUserProfile().subscribe(
       res => {
         this.userDetails = res['user'];
@@ -56,6 +49,12 @@ export class RsaComponent implements OnInit {
    
     
   }
+  download(){
+    const blob = new Blob([this.arr[1]], { type: 'application/octet-stream' });
+
+    this.fileUrl=this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(blob));
+
+  }
 
   getkey(){
     if(this.rsa==true){
@@ -64,6 +63,7 @@ export class RsaComponent implements OnInit {
         this.arr=arr as Array<string>;
         this.private=this.arr[1];
         this.rsaService.selectedrsa.publickey=this.arr[0];
+        this.download();
 
       })
     
