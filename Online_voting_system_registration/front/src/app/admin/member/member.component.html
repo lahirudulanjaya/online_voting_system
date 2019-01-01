@@ -32,29 +32,29 @@
 
       <!-- Voters table -->
       <div class="mat-elevation-z8">
-        <table mat-table [dataSource]="users">
+        <table mat-table [dataSource]="candidates">
  
           <!-- Name Column -->
-          <ng-container matColumnDef="userName">
-            <th mat-header-cell *matHeaderCellDef> User Name </th>
-            <td mat-cell *matCellDef="let element" (click)="Onedit(element)"> {{element.userName}} </td>
+          <ng-container matColumnDef="candidatename">
+            <th mat-header-cell *matHeaderCellDef> Candidate Name </th>
+            <td mat-cell *matCellDef="let element" (click)="Onedit(element)"> {{element.candidatename}} </td>
           </ng-container>
 
          <!-- Registration No. Column -->
-          <ng-container matColumnDef="registrationnumber">
+          <ng-container matColumnDef="regnumber">
             <th mat-header-cell *matHeaderCellDef> Registration Number </th>
-            <td mat-cell *matCellDef="let element" (click)="Onedit(element)"> {{element.registrationnumber}} </td>
+            <td mat-cell *matCellDef="let element" (click)="Onedit(element)"> {{element.regnumber}} </td>
           </ng-container>
 
           <!-- Phone number -->
-          <ng-container matColumnDef="phonenumber">
-            <th mat-header-cell *matHeaderCellDef> Telephone No </th>
-            <td mat-cell *matCellDef="let element" (click)="Onedit(element)" > {{element.phonenumber}} </td>
+          <ng-container matColumnDef="degree">
+            <th mat-header-cell *matHeaderCellDef> Course </th>
+            <td mat-cell *matCellDef="let element" (click)="Onedit(element)" > {{element.degree}} </td>
           </ng-container>
 
-          <ng-container matColumnDef="email">
-            <th mat-header-cell *matHeaderCellDef> Email </th>
-            <td mat-cell *matCellDef="let element" (click)="Onedit(element)"> {{element.email}} </td>
+          <ng-container matColumnDef="post">
+            <th mat-header-cell *matHeaderCellDef> Post </th>
+            <td mat-cell *matCellDef="let element" (click)="Onedit(element)"> {{element.post}} </td>
           </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -82,16 +82,16 @@
           <mat-card-content>
             <ul>
               <li>
-                <mat-label>User Name.:{{userService.selectedUser.userName}} </mat-label>
+                <mat-label>Candidate Name.:{{candidateService.selectedCandidate.candidatename}} </mat-label>
               </li>
               <li>
-                <mat-label>Registration Number: {{userService.selectedUser.registrationnumber}} </mat-label>
+                <mat-label>Registration Number: {{candidateService.selectedCandidate.regnumber}} </mat-label>
               </li>
               <li>
-                <mat-label>Telephone No.: {{userService.selectedUser.phonenumber}}</mat-label>
+                <mat-label>Course.: {{candidateService.selectedCandidate.degree}}</mat-label>
               </li>
               <li>
-                <mat-label>Email : {{userService.selectedUser.email}}</mat-label>
+                <mat-label>Post : {{candidateService.selectedCandidate.post}}</mat-label>
               </li>
 
             </ul>
@@ -100,7 +100,7 @@
           <!-- Buttons to Edit and Delete Candidates -->
           <mat-card-actions>
             <button mat-flat-button color="primary" data-toggle="modal" data-target="#editCandidateModal">Edit Candidate</button>
-            <button mat-stroked-button color="warn" (click)="Ondelete(userService.selectedUser._id)">Delete Candidate</button>
+            <button mat-stroked-button color="warn" (click)="Ondelete(candidateService.selectedCandidate._id)">Delete Candidate</button>
           </mat-card-actions>
         </div>
       </mat-card>
@@ -126,33 +126,33 @@
 
       <!-- Modal Body -->
       <div class="modal-body">
-          <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedUser._id">
+          <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="candidateService.selectedCandidate._id">
       
           <!-- User Name -->
           <mat-form-field appearance="standard">
             <mat-label>User Name</mat-label>
-            <input matInput type="text" name="userName" #userName="ngModel" [(ngModel)]="userService.selectedUser.userName"
+            <input matInput type="text" name="candidatename" #candidatename="ngModel" [(ngModel)]="candidateService.selectedCandidate.candidatename"
               required>
           </mat-form-field>
 
           <!-- Registration Number -->
           <mat-form-field appearance="standard">
             <mat-label>Registration Number</mat-label>
-            <input matInput type="text" name="registrationnumber" #registrationnumber="ngModel"
-              [(ngModel)]="userService.selectedUser.registrationnumber" required>
+            <input matInput type="text" name="regnumber" #regnumber="ngModel"
+              [(ngModel)]="candidateService.selectedCandidate.regnumber" required>
           </mat-form-field>
 
           <!-- Phone Number -->
           <mat-form-field appearance="standard">
             <mat-label>Phone Number</mat-label>
-            <input matInput type="text" name="phonenumber" #phonenumber="ngModel" [(ngModel)]="userService.selectedUser.phonenumber"
+            <input matInput type="text" name="degree" #degree="ngModel" [(ngModel)]="candidateService.selectedCandidate.degree"
               required>
           </mat-form-field>
 
           <!-- Email Address -->
           <mat-form-field appearance="standard">
             <mat-label>Email Address</mat-label>
-            <input matInput type="email" name="email" #email="ngModel" [(ngModel)]="userService.selectedUser.email"
+            <input matInput type="email" name="post" #post="ngModel" [(ngModel)]="candidateService.selectedCandidate.post"
               required>
           </mat-form-field>      
        

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../shared/user.service';
+import { CandidateService } from '../../shared/candidate.service';
 import { Router } from '@angular/router';
-import { User } from '../../shared/user.model';
+import { Candidate } from '../../shared/candidate.model';
 import { NgForm } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { AddCandidateDialogComponent } from './././add-candidate-dialog/add-candidate-dialog.component';
@@ -10,17 +10,17 @@ import { AddCandidateDialogComponent } from './././add-candidate-dialog/add-cand
   selector: 'app-member',
   templateUrl: './member.component.html',
   styleUrls: ['./member.component.css'],
-  providers: [UserService]
+  providers: []
 })
 
 export class MemberComponent implements OnInit {
   serverErrorMessages: string;
   showSucessMessage: boolean;
-  users: User[];
+  candidates: Candidate[];
 
-  constructor(private userService: UserService, private router: Router, public dialog: MatDialog) { }
-  displayedColumns: string[] = ['userName', 'registrationnumber', 'phonenumber','email'];
-  dataSource = this.users;
+  constructor(private candidateService: CandidateService, private router: Router, public dialog: MatDialog) { }
+  displayedColumns: string[] = ['candidatename', 'regnumber', 'degree','post'];
+  dataSource = this.candidates;
 
   
 
@@ -35,19 +35,19 @@ export class MemberComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userService.getUserProfiles().subscribe(
-      users =>{
-          this.users=users as User[];
+    this.candidateService.getCandidateProfiles().subscribe(
+      res =>{
+          this.candidates=res as Candidate[];
       })
       }
-      Onedit(member: User) {
-        this.userService.selectedUser = member;
+      Onedit(member: Candidate) {
+        this.candidateService.selectedCandidate = member;
       }
       Onsubmit(form: NgForm) {
-        this.userService.putuserprofile(form.value);
+        this.candidateService.putcandidateprofile(form.value);
       }
       Ondelete(id: string) {
-        this.userService.deleteuserprofile(id);
+        this.candidateService.deletecandidateprofile(id);
       }
   }
 

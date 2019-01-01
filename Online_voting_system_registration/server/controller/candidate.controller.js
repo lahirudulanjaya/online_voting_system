@@ -42,3 +42,35 @@ module.exports.getcandidateprofiles=(req,res,next) =>{
       });
     
 }
+
+module.exports.putcandidateprofile=(req,res,next) =>{
+  
+    var candidate= {
+        candidatename:req.body.candidatename,
+        regnumber:req.body.regnumber,
+        degree:req.body.degree,
+        post:req.body.post,
+
+    };
+    Candidate.findByIdAndUpdate({_id:req.body._id},{$set :candidate},{upsert:true},(err,doc)=>{
+        if(!err){
+            res.send(doc);
+        }
+        else{
+            res.status(422).send("update failed");
+        }
+    })
+}
+    
+
+module.exports.deletecandidateprofile=(req,res,next) =>{
+    Candidate.findOneAndRemove({_id:req.params.id},function(err,doc){
+        if(err){
+            res.status(404).json({ status: false, message: "delete faild" });
+        }
+        else{
+            res.send(doc);
+        }
+    })
+    
+}

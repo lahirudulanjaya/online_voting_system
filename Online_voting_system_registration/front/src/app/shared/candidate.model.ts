@@ -1,5 +1,6 @@
 export class Candidate 
 {
+    _id:string;
     election:string;
     candidatename :string;
     post:string;
