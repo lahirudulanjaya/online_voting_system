@@ -18,7 +18,7 @@
     <!-- Password -->
     <mat-form-field appearance="standard">
       <mat-label>Password</mat-label>
-      <input matInput [type]="hide ? 'password' : 'text'" name="password" #password="ngModel" [(ngModel)]="model.password"
+      <input matInput [type]="hide? 'password' : 'text'" name="password" #password="ngModel" [(ngModel)]="model.password"
         required [ngClass]="{'invalid-textbox' :signInForm.submitted && !password.valid }">
     </mat-form-field>
     <div *ngIf="signInForm.submitted && password.errors?.minlength">

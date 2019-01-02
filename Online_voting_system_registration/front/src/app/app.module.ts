@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { CountdownModule } from 'ngx-countdown';
 import { NgModule } from '@angular/core';
 import { FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -60,6 +61,7 @@ import { AddCandidateDialogComponent } from './admin/member/add-candidate-dialog
 import {RsaComponent} from './user/rsa/rsa.component';
 import { VoteComponent } from './user/vote/vote.component';
 import { MatRadioModule } from '@angular/material';
+import { TimerComponent } from './admin/timer/timer.component';
 
 
 
@@ -88,7 +90,8 @@ import { MatRadioModule } from '@angular/material';
     VoterComponent,
     AddCandidateDialogComponent,
     RsaComponent,
-    VoteComponent
+    VoteComponent,
+    TimerComponent
   ],
   imports: [
     BrowserModule,
@@ -129,7 +132,8 @@ import { MatRadioModule } from '@angular/material';
     MatDatepickerModule,
     MatMomentDateModule,
     MatDialogModule,
-    MatRadioModule
+    MatRadioModule,
+    CountdownModule
   ],
   entryComponents: [
     AddCandidateDialogComponent

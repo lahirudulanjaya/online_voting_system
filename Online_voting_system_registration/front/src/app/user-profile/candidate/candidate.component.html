@@ -1,10 +1,12 @@
 <app-userheader></app-userheader>
 <app-usersidebar></app-usersidebar>
-<form #candidateform ="ngForm" (ngSubmit)="candidateform.valid && Onsubmit(candidateform)">
 
+<form #candidateform ="ngForm" (ngSubmit)="candidateform.valid && Onsubmit(candidateform)">
+  
   <div class="example-container">
 
       <h2>Register Candidate</h2>
+      <app-timer></app-timer>
     
     <mat-form-field>
       <input matInput type="text" placeholder="Candidate Name" name ="candidatename" #candidatename = "ngModel" [(ngModel)]="candidateService.selectedCandidate.candidatename" required >
