@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { TokenService } from '../../shared/token.service';
 
-
 @Component({
   selector: 'app-verify',
   templateUrl: './verify.component.html',
