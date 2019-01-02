@@ -23,8 +23,7 @@
     <!-- Registration Number -->
     <mat-form-field appearance="standard">
       <mat-label>Registration Number</mat-label>
-      <input matInput #registrationnumber="ngModel" [(ngModel)]="userService.selectedUser.registrationnumber" name="registrationnumber"
-        required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !registrationnumber.valid }">
+      <input matInput #registrationnumber="ngModel" [(ngModel)]="userService.selectedUser.registrationnumber" name="registrationnumber" matTooltip="eg: 2014CS123" required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !registrationnumber.valid }">
     </mat-form-field>
     <div *ngIf="signUpForm.submitted && !registrationnumber.valid">
       <!-- <label class="validation-message"></label> -->

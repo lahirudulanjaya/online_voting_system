@@ -18,7 +18,7 @@ import { ConfirmEqualValidatorDirective } from './shared/confirm-validate.direct
 import { ChartsModule } from 'ng2-charts';
 import { SliderModule } from 'angular-image-slider';
 import {
-   MatGridListModule, MatOptionModule, MatSelectModule, MatFormFieldModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule, MatInputModule, MatToolbarModule, MatStepperModule
+   MatGridListModule, MatOptionModule, MatSelectModule, MatFormFieldModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule, MatInputModule, MatToolbarModule, MatStepperModule, MatTooltipModule
   } from '@angular/material';
 import { MatDatepickerModule } from '@angular/material';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
@@ -62,8 +62,6 @@ import {RsaComponent} from './user/rsa/rsa.component';
 import { VoteComponent } from './user/vote/vote.component';
 import { MatRadioModule } from '@angular/material';
 import { TimerComponent } from './admin/timer/timer.component';
-
-
 
 @NgModule({
   declarations: [
@@ -133,7 +131,8 @@ import { TimerComponent } from './admin/timer/timer.component';
     MatMomentDateModule,
     MatDialogModule,
     MatRadioModule,
-    CountdownModule
+    CountdownModule,
+    MatTooltipModule
   ],
   entryComponents: [
     AddCandidateDialogComponent
