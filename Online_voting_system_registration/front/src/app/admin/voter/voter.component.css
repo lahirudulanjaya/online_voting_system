@@ -1,102 +1,103 @@
-.voter-toolbar {
+.candidate-toolbar {
     margin-top: 75px;
-}
-
-.toolbar-title {
+  }
+  
+  .toolbar-title {
     margin-left: 230px;
-}
-
-.mat-toolbar {
+  }
+  
+  .toolbar-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .toolbar-button {
+    margin: 10px;
+  }
+  
+  .mat-toolbar {
     background-color: #ebedf7;
-}
-
-i {
+  }
+  
+  i {
     vertical-align: middle;
-}
-
-.container {
+  }
+  
+  .container {
     margin-top: 20px;
     margin-left: 300px;
     margin-bottom: 40px;
-}
-
-table {
-    width: 100%;
-}
+  }
   
-.mat-form-field {
+  table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
     font-size: 14px;
     width: 100%;
-}
-
-.mat-header-cell {
+  }
+  
+  .mat-header-cell {
     color: white;
     background-color: #3F51B5;
-}
-
-.voter-card {
+  }
+  
+  .candidate-card {
     width: 450px;
     height: 475px;
-}
+  }
   
-.voter-header-image {
+  .candidate-header-image {
     background-image: url('/assets/img/user-icon.jpg');
     background-size: cover;
-}
-
-.mat-card {
+  }
+  
+  .mat-card {
     padding: 0px;
-}
-
-.mat-card-header {
+  }
+  
+  .mat-card-header {
     background-color: #1C2A39;
     padding: 24px 24px 0px 24px;
     justify-content: center;
-}
-
-.mat-card-title {
+  }
+  
+  .mat-card-title {
     color: white;
     font-size: 24px;
     padding: 0px;
-}
-
-.voter-details {
+  }
+  
+  .candidate-details {
     padding: 24px;
-}
-
-ul {
+  }
+  
+  ul {
     list-style: none;
     padding-left: 15px;
     padding-right: 15px;
-}
-
-ul li {
+  }
+  
+  ul li {
     padding-top: 15px;
     padding-bottom: 15px;
-}
-
-.mat-card-avatar {
+  }
+  
+  .mat-card-avatar {
     height: 120px;
     width: 120px;
-}
-
-.col-4 {
+  }
+  
+  .col-4 {
     margin-left: 100px;
-}
-
-.mat-card-actions {
+  }
+  
+  .mat-card-actions {
     padding-right: 10px;
     float: right;
-}
-
-.mat-card-actions .mat-stroked-button {
+  }
+  
+  .mat-card-actions .mat-stroked-button {
     margin-left: 20px;
-}
-
-.toolbar-spacer {
-    flex: 1 1 auto;
-}
-
-.toolbar-button {
-    margin: 10px;
-}
+  }
+  

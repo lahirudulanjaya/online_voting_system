@@ -12,6 +12,7 @@ import 'rxjs/add/operator/toPromise';
 export class CandidateService {
 
   selectedCandidate:Candidate ={
+    _id:'',
     election:'',
     post:'',
     candidatename :'',
@@ -30,5 +31,20 @@ export class CandidateService {
   getCandidateProfiles() {
     return this.HTTP.get(environment.apiBaseUrl + '/getcandidateprofiles');
   }
+
+  putcandidateprofile(user :Candidate)
+{
+   this.HTTP.put(environment.apiBaseUrl+'/updatecandiate',user).subscribe((res)=>{
+    location.reload();
+  });
+  
+}
+deletecandidateprofile(_id :string)
+{
+  if(confirm('Are you sure you want to delete this user?')==true)
+      this.HTTP.delete(environment.apiBaseUrl+'/deletecandidate'+'/'+_id).subscribe((res)=>{
+        location.reload();
+      }); 
+}
   
 }
