@@ -12,6 +12,7 @@ var admin=0;
 })
 export class SignInComponent implements OnInit {
   userDetails;
+  hide = true;
 
   constructor(private userService: UserService,private router : Router) { }
   model ={

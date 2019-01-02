@@ -19,10 +19,8 @@ export class MemberComponent implements OnInit {
   candidates: Candidate[];
 
   constructor(private candidateService: CandidateService, private router: Router, public dialog: MatDialog) { }
-  displayedColumns: string[] = ['candidatename', 'regnumber', 'degree','post'];
+  displayedColumns: string[] = ['candidatename', 'regnumber', 'degree', 'post'];
   dataSource = this.candidates;
-
-  
 
   openAddCandidateDialog(): void {
     const dialogRef = this.dialog.open(AddCandidateDialogComponent, {

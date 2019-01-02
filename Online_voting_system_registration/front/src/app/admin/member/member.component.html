@@ -74,7 +74,7 @@
           <div mat-card-avatar class="candidate-header-image"></div>
         </mat-card-header>
         <mat-card-header>
-          <mat-card-title>Candidate Name</mat-card-title>
+          <mat-card-title>{{ candidateService.selectedCandidate.candidatename }}</mat-card-title>
         </mat-card-header>
 
         <!-- Candidate details-->
@@ -82,16 +82,13 @@
           <mat-card-content>
             <ul>
               <li>
-                <mat-label>Candidate Name.:{{candidateService.selectedCandidate.candidatename}} </mat-label>
-              </li>
-              <li>
                 <mat-label>Registration Number: {{candidateService.selectedCandidate.regnumber}} </mat-label>
               </li>
               <li>
-                <mat-label>Course.: {{candidateService.selectedCandidate.degree}}</mat-label>
+                <mat-label>Course: {{candidateService.selectedCandidate.degree}}</mat-label>
               </li>
               <li>
-                <mat-label>Post : {{candidateService.selectedCandidate.post}}</mat-label>
+                <mat-label>Post: {{candidateService.selectedCandidate.post}}</mat-label>
               </li>
 
             </ul>
