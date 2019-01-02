@@ -1,6 +1,112 @@
 <app-header></app-header>
 <app-sidebar></app-sidebar>
 
+<div class="rules-toolbar">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <!-- Page title -->
+      <span class="toolbar-title">
+        <i class="material-icons">event_available</i>
+        &nbsp; Rules & Regulations
+      </span>
+
+      <!-- Add & Delete Rules buttons -->
+      <span class="example-spacer"></span>
+
+      <button mat-flat-button color="primary" class="toolbar-button" data-toggle="modal" data-target="#addRuleModal">
+        <i class="material-icons">add</i>
+        &nbsp; Add Rules
+      </button>
+
+      <button mat-stroked-button color="warn" class="toolbar-button">
+        <i class="material-icons">delete</i>
+        &nbsp; Delete All
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+
+<div class="rules-container">
+  <mat-card>
+
+    <!-- Card header with rule number -->
+    <mat-card-header>
+      <mat-card-title>Rule #1</mat-card-title>
+    </mat-card-header>
+
+    <div class="rules-details">
+      <!-- Rule content -->
+      <mat-card-content>
+        gegfusfhusehfeihfiefioefweifjefjeo
+      </mat-card-content>
+
+      <!-- Buttons to Edit and Delete Rules -->
+      <mat-card-actions>
+        <button mat-flat-button color="primary" data-toggle="modal" data-target="#editCandidateModal">Edit Rule</button>
+        <button mat-stroked-button color="warn" (click)="Ondelete(candidateService.selectedCandidate._id)">Delete Rule</button>
+      </mat-card-actions>
+    </div>
+  </mat-card>
+</div>
+
+<!-- Add Rules & Regulations Modal -->
+<form #rulesform = "ngForm"  (ngSubmit)="rulesform.valid && Onsubmit(rulesform)">
+
+  <div class="modal fade" id="addRuleModal" tabindex="-1" role="dialog" aria-labelledby="addRuleTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h5 class="modal-title" id="addRuleTitle">New Rules & Regulations</h5>
+        </div>
+  
+        <!-- Modal Body -->
+        <div class="modal-body">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="candidateService.selectedCandidate._id">
+        
+            <!-- User Name -->
+            <mat-form-field appearance="standard">
+              <mat-label>User Name</mat-label>
+              <input matInput type="text" name="candidatename" #candidatename="ngModel" [(ngModel)]="candidateService.selectedCandidate.candidatename"
+                required>
+            </mat-form-field>
+  
+            <!-- Registration Number -->
+            <mat-form-field appearance="standard">
+              <mat-label>Registration Number</mat-label>
+              <input matInput type="text" name="regnumber" #regnumber="ngModel"
+                [(ngModel)]="candidateService.selectedCandidate.regnumber" required>
+            </mat-form-field>
+  
+            <!-- Phone Number -->
+            <mat-form-field appearance="standard">
+              <mat-label>Phone Number</mat-label>
+              <input matInput type="text" name="degree" #degree="ngModel" [(ngModel)]="candidateService.selectedCandidate.degree"
+                required>
+            </mat-form-field>
+  
+            <!-- Email Address -->
+            <mat-form-field appearance="standard">
+              <mat-label>Email Address</mat-label>
+              <input matInput type="email" name="post" #post="ngModel" [(ngModel)]="candidateService.selectedCandidate.post"
+                required>
+            </mat-form-field>      
+          
+        </div>
+  
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+          <button mat-button type="button" data-dismiss="modal">Cancel</button>
+          <button mat-raised-button color="primary" type="submit">Save changes</button>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+  </form>
+
+
 <form #rulesform = "ngForm"  (ngSubmit)="rulesform.valid && Onsubmit(rulesform)">
     <div class="rules-container">
         <h2>Set Rules and Regulation</h2>
