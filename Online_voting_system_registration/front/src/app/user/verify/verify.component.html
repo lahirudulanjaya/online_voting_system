@@ -24,15 +24,15 @@
 
     <!-- Submit -->
     <input type="submit" value="Submit">
+
+    <div class="success" *ngIf="showSucessMessage">
+      Saved successfully
+    </div>
+    <div class="alert" *ngIf="serverErrorMessages">
+      {{serverErrorMessages}}
+    </div>
   </div>
 </form>
-
-<div class="success" *ngIf="showSucessMessage">
-  Saved successfully
-</div>
-<div class="alert" *ngIf="serverErrorMessages">
-  {{serverErrorMessages}}
-</div>
 
 <!-- <div id ="confirm"><h1>Confirm Your Email</h1></div>
   <form #verifyForm="ngForm" class="verifyform" (ngSubmit)="verifyForm.valid && onSubmit(verifyForm)">
