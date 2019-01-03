@@ -42,8 +42,8 @@
 
       <!-- Buttons to Edit and Delete Rules -->
       <mat-card-actions>
-        <button mat-flat-button color="primary" data-toggle="modal" data-target="#editCandidateModal">Edit Rule</button>
-        <button mat-stroked-button color="warn" (click)="Ondelete(candidateService.selectedCandidate._id)">Delete Rule</button>
+        <button mat-flat-button color="primary" data-toggle="modal" data-target="#editRuleModal">Edit Rule</button>
+        <button mat-stroked-button color="warn">Delete Rule</button>
       </mat-card-actions>
     </div>
   </mat-card>
@@ -65,49 +65,41 @@
         <div class="modal-body">
             <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="candidateService.selectedCandidate._id">
         
-            <!-- User Name -->
+            <!-- Election Name -->
             <mat-form-field appearance="standard">
-              <mat-label>User Name</mat-label>
-              <input matInput type="text" name="candidatename" #candidatename="ngModel" [(ngModel)]="candidateService.selectedCandidate.candidatename"
-                required>
+              <mat-select placeholder="Select Election" name ="election" #election = "ngModel"  [(ngModel)]="rulesService.selectedRules.election" required>
+                <mat-option value="ucsc"  >UCSC Union Election 2018</mat-option>
+                <mat-option value="ucsc">UCSC Union Election 2019</mat-option>
+              </mat-select>
             </mat-form-field>
   
-            <!-- Registration Number -->
+            <!-- Rules -->
             <mat-form-field appearance="standard">
-              <mat-label>Registration Number</mat-label>
-              <input matInput type="text" name="regnumber" #regnumber="ngModel"
-                [(ngModel)]="candidateService.selectedCandidate.regnumber" required>
-            </mat-form-field>
-  
-            <!-- Phone Number -->
-            <mat-form-field appearance="standard">
-              <mat-label>Phone Number</mat-label>
-              <input matInput type="text" name="degree" #degree="ngModel" [(ngModel)]="candidateService.selectedCandidate.degree"
-                required>
-            </mat-form-field>
-  
-            <!-- Email Address -->
-            <mat-form-field appearance="standard">
-              <mat-label>Email Address</mat-label>
-              <input matInput type="email" name="post" #post="ngModel" [(ngModel)]="candidateService.selectedCandidate.post"
-                required>
-            </mat-form-field>      
-          
+              <textarea matInput type="text" placeholder="Paste Rules and Regulation here" name ="rules" #rules = "ngModel" [(ngModel)]="rulesService.selectedRules.rules" required></textarea>
+            </mat-form-field> 
         </div>
   
         <!-- Modal Footer -->
         <div class="modal-footer">
           <button mat-button type="button" data-dismiss="modal">Cancel</button>
-          <button mat-raised-button color="primary" type="submit">Save changes</button>
+          <button mat-flat-button color="primary" type="submit">Submit</button>
         </div>
       
       </div>
     </div>
   </div>
-  </form>
+</form>
 
+<div class="success" *ngIf="showSucessMessage">
+  Saved successfully
+</div>
 
-<form #rulesform = "ngForm"  (ngSubmit)="rulesform.valid && Onsubmit(rulesform)">
+<!-- Error message -->
+<div class="alert" *ngIf="serverErrorMessages">
+  {{serverErrorMessages}}
+</div>
+
+<!-- <form #rulesform = "ngForm"  (ngSubmit)="rulesform.valid && Onsubmit(rulesform)">
     <div class="rules-container">
         <h2>Set Rules and Regulation</h2>
         <mat-form-field>
@@ -124,12 +116,12 @@
                 <button mat-raised-button color="primary" type="submit">Submit</button>
             </div>
          </div>
-</form>
+</form> -->
 <div class="success" *ngIf="showSucessMessage">
-        Saved successfully
-      </div>
-      
-      <!-- Error message -->
-      <div class="alert" *ngIf="serverErrorMessages">
-        {{serverErrorMessages}}
-      </div>
+  Saved successfully
+</div>
+
+<!-- Error message -->
+<div class="alert" *ngIf="serverErrorMessages">
+  {{serverErrorMessages}}
+</div>
