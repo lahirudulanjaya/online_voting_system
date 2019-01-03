@@ -11,15 +11,14 @@ const rtsIndex = require('./router/index.router');
 
 var app = express();
 
-// app.use(function(req, res, next){
+// app.use(function(req, res, next) {
 //     //set headers to allow cross origin request.
-//     res.append('Access-Control-Allow-Origin' , 'http://localhost:4200');
-//     res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-//     res.append("Access-Control-Allow-Headers", "Origin, Accept,Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
-//     res.append('Access-Control-Allow-Credentials', true);
-//     next();
+//         res.header("Access-Control-Allow-Origin", "*");
+//         res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+//         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//         next();
 //     });
-// middleware
+//middleware
 // connect nodejs and angular
 app.use(cors());
 app.use(bodyParser.json());

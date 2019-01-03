@@ -7,6 +7,11 @@ const mailer = require('../misc/mailer');
 const _ = require('lodash');
 const randomstring = require('randomstring');
 const ObjectId =require('mongoose').Types.ObjectId;
+var accountSid = 'AC818430fd19fde8c3b783619d68f593fb'; // Your Account SID from www.twilio.com/console
+var authToken = '4159b98c757704eac6e9a084a544f65c';   // Your Auth Token from www.twilio.com/console
+
+var twilio = require('twilio');
+var client = new twilio(accountSid, authToken);
 
 module.exports.register = (req, res, next) => {
     var user = new User();
@@ -154,4 +159,34 @@ module.exports.updateuservote= (req, res) => {
 
 
 }
+module.exports.sendsms=(phonenumber)=>{
+    var otp= randomstring.generate({
+        length: 6,
+        charset: 'alphabetic'
+    });
+    client.messages.create({
+        body: 'Your Verification code is ' + otp,
+        to: phonenumber,  // Text this number
+        from: '+19794012216' // From a valid Twilio number
+    })
+    .then((message) => console.log(message.sid));
+}
+
+module.exports.verifyphonenumber=(regnumber)=>{
+
+    User.findOne({registrationnumber:regnumber},"otp",function(err,result){
+        if(err)
+            throw err;
+        else if(!result.otp){
+            return true;
+        }
+        else{
+            return false;
+        }
+
+    })
+}
+
+
+
 
