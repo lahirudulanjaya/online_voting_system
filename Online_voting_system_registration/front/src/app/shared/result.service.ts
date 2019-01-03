@@ -17,4 +17,7 @@ export class ResultService {
   getTotalCandidates() {
     return this.http.get(environment.apiBaseUrl + '/countcandidates');
   }
+  getvpresult() {
+    return this.http.get(environment.apiBaseUrl + '/vpresult');
+  }
 }
