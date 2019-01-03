@@ -64,6 +64,7 @@ import {RsaComponent} from './user/rsa/rsa.component';
 import { VoteComponent } from './user/vote/vote.component';
 import { MatRadioModule } from '@angular/material';
 import { TimerComponent } from './admin/timer/timer.component';
+import { AnalyticsComponent } from './analytics/analytics.component';
 
 @NgModule({
   declarations: [
@@ -91,7 +92,8 @@ import { TimerComponent } from './admin/timer/timer.component';
     AddCandidateDialogComponent,
     RsaComponent,
     VoteComponent,
-    TimerComponent
+    TimerComponent,
+    AnalyticsComponent
   ],
   imports: [
     FileUploadModule,
