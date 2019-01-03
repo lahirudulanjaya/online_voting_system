@@ -9,6 +9,13 @@
         <i class="material-icons">how_to_vote</i>
         &nbsp; UCSC Student Union Election 2019
       </span>
+
+      <!-- Submit & Cancel Vote buttons -->
+      <span class="example-spacer"></span>
+
+      <button mat-button type="button">Cancel</button>
+
+      <button mat-flat-button color="primary" class="toolbar-button" data-toggle="modal" data-target="#insertKeyModal">Submit Vote</button>
     </mat-toolbar-row>
   </mat-toolbar>
 </div>
@@ -170,27 +177,49 @@
   </mat-grid-list>
 </div>
 
-<form>
-  <div class =key>
-  <mat-form-field class = "public">
-    <textarea matInput type="text" placeholder="public key" name ="publickey" [(ngModel)]="pub" matTextareaAutosize matAutosizeMinRows=10 matAutosizeMaxRows=20></textarea>
-</mat-form-field>
-<mat-form-field class ="private">
-    <textarea matInput type="text" placeholder="Enter Your private key" name ="private" [(ngModel)]="pri" matTextareaAutosize matAutosizeMinRows=10 matAutosizeMaxRows=20 required></textarea>
-</mat-form-field>
+<!-- Insert Key Modal -->
+<div class="modal fade" id="insertKeyModal" tabindex="-1" role="dialog" aria-labelledby="confirmKeyTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmKeyTitle">Confirm Key</h5>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+          <form>
+            <div class=key>
+              <mat-form-field class="public">
+                <textarea matInput type="text" placeholder="Public Key" name="publickey" disabled [(ngModel)]="pub" matTextareaAutosize
+                  matAutosizeMinRows=10 matAutosizeMaxRows=20></textarea>
+              </mat-form-field>
+              <mat-form-field class="private">
+                <textarea matInput type="text" placeholder="Enter your Private Key here" name="private" [(ngModel)]="pri"
+                  matTextareaAutosize matAutosizeMinRows=10 matAutosizeMaxRows=20 required></textarea>
+              </mat-form-field>
+            </div>
+          </form>
+      </div>
+
+
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button mat-button type="button" data-dismiss="modal">Cancel</button>
+        <button mat-raised-button color="primary" [disabled]="isDisabled" (click)="check()">Vote Now</button>
+
+        <!-- Success Message -->
+        <div class="success" *ngIf="showSucessMessage">
+          Your Vote Saved successfully
+        </div>
+        
+        <!-- Error message -->
+        <div class="alert" *ngIf="serverErrorMessages">
+          {{serverErrorMessages}}
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<button mat-raised-button color="primary" [disabled]="isDisabled" (click)="check()">Vote Now</button>
-<div class="success" *ngIf="showSucessMessage">
-  Your Vote Saved successfully
-</div>
-
-<!-- Error message -->
-<div class="alert" *ngIf="serverErrorMessages">
-  {{serverErrorMessages}}
-</div>
-
-
-
-</form>
-
-
