@@ -13,7 +13,7 @@ import { UserdashboardComponent} from './user-profile/userdashboard/userdashboar
 import { RulesComponent } from './admin/rules/rules.component';
 import { VoterComponent } from './admin/voter/voter.component';
 import { CandidateComponent} from './user-profile/candidate/candidate.component';
-import {RsaComponent} from './user/rsa/rsa.component';
+import { RsaComponent } from './user/rsa/rsa.component';
 import { ProfileComponent } from './user-profile/profile/profile.component';
 import { VoteComponent } from './user/vote/vote.component';
 export const appRoutes: Routes = [
@@ -49,7 +49,7 @@ export const appRoutes: Routes = [
                 { path : 'candidates', component: MemberComponent,},
                 { path : 'rules', component: RulesComponent,},
                 { path : 'voter', component: VoterComponent}
-            ] 
+            ]
     },
     {
         path : 'getkey', component: RsaComponent,

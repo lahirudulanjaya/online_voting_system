@@ -8,9 +8,13 @@ import { environment } from '../../environments/environment';
 })
 export class ResultService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  gettotalvotes(){
-    return this.http.get(environment.apiBaseUrl+'/countvotes');
+  gettotalvotes() {
+    return this.http.get(environment.apiBaseUrl + '/countvotes');
+  }
+
+  getTotalCandidates() {
+    return this.http.get(environment.apiBaseUrl + '/countcandidates');
   }
 }

@@ -1,20 +1,4 @@
-<app-header></app-header>
-<app-sidebar></app-sidebar>
-
-<div class="overview-toolbar">
-  <mat-toolbar>
-    <mat-toolbar-row>
-      <!-- Page title -->
-      <span class="toolbar-title">
-        <i class="material-icons">home</i>
-        &nbsp; Overview
-      </span>
-    </mat-toolbar-row>
-  </mat-toolbar>
-</div>
-
-<app-analytics></app-analytics>
-<!-- <div class="container" id="spacing">
+<div class="container" id="spacing">
   <div class="row justify-content-md-center">
     <div class="col-12">
       <div class="card-deck">
@@ -24,7 +8,7 @@
               <i class="material-icons">people</i>
             </div>
             <div class="card-text">
-              <h2 class="card-title">10</h2>
+              <h2 class="card-title">{{ totalCandidates }}</h2>
               <h4 class="card-title">Candidates</h4>
             </div>
           </div>
@@ -35,7 +19,7 @@
               <i class="material-icons">how_to_reg</i>
             </div>
             <div class="card-text">
-              <h2 class="card-title">{{totalvotes}}</h2>
+              <h2 class="card-title">200</h2>
               <h4 class="card-title">Voters</h4>
             </div>
           </div>
@@ -43,12 +27,22 @@
         <div class="card text-white number-card">
           <div class="card-body">
             <div class="card-icon">
-              <i class="material-icons">people</i>
+              <i class="material-icons">how_to_vote</i>
             </div>
             <div class="card-text">
-              <h2 class="card-title">10</h2>
-              <h4 class="card-title">Candidates</h4>
+              <h2 class="card-title">{{ totalVotes }}</h2>
+              <h4 class="card-title">Total Votes</h4>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts and Graphs-->
+      <div class="card">
+        <div class="card-body">
+          <div style="display: block">
+            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+              [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
           </div>
         </div>
       </div>
@@ -71,15 +65,6 @@
           </div>
         </div>
       </div>
-
-      <div class="card">
-        <div class="card-body">
-          <div style="display: block">
-            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
-              [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
-</div> -->
+</div>
