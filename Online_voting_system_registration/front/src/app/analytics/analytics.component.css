@@ -1,0 +1,27 @@
+i {
+  vertical-align: middle;
+}
+
+.container {
+  margin-top: 20px;
+  margin-left: 300px;
+  margin-bottom: 40px;
+}
+
+.number-card {
+  height: 150px;
+  background-color: #3F51B5;
+}
+
+.card-text {
+  text-align: right;
+}
+
+.material-icons {
+  font-size: 35px;
+}
+
+.card {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

@@ -13,42 +13,5 @@
   </mat-toolbar>
 </div>
 
-<div class="container" id="spacing">
-  <div class="row justify-content-md-center">
-    <div class="col-12">
-
-      <!-- Charts and Graphs-->
-      <div class="card-deck">
-        <div class="card">
-          <div class="card-body">
-            <div style="display: block">
-              <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-                [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-            <div style="display: block">
-              <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-                [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-body">
-          <div style="display: block">
-            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
-              [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
+<app-analytics></app-analytics>
       
