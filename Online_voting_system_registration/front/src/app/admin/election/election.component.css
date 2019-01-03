@@ -44,14 +44,13 @@ label.validation-message
   
 }
 input[type=text],input[type=password],input[type=time],input[type=date],select{
-  width: 40%;
   padding: 8px;
-  border: 1px solid #ccc;
+  border: none;
   border-radius: 4px;
   box-sizing: border-box;
-  margin-top: 6px;
-  margin-left: 6px;   
+  margin-top: 6px;  
 }
+
 label{
   width: 300px;
   display :inline-block;
@@ -108,27 +107,6 @@ input[type=submit]:disabled{
   width:100px;
 }
 
-input[type=text],input[type=password] {
-  background-color: #f6f6f6;
-  border: none;
-  color: #0d0d0d;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 5px;
-  width: 40%;
-  border: 2px solid #f6f6f6;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -ms-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-  -webkit-border-radius: 5px 5px 5px 5px;
-  border-radius: 5px 5px 5px 5px;
-}
-
 .alert {
   padding: 20px;
   background-color: #f44336; /* Red */
@@ -146,26 +124,9 @@ input[type=text],input[type=password] {
   width: 40%;
   margin-left: 400px;
 }
-input[type=text].invalid-textbox,input[type=password].invalid-textbox{
-  border-bottom: 2px solid #ed5558;
-  }
-  .underlineHover:after {
-    display: block;
-    left: 0;
-    bottom: -10px;
-    width: 0;
-    height: 2px;
-    background-color: #56baed;
-    content: "";
-    transition: width 0.2s;
-  }
-  
-  .underlineHover:hover {
-    color: #0d0d0d;
-  }
-  
-  .underlineHover:hover:after{
-    width: 100%;
+
+  input[type=text].invalid-textbox,input[type=password].invalid-textbox{
+    border-bottom: 2px solid #ed5558;
   }
 
   *:focus {
@@ -174,4 +135,102 @@ input[type=text].invalid-textbox,input[type=password].invalid-textbox{
 
 * {
   box-sizing: border-box;
+}
+
+.toolbar-title {
+  margin-left: 230px;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar-button {
+  margin: 10px;
+}
+
+.mat-toolbar {
+  background-color: #ebedf7;
+}
+
+i {
+  vertical-align: middle;
+}
+
+.container {
+  margin-top: 20px;
+  margin-left: 300px;
+  margin-bottom: 40px;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-header-cell {
+  color: white;
+  background-color: #3F51B5;
+}
+
+.election-card {
+  width: 450px;
+  height: 510px;
+}
+
+.mat-card {
+  padding: 0px;
+}
+
+.mat-card-header {
+  background-color: #1C2A39;
+  padding: 24px 24px 0px 24px;
+  justify-content: center;
+}
+
+.mat-card-title {
+  color: white;
+  font-size: 24px;
+  padding: 0px;
+}
+
+.election-details {
+  padding: 24px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+ul li {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.mat-card-avatar {
+  height: 120px;
+  width: 120px;
+}
+
+.col-4 {
+  margin-left: 100px;
+}
+
+.mat-card-actions {
+  padding-right: 10px;
+  float: right;
+}
+
+.mat-card-actions .mat-stroked-button {
+  margin-left: 20px;
+}
+
+.election-timer {
+  font-size: 50px;
 }

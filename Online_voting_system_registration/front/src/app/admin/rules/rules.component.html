@@ -1,7 +1,105 @@
 <app-header></app-header>
 <app-sidebar></app-sidebar>
 
+<div class="rules-toolbar">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <!-- Page title -->
+      <span class="toolbar-title">
+        <i class="material-icons">event_available</i>
+        &nbsp; Rules & Regulations
+      </span>
+
+      <!-- Add & Delete Rules buttons -->
+      <span class="example-spacer"></span>
+
+      <button mat-flat-button color="primary" class="toolbar-button" data-toggle="modal" data-target="#addRuleModal">
+        <i class="material-icons">add</i>
+        &nbsp; Add Rules
+      </button>
+
+      <button mat-stroked-button color="warn" class="toolbar-button">
+        <i class="material-icons">delete</i>
+        &nbsp; Delete All
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+
+<div class="rules-container">
+  <mat-card>
+
+    <!-- Card header with rule number -->
+    <mat-card-header>
+      <mat-card-title>Rule #1</mat-card-title>
+    </mat-card-header>
+
+    <div class="rules-details">
+      <!-- Rule content -->
+      <mat-card-content>
+        gegfusfhusehfeihfiefioefweifjefjeo
+      </mat-card-content>
+
+      <!-- Buttons to Edit and Delete Rules -->
+      <mat-card-actions>
+        <button mat-flat-button color="primary" data-toggle="modal" data-target="#editRuleModal">Edit Rule</button>
+        <button mat-stroked-button color="warn">Delete Rule</button>
+      </mat-card-actions>
+    </div>
+  </mat-card>
+</div>
+
+<!-- Add Rules & Regulations Modal -->
 <form #rulesform = "ngForm"  (ngSubmit)="rulesform.valid && Onsubmit(rulesform)">
+
+  <div class="modal fade" id="addRuleModal" tabindex="-1" role="dialog" aria-labelledby="addRuleTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h5 class="modal-title" id="addRuleTitle">New Rules & Regulations</h5>
+        </div>
+  
+        <!-- Modal Body -->
+        <div class="modal-body">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="candidateService.selectedCandidate._id">
+        
+            <!-- Election Name -->
+            <mat-form-field appearance="standard">
+              <mat-select placeholder="Select Election" name ="election" #election = "ngModel"  [(ngModel)]="rulesService.selectedRules.election" required>
+                <mat-option value="ucsc"  >UCSC Union Election 2018</mat-option>
+                <mat-option value="ucsc">UCSC Union Election 2019</mat-option>
+              </mat-select>
+            </mat-form-field>
+  
+            <!-- Rules -->
+            <mat-form-field appearance="standard">
+              <textarea matInput type="text" placeholder="Paste Rules and Regulation here" name ="rules" #rules = "ngModel" [(ngModel)]="rulesService.selectedRules.rules" required></textarea>
+            </mat-form-field> 
+        </div>
+  
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+          <button mat-button type="button" data-dismiss="modal">Cancel</button>
+          <button mat-flat-button color="primary" type="submit">Submit</button>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+</form>
+
+<div class="success" *ngIf="showSucessMessage">
+  Saved successfully
+</div>
+
+<!-- Error message -->
+<div class="alert" *ngIf="serverErrorMessages">
+  {{serverErrorMessages}}
+</div>
+
+<!-- <form #rulesform = "ngForm"  (ngSubmit)="rulesform.valid && Onsubmit(rulesform)">
     <div class="rules-container">
         <h2>Set Rules and Regulation</h2>
         <mat-form-field>
@@ -18,12 +116,12 @@
                 <button mat-raised-button color="primary" type="submit">Submit</button>
             </div>
          </div>
-</form>
+</form> -->
 <div class="success" *ngIf="showSucessMessage">
-        Saved successfully
-      </div>
-      
-      <!-- Error message -->
-      <div class="alert" *ngIf="serverErrorMessages">
-        {{serverErrorMessages}}
-      </div>
+  Saved successfully
+</div>
+
+<!-- Error message -->
+<div class="alert" *ngIf="serverErrorMessages">
+  {{serverErrorMessages}}
+</div>
