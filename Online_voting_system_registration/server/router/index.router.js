@@ -1,4 +1,6 @@
 const express = require('express');
+const multer =require('multer');
+const ctrlResult=require('../controller/result.controller');
 const router = express.Router();
 const Jwtverify = require('../config/jwt')
 const ctrlUser = require('../controller/user.controller');
@@ -10,6 +12,19 @@ const ctrlCandidate= require('../controller/candidate.controller');
 const ctrlRsa = require('../controller/pki.controller');
 const ctrlVote =require('../controller/vote.controller');
 
+var store = multer.diskStorage({
+    destination:function(req,file,cb){
+        cb(null,'./uploads/');
+    },
+    filename:function(req,file,cb){
+        cb(null,Date.now()+'.'+file.originalname);
+    }
+});
+
+var upload =multer({storage:store});
+
+
+
 router.post('/register', ctrlUser.register);
 router.post('/setelection',ctrlElection.setelection);
 router.post('/authenticate',ctrlUser.authenticate);
@@ -20,7 +35,7 @@ router.put('/verify',ctrlToken.verify);
 router.get('/getuserprofiles',ctrlUser.getuserprofiles);
 router.put('/updateuser',ctrlUser.putuserprofile);
 router.delete('/delete/:id',ctrlUser.deleteuserprofile);
-router.post('/candidate',ctrlCandidate.setcandidate);
+router.post('/candidate',upload.single('candidateimage'),ctrlCandidate.setcandidate);
 router.get('/getkeys',ctrlRsa.getkey);
 router.post('/privatekey',ctrlRsa.downloadprivate);
 router.get('/isrsa/:id',ctrlEmail.pki);
@@ -31,4 +46,7 @@ router.post('/postvote',ctrlVote.postvote);
 router.put('/confirmvote',ctrlUser.updateuservote);
 router.put('/updatecandiate',ctrlCandidate.putcandidateprofile);
 router.delete('/deletecandidate/:id',ctrlCandidate.deletecandidateprofile);
+router.post('/upload',upload.single('candidateimage'));
+router.get('/countvotes',ctrlResult.totalvotes);
+
 module.exports = router

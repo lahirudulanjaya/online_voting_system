@@ -10,18 +10,20 @@ var candidateschema =new mongoose.Schema(
         },
         candidatename:{
             type:String,
-            required :'can\'t empty',
-            unique : true,
+            unique : true
         },
         regnumber:{
             type:String,
-            required :'can\'t empty',
             unique : true,
         },
         degree:{
             type:String,
-            required :'can\'t empty',
            
+        },
+        candidateimage:
+        {
+            type:String,
+            required:true
         }
         
 }

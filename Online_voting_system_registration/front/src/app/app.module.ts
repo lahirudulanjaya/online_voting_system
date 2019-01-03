@@ -3,6 +3,8 @@ import { CountdownModule } from 'ngx-countdown';
 import { NgModule } from '@angular/core';
 import { FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FileSelectDirective } from 'ng2-file-upload';
+
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
@@ -39,7 +41,7 @@ import { HeaderComponent } from './admin/components/header/header.component';
 import {SlideshowModule} from 'ng-simple-slideshow';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RulesComponent } from './admin/rules/rules.component';
-
+import {FileUploadModule} from 'ng2-file-upload'
 
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { MemberComponent } from './admin/member/member.component';
@@ -92,6 +94,7 @@ import { TimerComponent } from './admin/timer/timer.component';
     TimerComponent
   ],
   imports: [
+    FileUploadModule,
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),

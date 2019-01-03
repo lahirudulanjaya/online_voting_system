@@ -17,7 +17,8 @@ export class RulesService {
 
   constructor(private HTTP :HttpClient) { }
 
-  postRules(rules : Rules){
+  postRules(rules : Rules)
+  {
     return this.HTTP.post(environment.apiBaseUrl+'/setrules',rules)
   }
 }

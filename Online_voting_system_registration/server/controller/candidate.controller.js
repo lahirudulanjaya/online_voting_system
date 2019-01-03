@@ -1,15 +1,43 @@
 const mongoose = require('mongoose');
 const Candidate = mongoose.model('candidate');
+const multer =require('multer');
+var upload =multer({storage:store}).single('candidateimage');
+
+var store = multer.diskStorage({
+    destination:function(req,file,cb){
+        cb(null,'./uploads/');
+    },
+    filename:function(req,file,cb){
+        cb(null,Date.now()+'.'+file.originalname);
+    }
+});
+
+
+module.exports.uploadimage = (req,res,next) =>{
+    upload(req,res,function(err){
+        if(err){
+           return res.status(422).send(err)
+        }
+        return res.json({originalname:req.file.originalname,uploadname:req.file.filename});
+    })
+}
+
+module.exports.uploadi =(req,res,next) =>{
+    
+}
+
+
 
 module.exports.setcandidate = (req,res,next) => 
 {
+        console.log(req.file);
         var candidate = new Candidate();
         candidate.election =req.body.election;
         candidate.post=req.body.post;
         candidate.candidatename = req.body.candidatename;
         candidate.regnumber=req.body.registrationnumber;
         candidate.degree = req.body.iscs;
-
+        candidate.candidateimage =req.file.name;
         candidate.save((err,doc) => {
             if (!err){
                 res.send(doc);

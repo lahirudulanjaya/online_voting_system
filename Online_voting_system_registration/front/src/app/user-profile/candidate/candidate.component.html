@@ -1,12 +1,19 @@
 <app-userheader></app-userheader>
 <app-usersidebar></app-usersidebar>
 
+
+
 <form #candidateform ="ngForm" (ngSubmit)="candidateform.valid && Onsubmit(candidateform)">
+ 
   
   <div class="example-container">
+     
 
       <h2>Register Candidate</h2>
       <app-timer></app-timer>
+
+        
+   
     
     <mat-form-field>
       <input matInput type="text" placeholder="Candidate Name" name ="candidatename" #candidatename = "ngModel" [(ngModel)]="candidateService.selectedCandidate.candidatename" required >
@@ -34,11 +41,22 @@
         </mat-select>
       </mat-form-field>
   
+      <input  type="file" name ="uploadphoto" ng2FileSelect [uploader]="uploader" >
       
+          <div>
+              <button mat-raised-button color="primary"  (click)="uploader.uploadAll()" 
+              [disabled]="!uploader.getNotUploadedItems().length">Submit</button>
+
+            </div>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }">
+        </div>
+     </div>
+    
     <div class ="btn">
     <button mat-raised-button color="primary" type ="submit">Submit</button>
     </div>
-    </div>
+  </div> 
     </form>
 
 <div class="success" *ngIf="showSucessMessage">

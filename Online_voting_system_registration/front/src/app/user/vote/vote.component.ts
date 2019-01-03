@@ -35,9 +35,6 @@ export class VoteComponent implements OnInit {
 
   
   ngOnInit() {
-   
-    
-    
     this.usersevice.getUserProfile().subscribe(
       res =>{
         this.user= res['user'];
