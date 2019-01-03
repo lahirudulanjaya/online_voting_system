@@ -21,6 +21,7 @@ i {
   font-size: 35px;
 }
 
-.card-deck {
-  margin-bottom: 30px;
+.card {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

@@ -48,6 +48,7 @@
       </div>
 
       <div class="card-deck">
+        <!-- President -->
         <div class="card">
           <div class="card-body">
             <div style="display: block">
@@ -56,6 +57,8 @@
             </div>
           </div>
         </div>
+
+        <!-- Vice President -->
         <div class="card">
           <div class="card-body">
             <div style="display: block">
@@ -65,6 +68,52 @@
           </div>
         </div>
       </div>
+
+      <div class="card-deck">
+          <!-- Secretary -->
+          <div class="card">
+            <div class="card-body">
+              <div style="display: block">
+                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                  [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Treasurer -->
+          <div class="card">
+            <div class="card-body">
+              <div style="display: block">
+                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                  [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+<button class="primary" (click)="vpresult()"></button>
+        <div class="card-deck">
+          <!-- Editor -->
+          <div class="card">
+            <div class="card-body">
+              <div style="display: block">
+                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                  [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+              </div>
+            </div>
+          </div>
+<div *ngFor="let item of vp">
+{{item._id}}
+</div>
+          <!-- Committee Members -->
+          <div class="card">
+            <div class="card-body">
+              <div style="display: block">
+                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                  [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
   </div>
 </div>

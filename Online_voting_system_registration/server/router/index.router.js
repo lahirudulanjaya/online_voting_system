@@ -49,5 +49,6 @@ router.delete('/deletecandidate/:id', ctrlCandidate.deletecandidateprofile);
 router.post('/upload', upload.single('candidateimage'));
 router.get('/countvotes', ctrlResult.totalvotes);
 router.get('/countcandidates', ctrlResult.totalCandidates);
+router.get('/vpresult',ctrlResult.vpresult);
 
 module.exports = router

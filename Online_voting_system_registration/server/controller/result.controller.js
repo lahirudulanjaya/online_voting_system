@@ -25,3 +25,18 @@ module.exports.totalCandidates = ((req, res, next) => {
         }
     })
 })
+
+module.exports.vpresult=((req,res,next)=>{
+    Vote.aggregate([{
+        $group: {
+            _id: '$VP',  
+            count: {$sum: 1}
+        }}],function(err,result){
+        if(err){
+            res.send(err);
+        }
+        else{
+            res.status(200).json(result);
+        }
+    })
+})
