@@ -47,8 +47,9 @@ router.put('/confirmvote', ctrlUser.updateuservote);
 router.put('/updatecandiate', ctrlCandidate.putcandidateprofile);
 router.delete('/deletecandidate/:id', ctrlCandidate.deletecandidateprofile);
 router.post('/upload', upload.single('candidateimage'));
-router.get('/countvotes', ctrlResult.totalvotes);
+router.get('/countvotes', ctrlResult.totalVotes);
 router.get('/countcandidates', ctrlResult.totalCandidates);
-router.get('/vpresult',ctrlResult.vpresult);
+router.get('/countregisteredvoters', ctrlResult.totalRegisteredVoters);
+router.get('/vpresult',ctrlResult.vicePresidentResult);
 
 module.exports = router

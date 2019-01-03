@@ -10,14 +10,19 @@ export class ResultService {
 
   constructor(private http: HttpClient) { }
 
-  gettotalvotes() {
+  getTotalVotes() {
     return this.http.get(environment.apiBaseUrl + '/countvotes');
   }
 
   getTotalCandidates() {
     return this.http.get(environment.apiBaseUrl + '/countcandidates');
   }
-  getvpresult() {
+
+  getTotalRegisteredVoters() {
+    return this.http.get(environment.apiBaseUrl + '/countregisteredvoters');
+  }
+
+  getVicePresidentResult() {
     return this.http.get(environment.apiBaseUrl + '/vpresult');
   }
 }

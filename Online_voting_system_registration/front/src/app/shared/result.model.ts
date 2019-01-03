@@ -1,4 +1,4 @@
 export class Result{
-  _id:string;
-  count:number;
+  _id: string;
+  count: number;
 }
