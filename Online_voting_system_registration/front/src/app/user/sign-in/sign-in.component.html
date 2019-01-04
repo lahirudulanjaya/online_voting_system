@@ -34,3 +34,19 @@
 <div class="alert" *ngIf="serverErrorMessages">
   {{serverErrorMessages}}
 </div>
+
+
+<!--otp form -->
+<form #otpForm="ngForm" (ngSubmit)="onOtp(otpForm)">
+  <!-- Form content -->
+  <div class="login-container">
+    <!-- User Name -->
+    <mat-form-field appearance="standard">
+      <mat-label>Enter Your Verify Code</mat-label>
+      <input matInput name="otp" #otp="ngModel"  [(ngModel)]="this.userService.selectedOtp.otp" >
+    </mat-form-field>
+    <!-- Submit -->
+<input type="submit" value="Submit">
+  </div>
+
+</form>

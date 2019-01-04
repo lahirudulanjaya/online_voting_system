@@ -30,34 +30,34 @@ export class VoteComponent implements OnInit {
   pub:string;
   pri:string;
   constructor(private candidateservice :CandidateService,private rsaservice:RsaService,private usersevice:UserService,private voteservice:VoteService) {
-    
+
    }
 
-  
+
   ngOnInit() {
     this.usersevice.getUserProfile().subscribe(
       res =>{
         this.user= res['user'];
-        this.reg=this.user.registrationnumber; 
+        this.reg=this.user.registrationnumber;
         this.rsaservice.getpublickey(this.reg).subscribe(
 
           publi =>{
             this.rsa= publi as Email;
             this.pub=this.rsa.publickey;
-        })  
+        })
     }
     )
-    
+
       this.candidateservice.getCandidateProfiles().subscribe(
         candidates =>{
           this.candidates= candidates as Candidate[];
-          
+
 
         })
-        
-        
-       
-        
+
+
+
+
     }
   check(){
     if(this.user.isvote==false){
@@ -67,14 +67,14 @@ export class VoteComponent implements OnInit {
       if((this.arr.length ==4) &&(this.vote.ED && this.vote.SE && this.vote.TR && this.vote.VP)){//check voter's vote is elibible or not
         alert('vote eligible');
         if(confirm("Confirm your Vote")){
-         
-          
+
+
           this.postvote(); // post the vote
         }
         else{
 
         }
-        
+
       }
       else{
         alert('vote is not eligible');
@@ -88,20 +88,20 @@ export class VoteComponent implements OnInit {
     alert('you have already voted');
     this.isDisabled=true;
   }
-    
-  
+
+
   }
 
   postvote(){
     this.vote.CM=this.arr;
     this.voteservice.postvote(this.vote).subscribe(
       res=>{
-  
+
       this.serverErrorMessages='';
       this.showSucessMessage = true;
       setTimeout(() => this.showSucessMessage = false, 4000);
-      
-     
+
+
       },
       err =>{
         this.serverErrorMessages = err.error;
@@ -118,15 +118,17 @@ export class VoteComponent implements OnInit {
       )
     }
 
-    
-  }
-  
-  
 
-  change(){ // count the number of checked box selected
+  }
+
+
+
+  change()
+  { // count the number of checked box selected
     this.arr=[];
     this.num=0;
-    this.candidates.forEach(item=>{
+    this.candidates.forEach(item=>
+      {
       console.log(item)
       if(item.checked){
         this.num= this.num+1
@@ -137,8 +139,4 @@ export class VoteComponent implements OnInit {
 
     })
   }
-  
 }
-  
-  
-

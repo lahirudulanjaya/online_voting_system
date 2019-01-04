@@ -50,7 +50,7 @@ import { ProfileComponent } from './user-profile/profile/profile.component';
 import { UsersidebarComponent } from './user-profile/Components/usersidebar/usersidebar.component';
 import { UserheaderComponent } from './user-profile/Components/userheader/userheader.component';
 import { CandidateComponent } from './user-profile/candidate/candidate.component';
-import { 
+import {
 	IgxAvatarModule,
 	IgxButtonModule,
 	IgxIconModule,
@@ -94,6 +94,7 @@ import { AnalyticsComponent } from './analytics/analytics.component';
     VoteComponent,
     TimerComponent,
     AnalyticsComponent
+
   ],
   imports: [
     FileUploadModule,
@@ -124,7 +125,7 @@ import { AnalyticsComponent } from './analytics/analytics.component';
     SliderModule,
     SlideshowModule,
     CarouselModule,
-    WavesModule, 
+    WavesModule,
     ButtonsModule,
     IgxAvatarModule,
 	  IgxButtonModule,

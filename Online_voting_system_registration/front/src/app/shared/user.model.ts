@@ -8,3 +8,6 @@ export class User {
   cpassword:string;
   isvote :Boolean;
 }
+ export class Otp{
+   otp:string;
+ }

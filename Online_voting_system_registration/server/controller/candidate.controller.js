@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Candidate = mongoose.model('candidate');
 const multer =require('multer');
-var upload =multer({storage:store}).single('candidateimage');
+
 
 var store = multer.diskStorage({
     destination:function(req,file,cb){
@@ -11,6 +11,7 @@ var store = multer.diskStorage({
         cb(null,Date.now()+'.'+file.originalname);
     }
 });
+var upload =multer({storage:store}).single('candidateimage');
 
 
 module.exports.uploadimage = (req,res,next) =>{
@@ -22,13 +23,24 @@ module.exports.uploadimage = (req,res,next) =>{
     })
 }
 
-module.exports.uploadi =(req,res,next) =>{
-    
+module.exports.uploadimagee =(req,res,next) =>{
+        var path = '';
+        upload(req, res, function (err) {
+           if (err) {
+             // An error occurred when uploading
+             console.log(err);
+             return res.status(422).send("an Error occured")
+           }
+          // No error occured.
+           path = req.file.path;
+           return res.send("Upload Completed for "+path);
+     });
+
 }
 
 
 
-module.exports.setcandidate = (req,res,next) => 
+module.exports.setcandidate = (req,res,next) =>
 {
         console.log(req.file);
         var candidate = new Candidate();
@@ -43,20 +55,17 @@ module.exports.setcandidate = (req,res,next) =>
                 res.send(doc);
             }
             else {
-                
+
                 if (err.code === 11000){
                     res.status(422).send('Data you entered has already been used');
-                }                               
+                }
                 else{
                     return next(err);
                     }
-                    
+
             }
 
         });
-        
-
-       
 
 }
 module.exports.getcandidateprofiles=(req,res,next) =>{
@@ -66,13 +75,13 @@ module.exports.getcandidateprofiles=(req,res,next) =>{
             next;
         }
         res.status(200).json(candidates);
-        
+
       });
-    
+
 }
 
 module.exports.putcandidateprofile=(req,res,next) =>{
-  
+
     var candidate= {
         candidatename:req.body.candidatename,
         regnumber:req.body.regnumber,
@@ -89,7 +98,7 @@ module.exports.putcandidateprofile=(req,res,next) =>{
         }
     })
 }
-    
+
 
 module.exports.deletecandidateprofile=(req,res,next) =>{
     Candidate.findOneAndRemove({_id:req.params.id},function(err,doc){
@@ -100,5 +109,5 @@ module.exports.deletecandidateprofile=(req,res,next) =>{
             res.send(doc);
         }
     })
-    
+
 }

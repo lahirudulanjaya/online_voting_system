@@ -1,16 +1,10 @@
 const passport = require('passport');
 const localStrategy = require('passport-local').Strategy;
 const mongoose = require('mongoose');
-
+const ctrluser = require('../controller/user.controller');
 var User = mongoose.model('user');
 var SerialPort = require('serialport');
-var otpGenerator = require('otp-generator')
-var otp =otpGenerator.generate(6, { upperCase: false, specialChars: false });
-var port = new SerialPort("/dev/ttyUSB0", {
-  baudRate: 9600,
-  dataBits: 8,
-  parity: 'none'
-});
+
 
 passport.use(
     new localStrategy({ usernameField: 'userName' },
@@ -28,24 +22,13 @@ passport.use(
                     // unconfiremed Email
                     else if(!user.verifyEmail())
                         return done(null,false, {message : 'please verify email address'});
+
+                   // else if(!ctrluser.verifyphonenumber(user.registrationnumber)){
+                     //   return done(null,false,{message:' please verify your phone number'});
+                   // }
                     // authentication succeeded
                     else{
-                        
-                           
-                            console.log('Serial communication open');
-                            port.write("AT");
-                            port.write('\r');
-                            port.write("AT+CMGF=1");
-                            port.write('\r');
-                            port.write("AT+CMGS=\"" + user.phonenumber + "\"");
-                            port.write('\r');
-                            port.write(otp); 
-                            port.write(Buffer([0x1A]));
-                            port.write('^z');
-                        
-                        
-
-                        console.log(otp);
+                        ctrluser.sendsms(user.phonenumber);
                         return done(null, user);
 
                     }
