@@ -50,6 +50,9 @@ router.post('/upload', upload.single('candidateimage'));
 router.get('/countvotes', ctrlResult.totalVotes);
 router.get('/countcandidates', ctrlResult.totalCandidates);
 router.get('/countregisteredvoters', ctrlResult.totalRegisteredVoters);
-router.get('/vpresult',ctrlResult.vicePresidentResult);
+router.get('/vpresult', ctrlResult.vicePresidentResult);
+router.get('/secretaryresult', ctrlResult.secretaryResult);
+router.get('/treasurerresult', ctrlResult.treasurerResult);
+router.get('/editorresult', ctrlResult.editorResult);
 
 module.exports = router
