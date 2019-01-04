@@ -12,7 +12,8 @@ var authToken = '4159b98c757704eac6e9a084a544f65c';   // Your Auth Token from ww
 
 var twilio = require('twilio');
 var client = new twilio(accountSid, authToken);
-
+var otp="";
+var valid;
 module.exports.register = (req, res, next) => {
     var user = new User();
     user.userName = req.body.userName;
@@ -37,7 +38,7 @@ module.exports.register = (req, res, next) => {
         Have a pleasant day.` ;
 
 console.log(user.randomstring);
-
+console.log(req.body.email);
 
         Email.findOne({registrationnumber:user.registrationnumber},'email',function(err,result){
             if(err)
@@ -48,17 +49,17 @@ console.log(user.randomstring);
                 if(result.email==user.email){
                     user.save((err, doc) => {
                         if (!err){
-                            
+
                             res.send(doc);
                             mailer.sendEmail('evotingucsc@gmail.com', user.email, 'Please verify your email!', html)
-                            
+
                         }
 
-                        else 
+                        else
                         {
                                 if (err.code === 11000){
                                     res.status(422).send('Data you entered has already been used');
-                                }                               
+                                }
                                 else{
                                     return next(err);
                                     }
@@ -106,13 +107,13 @@ module.exports.getuserprofiles=(req,res,next) =>{
             next;
         }
         res.status(200).json(users);
-        
+
       });
-    
+
 }
 
 module.exports.putuserprofile=(req,res,next) =>{
-  
+
     var user= {
         userName:req.body.userName,
         registrationnumber:req.body.registrationnumber,
@@ -129,7 +130,7 @@ module.exports.putuserprofile=(req,res,next) =>{
         }
     })
 }
-    
+
 
 module.exports.deleteuserprofile=(req,res,next) =>{
     User.findOneAndRemove({_id:req.params.id},function(err,doc){
@@ -140,7 +141,7 @@ module.exports.deleteuserprofile=(req,res,next) =>{
             res.send(doc);
         }
     })
-    
+
 }
 
 module.exports.updateuservote= (req, res) => {
@@ -153,14 +154,12 @@ module.exports.updateuservote= (req, res) => {
             res.send(result);
         }
 
-
-
     })
 
 
 }
 module.exports.sendsms=(phonenumber)=>{
-    var otp= randomstring.generate({
+     otp= randomstring.generate({
         length: 6,
         charset: 'alphabetic'
     });
@@ -170,7 +169,27 @@ module.exports.sendsms=(phonenumber)=>{
         from: '+19794012216' // From a valid Twilio number
     })
     .then((message) => console.log(message.sid));
+
 }
+
+module.exports.verify=(req,res,next)=>{
+  console.log(req.body.otp);
+  console.log(otp);
+  if(otp==req.body.otp){
+    valid=true;
+    res.status(200).json(valid);
+  }
+  else{
+    valid=false;
+    res.status(200).json(valid);
+  }
+}
+
+module.exports.getverify=(req,res,next)=>{
+    res.status(200).json(valid);
+}
+
+
 
 module.exports.verifyphonenumber=(regnumber)=>{
 
@@ -186,7 +205,3 @@ module.exports.verifyphonenumber=(regnumber)=>{
 
     })
 }
-
-
-
-

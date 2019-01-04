@@ -8,10 +8,9 @@ module.exports.setelection = (req, res, next) => {
     election.stime = req.body.stime;
     election.etime = req.body.etime;
 
-
+    console.log(req.body.Name);
 
     election.save((err, doc) => {
-
         if (!err)
             res.send(doc);
         else {
@@ -19,8 +18,6 @@ module.exports.setelection = (req, res, next) => {
               res.status(422).send('Data you entered has already been used');
           else
               return next(err);
-
         }
-
     });
 }

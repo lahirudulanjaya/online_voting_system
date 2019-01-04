@@ -22,6 +22,7 @@ var app = express();
 // connect nodejs and angular
 app.use(cors());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 // use passport for authentication
 app.use(passport.initialize());
 
@@ -39,4 +40,3 @@ app.use((err, req, res, next) => {
 app.listen(process.env.PORT, ()=>
 console.log('server started at port :${process.env.PORT}')
 );
-

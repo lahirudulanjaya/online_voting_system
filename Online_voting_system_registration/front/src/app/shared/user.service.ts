@@ -3,6 +3,7 @@ import { User } from './user.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs/Observable';
+import { Otp } from './user.model';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
@@ -23,6 +24,9 @@ export class UserService {
     cpassword:'',
     isvote :null,
 
+  };
+  selectedOtp :Otp ={
+    otp :'',
   };
 
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };
@@ -74,17 +78,26 @@ putuserprofile(user :User)
    this.http.put(environment.apiBaseUrl+'/updateuser',user).subscribe((res)=>{
     location.reload();
   });
-  
+
 }
 deleteuserprofile(_id :string)
 {
   if(confirm('Are you sure you want to delete this user?')==true)
       this.http.delete(environment.apiBaseUrl+'/delete'+'/'+_id).subscribe((res)=>{
         location.reload();
-      }); 
+      });
 }
-updatevote(user:User){
+updatevote(user:User)
+{
   return this.http.put(environment.apiBaseUrl+'/confirmvote',user);
+}
+postotp(otp:Otp)
+{
+  return this.http.post(environment.apiBaseUrl+'/verifyotp',otp);
+}
+getvalid()
+{
+  return this.http.get(environment.apiBaseUrl+'/getvalid');
 }
 
 

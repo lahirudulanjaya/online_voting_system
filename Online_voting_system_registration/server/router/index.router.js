@@ -12,6 +12,7 @@ const ctrlCandidate = require('../controller/candidate.controller');
 const ctrlRsa = require('../controller/pki.controller');
 const ctrlVote = require('../controller/vote.controller');
 
+
 var store = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, './uploads/');
@@ -51,5 +52,7 @@ router.get('/countvotes', ctrlResult.totalVotes);
 router.get('/countcandidates', ctrlResult.totalCandidates);
 router.get('/countregisteredvoters', ctrlResult.totalRegisteredVoters);
 router.get('/vpresult',ctrlResult.vicePresidentResult);
+router.post('/verifyotp',ctrlUser.verify);
+router.get('/getvalid',ctrlUser.getverify);
 
 module.exports = router
