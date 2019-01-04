@@ -7,8 +7,8 @@ const mailer = require('../misc/mailer');
 const _ = require('lodash');
 const randomstring = require('randomstring');
 const ObjectId =require('mongoose').Types.ObjectId;
-var accountSid = 'AC818430fd19fde8c3b783619d68f593fb'; // Your Account SID from www.twilio.com/console
-var authToken = '4159b98c757704eac6e9a084a544f65c';   // Your Auth Token from www.twilio.com/console
+var accountSid = 'AC61edaabc3ff904f4a1d0effb2bd1659e'; // Your Account SID from www.twilio.com/console
+var authToken = 'ac062d5f60f76887815f8d8ce8713afd';   // Your Auth Token from www.twilio.com/console
 
 var twilio = require('twilio');
 var client = new twilio(accountSid, authToken);
@@ -166,7 +166,7 @@ module.exports.sendsms=(phonenumber)=>{
     client.messages.create({
         body: 'Your Verification code is ' + otp,
         to: phonenumber,  // Text this number
-        from: '+19794012216' // From a valid Twilio number
+        from: '+19702937994' // From a valid Twilio number
     })
     .then((message) => console.log(message.sid));
 
