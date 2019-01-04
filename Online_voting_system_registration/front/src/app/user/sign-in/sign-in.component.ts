@@ -61,11 +61,6 @@ export class SignInComponent implements OnInit {
             this.router.navigateByUrl('/userprofile/overview');
           }
         }
-      }
-      err=>{
-        alert('failed');
-      });
-  }
-
-
+        )
+      })
 }

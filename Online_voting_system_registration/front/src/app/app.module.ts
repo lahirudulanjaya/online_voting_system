@@ -50,7 +50,7 @@ import { ProfileComponent } from './user-profile/profile/profile.component';
 import { UsersidebarComponent } from './user-profile/Components/usersidebar/usersidebar.component';
 import { UserheaderComponent } from './user-profile/Components/userheader/userheader.component';
 import { CandidateComponent } from './user-profile/candidate/candidate.component';
-import { 
+import {
 	IgxAvatarModule,
 	IgxButtonModule,
 	IgxIconModule,
@@ -65,7 +65,6 @@ import { VoteComponent } from './user/vote/vote.component';
 import { MatRadioModule } from '@angular/material';
 import { TimerComponent } from './admin/timer/timer.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
-import { OtpComponent } from './user/sign-in/otp/otp.component';
 
 @NgModule({
   declarations: [
@@ -94,8 +93,8 @@ import { OtpComponent } from './user/sign-in/otp/otp.component';
     RsaComponent,
     VoteComponent,
     TimerComponent,
-    AnalyticsComponent,
-    OtpComponent
+    AnalyticsComponent
+
   ],
   imports: [
     FileUploadModule,
@@ -126,7 +125,7 @@ import { OtpComponent } from './user/sign-in/otp/otp.component';
     SliderModule,
     SlideshowModule,
     CarouselModule,
-    WavesModule, 
+    WavesModule,
     ButtonsModule,
     IgxAvatarModule,
 	  IgxButtonModule,
