@@ -4,25 +4,25 @@
 
 
 <form #candidateform ="ngForm" (ngSubmit)="candidateform.valid && Onsubmit(candidateform)">
- 
-  
+
+
   <div class="example-container">
-     
+
 
       <h2>Register Candidate</h2>
       <app-timer></app-timer>
 
-        
-   
-    
-    <mat-form-field>
+
+
+
+    <mat-form-field hidden>
       <input matInput type="text" placeholder="Candidate Name" name ="candidatename" #candidatename = "ngModel" [(ngModel)]="candidateService.selectedCandidate.candidatename" required >
     </mat-form-field>
-    <mat-form-field>
-        <input matInput type="text" placeholder="Registration Number" name ="registrationnumber" #registrationnumber = "ngModel" [(ngModel)]="candidateService.selectedCandidate.registrationnumber" required>
+    <mat-form-field hidden>
+        <input matInput type="text" placeholder="Registration Number" name ="regnumber" #regnumber = "ngModel" [(ngModel)]="candidateService.selectedCandidate.regnumber" required>
       </mat-form-field>
       <mat-form-field>
-        
+
         <mat-select placeholder="Select Your post" name ="post" #post = "ngModel"  [(ngModel)]="candidateService.selectedCandidate.post" required>
           <mat-option value="VP">Vice President</mat-option>
           <mat-option value="SE">Secretary</mat-option>
@@ -34,29 +34,18 @@
         </mat-select>
       </mat-form-field>
          <mat-form-field>
-        
+
         <mat-select placeholder="Select Your Course" name ="iscs" #icsc = "ngModel"  [(ngModel)]="candidateService.selectedCandidate.iscs" required>
           <mat-option value="cs"  >Computer Science</mat-option>
           <mat-option value="is">Information System</mat-option>
         </mat-select>
       </mat-form-field>
-  
-      <input  type="file" name ="uploadphoto" ng2FileSelect [uploader]="uploader" />
-      
-          <div>
-              <button mat-raised-button color="primary"  (click)="uploader.uploadAll()" 
-              [disabled]="!uploader.getNotUploadedItems().length">Submit</button>
 
-            </div>
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }">
-        </div>
-     </div>
-    
+
     <div class ="btn">
     <button mat-raised-button color="primary" type ="submit">Submit</button>
     </div>
-  </div> 
+  </div>
     </form>
 
 <div class="success" *ngIf="showSucessMessage">

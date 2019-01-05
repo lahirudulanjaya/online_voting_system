@@ -36,7 +36,7 @@ router.put('/verify', ctrlToken.verify);
 router.get('/getuserprofiles', ctrlUser.getuserprofiles);
 router.put('/updateuser', ctrlUser.putuserprofile);
 router.delete('/delete/:id', ctrlUser.deleteuserprofile);
-router.post('/candidate', upload.single('candidateimage'), ctrlCandidate.setcandidate);
+router.post('/candidate', ctrlCandidate.setcandidate);
 router.get('/getkeys', ctrlRsa.getkey);
 router.post('/privatekey', ctrlRsa.downloadprivate);
 router.get('/isrsa/:id', ctrlEmail.pki);

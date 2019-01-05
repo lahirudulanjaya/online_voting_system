@@ -18,14 +18,9 @@ var candidateschema =new mongoose.Schema(
         },
         degree:{
             type:String,
-           
-        },
-        candidateimage:
-        {
-            type:String,
-            required:true
+
         }
-        
+
 }
 )
 mongoose.model('candidate',candidateschema);

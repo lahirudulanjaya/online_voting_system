@@ -42,14 +42,12 @@ module.exports.uploadimagee =(req,res,next) =>{
 
 module.exports.setcandidate = (req,res,next) =>
 {
-        console.log(req.file);
         var candidate = new Candidate();
         candidate.election =req.body.election;
         candidate.post=req.body.post;
         candidate.candidatename = req.body.candidatename;
         candidate.regnumber=req.body.registrationnumber;
         candidate.degree = req.body.iscs;
-        candidate.candidateimage =req.file.name;
         candidate.save((err,doc) => {
             if (!err){
                 res.send(doc);

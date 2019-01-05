@@ -4,6 +4,8 @@ import { CandidateService } from '../../shared/candidate.service';
 import {FileSelectDirective,FileUploader} from 'ng2-file-upload'
 import { environment } from '../../../environments/environment';
 import { UserService } from '../../shared/user.service';
+import { User } from '../../shared/user.model';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-candidate',
@@ -11,11 +13,11 @@ import { UserService } from '../../shared/user.service';
   styleUrls: ['./candidate.component.css']
 })
 export class CandidateComponent implements OnInit {
-  uploader:FileUploader=new FileUploader({url:environment.apiBaseUrl+'/upload',itemAlias: 'candidatename'});
   alist :any[];
   showSucessMessage: boolean;
   serverErrorMessages: string;
-  constructor(private candidateService :CandidateService,private userService: UserService){
+  userDetails :User;
+  constructor(private candidateService :CandidateService,private userService: UserService, private router: Router){
    // this.uploader.onCompleteItem =(item :any,response :any,status:any,header :any)=>{
    //   this.alist.push(JSON.parse(response));
    // }
@@ -24,7 +26,9 @@ export class CandidateComponent implements OnInit {
   ngOnInit() {
     this.userService.getUserProfile().subscribe(
       res => {
-        this.userDetails = res['user'];
+        this.userDetails = res['user'] as User;
+        this.candidateService.selectedCandidate.candidatename=this.userDetails.userName;
+        this.candidateService.selectedCandidate.regnumber =this.userDetails.registrationnumber;
       },
       err => {
         console.log(err);
@@ -32,13 +36,9 @@ export class CandidateComponent implements OnInit {
       }
     );
 
-    this.uploader.onAfterAddingFile = (file)=> { file.withCredentials = false; alert('sucess');};
-    this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
-      console.log("ImageUpload:uploaded:", item, status, response);
-      alert(item);
-  }
 }
-  Onsubmit(form: NgForm){
+  Onsubmit(form: NgForm)
+  {
       this.candidateService.postcandidate(form.value).subscribe(
         res=>{
           this.serverErrorMessages='';
