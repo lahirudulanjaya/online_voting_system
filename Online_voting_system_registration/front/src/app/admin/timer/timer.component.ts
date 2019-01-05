@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-timer',
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.css'],
-  template :'<countdown [config]="{leftTime: distance}">Days :$!d! Hours :$!h! Minutes :$!m! Secounds :$!s!</countdown>'
+  template :'<countdown [config]="{leftTime: distance}">Days:$!d! Hours:$!h! Minutes:$!m! Secounds:$!s!</countdown>'
 
 
 })
