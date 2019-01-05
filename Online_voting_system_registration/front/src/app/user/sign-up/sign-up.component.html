@@ -43,7 +43,7 @@
     <!-- Phone Number -->
     <mat-form-field appearance="standard">
       <mat-label>Phone Number</mat-label>
-      <input matInput #phonenumber="ngModel" [(ngModel)]="userService.selectedUser.phonenumber" name="phonenumber"
+      <input matInput #phonenumber="ngModel" [(ngModel)]="userService.selectedUser.phonenumber" name="phonenumber" matTooltip="eg: +94XXXXXXXXX"
         required [pattern]="phone" [ngClass]="{'invalid-textbox' :signUpForm.submitted && !registrationnumber.valid }">
     </mat-form-field>
     <div *ngIf="signUpForm.submitted && !phonenumber.valid">
@@ -55,7 +55,8 @@
     <mat-form-field appearance="standard">
       <mat-label>Password</mat-label>
       <input matInput [type]="hide ? 'password' : 'text'" #password="ngModel" [(ngModel)]="userService.selectedUser.password"
-        name="password" minlength="8" required [pattern]="re" [ngClass]="{'invalid-textbox' :signUpForm.submitted && !password.valid }">
+        name="password" matTooltip="Password must include at least 8 characters including one number, one
+        upper case letter and one lower case letter" minlength="8" required [pattern]="re" [ngClass]="{'invalid-textbox' :signUpForm.submitted && !password.valid }">
     </mat-form-field>
     <div *ngIf="signUpForm.submitted && password.errors">
       <label *ngIf="password.errors.required" class="validation-message"></label>
