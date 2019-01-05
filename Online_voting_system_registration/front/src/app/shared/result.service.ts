@@ -25,4 +25,16 @@ export class ResultService {
   getVicePresidentResult() {
     return this.http.get(environment.apiBaseUrl + '/vpresult');
   }
+
+  getSecretaryResult() {
+    return this.http.get(environment.apiBaseUrl + '/secretaryresult');
+  }
+
+  getTreasurerResult() {
+    return this.http.get(environment.apiBaseUrl + '/treasurerresult');
+  }
+
+  getEditorResult() {
+    return this.http.get(environment.apiBaseUrl + '/editorresult');
+  }
 }

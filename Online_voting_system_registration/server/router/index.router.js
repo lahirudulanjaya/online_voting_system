@@ -51,7 +51,10 @@ router.post('/upload', upload.single('candidateimage'));
 router.get('/countvotes', ctrlResult.totalVotes);
 router.get('/countcandidates', ctrlResult.totalCandidates);
 router.get('/countregisteredvoters', ctrlResult.totalRegisteredVoters);
-router.get('/vpresult',ctrlResult.vicePresidentResult);
+router.get('/vpresult', ctrlResult.vicePresidentResult);
+router.get('/secretaryresult', ctrlResult.secretaryResult);
+router.get('/treasurerresult', ctrlResult.treasurerResult);
+router.get('/editorresult', ctrlResult.editorResult);
 router.post('/verifyotp',ctrlUser.verify);
 router.get('/getvalid',ctrlUser.getverify);
 

@@ -1,4 +1,8 @@
 <div class="container" id="spacing">
+  <h3>Student Union Election 2018</h3>
+</div>
+
+<div class="container" id="spacing">
   <div class="row justify-content-md-center">
     <div class="col-12">
       <div class="card-deck">
@@ -37,23 +41,186 @@
         </div>
       </div>
 
-      <!-- Charts and Graphs-->
-      <div class="card">
-        <div class="card-body">
-          <div style="display: block">
-            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
-              [chartType]="barChartType"></canvas>
-          </div>
-        </div>
-      </div>
+      <!-- Current Union-->
+      <mat-grid-list cols="3" rowHeight="3:2">
+
+        <!-- President -->
+        <mat-grid-tile>
+          <mat-card class="candidate-card">
+              <div mat-card-avatar class="candidate-header-image"></div>
+              <ul>
+                <li>
+                  <mat-card-title><b>President</b></mat-card-title>
+                </li>
+
+                <li>
+                  <mat-card-subtitle><b>Name Name Name</b></mat-card-subtitle>
+                </li>
+              </ul>
+          </mat-card>
+        </mat-grid-tile>
+
+        <!-- President -->
+        <mat-grid-tile>
+          <mat-card class="candidate-card">
+            <mat-card-header>
+              <div mat-card-avatar class="candidate-header-image"></div>
+              <ul>
+                <li>
+                  <mat-card-title><b>President</b></mat-card-title>
+                </li>
+
+                <li>
+                  <mat-card-subtitle><b>Name Name Name</b></mat-card-subtitle>
+                </li>
+              </ul>
+            </mat-card-header>
+          </mat-card>
+        </mat-grid-tile>
+
+        <!-- President -->
+        <mat-grid-tile>
+          <mat-card class="candidate-card">
+            <mat-card-header>
+              <div mat-card-avatar class="candidate-header-image"></div>
+              <ul>
+                <li>
+                  <mat-card-title><b>President</b></mat-card-title>
+                </li>
+
+                <li>
+                  <mat-card-subtitle><b>Name Name Name</b></mat-card-subtitle>
+                </li>
+              </ul>
+            </mat-card-header>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <mat-grid-list cols="3" rowHeight="3:2">
+
+        <!-- President -->
+        <mat-grid-tile>
+          <mat-card class="candidate-card">
+            <mat-card-header>
+              <div mat-card-avatar class="candidate-header-image"></div>
+              <ul>
+                <li>
+                  <mat-card-title><b>President</b></mat-card-title>
+                </li>
+
+                <li>
+                  <mat-card-subtitle><b>Name Name Name</b></mat-card-subtitle>
+                </li>
+              </ul>
+            </mat-card-header>
+          </mat-card>
+        </mat-grid-tile>
+
+        <!-- President -->
+        <mat-grid-tile>
+          <mat-card class="candidate-card">
+            <mat-card-header>
+              <div mat-card-avatar class="candidate-header-image"></div>
+              <ul>
+                <li>
+                  <mat-card-title><b>President</b></mat-card-title>
+                </li>
+
+                <li>
+                  <mat-card-subtitle><b>Name Name Name</b></mat-card-subtitle>
+                </li>
+              </ul>
+            </mat-card-header>
+          </mat-card>
+        </mat-grid-tile>
+
+        <!-- President -->
+        <mat-grid-tile>
+          <mat-card class="candidate-card">
+            <mat-card-header>
+              <div mat-card-avatar class="candidate-header-image"></div>
+              <ul>
+                <li>
+                  <mat-card-title><b>President</b></mat-card-title>
+                </li>
+
+                <li>
+                  <mat-card-subtitle><b>Name Name Name</b></mat-card-subtitle>
+                </li>
+              </ul>
+            </mat-card-header>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <mat-grid-list cols="3" rowHeight="3:2">
+
+        <!-- President -->
+        <mat-grid-tile>
+          <mat-card class="candidate-card">
+            <mat-card-header>
+              <div mat-card-avatar class="candidate-header-image"></div>
+              <ul>
+                <li>
+                  <mat-card-title><b>President</b></mat-card-title>
+                </li>
+
+                <li>
+                  <mat-card-subtitle><b>Name Name Name</b></mat-card-subtitle>
+                </li>
+              </ul>
+            </mat-card-header>
+          </mat-card>
+        </mat-grid-tile>
+
+        <!-- President -->
+        <mat-grid-tile>
+          <mat-card class="candidate-card">
+            <mat-card-header>
+              <div mat-card-avatar class="candidate-header-image"></div>
+              <ul>
+                <li>
+                  <mat-card-title><b>President</b></mat-card-title>
+                </li>
+
+                <li>
+                  <mat-card-subtitle><b>Name Name Name</b></mat-card-subtitle>
+                </li>
+              </ul>
+            </mat-card-header>
+          </mat-card>
+        </mat-grid-tile>
+
+        <!-- President -->
+        <mat-grid-tile>
+          <mat-card class="candidate-card">
+            <mat-card-header>
+              <div mat-card-avatar class="candidate-header-image"></div>
+              <ul>
+                <li>
+                  <mat-card-title><b>President</b></mat-card-title>
+                </li>
+
+                <li>
+                  <mat-card-subtitle><b>Name Name Name</b></mat-card-subtitle>
+                </li>
+              </ul>
+            </mat-card-header>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <h4 id="stat">Statistics</h4>
 
       <div class="card-deck">
         <!-- President -->
         <div class="card">
           <div class="card-body">
+            <h4 class="card-title">President</h4>
             <div style="display: block">
               <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-                [legend]="barChartLegend" [chartType]="barChartType"></canvas>
+                [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType"></canvas>
             </div>
           </div>
         </div>
@@ -61,57 +228,62 @@
         <!-- Vice President -->
         <div class="card">
           <div class="card-body">
+            <h4 class="card-title">Vice President</h4>
             <div style="display: block">
-              <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-                [legend]="barChartLegend" [chartType]="barChartType"></canvas>
+              <canvas baseChart [datasets]="vpBarChartData" [labels]="vpBarChartLabels" [options]="barChartOptions"
+                [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType"></canvas>
             </div>
           </div>
         </div>
       </div>
 
       <div class="card-deck">
-          <!-- Secretary -->
-          <div class="card">
-            <div class="card-body">
-              <div style="display: block">
-                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-                  [legend]="barChartLegend" [chartType]="barChartType"></canvas>
-              </div>
-            </div>
-          </div>
-  
-          <!-- Treasurer -->
-          <div class="card">
-            <div class="card-body">
-              <div style="display: block">
-                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-                  [legend]="barChartLegend" [chartType]="barChartType"></canvas>
-              </div>
+        <!-- Secretary -->
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Secretary</h4>
+            <div style="display: block">
+              <canvas baseChart [datasets]="secretaryBarChartData" [labels]="secretaryBarChartLabels" [options]="barChartOptions"
+                [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType"></canvas>
             </div>
           </div>
         </div>
 
-        <div class="card-deck">
-          <!-- Editor -->
-          <div class="card">
-            <div class="card-body">
-              <div style="display: block">
-                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-                  [legend]="barChartLegend" [chartType]="barChartType"></canvas>
-              </div>
-            </div>
-          </div>
-
-          <!-- Committee Members -->
-          <div class="card">
-            <div class="card-body">
-              <div style="display: block">
-                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-                  [legend]="barChartLegend" [chartType]="barChartType"></canvas>
-              </div>
+        <!-- Treasurer -->
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Treasurer</h4>
+            <div style="display: block">
+              <canvas baseChart [datasets]="treasurerBarChartData" [labels]="treasurerBarChartLabels" [options]="barChartOptions"
+                [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType"></canvas>
             </div>
           </div>
         </div>
+      </div>
+
+      <div class="card-deck">
+        <!-- Editor -->
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Editor</h4>
+            <div style="display: block">
+              <canvas baseChart [datasets]="editorBarChartData" [labels]="editorBarChartLabels" [options]="barChartOptions"
+                [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Committee Members -->
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Committee Members</h4>
+            <div style="display: block">
+              <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
