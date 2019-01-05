@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ResultService } from '../shared/result.service';
 import { Result } from '../shared/result.model';
-import { ChartsModule } from 'angular-bootstrap-md';
+import Chart from 'chart.js';
 
 @Component({
   selector: 'app-analytics',
@@ -70,6 +70,27 @@ export class AnalyticsComponent implements OnInit {
   }
 
   public ngOnInit() {
+
+    // Bar chart for Vice president results
+    var vpctx = "vpChart";
+    var vpChart = new Chart(vpctx, {
+      type: 'horizontalBar',
+      data: {
+        labels: this.vpNames,
+        datasets: [{
+          label: 'No. of Votes',
+          data: this.vpVotes,
+          backgroundColor: 'rgba(63, 81, 181, 0.5)', 
+          borderColor: 'rgb(63, 81, 181)'
+        }]
+      },
+      options: {
+        scaleShowVerticalLines: false,
+        responsive: true
+      }
+    });
+
+    setTimeout(function() { vpChart.update(); }, 1000);
 
     // Get the total number of votes to varibale
     this.resultService.getTotalVotes().subscribe(
