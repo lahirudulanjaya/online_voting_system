@@ -21,6 +21,11 @@ export class ElectionService {
 constructor(private http: HttpClient) { }
 postElection(election: Election){
     return this.http.post(environment.apiBaseUrl+'/setelection',election);
-  }
+}
+getallelections()
+{
+  return this.http.get(environment.apiBaseUrl+'/getallelection');
+}
+
 
 }

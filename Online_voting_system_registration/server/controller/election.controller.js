@@ -21,3 +21,14 @@ module.exports.setelection = (req, res, next) => {
         }
     });
 }
+
+module.exports.getallelections=(req,res,next)=>{
+  Election.find({},{},(err,result)=>{
+    if(err){
+      res.send("something going wrong");
+    }
+    else{
+      res.status(200).json(result);
+    }
+  })
+}

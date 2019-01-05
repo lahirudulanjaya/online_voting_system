@@ -3,9 +3,7 @@ import { Router } from "@angular/router";
 import { UserService } from '../../shared/user.service';
 import {NgForm} from '@angular/forms';
 import{Otp} from '../../shared/user.model';
-var admin=0;
-var valid=false;
-var show =false;
+
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
@@ -14,6 +12,9 @@ var show =false;
 })
 
 export class SignInComponent implements OnInit {
+   admin=0;
+   valid=false;
+   show =false;
   userDetails;
   hide = true;
 
@@ -42,24 +43,24 @@ export class SignInComponent implements OnInit {
        if(form.value.userName=="Admin")
        {
           this.router.navigateByUrl('/admin/overview');
-          admin=1;
+
         }
       else{
           //this.router.navigateByUrl('/userprofile/overview');
-        this.userService.selectedOtp.otp = prompt("Please enter your verificationcode:", "");
-        this.userService.postotp(this.userService.selectedOtp).subscribe(
-          res=>{
-            this.userService.getvalid().subscribe(
-              res=>{
-                this.valid =res as boolean
-                alert(this.valid);
-                if(this.valid){
-                this.router.navigateByUrl('/userprofile/overview');
-                }
-            }
-            )
-          })
-
+         this.userService.selectedOtp.otp = prompt("Please enter your verificationcode:", "");
+        // this.userService.postotp(this.userService.selectedOtp).subscribe(
+        //   res=>{
+        //     this.userService.getvalid().subscribe(
+        //       res=>{
+        //         this.valid =res as boolean
+        //         alert(this.valid);
+        //         if(this.valid){
+        //         this.router.navigateByUrl('/userprofile/overview');
+        //         }
+        //     }
+        //     )
+        //   })
+        this.router.navigateByUrl('/userprofile/overview');
         }
       },
       err => {

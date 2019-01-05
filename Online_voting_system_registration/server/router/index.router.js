@@ -57,5 +57,6 @@ router.get('/treasurerresult', ctrlResult.treasurerResult);
 router.get('/editorresult', ctrlResult.editorResult);
 router.post('/verifyotp',ctrlUser.verify);
 router.get('/getvalid',ctrlUser.getverify);
+router.get('/getallelections',ctrlElection.getallelections);
 
 module.exports = router
