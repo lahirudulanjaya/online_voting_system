@@ -38,10 +38,11 @@ export class SignInComponent implements OnInit {
   onSubmit(form : NgForm){
     this.userService.login(form.value).subscribe(
       res => {
-       this.userService.setToken(res['token']);
+  this.userService.setToken(res['token']);
        this.show=true;
        if(form.value.userName=="Admin")
        {
+         this.userService.setToken(res['token']);
           this.router.navigateByUrl('/admin/overview');
 
         }
@@ -55,6 +56,7 @@ export class SignInComponent implements OnInit {
                 this.valid =res as boolean
                 alert(this.valid);
                 if(this.valid){
+
                 this.router.navigateByUrl('/userprofile/overview');
                 }
             }

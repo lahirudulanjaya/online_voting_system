@@ -13,6 +13,9 @@ import { Router } from "@angular/router";
   styleUrls: ['./candidate.component.css']
 })
 export class CandidateComponent implements OnInit {
+  countDownDate = new Date("Jan 8, 2019 ").getTime()/1000;
+  now = new Date().getTime()/1000;
+  show =true;
   alist :any[];
   showSucessMessage: boolean;
   serverErrorMessages: string;
@@ -24,6 +27,10 @@ export class CandidateComponent implements OnInit {
   }
 
   ngOnInit() {
+
+  if((this.countDownDate - this.now)<0){
+    this.show=false;
+  }
     this.userService.getUserProfile().subscribe(
       res => {
         this.userDetails = res['user'] as User;
