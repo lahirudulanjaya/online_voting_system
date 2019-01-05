@@ -5,12 +5,14 @@ import {NgForm} from '@angular/forms';
 import{Otp} from '../../shared/user.model';
 var admin=0;
 var valid=false;
+var show =false;
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.css']
 
 })
+
 export class SignInComponent implements OnInit {
   userDetails;
   hide = true;
@@ -36,13 +38,28 @@ export class SignInComponent implements OnInit {
     this.userService.login(form.value).subscribe(
       res => {
        this.userService.setToken(res['token']);
+       this.show=true;
        if(form.value.userName=="Admin")
        {
           this.router.navigateByUrl('/admin/overview');
           admin=1;
         }
       else{
-          this.router.navigateByUrl('/userprofile/overview');
+          //this.router.navigateByUrl('/userprofile/overview');
+        this.userService.selectedOtp.otp = prompt("Please enter your verificationcode:", "");
+        this.userService.postotp(this.userService.selectedOtp).subscribe(
+          res=>{
+            this.userService.getvalid().subscribe(
+              res=>{
+                this.valid =res as boolean
+                alert(this.valid);
+                if(this.valid){
+                this.router.navigateByUrl('/userprofile/overview');
+                }
+            }
+            )
+          })
+
         }
       },
       err => {
@@ -50,19 +67,19 @@ export class SignInComponent implements OnInit {
       }
     );
   }
-//   onOtp(form: NgForm){
-//     this.userService.postotp(form.value).subscribe(
-//       res=>{
-//         this.userService.getvalid().subscribe(
-//           res=>{
-//             this.valid =res as boolean
-//             alert(this.valid);
-//             if(this.valid){
-//             this.router.navigateByUrl('/userprofile/overview');
-//           }
-//         }
-//         )
-//       })
-// }
+  onOtp(form: NgForm){
+    this.userService.postotp(form.value).subscribe(
+      res=>{
+        this.userService.getvalid().subscribe(
+          res=>{
+            this.valid =res as boolean
+            alert(this.valid);
+            if(this.valid){
+            this.router.navigateByUrl('/userprofile/overview');
+            }
+        }
+        )
+      })
+}
 }
 }

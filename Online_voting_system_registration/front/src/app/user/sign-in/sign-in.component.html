@@ -26,7 +26,7 @@
     </div>
 
     <!-- Submit -->
-    <input type="submit" value="Log In" data-toggle="modal" data-target="#insertOTPModal">
+    <input type="submit" value="Log In" data-toggle="modal"  data-target="#insertOTPModal">
   </div>
 
 </form>
@@ -36,7 +36,7 @@
 </div>
 
 <!-- Insert OTP Modal -->
-<div class="modal fade" id="insertOTPModal" tabindex="-1" role="dialog" aria-labelledby="confirmOTPTitle" aria-hidden="true">
+<div class="modal fade" id="insertOTPModal" tabindex="-1" role="dialog" aria-labelledby="confirmOTPTitle" aria-hidden="true" *ngIf="show">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
 
@@ -52,14 +52,15 @@
             <mat-label>Enter Your Verify Code</mat-label>
             <input matInput name="otp" #otp="ngModel" [(ngModel)]="this.userService.selectedOtp.otp" required>
           </mat-form-field>
+          <!-- Modal Footer -->
+          <div class="modal-footer">
+            <button mat-button type="button" data-dismiss="modal">Cancel</button>
+            <input mat-raised-button color="primary" type="submit" value="Verify">
+          </div>
         </form>
       </div>
 
-      <!-- Modal Footer -->
-      <div class="modal-footer">
-        <button mat-button type="button" data-dismiss="modal">Cancel</button>
-        <input mat-raised-button color="primary" type="submit" value="Verify">
-      </div>
+
     </div>
   </div>
 </div>
