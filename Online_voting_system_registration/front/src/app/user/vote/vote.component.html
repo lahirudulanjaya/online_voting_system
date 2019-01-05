@@ -28,7 +28,7 @@
       <div *ngIf="(candidate.post == 'VP')">
         <mat-grid-tile>
           <mat-card class="candidate-card">
-  
+
             <mat-card-header>
               <div mat-card-avatar class="candidate-header-image"></div>
               <ul>
@@ -66,7 +66,7 @@
                 <li>
                   <mat-card-title><b>Name:</b> {{candidate.candidatename}}</mat-card-title>
                 </li>
-                
+
                 <li>
                   <mat-card-subtitle><b>Registration Number:</b> {{candidate.regnumber}}</mat-card-subtitle>
                 </li><br>
@@ -107,7 +107,7 @@
                     <mat-radio-button color="primary" value="1" (change)="vote.TR=candidate.regnumber">VOTE</mat-radio-button>
                   </mat-radio-group>
                 </li>
-              </ul>              
+              </ul>
             </mat-card-header>
           </mat-card>
         </mat-grid-tile>
@@ -214,7 +214,7 @@
         <div class="success" *ngIf="showSucessMessage">
           Your Vote Saved successfully
         </div>
-        
+
         <!-- Error message -->
         <div class="alert" *ngIf="serverErrorMessages">
           {{serverErrorMessages}}

@@ -21,7 +21,7 @@ export class VoteComponent implements OnInit {
   serverErrorMessages: string;
   myModel;
   vote=new Vote();
-  arr :Array<string>;
+  arr :Array<string>=[];
   num;
   user:User;
   reg;//registration number
@@ -30,7 +30,6 @@ export class VoteComponent implements OnInit {
   pub:string;
   pri:string;
   constructor(private candidateservice :CandidateService,private rsaservice:RsaService,private usersevice:UserService,private voteservice:VoteService) {
-
    }
 
 
@@ -61,14 +60,11 @@ export class VoteComponent implements OnInit {
     }
   check(){
     if(this.user.isvote==false){
-        if(this.rsaservice.verifyprivate(this.pri,this.pub)) //compaire public private key is they matched
-    {
       alert('verifyed');
-      if((this.arr.length ==4) &&(this.vote.ED && this.vote.SE && this.vote.TR && this.vote.VP)){//check voter's vote is elibible or not
+    if((this.arr.length ==4) &&(this.vote.ED && this.vote.SE && this.vote.TR && this.vote.VP)){//check voter's vote is elibible or not
         alert('vote eligible');
-        if(confirm("Confirm your Vote")){
-
-
+        if(confirm("Confirm your Vote"))
+        {
           this.postvote(); // post the vote
         }
         else{
@@ -79,10 +75,6 @@ export class VoteComponent implements OnInit {
       else{
         alert('vote is not eligible');
       }
-    }
-    else{
-      alert('not verify');
-    }
   }
   else{
     alert('you have already voted');
@@ -92,15 +84,24 @@ export class VoteComponent implements OnInit {
 
   }
 
-  postvote(){
+
+
+
+
+  postvote()
+  {
     this.vote.CM=this.arr;
+    this.vote.registrationnumber = this.user.registrationnumber;
+    alert(JSON.stringify(this.vote));
+    this.vote.signature=this.voteservice.createsignature(this.pri,this.vote)
+    alert(this.vote.signature);
     this.voteservice.postvote(this.vote).subscribe(
       res=>{
 
       this.serverErrorMessages='';
       this.showSucessMessage = true;
       setTimeout(() => this.showSucessMessage = false, 4000);
-
+      this.isDisabled=true;
 
       },
       err =>{
@@ -117,8 +118,6 @@ export class VoteComponent implements OnInit {
         }
       )
     }
-
-
   }
 
 
@@ -139,4 +138,13 @@ export class VoteComponent implements OnInit {
 
     })
   }
+
+
+//////
+
+
+
+
+
+
 }

@@ -4,7 +4,7 @@ import { UserService } from '../../shared/user.service';
 import {NgForm} from '@angular/forms';
 import{Otp} from '../../shared/user.model';
 var admin=0;
-var valid;
+var valid=false;
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
@@ -42,7 +42,7 @@ export class SignInComponent implements OnInit {
           admin=1;
         }
       else{
-
+          this.router.navigateByUrl('/userprofile/overview');
         }
       },
       err => {
@@ -50,17 +50,18 @@ export class SignInComponent implements OnInit {
       }
     );
   }
-  onOtp(form: NgForm){
-    this.userService.postotp(form.value).subscribe(
-      res=>{
-        this.userService.getvalid().subscribe(
-          res=>{
-            this.valid =res as boolean
-            alert(this.valid);
-            if(this.valid){
-            this.router.navigateByUrl('/userprofile/overview');
-          }
-        }
-        )
-      })
+//   onOtp(form: NgForm){
+//     this.userService.postotp(form.value).subscribe(
+//       res=>{
+//         this.userService.getvalid().subscribe(
+//           res=>{
+//             this.valid =res as boolean
+//             alert(this.valid);
+//             if(this.valid){
+//             this.router.navigateByUrl('/userprofile/overview');
+//           }
+//         }
+//         )
+//       })
+// }
 }

@@ -28,10 +28,6 @@ constructor(private electionService: ElectionService) { }
 
       },
       err => {
-      //  if (err.status === 422) {
-      //    this.serverErrorMessages = err.error.join('<br/>');
-      //  }
-      //  else
           this.serverErrorMessages = err.error;
       }
     );

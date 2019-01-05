@@ -28,7 +28,7 @@ passport.use(
                    // }
                     // authentication succeeded
                     else{
-                        ctrluser.sendsms(user.phonenumber);
+                        //ctrluser.sendsms(user.phonenumber);
                         return done(null, user);
 
                     }
@@ -40,7 +40,7 @@ function gsm_message_sending(serial, message ,phone_no) {
      serial.write('\r');
      serial.write("AT+CMGS=\"" + phone_no + "\"");
      serial.write('\r');
-     serial.write(message); 
+     serial.write(message);
      serial.write(Buffer([0x1A]));
      serial.write('^z');
  }

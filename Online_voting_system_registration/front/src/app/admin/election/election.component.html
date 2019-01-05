@@ -38,7 +38,7 @@
       <!-- Voters table -->
       <div class="mat-elevation-z8">
         <table mat-table [dataSource]="candidates">
- 
+
           <!-- Name Column -->
           <ng-container matColumnDef="candidatename">
             <th mat-header-cell *matHeaderCellDef> Candidate Name </th>
@@ -127,17 +127,16 @@
       <div class="modal-body">
         <form #electionForm="ngForm" class="electionform" (ngSubmit)="electionForm.valid && onSubmit(electionForm)">
           <!-- <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedUser._id"> -->
-      
+
           <!-- Election name -->
           <mat-form-field appearance="standard">
             <mat-label>Election Name</mat-label>
-            <input matInput #Name="ngModel" [(ngModel)]="electionService.selectedElection.Name" name="Name" required
-              [ngClass]="{'invalid-textbox' :electionForm.submitted && !Name.valid }">
+            <input matInput #Name="ngModel" [(ngModel)]="electionService.selectedElection.Name" name="Name" required>
           </mat-form-field><br>
 
           <!-- Election Date -->
           <mat-form-field appearance="standard">
-            <input matInput [matDatepicker]="picker" placeholder="Election Date" [(ngModel)]="electionService.selectedElection.date"
+            <input matInput [matDatepicker]="picker" placeholder="Election Date" #date="ngModel" [(ngModel)]="electionService.selectedElection.date"
               name="date" required>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
@@ -149,38 +148,31 @@
           <input type="time" [(ngModel)]="electionService.selectedElection.stime" name="stime" placeholder="Starting TIme"
             min="9:00" max="18:00"><br>
           <label>Start Time:</label>
-          <input type="text" #stime="ngModel" [(ngModel)]="electionService.selectedElection.stime" name="stime" placeholder="Starting TIme"
-            required [ngClass]="{'invalid-textbox' :electionForm.submitted && !stime.valid }">
-      
-          <div *ngIf="electionForm.submitted && !stime.valid">
-      
-          </div>
+          <input type="text" #stime="ngModel" [(ngModel)]="electionService.selectedElection.stime" name="stime" placeholder="Starting TIme">
+
 
           <label>Choose End Time:</label>
-          <input type="time" [(ngModel)]="electionService.selectedElection.etime" name="etime" placeholder="Ending TIme" min="9:00"
-            max="18:00"><br>
+          <input type="time" [(ngModel)]="electionService.selectedElection.etime" name="etime" placeholder="Ending TIme"
+            ><br>
           <label>End Time</label>
           <input type="text" #etime="ngModel" [(ngModel)]="electionService.selectedElection.etime" name="etime" placeholder="Ending TIme"
-            required [ngClass]="{'invalid-textbox' :electionForm.submitted && !date.valid }">
-          <div *ngIf="electionForm.submitted  && !etime.valid">
-      
+            >
+
+          <div class="modal-footer">
+            <button mat-button type="button" data-dismiss="modal">Cancel</button>
+            <button mat-raised-button color="primary" type="submit">Set Election</button>
           </div>
         </form>
       </div>
 
       <!-- Modal Footer -->
-      <div class="modal-footer">
-        <button mat-button type="button" data-dismiss="modal">Cancel</button>
-        <button mat-raised-button color="primary" type="submit">Set Election</button>
+      <div class="success" *ngIf="showSucessMessage">
+        Saved successfully
+      </div>
+
+      <div class="alert" *ngIf="serverErrorMessages">
+        {{serverErrorMessages}}
       </div>
     </div>
   </div>
-</div>
-
-<div class="success" *ngIf="showSucessMessage">
-  Saved successfully
-</div>
-
-<div class="alert" *ngIf="serverErrorMessages">
-  {{serverErrorMessages}}
 </div>

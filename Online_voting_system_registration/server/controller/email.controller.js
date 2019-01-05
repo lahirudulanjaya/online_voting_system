@@ -6,13 +6,13 @@ module.exports.setemail = (req, res, next) => {
     email.email = req.body.email;
     email.registrationnumber = req.body.registrationnumber;
     email.publickey = req.body.publickey;
-    
+
     email.save((err, doc) => {
 
         if (!err)
             res.send(doc);
           else
-              return next(err);    
+              return next(err);
 
     });
 
@@ -31,10 +31,22 @@ module.exports.pki=(req,res,next)=>{
 module.exports.getpublic=(req,res,next)=>{
     Email.findOne({registrationnumber:req.params.id},"publickey",function(err,result){
         if(err)
-                throw err;   
-        else if(!result)  
-              res.status(422).send("public key dosen't found");  
+                throw err;
+        else if(!result)
+              res.status(422).send("public key dosen't found");
         else
                 res.send(result);
+});
+}
+module.exports.findpub=(registrationnumber)=>{
+Email.findOne({registrationnumber:registrationnumber},function(err,result){
+     if(err)
+             throw err;
+     else
+     {
+
+         console.log(result.publickey);
+         return result.publickey;
+      }
 });
 }

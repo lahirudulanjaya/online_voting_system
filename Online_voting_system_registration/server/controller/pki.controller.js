@@ -19,7 +19,7 @@ function(err,result){
 });
 }
 module.exports.putpki=(req,res,next) =>{
-  
+
     var email= {
         registrationnumber:req.body.registrationnumber,
         email:req.body.email,
@@ -37,24 +37,14 @@ module.exports.putpki=(req,res,next) =>{
 }
 
 
-
-
-
 module.exports.getkey=(req,res,next)=>{
-
-var pair=forge.pki.rsa.generateKeyPair({bits: 2048, workers: 5}, function(err, keypair) {
-arr[0] = forge.pki.publicKeyToPem(keypair.publicKey);
-arr[1] =forge.pki.privateKeyToPem(keypair.privateKey);
-res.send(arr);
-});
-
-
-
+  var pair=forge.pki.rsa.generateKeyPair({bits:512, workers: 5}, function(err, keypair) {
+  arr[0] = forge.pki.publicKeyToPem(keypair.publicKey);
+  arr[1] =forge.pki.privateKeyToPem(keypair.privateKey);
+  res.send(arr);
+  });
 }
 
-module.exports.downloadprivate=(req,res,next)=>{ 
+module.exports.downloadprivate=(req,res,next)=>{
     res.sendFile(arr[1]);
 }
-
-
-
