@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
-
+import { Router } from "@angular/router";
 import { UserService } from '../../shared/user.service';
 
 @Component({
@@ -15,10 +15,10 @@ export class SignUpComponent implements OnInit {
 
   emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-  phone =/^[0-9]{10,10}$/;
+  phone =/^(\+94)[0-9]{9,9}$/;
   showSucessMessage: boolean;
   serverErrorMessages: string;
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,private router : Router) { }
 
   ngOnInit() {
   }
@@ -29,9 +29,12 @@ export class SignUpComponent implements OnInit {
         this.showSucessMessage = true;
         setTimeout(() => this.showSucessMessage = false, 4000);
         this.resetForm(form);
+          setTimeout(() =>this.router.navigateByUrl('/verify'), 4000);
+
+
       },
       err => {
-     
+
           this.serverErrorMessages = err.error;
       }
     );
