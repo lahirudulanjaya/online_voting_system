@@ -70,7 +70,7 @@ export class VoteComponent implements OnInit {
   check(){
     if(this.user.isvote==false){
       alert('verifyed');
-    if((this.arr.length ==4) &&(this.vote.ED && this.vote.SE && this.vote.TR && this.vote.VP)){//check voter's vote is elibible or not
+    if((this.arr.length ==4) &&(this.vote.ED && this.vote.SE && this.vote.TR && this.vote.VP && this.vote.PR)){//check voter's vote is elibible or not
         if(confirm("Confirm your Vote"))
         {
           this.postvote(); // post the vote

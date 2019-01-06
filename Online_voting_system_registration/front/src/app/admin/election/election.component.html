@@ -37,31 +37,30 @@
 
       <!-- Voters table -->
       <div class="mat-elevation-z8">
-        <table mat-table [dataSource]="candidates">
+        <table mat-table [dataSource]="elections">
 
           <!-- Name Column -->
-          <ng-container matColumnDef="candidatename">
-            <th mat-header-cell *matHeaderCellDef> Candidate Name </th>
-            <td mat-cell *matCellDef="let element" (click)="Onedit(element)"> {{element.candidatename}} </td>
+          <ng-container matColumnDef="Name">
+            <th mat-header-cell *matHeaderCellDef> Election </th>
+            <td mat-cell *matCellDef="let element" (click)="Onedit(element)"> {{element.Name}} </td>
           </ng-container>
 
          <!-- Registration No. Column -->
-          <ng-container matColumnDef="regnumber">
+          <ng-container matColumnDef="date">
             <th mat-header-cell *matHeaderCellDef> Registration Number </th>
-            <td mat-cell *matCellDef="let element" (click)="Onedit(element)"> {{element.regnumber}} </td>
+            <td mat-cell *matCellDef="let element" (click)="Onedit(element)"> {{element.date}} </td>
           </ng-container>
 
           <!-- Phone number -->
-          <ng-container matColumnDef="degree">
-            <th mat-header-cell *matHeaderCellDef> Course </th>
-            <td mat-cell *matCellDef="let element" (click)="Onedit(element)" > {{element.degree}} </td>
+          <ng-container matColumnDef="stime">
+            <th mat-header-cell *matHeaderCellDef> Start Time </th>
+            <td mat-cell *matCellDef="let element" (click)="Onedit(element)" > {{element.stime}} </td>
           </ng-container>
 
-          <ng-container matColumnDef="post">
-            <th mat-header-cell *matHeaderCellDef> Post </th>
-            <td mat-cell *matCellDef="let element" (click)="Onedit(element)"> {{element.post}} </td>
+          <ng-container matColumnDef="etime">
+            <th mat-header-cell *matHeaderCellDef> End Time </th>
+            <td mat-cell *matCellDef="let element" (click)="Onedit(element)"><div> {{element.etime}} <button type="button" name="button"> start Election</button></div> </td>
           </ng-container>
-
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
@@ -145,18 +144,15 @@
           </mat-form-field>
 
           <label>Choose Start Time:</label>
-          <input type="time" [(ngModel)]="electionService.selectedElection.stime" name="stime" placeholder="Starting TIme"
+          <input type="time" [(ngModel)]="electionService.selectedElection.stime" #stime="ngModel" name="stime" placeholder="Starting TIme"
             min="9:00" max="18:00"><br>
-          <label>Start Time:</label>
-          <input type="text" #stime="ngModel" [(ngModel)]="electionService.selectedElection.stime" name="stime" placeholder="Starting TIme">
+
 
 
           <label>Choose End Time:</label>
-          <input type="time" [(ngModel)]="electionService.selectedElection.etime" name="etime" placeholder="Ending TIme"
+          <input type="time" #etime="ngModel" [(ngModel)]="electionService.selectedElection.etime" name="etime" placeholder="Ending TIme"
             ><br>
-          <label>End Time</label>
-          <input type="text" #etime="ngModel" [(ngModel)]="electionService.selectedElection.etime" name="etime" placeholder="Ending TIme"
-            >
+
 
           <div class="modal-footer">
             <button mat-button type="button" data-dismiss="modal">Cancel</button>

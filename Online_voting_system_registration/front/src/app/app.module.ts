@@ -15,6 +15,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import {  MatTableModule, MatDividerModule, MatPaginatorModule, MatSortModule} from '@angular/material';
 import 'hammerjs';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+
 import { ConfirmEqualValidatorDirective } from './shared/confirm-validate.directive';
 import { ChartsModule } from 'ng2-charts';
 import { SliderModule } from 'angular-image-slider';
@@ -29,6 +31,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { SelectRequredValidatorDirective } from './shared/Select-validate.directive';
 import { ElectionComponent } from './admin/election/election.component';
 import { AdminComponent } from './admin/admin.component';
+import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
 
 // For MDB Angular Free
 import { CarouselModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md'
@@ -98,6 +101,9 @@ import { UserRulesComponent } from './user-profile/user-rules/user-rules.compone
 
   ],
   imports: [
+    AngularDateTimePickerModule,
+    OwlNativeDateTimeModule,
+    OwlDateTimeModule,
     FileUploadModule,
     BrowserModule,
     FormsModule,

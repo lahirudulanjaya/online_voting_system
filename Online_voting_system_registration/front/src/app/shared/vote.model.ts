@@ -1,4 +1,5 @@
 export class Vote {
+    PR:string;
     VP:string;
     SE:string;
     TR:string;

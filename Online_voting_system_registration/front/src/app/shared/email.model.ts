@@ -3,4 +3,5 @@ export class Email {
     registrationnumber:string;
     email:string;
     publickey :string
+
 }

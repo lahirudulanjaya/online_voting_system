@@ -4,6 +4,5 @@ export class Election {
     date: string;
     stime: string;
     etime:string;
-  
 
 }

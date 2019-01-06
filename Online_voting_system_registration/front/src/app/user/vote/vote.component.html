@@ -21,6 +21,39 @@
 </div>
 
 <div class="candidate-container">
+
+  <!-- Candidates for the post of Vice President -->
+  <mat-grid-list cols="3" rowHeight="3:2">
+    <h3>President</h3>
+    <div *ngFor="let candidate of candidates ; let i = index">
+      <div *ngIf="(candidate.post == 'PR')">
+        <mat-grid-tile>
+          <mat-card class="candidate-card">
+
+            <mat-card-header>
+              <div mat-card-avatar class="candidate-header-image"></div>
+              <ul>
+                <li>
+                    <mat-card-title><b>Name:</b> {{candidate.candidatename}}</mat-card-title>
+                </li>
+
+                <li>
+                    <mat-card-subtitle><b>Registration Number:</b> {{candidate.regnumber}}</mat-card-subtitle>
+                </li><br>
+
+                <li>
+                    <mat-radio-group name="PR">
+                        <mat-radio-button color="primary" value="1" (change)="vote.PR=candidate.regnumber">VOTE</mat-radio-button>
+                      </mat-radio-group>
+                </li>
+              </ul>
+            </mat-card-header>
+          </mat-card>
+        </mat-grid-tile>
+      </div>
+    </div>
+  </mat-grid-list>
+
   <!-- Candidates for the post of Vice President -->
   <mat-grid-list cols="3" rowHeight="3:2">
     <h3>Vice President</h3>

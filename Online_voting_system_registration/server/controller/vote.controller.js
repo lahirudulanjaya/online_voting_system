@@ -5,7 +5,8 @@ const ctrlEmail = require('./email.controller');
 const Email = mongoose.model('email');
 const User = mongoose.model('user');
 
-function Votee(VP,SE,TR,ED,CM,registrationnumber) {
+function Votee(PR,VP,SE,TR,ED,CM,registrationnumber) {
+    this.PR=PR,
     this.VP=VP,
     this.SE=SE,
     this.TR=TR,
@@ -15,13 +16,14 @@ function Votee(VP,SE,TR,ED,CM,registrationnumber) {
   }
 module.exports.postvote=(req,res,next)=>{
      var vote =new Vote();
+     vote.PR = req.body.PR;
      vote.VP = req.body.VP;
      vote.SE = req.body.SE;
      vote.TR = req.body.TR;
      vote.ED = req.body.ED;
      vote.CM = req.body.CM;
  var sigg = req.body.signature;
- var votee= new Votee(req.body.VP,req.body.SE,req.body.TR,req.body.ED,req.body.CM,req.body.registrationnumber);
+ var votee= new Votee(req.body.PR,req.body.VP,req.body.SE,req.body.TR,req.body.ED,req.body.CM,req.body.registrationnumber);
 //var publickey=ctrlEmail.findpub(req.body.registrationnumber);
 
 

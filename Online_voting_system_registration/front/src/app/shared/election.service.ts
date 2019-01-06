@@ -24,7 +24,7 @@ postElection(election: Election){
 }
 getallelections()
 {
-  return this.http.get(environment.apiBaseUrl+'/getallelection');
+  return this.http.get(environment.apiBaseUrl+'/getallelections');
 }
 
 

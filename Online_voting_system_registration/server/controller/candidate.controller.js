@@ -46,7 +46,7 @@ module.exports.setcandidate = (req,res,next) =>
         candidate.election =req.body.election;
         candidate.post=req.body.post;
         candidate.candidatename = req.body.candidatename;
-        candidate.regnumber=req.body.registrationnumber;
+        candidate.regnumber=req.body.regnumber;
         candidate.degree = req.body.iscs;
         candidate.save((err,doc) => {
             if (!err){
