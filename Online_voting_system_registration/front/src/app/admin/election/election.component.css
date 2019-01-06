@@ -234,3 +234,7 @@ ul li {
 .election-timer {
   font-size: 50px;
 }
+
+td {
+  cursor: pointer;
+}

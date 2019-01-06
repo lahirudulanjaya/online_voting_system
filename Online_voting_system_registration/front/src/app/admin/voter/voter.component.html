@@ -37,7 +37,7 @@
           <!-- Name Column -->
           <ng-container matColumnDef="userName">
             <th mat-header-cell *matHeaderCellDef> User Name </th>
-            <td mat-cell *matCellDef="let element" (click)="Onedit(element)"> {{element.userName}} </td>
+            <td mat-cell *matCellDef="let element" (click)="Onedit(element)" class="blah"> {{element.userName}} </td>
           </ng-container>
 
          <!-- Registration No. Column -->
@@ -74,7 +74,7 @@
           <div mat-card-avatar class="candidate-header-image"></div>
         </mat-card-header>
         <mat-card-header>
-          <mat-card-title>Voter Name</mat-card-title>
+          <mat-card-title>{{userService.selectedUser.userName}}</mat-card-title>
         </mat-card-header>
 
         <!-- Candidate details-->
@@ -82,16 +82,13 @@
           <mat-card-content>
             <ul>
               <li>
-                <mat-label>User Name.:{{userService.selectedUser.userName}} </mat-label>
+                <mat-label><b>Registration Number:</b>&nbsp; {{userService.selectedUser.registrationnumber}} </mat-label>
               </li>
               <li>
-                <mat-label>Registration Number: {{userService.selectedUser.registrationnumber}} </mat-label>
+                <mat-label><b>Telephone No.:</b>&nbsp; {{userService.selectedUser.phonenumber}}</mat-label>
               </li>
               <li>
-                <mat-label>Telephone No.: {{userService.selectedUser.phonenumber}}</mat-label>
-              </li>
-              <li>
-                <mat-label>Email : {{userService.selectedUser.email}}</mat-label>
+                <mat-label><b>Email:</b>&nbsp; {{userService.selectedUser.email}}</mat-label>
               </li>
 
             </ul>
