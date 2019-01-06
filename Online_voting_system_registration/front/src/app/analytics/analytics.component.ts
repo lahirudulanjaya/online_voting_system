@@ -10,6 +10,7 @@ import Chart from 'chart.js';
 })
 
 export class AnalyticsComponent implements OnInit {
+  
   // Variable declaration
   totalVotes: number;
   totalCandidates: number;
@@ -283,6 +284,11 @@ export class AnalyticsComponent implements OnInit {
         this.generateEditorResult();
       }
     );
+    this.resultService.getCommitteeResult().subscribe(
+      res=>{
+        this
+      }
+    )
 
   }
 }

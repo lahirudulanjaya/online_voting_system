@@ -12,6 +12,7 @@ import{Otp} from '../../shared/user.model';
 })
 
 export class SignInComponent implements OnInit {
+  answer;
    admin=0;
    valid=false;
    show =false;
@@ -47,21 +48,28 @@ export class SignInComponent implements OnInit {
 
         }
       else{
+        this.answer=null;
           //this.router.navigateByUrl('/userprofile/overview');
-         this.userService.selectedOtp.otp = prompt("Please enter your verificationcode:", "");
+        while(!this.answer){
+              this.answer= prompt("Please enter your verificationcode:", "");
+              this.userService.selectedOtp.otp=this.answer;
+            }
         this.userService.postotp(this.userService.selectedOtp).subscribe(
           res=>{
             this.userService.getvalid().subscribe(
               res=>{
                 this.valid =res as boolean
-                alert(this.valid);
                 if(this.valid){
-
                 this.router.navigateByUrl('/userprofile/overview');
+                }
+                else{
+                  this.serverErrorMessages="Invalid code";
+                  this.router.navigateByUrl('/login');
                 }
             }
             )
           })
+
 
         }
       },
@@ -85,7 +93,3 @@ export class SignInComponent implements OnInit {
       })
 }
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 84ec719cf028ab618ebb3b51e5600001c5ec4f45

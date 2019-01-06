@@ -125,12 +125,15 @@ module.exports.editorResult = ((req, res, next) => {
 // Committee Member
 module.exports.committeeResult = ((req, res, next) => {
     Vote.aggregate([{
-        $unwind: '$CM',
+        $unwind: '$CM'
+      },
+      {
         $group: {
             _id: { CM: '$CM'},
             count: { $sum: 1 }
         }
-    }], function (err, result) {
+      }
+    ], function (err, result) {
         if (err) {
             res.send(err);
         }

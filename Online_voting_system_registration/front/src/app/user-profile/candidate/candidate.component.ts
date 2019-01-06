@@ -58,5 +58,10 @@ export class CandidateComponent implements OnInit {
         }
       )
   }
+  vote(){
+    setTimeout(() =>this.router.navigateByUrl('/userprofile/voting'), 4000);
+
+  }
+
 
 }

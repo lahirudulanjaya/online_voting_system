@@ -44,4 +44,5 @@ export class ResultService {
   getCommitteeResult() {
     return this.http.get(environment.apiBaseUrl + '/committeeresult');
   }
+
 }

@@ -7,7 +7,7 @@
     <h3>Election will close within </h3>
     <app-timer></app-timer>
     <div>
-  <button mat-raised-button color="primary" type ="button" *ngIf="show">Click here to Vote</button>
+  <button mat-raised-button color="primary" type ="button" (click)="vote()" *ngIf="show">Click here to Vote</button>
   </div>
 </div>
 </div>
