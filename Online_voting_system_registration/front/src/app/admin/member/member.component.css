@@ -100,3 +100,7 @@ ul li {
 .mat-card-actions .mat-stroked-button {
   margin-left: 20px;
 }
+
+td {
+  cursor: pointer;
+}

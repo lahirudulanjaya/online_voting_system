@@ -101,3 +101,7 @@
     margin-left: 20px;
   }
   
+  td {
+    cursor: pointer;
+    width: 25%;
+  }
