@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -22,6 +21,10 @@ export class ResultService {
     return this.http.get(environment.apiBaseUrl + '/countregisteredvoters');
   }
 
+  getPresidentResult() {
+    return this.http.get(environment.apiBaseUrl + '/presidentresult');
+  }
+
   getVicePresidentResult() {
     return this.http.get(environment.apiBaseUrl + '/vpresult');
   }
@@ -36,5 +39,9 @@ export class ResultService {
 
   getEditorResult() {
     return this.http.get(environment.apiBaseUrl + '/editorresult');
+  }
+
+  getCommitteeResult() {
+    return this.http.get(environment.apiBaseUrl + '/committeeresult');
   }
 }

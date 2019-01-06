@@ -15,6 +15,11 @@ export class AnalyticsComponent implements OnInit {
   totalCandidates: number;
   totalRegisteredVoters: number;
 
+  // President variables
+  president: Result[];
+  presidentNames: string[] = [];
+  presidentVotes: number[] = [];
+
   // Vice president variables
   vp: Result[];
   vpNames: string[] = [];
@@ -36,6 +41,14 @@ export class AnalyticsComponent implements OnInit {
   editorVotes: number[] = [];
 
   constructor(private resultService: ResultService) { }
+
+  // President
+  generatePresidentResult() {
+    this.president.forEach(element => {
+      this.presidentNames.push(element._id);
+      this.presidentVotes.push(element.count);
+    });
+  }
 
   // Vice president
   generateVPResult() {
@@ -70,6 +83,33 @@ export class AnalyticsComponent implements OnInit {
   }
 
   public ngOnInit() {
+    // Bar chart for President results
+    var pctx = "pChart";
+    var pChart = new Chart(pctx, {
+      type: 'horizontalBar',
+      data: {
+        labels: this.presidentNames,
+        datasets: [{
+          label: 'No. of Votes',
+          data: this.presidentVotes,
+          backgroundColor: 'rgba(63, 81, 181, 0.5)',
+          borderColor: 'rgb(63, 81, 181)'
+        }]
+      },
+      options: {
+        scaleShowVerticalLines: false,
+        responsive: true,
+        scales: {
+          xAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+
+    setTimeout(function () { pChart.update(); }, 1000);
 
     // Bar chart for Vice president results
     var vpctx = "vpChart";
@@ -80,17 +120,108 @@ export class AnalyticsComponent implements OnInit {
         datasets: [{
           label: 'No. of Votes',
           data: this.vpVotes,
-          backgroundColor: 'rgba(63, 81, 181, 0.5)', 
+          backgroundColor: 'rgba(63, 81, 181, 0.5)',
           borderColor: 'rgb(63, 81, 181)'
         }]
       },
       options: {
         scaleShowVerticalLines: false,
-        responsive: true
+        responsive: true,
+        scales: {
+          xAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
       }
     });
 
-    setTimeout(function() { vpChart.update(); }, 1000);
+    setTimeout(function () { vpChart.update(); }, 1000);
+
+    // Bar chart for Secretary results
+    var secctx = "secChart";
+    var secChart = new Chart(secctx, {
+      type: 'horizontalBar',
+      data: {
+        labels: this.secretaryNames,
+        datasets: [{
+          label: 'No. of Votes',
+          data: this.secretaryVotes,
+          backgroundColor: 'rgba(63, 81, 181, 0.5)',
+          borderColor: 'rgb(63, 81, 181)'
+        }]
+      },
+      options: {
+        scaleShowVerticalLines: false,
+        responsive: true,
+        scales: {
+          xAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+
+    setTimeout(function () { secChart.update(); }, 1000);
+
+    // Bar chart for Treasurer results
+    var trctx = "trChart";
+    var trChart = new Chart(trctx, {
+      type: 'horizontalBar',
+      data: {
+        labels: this.treasurerNames,
+        datasets: [{
+          label: 'No. of Votes',
+          data: this.treasurerVotes,
+          backgroundColor: 'rgba(63, 81, 181, 0.5)',
+          borderColor: 'rgb(63, 81, 181)'
+        }]
+      },
+      options: {
+        scaleShowVerticalLines: false,
+        responsive: true,
+        scales: {
+          xAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+
+    setTimeout(function () { trChart.update(); }, 1000);
+
+    // Bar chart for Editor results
+    var edctx = "edChart";
+    var edChart = new Chart(edctx, {
+      type: 'horizontalBar',
+      data: {
+        labels: this.editorNames,
+        datasets: [{
+          label: 'No. of Votes',
+          data: this.editorVotes,
+          backgroundColor: 'rgba(63, 81, 181, 0.5)',
+          borderColor: 'rgb(63, 81, 181)'
+        }]
+      },
+      options: {
+        scaleShowVerticalLines: false,
+        responsive: true,
+        scales: {
+          xAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+
+    setTimeout(function () { edChart.update(); }, 1000);
 
     // Get the total number of votes to varibale
     this.resultService.getTotalVotes().subscribe(
@@ -110,6 +241,14 @@ export class AnalyticsComponent implements OnInit {
     this.resultService.getTotalRegisteredVoters().subscribe(
       res => {
         this.totalRegisteredVoters = res as number;
+      }
+    );
+
+    // Get the results of candidates running for President
+    this.resultService.getPresidentResult().subscribe(
+      res => {
+        this.president = res as Result[];
+        this.generatePresidentResult();
       }
     );
 
@@ -146,39 +285,4 @@ export class AnalyticsComponent implements OnInit {
     );
 
   }
-
-  // Styling and options for all bar charts
-  public barChartOptions: any = {
-    scaleShowVerticalLines: false,
-    responsive: true
-  };
-  public barChartColors: any[] = [
-    { backgroundColor: 'rgba(63, 81, 181, 0.5)', borderColor: 'rgb(63, 81, 181)' }
-  ];
-  public barChartType: string = 'bar';
-  public barChartLegend: boolean = true;
-
-  // Bar chart for Vice president results
-  public vpBarChartLabels = this.vpNames;
-  public vpBarChartData: any[] = [
-    { data: this.vpVotes, label: 'Total Votes' },
-  ];
-
-  // Bar chart for Secretary results
-  public secretaryBarChartLabels = this.secretaryNames;
-  public secretaryBarChartData: any[] = [
-    { data: this.secretaryVotes, label: 'Total Votes' },
-  ];
-
-  // Bar chart for Treasurer results
-  public treasurerBarChartLabels = this.treasurerNames;
-  public treasurerBarChartData: any[] = [
-    { data: this.treasurerVotes, label: 'Total Votes' },
-  ];
-
-  // Bar chart for Editor results
-  public editorBarChartLabels = this.editorNames;
-  public editorBarChartData: any[] = [
-    { data: this.editorVotes, label: 'Total Votes' },
-  ];
 }

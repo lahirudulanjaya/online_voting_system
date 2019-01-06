@@ -85,3 +85,7 @@ export class SignInComponent implements OnInit {
       })
 }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 84ec719cf028ab618ebb3b51e5600001c5ec4f45
