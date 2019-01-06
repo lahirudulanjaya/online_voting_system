@@ -44,7 +44,6 @@ router.put('/savepki', ctrlRsa.savepki);
 router.get('/getcandidateprofiles', ctrlCandidate.getcandidateprofiles);
 router.get('/getpublic/:id', ctrlEmail.getpublic);
 router.post('/postvote', ctrlVote.postvote);
-router.put('/confirmvote', ctrlUser.updateuservote);
 router.put('/updatecandiate', ctrlCandidate.putcandidateprofile);
 router.delete('/deletecandidate/:id', ctrlCandidate.deletecandidateprofile);
 router.post('/upload', upload.single('candidateimage'));
