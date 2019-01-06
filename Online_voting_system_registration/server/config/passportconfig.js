@@ -28,7 +28,7 @@ passport.use(
                    // }
                     // authentication succeeded
                     else{
-                      ctrluser.sendsms(user.phonenumber);
+                      //ctrluser.sendsms(user.phonenumber);
                         return done(null, user);
 
                     }

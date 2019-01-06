@@ -30,9 +30,12 @@ export class VoteComponent implements OnInit {
   candidates :Candidate[]; //for retrive candidates
   rsa:Email; //for retrive public key
   pub:string;
-  pri:string;
-  constructor(private candidateservice :CandidateService,private rsaservice:RsaService,private usersevice:UserService,private voteservice:VoteService) {
-   }
+  test ;
+  public pri;
+  constructor(private candidateservice :CandidateService,private rsaservice:RsaService,private usersevice:UserService,private voteservice:VoteService)
+  {
+
+  }
 
 
 
@@ -52,27 +55,22 @@ export class VoteComponent implements OnInit {
 
       this.candidateservice.getCandidateProfiles().subscribe(
         candidates =>{
-
           this.candidates= candidates as Candidate[];
-
-
         })
     }
     fileUpload(event) {
       var reader = new FileReader();
         reader.readAsText(event.srcElement.files[0]);
-
-        reader.onload = function () {
-          var pkey =forge.pki.privateKeyFromPem(reader.result);
-
-          
+        var me = this;
+        reader.onload = function ()
+        {
+          me.pri=reader.result.trim()
         }
       }
   check(){
     if(this.user.isvote==false){
       alert('verifyed');
     if((this.arr.length ==4) &&(this.vote.ED && this.vote.SE && this.vote.TR && this.vote.VP)){//check voter's vote is elibible or not
-        alert('vote eligible');
         if(confirm("Confirm your Vote"))
         {
           this.postvote(); // post the vote
@@ -83,27 +81,22 @@ export class VoteComponent implements OnInit {
 
       }
       else{
-        alert('vote is not eligible');
+        this.serverErrorMessages = "Your vote is not eligible";
       }
   }
-  else{
-    alert('you have already voted');
+  else
+  {
+    this.serverErrorMessages='you have already voted';
     this.isDisabled=true;
   }
-
-
   }
-
-
-
-
 
   postvote()
   {
     this.vote.CM=this.arr;
     this.vote.registrationnumber = this.user.registrationnumber;
-    alert(JSON.stringify(this.vote));
     this.vote.signature=this.voteservice.createsignature(this.pri,this.vote)
+    this.pri=null;
     alert(this.vote.signature);
     this.voteservice.postvote(this.vote).subscribe(
       res=>{
@@ -118,16 +111,16 @@ export class VoteComponent implements OnInit {
         this.serverErrorMessages = err.error;
       }
     )
-    if(!this.user.isvote){
-      this.usersevice.updatevote(this.user).subscribe(
-        res=>{
-            alert('you have succesfully voted')
-        },
-        err=>{
-          alert('errr');
-        }
-      )
-    }
+    // if(!this.user.isvote){
+    //   this.usersevice.updatevote(this.user).subscribe(
+    //     res=>{
+    //         alert('you have succesfully voted')
+    //     },
+    //     err=>{
+    //       alert('errr');
+    //     }
+    //   )
+    // }
   }
 
 
@@ -139,7 +132,8 @@ export class VoteComponent implements OnInit {
     this.candidates.forEach(item=>
       {
       console.log(item)
-      if(item.checked){
+      if(item.checked)
+      {
         this.num= this.num+1
         this.arr.push(item.regnumber);
       }
@@ -148,13 +142,5 @@ export class VoteComponent implements OnInit {
 
     })
   }
-
-
-//////
-
-
-
-
-
 
 }

@@ -143,21 +143,6 @@ module.exports.deleteuserprofile=(req,res,next) =>{
     })
 
 }
-
-module.exports.updateuservote= (req, res) => {
-
-    User.findOneAndUpdate({registrationnumber:req.body.registrationnumber},{$set:{isvote:true}},(err,result)=>{
-        if(err){
-            res.status(422).send(err);
-        }
-        else{
-            res.send(result);
-        }
-
-    })
-
-
-}
 module.exports.sendsms=(phonenumber)=>{
      otp= randomstring.generate({
         length: 6,

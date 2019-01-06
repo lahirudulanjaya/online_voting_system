@@ -191,12 +191,9 @@
       <div class="modal-body">
           <form>
             <div class=key>
-              <mat-form-field class="public">
-                <textarea matInput type="text" placeholder="Public Key" name="publickey" disabled [(ngModel)]="pub" matTextareaAutosize
-                  matAutosizeMinRows=10 matAutosizeMaxRows=20></textarea>
-              </mat-form-field>
-              <mat-form-field class="private">
-                <textarea matInput type="text" placeholder="Enter your Private Key here" name="private" [(ngModel)]="pri" value={{fileText}}
+
+              <mat-form-field class="private" hidden>
+                <textarea matInput type="text" placeholder="Enter your Private Key here" name="private" [(ngModel)]="pri"
                   matTextareaAutosize matAutosizeMinRows=10 matAutosizeMaxRows=20 required></textarea>
               </mat-form-field>
               <input id="file-upload"
@@ -205,26 +202,28 @@
                         (change)="fileUpload($event)">
 
             </div>
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+              <button mat-button type="button" data-dismiss="modal">Cancel</button>
+              <button mat-raised-button color="primary" [disabled]="isDisabled" (click)="check()">Vote Now</button>
+
+
+            </div>
+            <!-- Success Message -->
+            <div class="success" *ngIf="showSucessMessage">
+              Your Vote Saved successfully
+            </div>
+
+            <!-- Error message -->
+            <div class="alert" *ngIf="serverErrorMessages">
+              {{serverErrorMessages}}
+            </div>
           </form>
       </div>
 
 
 
-      <!-- Modal Footer -->
-      <div class="modal-footer">
-        <button mat-button type="button" data-dismiss="modal">Cancel</button>
-        <button mat-raised-button color="primary" [disabled]="isDisabled" (click)="check()">Vote Now</button>
 
-        <!-- Success Message -->
-        <div class="success" *ngIf="showSucessMessage">
-          Your Vote Saved successfully
-        </div>
-
-        <!-- Error message -->
-        <div class="alert" *ngIf="serverErrorMessages">
-          {{serverErrorMessages}}
-        </div>
-      </div>
     </div>
   </div>
 </div>

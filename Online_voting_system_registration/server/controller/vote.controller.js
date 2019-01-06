@@ -3,6 +3,7 @@ var forge = require('node-forge');
 const Vote = mongoose.model('vote');
 const ctrlEmail = require('./email.controller');
 const Email = mongoose.model('email');
+const User = mongoose.model('user');
 
 function Votee(VP,SE,TR,ED,CM,registrationnumber) {
     this.VP=VP,
@@ -44,7 +45,17 @@ Email.findOne({registrationnumber:req.body.registrationnumber},function(err,resu
                       return next(err);
                   }
                   else{
-                      res.send(doc);
+                    User.findOneAndUpdate({registrationnumber:req.body.registrationnumber},{$set:{isvote:true}},(err,result)=>{
+                        if(err){
+                            res.status(422).send(err);
+                        }
+                        else{
+                          res.send(doc);
+                        }
+
+                    })
+
+
 
 
                   }
