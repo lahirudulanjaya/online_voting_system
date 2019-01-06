@@ -32,11 +32,11 @@ i {
 
 .candidate-container {
   margin-top: 50px;
-  margin-left: 17%;
-  margin-right: 3%;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
-.candidate-header-image {
+img {
   background-image: url('/assets/img/user-icon.jpg');
   background-size: cover;
   margin-left: 10px;
