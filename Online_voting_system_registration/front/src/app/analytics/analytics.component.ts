@@ -15,6 +15,7 @@ export class AnalyticsComponent implements OnInit {
   totalVotes: number;
   totalCandidates: number;
   totalRegisteredVoters: number;
+  candidateName: string;
 
   // President variables
   president: Result[];
@@ -40,6 +41,11 @@ export class AnalyticsComponent implements OnInit {
   editor: Result[];
   editorNames: string[] = [];
   editorVotes: number[] = [];
+
+  // Committee Member variables
+  committee: Result[];
+  committeeNames: string[] = [];
+  committeeVotes: number[] = [];
 
   constructor(private resultService: ResultService) { }
 
@@ -80,6 +86,14 @@ export class AnalyticsComponent implements OnInit {
     this.editor.forEach(element => {
       this.editorNames.push(element._id);
       this.editorVotes.push(element.count);
+    });
+  }
+
+  // Committee Member
+  generateCommitteeResult() {
+    this.committee.forEach(element => {
+      this.committeeNames.push(element._id);
+      this.committeeVotes.push(element.count);
     });
   }
 
@@ -224,6 +238,34 @@ export class AnalyticsComponent implements OnInit {
 
     setTimeout(function () { edChart.update(); }, 1000);
 
+    // Bar chart for Committee Member results
+    var comctx = "comChart";
+    var comChart = new Chart(comctx, {
+      type: 'horizontalBar',
+      data: {
+        labels: this.committeeNames,
+        datasets: [{
+          label: 'No. of Votes',
+          data: this.committeeVotes,
+          backgroundColor: 'rgba(63, 81, 181, 0.5)',
+          borderColor: 'rgb(63, 81, 181)'
+        }]
+      },
+      options: {
+        scaleShowVerticalLines: false,
+        responsive: true,
+        scales: {
+          xAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+
+    setTimeout(function () { comChart.update(); }, 1000);
+
     // Get the total number of votes to varibale
     this.resultService.getTotalVotes().subscribe(
       res => {
@@ -289,6 +331,14 @@ export class AnalyticsComponent implements OnInit {
         this
       }
     )
+
+    // Get the results of candidates running for Committee Member
+    this.resultService.getCommitteeResult().subscribe(
+      res => {
+        this.committee = res as Result[];
+        this.generateCommitteeResult();
+      }
+    );
 
   }
 }

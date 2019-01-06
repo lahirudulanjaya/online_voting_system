@@ -60,5 +60,6 @@ router.get('/committeeresult', ctrlResult.committeeResult);
 router.post('/verifyotp',ctrlUser.verify);
 router.get('/getvalid',ctrlUser.getverify);
 router.get('/getallelections',ctrlElection.getallelections);
+router.get('/getcandidatename/:id', ctrlResult.getCandidateName);
 
 module.exports = router
