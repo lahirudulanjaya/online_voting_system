@@ -196,9 +196,14 @@
                   matAutosizeMinRows=10 matAutosizeMaxRows=20></textarea>
               </mat-form-field>
               <mat-form-field class="private">
-                <textarea matInput type="text" placeholder="Enter your Private Key here" name="private" [(ngModel)]="pri"
+                <textarea matInput type="text" placeholder="Enter your Private Key here" name="private" [(ngModel)]="pri" value={{fileText}}
                   matTextareaAutosize matAutosizeMinRows=10 matAutosizeMaxRows=20 required></textarea>
               </mat-form-field>
+              <input id="file-upload"
+                    type="file"
+                    accept="text/plain"
+                        (change)="fileUpload($event)">
+
             </div>
           </form>
       </div>

@@ -8,6 +8,7 @@ import {User} from '../../shared/user.model';
 import {Email} from '../../shared/email.model';
 import {Vote} from '../../shared/vote.model';
 import {VoteService} from '../../shared/vote.service';
+import * as forge from 'node-forge';
 
 @Component({
   selector: 'app-vote',
@@ -17,6 +18,7 @@ import {VoteService} from '../../shared/vote.service';
 })
 export class VoteComponent implements OnInit {
   isDisabled=false;
+  private fileText:string;
   showSucessMessage: boolean;
   serverErrorMessages: string;
   myModel;
@@ -31,6 +33,7 @@ export class VoteComponent implements OnInit {
   pri:string;
   constructor(private candidateservice :CandidateService,private rsaservice:RsaService,private usersevice:UserService,private voteservice:VoteService) {
    }
+
 
 
   ngOnInit() {
@@ -49,15 +52,22 @@ export class VoteComponent implements OnInit {
 
       this.candidateservice.getCandidateProfiles().subscribe(
         candidates =>{
+
           this.candidates= candidates as Candidate[];
 
 
         })
-
-
-
-
     }
+    fileUpload(event) {
+      var reader = new FileReader();
+        reader.readAsText(event.srcElement.files[0]);
+
+        reader.onload = function () {
+          var pkey =forge.pki.privateKeyFromPem(reader.result);
+
+          
+        }
+      }
   check(){
     if(this.user.isvote==false){
       alert('verifyed');

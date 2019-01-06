@@ -33,6 +33,7 @@
     "crypto": "^1.0.1",
     "crypto-js": "^3.1.9-1",
     "file-saver": "^2.0.0",
+    "fs": "0.0.1-security",
     "hammerjs": "^2.0.8",
     "igniteui-angular": "^6.1.8",
     "jspdf": "^1.5.2",
