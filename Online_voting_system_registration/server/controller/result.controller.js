@@ -124,13 +124,17 @@ module.exports.editorResult = ((req, res, next) => {
 
 // Committee Member
 module.exports.committeeResult = ((req, res, next) => {
-    Vote.aggregate([{
-        $unwind: '$CM',
-        $group: {
-            _id: { CM: '$CM'},
-            count: { $sum: 1 }
+    Vote.aggregate([
+        {
+            $unwind: '$CM'
+        },
+        {
+            $group: {
+                _id: '$CM',
+                count: { $sum: 1 }
+            }
         }
-    }], function (err, result) {
+    ], function (err, result) {
         if (err) {
             res.send(err);
         }
@@ -138,4 +142,17 @@ module.exports.committeeResult = ((req, res, next) => {
             res.status(200).json(result);
         }
     })
+})
+
+// Get name from Candidates collection
+module.exports.getCandidateName = ((req, res, next) => {
+    Candidate.findOne({ regnumber: req.params.id }, "candidatename",
+        function (err, result) {
+            if (err) {
+                res.send(err);
+            }
+            else {
+                res.status(200).json(result);
+            }
+        })
 })
