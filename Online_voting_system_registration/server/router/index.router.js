@@ -56,6 +56,7 @@ router.get('/vpresult', ctrlResult.vicePresidentResult);
 router.get('/secretaryresult', ctrlResult.secretaryResult);
 router.get('/treasurerresult', ctrlResult.treasurerResult);
 router.get('/editorresult', ctrlResult.editorResult);
+router.get('/committeeresult', ctrlResult.committeeResult);
 router.post('/verifyotp',ctrlUser.verify);
 router.get('/getvalid',ctrlUser.getverify);
 router.get('/getallelections',ctrlElection.getallelections);
