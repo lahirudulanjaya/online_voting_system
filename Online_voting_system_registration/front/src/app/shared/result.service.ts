@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -20,6 +19,10 @@ export class ResultService {
 
   getTotalRegisteredVoters() {
     return this.http.get(environment.apiBaseUrl + '/countregisteredvoters');
+  }
+
+  getPresidentResult() {
+    return this.http.get(environment.apiBaseUrl + '/presidentresult');
   }
 
   getVicePresidentResult() {
