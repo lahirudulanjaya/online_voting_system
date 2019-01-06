@@ -26,18 +26,17 @@
   </mat-toolbar>
 </div>
 
-<div class="rules-container">
+<div class="rules-container" *ngFor="let r of rule; let i = index">
   <mat-card>
-
     <!-- Card header with rule number -->
     <mat-card-header>
-      <mat-card-title>Rule #1</mat-card-title>
+      <mat-card-title>Rule #{{ i+1 }}</mat-card-title>
     </mat-card-header>
 
     <div class="rules-details">
       <!-- Rule content -->
       <mat-card-content>
-        gegfusfhusehfeihfiefioefweifjefjeo
+        {{ r.rule }}
       </mat-card-content>
 
       <!-- Buttons to Edit and Delete Rules -->
@@ -63,8 +62,7 @@
   
         <!-- Modal Body -->
         <div class="modal-body">
-            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="candidateService.selectedCandidate._id">
-        
+                    
             <!-- Election Name -->
             <mat-form-field appearance="standard">
               <mat-select placeholder="Select Election" name ="election" #election = "ngModel"  [(ngModel)]="rulesService.selectedRules.election" required>
@@ -117,11 +115,3 @@
             </div>
          </div>
 </form> -->
-<div class="success" *ngIf="showSucessMessage">
-  Saved successfully
-</div>
-
-<!-- Error message -->
-<div class="alert" *ngIf="serverErrorMessages">
-  {{serverErrorMessages}}
-</div>

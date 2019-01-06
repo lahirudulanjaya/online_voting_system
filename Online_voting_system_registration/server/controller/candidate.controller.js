@@ -101,7 +101,7 @@ module.exports.putcandidateprofile=(req,res,next) =>{
 module.exports.deletecandidateprofile=(req,res,next) =>{
     Candidate.findOneAndRemove({_id:req.params.id},function(err,doc){
         if(err){
-            res.status(404).json({ status: false, message: "delete faild" });
+            res.status(404).json({ status: false, message: "delete failed" });
         }
         else{
             res.send(doc);
