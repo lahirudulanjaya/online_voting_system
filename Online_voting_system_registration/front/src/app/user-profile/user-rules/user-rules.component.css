@@ -1,0 +1,51 @@
+.overview-toolbar {
+  margin-top: 75px;
+}
+
+.toolbar-title {
+  margin-left: 230px;
+}
+
+.mat-toolbar {
+  background-color: #ebedf7;
+}
+
+i {
+  vertical-align: middle;
+}
+
+.material-icons {
+  font-size: 35px;
+}
+
+.rules-container {
+  display: flex;
+  flex-direction: column;
+  margin-top:80px;
+  margin-left: 300px;
+  margin-right: 5%;
+}
+
+.rules-container > * {
+  width: 100%;
+}
+
+.mat-card {
+  padding: 0px;
+}
+
+.mat-card-header {
+  background-color: #1C2A39;
+  padding: 24px 24px 0px 24px;
+  justify-content: left;
+}
+
+.mat-card-title {
+  color: white;
+  font-size: 16px;
+  padding: 0px;
+}
+
+.rules-details {
+  padding: 24px;
+}

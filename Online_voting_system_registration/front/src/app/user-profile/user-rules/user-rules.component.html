@@ -1,0 +1,30 @@
+<app-userheader></app-userheader>
+<app-usersidebar></app-usersidebar>
+
+<div class="overview-toolbar">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <!-- Page title -->
+      <span class="toolbar-title">
+        <i class="material-icons">event_available</i>
+        &nbsp; Rules & Regulations
+      </span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+
+<div class="rules-container" *ngFor="let r of rule; let i = index">
+  <mat-card>
+    <!-- Card header with rule number -->
+    <mat-card-header>
+      <mat-card-title>Rule #{{ i+1 }}</mat-card-title>
+    </mat-card-header>
+
+    <div class="rules-details">
+      <!-- Rule content -->
+      <mat-card-content>
+        {{ r.rule }}
+      </mat-card-content>
+    </div>
+  </mat-card>
+</div>
