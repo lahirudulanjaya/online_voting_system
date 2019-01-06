@@ -9,13 +9,15 @@ import { AdminComponent } from './admin/admin.component';
 import { VerifyComponent } from './user/verify/verify.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { MemberComponent } from './admin/member/member.component';
-import { UserdashboardComponent} from './user-profile/userdashboard/userdashboard.component';
+import { UserdashboardComponent } from './user-profile/userdashboard/userdashboard.component';
 import { RulesComponent } from './admin/rules/rules.component';
 import { VoterComponent } from './admin/voter/voter.component';
-import { CandidateComponent} from './user-profile/candidate/candidate.component';
+import { CandidateComponent } from './user-profile/candidate/candidate.component';
 import { RsaComponent } from './user/rsa/rsa.component';
 import { ProfileComponent } from './user-profile/profile/profile.component';
 import { VoteComponent } from './user/vote/vote.component';
+import { UserRulesComponent } from './user-profile/user-rules/user-rules.component';
+
 export const appRoutes: Routes = [
     {
         path: 'signup', component: UserComponent,
@@ -27,12 +29,13 @@ export const appRoutes: Routes = [
     },
     {
         path: 'userprofile', component: UserProfileComponent,
-        children:[
-            {path : 'overview', component: UserdashboardComponent},
-            {path : 'election' , component: CandidateComponent},
-            {path : 'getkeys' , component: RsaComponent},
-            {path : 'profile' , component: ProfileComponent},
-            {path : 'voting' , component: VoteComponent }
+        children: [
+            { path: 'overview', component: UserdashboardComponent },
+            { path: 'election', component: CandidateComponent },
+            { path: 'getkeys', component: RsaComponent },
+            { path: 'profile', component: ProfileComponent },
+            { path: 'voting', component: VoteComponent },
+            { path: 'rules', component: UserRulesComponent }
         ]
 
     },
@@ -40,20 +43,20 @@ export const appRoutes: Routes = [
         path: '', redirectTo: '/login', pathMatch: 'full'
     },
     {
-        path : 'verify', component : VerifyComponent,
+        path: 'verify', component: VerifyComponent,
     },
     {
-            path: 'admin', component: AdminComponent,
-            children: [
-                { path : 'overview', component : DashboardComponent,},
-                { path : 'election', component: ElectionComponent,},
-                { path : 'candidates', component: MemberComponent,},
-                { path : 'rules', component: RulesComponent,},
-                { path : 'voter', component: VoterComponent}
-            ]
+        path: 'admin', component: AdminComponent,
+        children: [
+            { path: 'overview', component: DashboardComponent, },
+            { path: 'election', component: ElectionComponent, },
+            { path: 'candidates', component: MemberComponent, },
+            { path: 'rules', component: RulesComponent, },
+            { path: 'voter', component: VoterComponent }
+        ]
     },
     {
-        path : 'getkey', component: RsaComponent,
+        path: 'getkey', component: RsaComponent,
     }
 
 ];

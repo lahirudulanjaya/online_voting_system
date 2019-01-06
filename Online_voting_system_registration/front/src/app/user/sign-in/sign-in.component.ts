@@ -48,27 +48,27 @@ export class SignInComponent implements OnInit {
 
         }
       else{
-        this.answer=null;
-          //this.router.navigateByUrl('/userprofile/overview');
-        while(!this.answer){
-              this.answer= prompt("Please enter your verificationcode:", "");
-              this.userService.selectedOtp.otp=this.answer;
-            }
-        this.userService.postotp(this.userService.selectedOtp).subscribe(
-          res=>{
-            this.userService.getvalid().subscribe(
-              res=>{
-                this.valid =res as boolean
-                if(this.valid){
+        // this.answer=null;
+        //   //this.router.navigateByUrl('/userprofile/overview');
+        // while(!this.answer){
+        //       this.answer= prompt("Please enter your verificationcode:", "");
+        //       this.userService.selectedOtp.otp=this.answer;
+        //     }
+        // this.userService.postotp(this.userService.selectedOtp).subscribe(
+        //   res=>{
+        //     this.userService.getvalid().subscribe(
+        //       res=>{
+        //         this.valid =res as boolean
+        //         if(this.valid){
                 this.router.navigateByUrl('/userprofile/overview');
-                }
-                else{
-                  this.serverErrorMessages="Invalid code";
-                  this.router.navigateByUrl('/login');
-                }
-            }
-            )
-          })
+          //       }
+          //       else{
+          //         this.serverErrorMessages="Invalid code";
+          //         this.router.navigateByUrl('/login');
+          //       }
+          //   }
+          //   )
+          // })
 
 
         }

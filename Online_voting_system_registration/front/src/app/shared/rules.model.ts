@@ -1,5 +1,5 @@
 export class Rules {
     election :String;
-    rules: String;
+    rule: String;
 
 }
