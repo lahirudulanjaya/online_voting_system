@@ -83,7 +83,6 @@ export class AnalyticsComponent implements OnInit {
   }
 
   public ngOnInit() {
-
     // Bar chart for President results
     var pctx = "pChart";
     var pChart = new Chart(pctx, {
@@ -242,6 +241,14 @@ export class AnalyticsComponent implements OnInit {
     this.resultService.getTotalRegisteredVoters().subscribe(
       res => {
         this.totalRegisteredVoters = res as number;
+      }
+    );
+
+    // Get the results of candidates running for President
+    this.resultService.getPresidentResult().subscribe(
+      res => {
+        this.president = res as Result[];
+        this.generatePresidentResult();
       }
     );
 

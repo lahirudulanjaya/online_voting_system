@@ -121,3 +121,21 @@ module.exports.editorResult = ((req, res, next) => {
         }
     })
 })
+
+// Committee Member
+module.exports.committeeResult = ((req, res, next) => {
+    Vote.aggregate([{
+        $unwind: '$CM',
+        $group: {
+            _id: { CM: '$CM'},
+            count: { $sum: 1 }
+        }
+    }], function (err, result) {
+        if (err) {
+            res.send(err);
+        }
+        else {
+            res.status(200).json(result);
+        }
+    })
+})

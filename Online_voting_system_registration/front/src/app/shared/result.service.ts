@@ -40,4 +40,8 @@ export class ResultService {
   getEditorResult() {
     return this.http.get(environment.apiBaseUrl + '/editorresult');
   }
+
+  getCommitteeResult() {
+    return this.http.get(environment.apiBaseUrl + '/committeeresult');
+  }
 }
