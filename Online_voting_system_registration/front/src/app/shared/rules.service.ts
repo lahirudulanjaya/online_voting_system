@@ -12,7 +12,7 @@ import 'rxjs/add/operator/toPromise';
 export class RulesService {
   selectedRules:Rules ={
     election: '',
-    rules: '',
+    rule: '',
   };
 
   constructor(private HTTP :HttpClient) { }
@@ -20,5 +20,9 @@ export class RulesService {
   postRules(rules : Rules)
   {
     return this.HTTP.post(environment.apiBaseUrl+'/setrules',rules)
+  }
+
+  getRules() {
+    return this.HTTP.get(environment.apiBaseUrl + '/getrules');
   }
 }
