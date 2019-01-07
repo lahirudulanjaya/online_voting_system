@@ -1,19 +1,37 @@
-.public{
-    width :35%;
-}
-.private{
-    margin-left: 20px;
-    width :40%;
-}
-.button{
-    margin-left: 550px;
-    
-}
-#d{
-    margin-left: 1cm;
+.key-container {
+    margin-top:50px;
+    margin-left: 25%;
+    margin-right: 10%;
 }
 
-#form{
-    margin-top:100px;
-    margin-left: 10cm;
+.private{
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.overview-toolbar {
+    margin-top: 75px;
+}
+  
+.toolbar-title {
+    margin-left: 230px;
+}
+  
+.mat-toolbar {
+    background-color: #ebedf7;
+}
+  
+i {
+    vertical-align: middle;
+}
+  
+.material-icons {
+    font-size: 35px;
+}
+
+.mat-raised-button {
+    margin-right: 10%;
 }
