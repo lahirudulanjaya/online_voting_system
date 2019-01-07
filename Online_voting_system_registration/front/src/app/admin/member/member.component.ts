@@ -36,6 +36,7 @@ export class MemberComponent implements OnInit {
     this.candidateService.getCandidateProfiles().subscribe(
       res =>{
           this.candidates=res as Candidate[];
+
       })
       }
       Onedit(member: Candidate) {
@@ -48,5 +49,3 @@ export class MemberComponent implements OnInit {
         this.candidateService.deletecandidateprofile(id);
       }
   }
-
-

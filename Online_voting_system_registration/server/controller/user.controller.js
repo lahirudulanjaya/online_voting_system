@@ -40,11 +40,14 @@ module.exports.register = (req, res, next) => {
 console.log(user.randomstring);
 console.log(req.body.email);
 
-        Email.findOne({registrationnumber:user.registrationnumber},'email',function(err,result){
+        Email.findOne({registrationnumber:user.registrationnumber},function(err,result)
+        {
             if(err)
                 throw err;
-            else if(!result)
+            else if(!(result.registrationnumber==user.registrationnumber))
                 res.status(422).send('Details of email not found');
+            else if(!(result.phonenumber==user.phonenumber))
+                res.status(422).send('Phonenumber does not match');
             else{
                 if(result.email==user.email){
                     user.save((err, doc) => {
