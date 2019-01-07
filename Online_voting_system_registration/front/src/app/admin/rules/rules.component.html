@@ -42,7 +42,7 @@
 
       <!-- Buttons to Edit and Delete Rules -->
       <mat-card-actions>
-        <button mat-flat-button color="primary" data-toggle="modal" data-target="#editRuleModal">Edit Rule</button>
+        <button mat-flat-button color="primary" data-toggle="modal" data-target="#addRuleModal" (click)="Onedit(r)">Edit Rule</button>
         <button mat-stroked-button color="warn">Delete Rule</button>
       </mat-card-actions>
     </div>
@@ -58,23 +58,16 @@
   
         <!-- Modal Header -->
         <div class="modal-header">
-          <h5 class="modal-title" id="addRuleTitle">New Rules & Regulations</h5>
+          <h5 class="modal-title" id="addRuleTitle">Rules & Regulations</h5>
         </div>
   
         <!-- Modal Body -->
         <div class="modal-body">
-                    
-            <!-- Election Name -->
-            <mat-form-field appearance="standard">
-              <mat-select placeholder="Select Election" name ="election" #election = "ngModel"  [(ngModel)]="rulesService.selectedRules.election" required>
-                <mat-option value="ucsc"  >UCSC Union Election 2018</mat-option>
-                <mat-option value="ucsc">UCSC Union Election 2019</mat-option>
-              </mat-select>
-            </mat-form-field>
   
             <!-- Rules -->
             <mat-form-field appearance="standard">
-              <textarea matInput type="text" placeholder="Paste Rules and Regulation here" name ="rules" #rules = "ngModel" [(ngModel)]="rulesService.selectedRules.rules" required></textarea>
+              <mat-label>Enter Rule or Regulation</mat-label>
+              <input matInput type="text" name ="rules" #rules = "ngModel" [(ngModel)]="rulesService.selectedRules.rules" required>
             </mat-form-field> 
         </div>
   
@@ -97,22 +90,3 @@
 <div class="alert" *ngIf="serverErrorMessages">
   {{serverErrorMessages}}
 </div>
-
-<!-- <form #rulesform = "ngForm"  (ngSubmit)="rulesform.valid && Onsubmit(rulesform)">
-    <div class="rules-container">
-        <h2>Set Rules and Regulation</h2>
-        <mat-form-field>
-        
-                <mat-select placeholder="Select Election" name ="election" #election = "ngModel"  [(ngModel)]="rulesService.selectedRules.election" required>
-                  <mat-option value="ucsc"  >UCSC Union Election 2018</mat-option>
-                  <mat-option value="ucsc">UCSC Union Election 2019</mat-option>
-                </mat-select>
-        </mat-form-field>
-        <mat-form-field>
-                <textarea matInput type="text" placeholder="Paste Rules and Regulation here" name ="rules" #rules = "ngModel" [(ngModel)]="rulesService.selectedRules.rules" required></textarea>
-         </mat-form-field>
-         <div class="example-button-row">
-                <button mat-raised-button color="primary" type="submit">Submit</button>
-            </div>
-         </div>
-</form> -->

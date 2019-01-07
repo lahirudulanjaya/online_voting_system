@@ -1,7 +1,8 @@
   .rules-container {
     display: flex;
     flex-direction: column;
-    margin-top:100px;
+    margin-top:30px;
+    margin-bottom: 20px;
     margin-left: 300px;
     margin-right: 5%;
   }
@@ -81,4 +82,8 @@
   
   .mat-card-actions .mat-stroked-button {
     margin-left: 20px;
+  }
+
+  .mat-form-field {
+    width: 100%;
   }
