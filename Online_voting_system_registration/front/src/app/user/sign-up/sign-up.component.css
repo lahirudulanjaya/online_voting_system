@@ -99,11 +99,6 @@ input[type=submit]:disabled{
   color: white;
 }
 
-label.validation-message{
-  color:#ed5558;
-  font-size: 14px;
-}
-
 /* Simple CSS3 Fade-in Animation */
 .underlineHover:after {
   display: block;
@@ -172,4 +167,10 @@ i {
 
 * {
   box-sizing: border-box;
+}
+
+.mat-error {
+  text-align: left;
+  margin-top: 0px;
+  font-size: 12px;
 }
