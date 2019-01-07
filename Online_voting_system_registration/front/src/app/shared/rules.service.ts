@@ -11,7 +11,6 @@ import 'rxjs/add/operator/toPromise';
 })
 export class RulesService {
   selectedRules:Rules ={
-    election: '',
     rule: '',
   };
 
@@ -24,5 +23,11 @@ export class RulesService {
 
   getRules() {
     return this.HTTP.get(environment.apiBaseUrl + '/getrules');
+  }
+
+  updateRules(rules: Rules) {
+    this.HTTP.put(environment.apiBaseUrl + '/updaterule', rules).subscribe((res) => {
+      location.reload();
+    });
   }
 }

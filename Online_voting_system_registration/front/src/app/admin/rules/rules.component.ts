@@ -9,21 +9,7 @@ import { Rules } from '../../shared/rules.model';
   styleUrls: ['./rules.component.css']
 })
 export class RulesComponent implements OnInit {
-  public myInterval: number = 3000;
-  public activeSlideIndex: number = 0;
-  public noWrapSlides: boolean = false;
   rule: Rules[];
-
-  activeSlideChange(event: any) {
-    console.log(event);
-  }
-
-  public slides: Array<Object> = [
-    { "image": "https://mdbootstrap.com/img/Photos/Slides/img%20(18).jpg" },
-    { "image": "https://mdbootstrap.com/img/Photos/Slides/img%20(19).jpg" },
-    { "image": "https://mdbootstrap.com/img/Photos/Slides/img%20(20).jpg" },
-  ];
-
 
   constructor(private rulesService: RulesService) { }
   showSucessMessage: boolean;
@@ -47,6 +33,10 @@ export class RulesComponent implements OnInit {
         this.rule = res as Rules[];
       }
     );
+  }
+
+  Onedit(ruleElement: Rules) {
+    this.rulesService.selectedRules = ruleElement;
   }
 
 }
