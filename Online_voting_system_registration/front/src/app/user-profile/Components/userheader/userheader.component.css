@@ -18,3 +18,7 @@
   * {
     box-sizing: border-box;
   }
+
+  .navbar-nav {
+    margin-left: 900px;
+  }

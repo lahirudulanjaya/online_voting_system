@@ -61,5 +61,6 @@ router.get('/getvalid',ctrlUser.getverify);
 router.get('/getallelections',ctrlElection.getallelections);
 router.get('/getcandidatename/:id', ctrlResult.getCandidateName);
 router.get('/getrules', ctrlRules.getRules);
+router.put('/updaterule', ctrlRules.putRules);
 
 module.exports = router

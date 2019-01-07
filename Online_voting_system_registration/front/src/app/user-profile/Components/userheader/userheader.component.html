@@ -2,7 +2,17 @@
   <img src="/src/assets/img/Copy of UCSC_logo-Converted-white (1).png" width="40" height="40" class="d-inline-block align-top"
     alt="">
   <li class="navbar-brand">UCSC Online Voting System</li>
-  <div class="header-right">
-    <a href="login">{{name}}</a>
+  <div class="mr-auto">
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Welcome, {{ name }}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/login">Log Out</a>
+        </div>
+      </li>
+    </ul>
   </div>
 </nav>

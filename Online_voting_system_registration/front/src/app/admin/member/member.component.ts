@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { Candidate } from '../../shared/candidate.model';
 import { NgForm } from '@angular/forms';
 import { MatDialog } from '@angular/material';
-import { AddCandidateDialogComponent } from './././add-candidate-dialog/add-candidate-dialog.component';
 
 @Component({
   selector: 'app-member',
@@ -22,20 +21,31 @@ export class MemberComponent implements OnInit {
   displayedColumns: string[] = ['candidatename', 'regnumber', 'degree', 'post'];
   dataSource = this.candidates;
 
-  openAddCandidateDialog(): void {
-    const dialogRef = this.dialog.open(AddCandidateDialogComponent, {
-
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
-  }
-
   ngOnInit() {
     this.candidateService.getCandidateProfiles().subscribe(
       res =>{
           this.candidates=res as Candidate[];
+
+          this.candidates.forEach(element => {
+            if(element.post=="PR"){
+              element.post="President"
+            }
+            else if(element.post=="VP"){
+              element.post="Vice President"
+            }
+            else if(element.post=="TR"){
+              element.post="Treasurer"
+            }
+            else if(element.post=="SE"){
+              element.post="Secretary"
+            }
+            else if(element.post=="ED"){
+              element.post="Editor"
+            }
+            else if(element.post=="CM"){
+              element.post="Committee Member"
+            }
+          });
 
       })
       }

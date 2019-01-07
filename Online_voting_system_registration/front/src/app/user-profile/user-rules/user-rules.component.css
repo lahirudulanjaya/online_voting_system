@@ -21,7 +21,8 @@ i {
 .rules-container {
   display: flex;
   flex-direction: column;
-  margin-top:80px;
+  margin-top:30px;
+  margin-bottom: 20px;
   margin-left: 300px;
   margin-right: 5%;
 }
