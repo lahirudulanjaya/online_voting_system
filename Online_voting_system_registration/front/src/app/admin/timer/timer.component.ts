@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 
 })
 export class TimerComponent implements OnInit {
-  countDownDate = new Date("Jan 8, 2019 ").getTime()/1000;
+  countDownDate = new Date("Jan 7, 2019  15:05").getTime()/1000;
   now = new Date().getTime()/1000;
   distance = (this.countDownDate - this.now);
   constructor() { }
