@@ -18,7 +18,7 @@
         &nbsp; Add Rules
       </button>
 
-      <button mat-stroked-button color="warn" class="toolbar-button">
+      <button mat-stroked-button color="warn" (click)="OnDeleteAll()" class="toolbar-button">
         <i class="material-icons">delete</i>
         &nbsp; Delete All
       </button>
@@ -42,51 +42,54 @@
 
       <!-- Buttons to Edit and Delete Rules -->
       <mat-card-actions>
-        <button mat-flat-button color="primary" data-toggle="modal" data-target="#addRuleModal" (click)="Onedit(r)">Edit Rule</button>
-        <button mat-stroked-button color="warn">Delete Rule</button>
+        <button mat-flat-button color="primary" data-toggle="modal" data-target="#addRuleModal" (click)="OnEdit(r)">Edit
+          Rule</button>
+        <button mat-stroked-button color="warn" (click)="OnDelete(r._id)">Delete Rule</button>
       </mat-card-actions>
     </div>
   </mat-card>
 </div>
 
 <!-- Add Rules & Regulations Modal -->
-<form #rulesform = "ngForm"  (ngSubmit)="rulesform.valid && Onsubmit(rulesform)">
+<form #rulesform="ngForm" (ngSubmit)="rulesform.valid && Onsubmit(rulesform)">
 
   <div class="modal fade" id="addRuleModal" tabindex="-1" role="dialog" aria-labelledby="addRuleTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
-  
+
         <!-- Modal Header -->
         <div class="modal-header">
           <h5 class="modal-title" id="addRuleTitle">Rules & Regulations</h5>
         </div>
-  
+
         <!-- Modal Body -->
         <div class="modal-body">
-  
-            <!-- Rules -->
-            <mat-form-field appearance="standard">
-              <mat-label>Enter Rule or Regulation</mat-label>
-              <input matInput type="text" name ="rules" #rules = "ngModel" [(ngModel)]="rulesService.selectedRules.rules" required>
-            </mat-form-field> 
+
+          <!-- Rules -->
+          <mat-form-field appearance="standard">
+            <mat-label>Enter Rule or Regulation</mat-label>
+            <input matInput type="text" name="rules" #rules="ngModel" [(ngModel)]="rulesService.selectedRules.rules"
+              required>
+          </mat-form-field>
         </div>
-  
+
         <!-- Modal Footer -->
         <div class="modal-footer">
           <button mat-button type="button" data-dismiss="modal">Cancel</button>
-          <button mat-flat-button color="primary" type="submit">Submit</button>
+          <button mat-flat-button color="primary" type="submit">Submit</button><br>
+          <!-- Success & Error messages -->
+          <div class="success" *ngIf="showSucessMessage">
+            Saved successfully
+          </div>
+
+          <div class="alert" *ngIf="serverErrorMessages">
+            {{serverErrorMessages}}
+          </div>
         </div>
-      
+
+
+
       </div>
     </div>
   </div>
 </form>
-
-<div class="success" *ngIf="showSucessMessage">
-  Saved successfully
-</div>
-
-<!-- Error message -->
-<div class="alert" *ngIf="serverErrorMessages">
-  {{serverErrorMessages}}
-</div>

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 var rulesSchema = new mongoose.Schema({
-    rules :{
+    rule :{
         type :String,
         required:'Please Enter rules',
     }

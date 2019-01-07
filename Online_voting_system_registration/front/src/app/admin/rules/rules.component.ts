@@ -35,8 +35,16 @@ export class RulesComponent implements OnInit {
     );
   }
 
-  Onedit(ruleElement: Rules) {
+  OnEdit(ruleElement: Rules) {
     this.rulesService.selectedRules = ruleElement;
+  }
+
+  OnDelete(id: string) {
+    this.rulesService.deleteRule(id);
+  }
+
+  OnDeleteAll() {
+    this.rulesService.deleteAllRules();
   }
 
 }
