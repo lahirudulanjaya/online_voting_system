@@ -238,3 +238,8 @@ ul li {
 td {
   cursor: pointer;
 }
+
+#modal-label {
+  font-size: 14px;
+  font-family: Roboto, sans-serif;
+}
