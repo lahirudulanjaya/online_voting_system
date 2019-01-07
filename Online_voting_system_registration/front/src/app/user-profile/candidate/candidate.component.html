@@ -51,8 +51,14 @@
     <div class ="btn">
     <button mat-raised-button color="primary" type ="submit">Submit</button>
     </div>
+    <input #imageInput
+         type="file"
+         accept="image/*"
+         (change)="processFile(imageInput)">
   </div>
+
     </form>
+
 
 <div class="success" *ngIf="showSucessMessage">
   Saved successfully

@@ -46,7 +46,7 @@ router.get('/getpublic/:id', ctrlEmail.getpublic);
 router.post('/postvote', ctrlVote.postvote);
 router.put('/updatecandiate', ctrlCandidate.putcandidateprofile);
 router.delete('/deletecandidate/:id', ctrlCandidate.deletecandidateprofile);
-router.post('/upload', upload.single('candidateimage'));
+router.post('/upload', upload.single('image'));
 router.get('/countvotes', ctrlResult.totalVotes);
 router.get('/countcandidates', ctrlResult.totalCandidates);
 router.get('/countregisteredvoters', ctrlResult.totalRegisteredVoters);

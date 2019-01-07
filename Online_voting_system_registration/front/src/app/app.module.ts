@@ -100,7 +100,7 @@ import { UserRulesComponent } from './user-profile/user-rules/user-rules.compone
 
   ],
   imports: [
-  
+
     FileUploadModule,
     BrowserModule,
     FormsModule,

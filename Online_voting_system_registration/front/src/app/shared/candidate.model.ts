@@ -1,4 +1,4 @@
-export class Candidate 
+export class Candidate
 {
     _id:string;
     election:string;
@@ -7,4 +7,7 @@ export class Candidate
     regnumber :string;
     degree :string;
     checked:boolean;
+}
+export class ImageSnippet {
+  constructor(public src: string, public file: File) {}
 }

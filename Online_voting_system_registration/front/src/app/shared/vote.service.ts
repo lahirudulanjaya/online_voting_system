@@ -22,7 +22,6 @@ postvote(vote:Vote){
 
 createsignature(pri:String,vote:Vote)
 {
-  alert(vote);
   var privKey =  forge.pki.privateKeyFromPem(pri);
   var md = forge.md.sha256.create();
   md.update(JSON.stringify(vote),"utf8");

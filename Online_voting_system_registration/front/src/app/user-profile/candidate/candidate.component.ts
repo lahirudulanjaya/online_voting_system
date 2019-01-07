@@ -6,12 +6,14 @@ import { environment } from '../../../environments/environment';
 import { UserService } from '../../shared/user.service';
 import { User } from '../../shared/user.model';
 import { Router } from "@angular/router";
+import { ImageSnippet } from '../../shared/candidate.model';
 
 @Component({
   selector: 'app-candidate',
   templateUrl: './candidate.component.html',
   styleUrls: ['./candidate.component.css']
 })
+
 export class CandidateComponent implements OnInit {
   countDownDate = new Date("Jan 8, 2019 ").getTime()/1000;
   now = new Date().getTime()/1000;
@@ -20,12 +22,34 @@ export class CandidateComponent implements OnInit {
   showSucessMessage: boolean;
   serverErrorMessages: string;
   userDetails :User;
+
+  selectedFile: ImageSnippet;
   constructor(private candidateService :CandidateService,private userService: UserService, private router: Router){
    // this.uploader.onCompleteItem =(item :any,response :any,status:any,header :any)=>{
    //   this.alist.push(JSON.parse(response));
    // }
   }
 
+
+  processFile(imageInput: any) {
+      const file: File = imageInput.files[0];
+      const reader = new FileReader();
+
+      reader.addEventListener('load', (event: any) => {
+
+        this.selectedFile = new ImageSnippet(event.target.result, file);
+
+        this.candidateService.uploadImage(this.selectedFile.file).subscribe(
+          (res) => {
+            alert('success');
+          },
+          (err) => {
+            alert('failed');
+          })
+      });
+
+      reader.readAsDataURL(file);
+    }
   ngOnInit() {
 
   if((this.countDownDate - this.now)<0){

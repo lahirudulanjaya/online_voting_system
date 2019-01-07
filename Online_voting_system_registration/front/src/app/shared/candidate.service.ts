@@ -21,10 +21,17 @@ export class CandidateService {
     checked: false
 
   };
-  
+
 
 
   constructor(private HTTP :HttpClient) {}
+  public uploadImage(image: File){
+   const formData = new FormData();
+
+   formData.append('image', image);
+
+   return this.HTTP.post(environment.apiBaseUrl+'/upload', formData);
+ }
   postcandidate(candidate: Candidate){
     return this.HTTP.post(environment.apiBaseUrl+'/candidate',candidate);
   }
@@ -37,14 +44,14 @@ export class CandidateService {
    this.HTTP.put(environment.apiBaseUrl+'/updatecandiate',user).subscribe((res)=>{
     location.reload();
   });
-  
+
 }
 deletecandidateprofile(_id :string)
 {
   if(confirm('Are you sure you want to delete this user?')==true)
       this.HTTP.delete(environment.apiBaseUrl+'/deletecandidate'+'/'+_id).subscribe((res)=>{
         location.reload();
-      }); 
+      });
 }
-  
+
 }
