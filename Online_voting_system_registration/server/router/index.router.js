@@ -62,5 +62,7 @@ router.get('/getallelections',ctrlElection.getallelections);
 router.get('/getcandidatename/:id', ctrlResult.getCandidateName);
 router.get('/getrules', ctrlRules.getRules);
 router.put('/updaterule', ctrlRules.putRules);
+router.delete('/deleterule/:id', ctrlRules.deleteRule);
+router.delete('/deleteallrules', ctrlRules.deleteAllRules);
 
 module.exports = router
