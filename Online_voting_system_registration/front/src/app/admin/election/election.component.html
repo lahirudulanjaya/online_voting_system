@@ -78,9 +78,9 @@
           <mat-card-title>Election starts in:</mat-card-title>
         </mat-card-header>
 
-        <mat-card-header>
+        <!-- <mat-card-header>
           <mat-card-title class="election-timer">dd:hh:mm:ss</mat-card-title>
-        </mat-card-header>
+        </mat-card-header> -->
 
         <!-- Election details-->
         <div class="election-details">
@@ -135,7 +135,7 @@
 
           <!-- Election Date -->
           <mat-form-field appearance="standard">
-            <input matInput [matDatepicker]="picker" placeholder="Election Date" #date="ngModel" [(ngModel)]="electionService.selectedElection.date"
+            <input matInput [matDatepicker]="picker" placeholder="Election Date *" #date="ngModel" [(ngModel)]="electionService.selectedElection.date"
               name="date" required>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
@@ -143,16 +143,13 @@
               required [ngClass]="{'invalid-textbox' :electionForm.submitted && !date.valid }"> -->
           </mat-form-field>
 
-          <label>Choose Start Time:</label>
+          <label id="modal-label">Choose Start Time:</label>
           <input type="time" [(ngModel)]="electionService.selectedElection.stime" #stime="ngModel" name="stime" placeholder="Starting TIme"
             min="9:00" max="18:00"><br>
 
-
-
-          <label>Choose End Time:</label>
+          <label id="modal-label">Choose End Time:</label>
           <input type="time" #etime="ngModel" [(ngModel)]="electionService.selectedElection.etime" name="etime" placeholder="Ending TIme"
             ><br>
-
 
           <div class="modal-footer">
             <button mat-button type="button" data-dismiss="modal">Cancel</button>
