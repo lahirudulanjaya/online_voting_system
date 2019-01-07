@@ -15,7 +15,6 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import {  MatTableModule, MatDividerModule, MatPaginatorModule, MatSortModule} from '@angular/material';
 import 'hammerjs';
-import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 import { ConfirmEqualValidatorDirective } from './shared/confirm-validate.directive';
 import { ChartsModule } from 'ng2-charts';
@@ -101,9 +100,7 @@ import { UserRulesComponent } from './user-profile/user-rules/user-rules.compone
 
   ],
   imports: [
-    AngularDateTimePickerModule,
-    OwlNativeDateTimeModule,
-    OwlDateTimeModule,
+  
     FileUploadModule,
     BrowserModule,
     FormsModule,

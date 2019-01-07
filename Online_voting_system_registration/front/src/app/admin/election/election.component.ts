@@ -29,8 +29,8 @@ dataSource = this.elections;
   ngOnInit() {
     this.electionService.getallelections().subscribe(
       res=>{
-      this.elections=res as Elections;
-      alert(this.elections)
+      this.elections=res as Election[];
+
     })
   }
 

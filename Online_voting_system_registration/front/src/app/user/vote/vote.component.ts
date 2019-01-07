@@ -78,7 +78,6 @@ export class VoteComponent implements OnInit {
         else{
 
         }
-
       }
       else{
         this.serverErrorMessages = "Your vote is not eligible";
