@@ -1,3 +1,14 @@
+<div class="overview-toolbar">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <!-- Page title -->
+      <span class="toolbar-title">
+        <i class="material-icons">how_to_vote</i>
+        &nbsp; Election
+      </span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
 
 
 <div class="example-container">
@@ -15,55 +26,48 @@
   <button mat-raised-button color="primary" type ="button" (click)="vote()" *ngIf="show">Click here to Vote</button>
   </div>
 </div>
-</div>
 
-<form #candidateform ="ngForm" (ngSubmit)="candidateform.valid && Onsubmit(candidateform)">
-
-
-  <div class="example-container">
-
-
-      <h2>Register Candidate</h2>
+<div class="candidate-container">
+  <form #candidateform="ngForm" (ngSubmit)="candidateform.valid && Onsubmit(candidateform)">
+    <h2>Register Candidate</h2>
 
     <mat-form-field hidden>
-      <input matInput type="text" placeholder="Candidate Name" name ="candidatename" #candidatename = "ngModel" [(ngModel)]="candidateService.selectedCandidate.candidatename" required >
-    </mat-form-field>
+      <input matInput type="text" placeholder="Candidate Name" name="candidatename" #candidatename="ngModel"
+        [(ngModel)]="candidateService.selectedCandidate.candidatename" required>
+    </mat-form-field><br>
+
     <mat-form-field hidden>
-        <input matInput type="text" placeholder="Registration Number" name ="regnumber" #regnumber = "ngModel" [(ngModel)]="candidateService.selectedCandidate.regnumber" required>
-      </mat-form-field>
-      <mat-form-field>
+      <input matInput type="text" placeholder="Registration Number" name="regnumber" #regnumber="ngModel" [(ngModel)]="candidateService.selectedCandidate.regnumber"
+        required>
+    </mat-form-field><br>
 
-        <mat-select placeholder="Select Your post" name ="post" #post = "ngModel"  [(ngModel)]="candidateService.selectedCandidate.post" required>
-          <mat-option value="PR">President</mat-option>
-          <mat-option value="VP">Vice President</mat-option>
-          <mat-option value="SE">Secretary</mat-option>
-          <mat-option value="TR">Treasurer</mat-option>
-          <mat-option value="ED">Editor</mat-option>
-          <mat-option value="CM">Committee Member</mat-option>
+    <mat-form-field>
+      <mat-select placeholder="Select Your post" name="post" #post="ngModel" [(ngModel)]="candidateService.selectedCandidate.post"
+        required>
+        <mat-option value="PR">President</mat-option>
+        <mat-option value="VP">Vice President</mat-option>
+        <mat-option value="SE">Secretary</mat-option>
+        <mat-option value="TR">Treasurer</mat-option>
+        <mat-option value="ED">Editor</mat-option>
+        <mat-option value="CM">Committee Member</mat-option>
+      </mat-select>
+    </mat-form-field><br>
 
+    <mat-form-field>
+      <mat-select placeholder="Select Your Course" name="iscs" #icsc="ngModel" [(ngModel)]="candidateService.selectedCandidate.iscs"
+        required>
+        <mat-option value="cs">Computer Science</mat-option>
+        <mat-option value="is">Information System</mat-option>
+      </mat-select>
+    </mat-form-field><br>
 
-        </mat-select>
-      </mat-form-field>
-         <mat-form-field>
+    <input #imageInput type="file" accept="image/*" (change)="processFile(imageInput)">
 
-        <mat-select placeholder="Select Your Course" name ="iscs" #icsc = "ngModel"  [(ngModel)]="candidateService.selectedCandidate.iscs" required>
-          <mat-option value="cs"  >Computer Science</mat-option>
-          <mat-option value="is">Information System</mat-option>
-        </mat-select>
-      </mat-form-field>
-
-
-    <div class ="btn">
-    <button mat-raised-button color="primary" type ="submit">Submit</button>
+    <div class="btn">
+      <button mat-raised-button color="primary" type="submit">Submit</button>
     </div>
-    <input #imageInput
-         type="file"
-         accept="image/*"
-         (change)="processFile(imageInput)">
-  </div>
-
-    </form>
-
+  </form>
+</div>
 
 <div class="success" *ngIf="showSucessMessage">
   Saved successfully

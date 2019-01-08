@@ -69,7 +69,7 @@ module.exports.setcandidate = (req,res,next) =>
 module.exports.getcandidateprofiles=(req,res,next) =>{
     Candidate.find({},{},function(err, candidates) {
         if(err){
-            res.send("something went wrong");
+            res.send("Something went wrong");
             next;
         }
         res.status(200).json(candidates);
@@ -92,7 +92,7 @@ module.exports.putcandidateprofile=(req,res,next) =>{
             res.send(doc);
         }
         else{
-            res.status(422).send("update failed");
+            res.status(422).send("Update failed");
         }
     })
 }
@@ -101,7 +101,7 @@ module.exports.putcandidateprofile=(req,res,next) =>{
 module.exports.deletecandidateprofile=(req,res,next) =>{
     Candidate.findOneAndRemove({_id:req.params.id},function(err,doc){
         if(err){
-            res.status(404).json({ status: false, message: "delete failed" });
+            res.status(404).json({ status: false, message: "Delete failed" });
         }
         else{
             res.send(doc);

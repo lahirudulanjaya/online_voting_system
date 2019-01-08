@@ -3,7 +3,7 @@ const Rules = mongoose.model('rules');
 
 module.exports.setrules = (req, res, next) => {
     var rules = new Rules();
-    rules.rules = req.body.rules;
+    rules.rule = req.body.rules;
 
 
     rules.save((err, doc) => {
@@ -39,7 +39,39 @@ module.exports.putRules = ((req, res, next) => {
             res.send(doc);
         }
         else{
-            res.status(422).send("update failed");
+            res.status(422).send("Update failed");
+        }
+    })
+})
+
+// Deleting rules (one by one)
+module.exports.deleteRule = ((req, res, next) => {
+    Rules.findOneAndRemove({
+        _id: req.params.id
+    }, function(err, doc) {
+        if(err) {
+            res.status(404).json({
+                status: false,
+                message: "Delete failed"
+            })
+        }
+        else {
+            res.send(doc);
+        }
+    })
+})
+
+// Deleting all rules at once
+module.exports.deleteAllRules = ((req, res, next) => {
+    Rules.deleteMany({}, function (err) {
+        if(err) {
+            res.status(404).json({
+                status: false,
+                message: "Delete failed"
+            })
+        }
+        else {
+            res.send("Success");
         }
     })
 })

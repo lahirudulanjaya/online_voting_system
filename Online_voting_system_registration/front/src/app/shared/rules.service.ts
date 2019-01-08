@@ -18,7 +18,7 @@ export class RulesService {
 
   postRules(rules : Rules)
   {
-    return this.HTTP.post(environment.apiBaseUrl+'/setrules',rules)
+    return this.HTTP.post(environment.apiBaseUrl+'/setrules',rules);
   }
 
   getRules() {
@@ -27,6 +27,20 @@ export class RulesService {
 
   updateRules(rules: Rules) {
     this.HTTP.put(environment.apiBaseUrl + '/updaterule', rules).subscribe((res) => {
+      location.reload();
+    });
+  }
+
+  deleteRule(_id: string) {
+    if(confirm('Are you sure you want to delete this rule?') == true)
+      this.HTTP.delete(environment.apiBaseUrl + '/deleterule' + '/' + _id).subscribe((res) => {
+        location.reload();
+      });
+  }
+
+  deleteAllRules() {
+    if(confirm('Are you sure you want to delete all rules?') == true)
+    this.HTTP.delete(environment.apiBaseUrl + '/deleteallrules').subscribe((res) => {
       location.reload();
     });
   }

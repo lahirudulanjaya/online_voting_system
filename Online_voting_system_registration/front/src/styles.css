@@ -2,3 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+.cdk-overlay-container {
+  z-index: 2000 !important;
+}
