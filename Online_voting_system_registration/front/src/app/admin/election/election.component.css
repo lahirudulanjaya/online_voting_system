@@ -238,3 +238,7 @@ ul li {
 td {
   cursor: pointer;
 }
+
+.election-table {
+  width:100%;
+}
