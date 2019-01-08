@@ -33,7 +33,7 @@ export class VerifyComponent implements OnInit {
   }
   resend(){
     var tok =new Tokenreg();
-    tok.registrationnumber =prompt("Please enter your registrationnumber:", "");
+    tok.registrationnumber =prompt("Please enter your Registration Number:", "");
       this.tokenService.changetoken(tok).subscribe(
         res=>{
           this.serverErrorMessages='';

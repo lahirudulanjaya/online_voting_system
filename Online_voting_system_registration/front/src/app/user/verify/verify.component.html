@@ -25,7 +25,7 @@
 
     <!-- Submit -->
     <input type="submit" value="Submit">
-    <button class="btn info" (click)="resend()">resend code</button>
+    <button mat-button (click)="resend()">Resend Activation Code</button>
 
     <div class="success" *ngIf="showSucessMessage">
       Saved successfully
@@ -35,7 +35,7 @@
     </div>
   </div>
   <div class="success" *ngIf="showSendMessage">
-    please checke the email.
+    Please check your email.
   </div>
 
 
