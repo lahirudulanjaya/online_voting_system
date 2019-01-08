@@ -16,14 +16,16 @@ import { ImageSnippet } from '../../shared/candidate.model';
 
 export class CandidateComponent implements OnInit {
   now = new Date().getTime()/1000;
-  show = false;
+  show = true;
   other=false;
   alist :any[];
   showSucessMessage: boolean;
   serverErrorMessages: string;
   userDetails :User;
+  countDownDate;
 stime;
 etime;
+distance;
   selectedFile: ImageSnippet;
   constructor(private candidateService :CandidateService,private userService: UserService, private router: Router){
    // this.uploader.onCompleteItem =(item :any,response :any,status:any,header :any)=>{
@@ -52,28 +54,33 @@ etime;
       reader.readAsDataURL(file);
     }
   ngOnInit() {
+    this.countDownDate = new Date("Jan 9,2019 15:00").getTime()/1000;
+    this.now = new Date().getTime()/1000;
+    this.distance = (this.countDownDate - this.now);
+    if(this.distance<0){
+      this.show=false;
+    }
 
-
-    this.userService.getUserProfile().subscribe(
-      res => {
-        this.userDetails = res['user'] as User;
-        this.candidateService.selectedCandidate.candidatename=this.userDetails.userName;
-        this.candidateService.selectedCandidate.regnumber =this.userDetails.registrationnumber;
-        if((this.stime - this.now)<0){
-          this.show=true;
-          this.other=false;
-          alert(this.stime - this.now);
-        }
-        else{
-          this.other=true;
-          this.show=false;
-        }
-      },
-      err => {
-        console.log(err);
-
-      }
-    );
+    // this.userService.getUserProfile().subscribe(
+    //   res => {
+    //     this.userDetails = res['user'] as User;
+    //     this.candidateService.selectedCandidate.candidatename=this.userDetails.userName;
+    //     this.candidateService.selectedCandidate.regnumber =this.userDetails.registrationnumber;
+    //     if((this.stime - this.now)<0){
+    //       this.show=true;
+    //       this.other=false;
+    //       alert(this.stime - this.now);
+    //     }
+    //     else{
+    //       this.other=true;
+    //       this.show=false;
+    //     }
+    //   },
+    //   err => {
+    //     console.log(err);
+    //
+    //   }
+    // );
 
 }
   Onsubmit(form: NgForm)
@@ -90,7 +97,8 @@ etime;
         }
       )
   }
-  vote(){
+  vote()
+  {
     setTimeout(() =>this.router.navigateByUrl('/userprofile/voting'), 4000);
 
   }
