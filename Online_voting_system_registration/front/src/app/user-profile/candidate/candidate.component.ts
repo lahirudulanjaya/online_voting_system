@@ -15,14 +15,15 @@ import { ImageSnippet } from '../../shared/candidate.model';
 })
 
 export class CandidateComponent implements OnInit {
-  countDownDate = new Date("Jan 7, 2019 15:05 ").getTime()/1000;
   now = new Date().getTime()/1000;
-  show =true;
+  show = false;
+  other=false;
   alist :any[];
   showSucessMessage: boolean;
   serverErrorMessages: string;
   userDetails :User;
-
+stime;
+etime;
   selectedFile: ImageSnippet;
   constructor(private candidateService :CandidateService,private userService: UserService, private router: Router){
    // this.uploader.onCompleteItem =(item :any,response :any,status:any,header :any)=>{
@@ -52,15 +53,21 @@ export class CandidateComponent implements OnInit {
     }
   ngOnInit() {
 
-  if((this.countDownDate - this.now)<0){
-    this.show=false;
 
-  }
     this.userService.getUserProfile().subscribe(
       res => {
         this.userDetails = res['user'] as User;
         this.candidateService.selectedCandidate.candidatename=this.userDetails.userName;
         this.candidateService.selectedCandidate.regnumber =this.userDetails.registrationnumber;
+        if((this.stime - this.now)<0){
+          this.show=true;
+          this.other=false;
+          alert(this.stime - this.now);
+        }
+        else{
+          this.other=true;
+          this.show=false;
+        }
       },
       err => {
         console.log(err);
@@ -87,6 +94,8 @@ export class CandidateComponent implements OnInit {
     setTimeout(() =>this.router.navigateByUrl('/userprofile/voting'), 4000);
 
   }
+
+
 
 
 }

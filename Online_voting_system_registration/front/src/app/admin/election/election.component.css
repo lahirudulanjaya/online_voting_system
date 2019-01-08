@@ -41,14 +41,14 @@ label.validation-message
 #setelection{
   margin-left: 500px;
   margin-top: 100px;
-  
+
 }
 input[type=text],input[type=password],input[type=time],input[type=date],select{
   padding: 8px;
   border: none;
   border-radius: 4px;
   box-sizing: border-box;
-  margin-top: 6px;  
+  margin-top: 6px;
 }
 
 label{
@@ -56,13 +56,13 @@ label{
   display :inline-block;
   color: black;
   font-size: 18px;
-  
+
 }
 input[type=submit]:disabled{
   background-color: grey;
   color: white;
   width :100px;
-  
+
 }
 
 input[type=button], input[type=submit], input[type=reset]  {
@@ -72,7 +72,7 @@ input[type=button], input[type=submit], input[type=reset]  {
   border: none;
   color: white;
   padding: 15px 0px;
- 
+
   text-transform: uppercase;
   font-size: 13px;
   -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
@@ -89,7 +89,7 @@ input[type=button], input[type=submit], input[type=reset]  {
 
 input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
   background-color: #39ace7;
- 
+
 }
 
 input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
@@ -113,7 +113,7 @@ input[type=submit]:disabled{
   color: white;
   margin-bottom: 15px;
   width: 40%;
-  margin-left: 400px;
+  margin-left: 100px;
 }
 
 .success{
@@ -122,7 +122,7 @@ input[type=submit]:disabled{
   color: white;
   margin-bottom: 15px;
   width: 40%;
-  margin-left: 400px;
+  margin-left: 100px;
 }
 
   input[type=text].invalid-textbox,input[type=password].invalid-textbox{

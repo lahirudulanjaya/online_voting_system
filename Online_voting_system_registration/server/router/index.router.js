@@ -62,5 +62,6 @@ router.get('/getallelections',ctrlElection.getallelections);
 router.get('/getcandidatename/:id', ctrlResult.getCandidateName);
 router.get('/getrules', ctrlRules.getRules);
 router.put('/updaterule', ctrlRules.putRules);
-
+router.put('/putrandom',ctrlToken.updaterandomstring);
+router.get('/getcurrentelection',ctrlElection.getcurrentelection);
 module.exports = router

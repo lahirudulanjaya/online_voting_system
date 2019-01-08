@@ -16,6 +16,7 @@
     <mat-form-field appearance="standard">
       <mat-label>Activation Code</mat-label>
       <input matInput type="text" #randomstring="ngModel" [(ngModel)]="tokenService.selectedToken.randomstring"  name="randomstring" required  [ngClass]="{'invalid-textbox' :verifyForm.submitted && !randomstring.valid}">
+
     </mat-form-field>
 
     <div *ngIf="verifyForm.submitted && !randomstring.valid">
@@ -24,6 +25,7 @@
 
     <!-- Submit -->
     <input type="submit" value="Submit">
+    <button class="btn info" (click)="resend()">resend code</button>
 
     <div class="success" *ngIf="showSucessMessage">
       Saved successfully
@@ -32,13 +34,11 @@
       {{serverErrorMessages}}
     </div>
   </div>
-  <div class="success" *ngIf="showSucessMessage">
-    Saved successfully
+  <div class="success" *ngIf="showSendMessage">
+    please checke the email.
   </div>
-  <div class="alert" *ngIf="serverErrorMessages">
-    {{serverErrorMessages}}
-  </div>
-  
+
+
 </form>
 
 <!-- <div id ="confirm"><h1>Confirm Your Email</h1></div>

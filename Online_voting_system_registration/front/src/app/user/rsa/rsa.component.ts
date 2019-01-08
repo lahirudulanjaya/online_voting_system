@@ -26,7 +26,7 @@ export class RsaComponent implements OnInit {
   fileUrl;
 
   ngOnInit() {
-    
+
     this.userService.getUserProfile().subscribe(
       res => {
         this.userDetails = res['user'];
@@ -35,23 +35,22 @@ export class RsaComponent implements OnInit {
             this.rsa=rsa as boolean;
             this.registration=this.userDetails.registrationnumber;
           }
-      
+
         )
-        
+
       },
-      err => { 
+      err => {
         console.log(err);
-        
+
       }
     );
-    
-    
-   
-    
+
+
+
+
   }
   download(){
     const blob = new Blob([this.arr[1]], { type: 'application/octet-stream' });
-
     this.fileUrl=this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(blob));
 
   }
@@ -66,26 +65,26 @@ export class RsaComponent implements OnInit {
         this.download();
 
       })
-    
+
     this.rsaService.selectedrsa._id=this.userDetails._id;
     this.rsaService.selectedrsa.email=this.userDetails.email;
     this.rsaService.selectedrsa.registrationnumber=this.userDetails.registrationnumber;
 
-    
+
     }
     else{
       alert("you have already get keys");
     }
-   
-   
-    
-  }
- 
 
-  
+
+
+  }
+
+
+
     Onsave(form: NgForm)
      {
-    
+
       this.rsaService.putrsa(form.value).subscribe(
         res =>{
           alert('success')
@@ -93,13 +92,9 @@ export class RsaComponent implements OnInit {
         err =>
         {
           alert('failed')
-  
-        } 
+
+        }
       )
     }
-      
+
   }
-
-
-
-

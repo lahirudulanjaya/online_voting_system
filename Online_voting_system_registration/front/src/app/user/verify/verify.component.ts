@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { TokenService } from '../../shared/token.service';
 import { Router } from "@angular/router";
+import { Tokenreg } from '../../shared/token.model';
 
 @Component({
   selector: 'app-verify',
@@ -11,7 +12,7 @@ import { Router } from "@angular/router";
 export class VerifyComponent implements OnInit {
   showSucessMessage: boolean;
   serverErrorMessages: string;
-
+  showSendMessage :boolean;
   constructor(private tokenService: TokenService,private router : Router) { }
 
   ngOnInit() {
@@ -29,6 +30,23 @@ export class VerifyComponent implements OnInit {
           this.serverErrorMessages = err.error;
       }
     );
+  }
+  resend(){
+    var tok =new Tokenreg();
+    tok.registrationnumber =prompt("Please enter your registrationnumber:", "");
+      this.tokenService.changetoken(tok).subscribe(
+        res=>{
+          this.serverErrorMessages='';
+          this.showSendMessage = true;
+          setTimeout(() => this.showSendMessage = false, 3000);
+        },
+        err=>{
+          err => {
+              this.serverErrorMessages =  err.error;
+          }
+        }
+      )
+
   }
 
 }

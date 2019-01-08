@@ -67,6 +67,7 @@ import { MatRadioModule } from '@angular/material';
 import { TimerComponent } from './admin/timer/timer.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { UserRulesComponent } from './user-profile/user-rules/user-rules.component';
+import { StarttimerComponent } from './admin/starttimer/starttimer.component';
 
 @NgModule({
   declarations: [
@@ -96,7 +97,8 @@ import { UserRulesComponent } from './user-profile/user-rules/user-rules.compone
     VoteComponent,
     TimerComponent,
     AnalyticsComponent,
-    UserRulesComponent
+    UserRulesComponent,
+    StarttimerComponent
 
   ],
   imports: [

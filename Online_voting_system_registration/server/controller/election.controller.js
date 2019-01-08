@@ -4,10 +4,9 @@ const Election = mongoose.model('election');
 module.exports.setelection = (req, res, next) => {
     var election = new Election();
     election.Name = req.body.Name;
-    election.date = req.body.date;
     election.stime = req.body.stime;
     election.etime = req.body.etime;
-
+    election.state=false;
     console.log(req.body.Name);
 
     election.save((err, doc) => {
@@ -30,5 +29,18 @@ module.exports.getallelections=(req,res,next)=>{
     else{
       res.status(200).json(result);
     }
+  })
+}
+module.exports.getcurrentelection=(req,res,next)=>{
+  arr=[];
+  Election.find({state:true},(err,result)=>{
+    if(err){
+      res.send("something went wrong");
+    }
+    else{
+      
+      res.status(200).json(result);
+    }
+
   })
 }

@@ -79,7 +79,7 @@
         </mat-card-header>
 
         <mat-card-header>
-          <mat-card-title class="election-timer">dd:hh:mm:ss</mat-card-title>
+          <mat-card-title class="election-timer"><app-starttimer></app-starttimer></mat-card-title>
         </mat-card-header>
 
         <!-- Election details-->
@@ -134,25 +134,20 @@
           </mat-form-field><br>
 
           <!-- Election Date -->
-          <mat-form-field appearance="standard">
-            <input matInput [matDatepicker]="picker" placeholder="Election Date" #date="ngModel" [(ngModel)]="electionService.selectedElection.date"
-              name="date" required>
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+
+            <mat-label>Election Starting time </mat-label>
+              <div>
+             <input  placeholder="Election Date" #date="ngModel" [(ngModel)]="electionService.selectedElection.stime"
+              name="stime" type="datetime-local" required>
+          </div>
             <!-- <input type="text" #date="ngModel" [(ngModel)]="electionService.selectedElection.date" name="date" placeholder="Election Date"
               required [ngClass]="{'invalid-textbox' :electionForm.submitted && !date.valid }"> -->
-          </mat-form-field>
 
-          <label>Choose Start Time:</label>
-          <input type="time" [(ngModel)]="electionService.selectedElection.stime" #stime="ngModel" name="stime" placeholder="Starting TIme"
-            min="9:00" max="18:00"><br>
-
-
-
-          <label>Choose End Time:</label>
-          <input type="time" #etime="ngModel" [(ngModel)]="electionService.selectedElection.etime" name="etime" placeholder="Ending TIme"
-            ><br>
-
+            <mat-label>Election ending time </mat-label>
+          <div>
+          <input type="datetime-local" [(ngModel)]="electionService.selectedElection.etime" #etime="ngModel" name="etime" placeholder="Ending TIme"
+          ><br>
+      </div>
 
           <div class="modal-footer">
             <button mat-button type="button" data-dismiss="modal">Cancel</button>

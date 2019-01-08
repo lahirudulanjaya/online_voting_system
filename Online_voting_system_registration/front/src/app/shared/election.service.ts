@@ -12,7 +12,6 @@ import 'rxjs/add/operator/toPromise';
 export class ElectionService {
   selectedElection:Election ={
     Name: '',
-    date: '',
     stime: '',
     etime: ''
   };
@@ -25,6 +24,10 @@ postElection(election: Election){
 getallelections()
 {
   return this.http.get(environment.apiBaseUrl+'/getallelections');
+}
+getcurrentelection()
+{
+  return this.http.get(environment.apiBaseUrl+'/getcurrentelection');
 }
 
 

@@ -56,10 +56,6 @@ Email.findOne({registrationnumber:req.body.registrationnumber},function(err,resu
                         }
 
                     })
-
-
-
-
                   }
               });
             }

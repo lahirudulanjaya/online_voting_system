@@ -3,15 +3,13 @@ import { ElectionService } from '../../shared/election.service';
 import { Election} from '../../shared/election.model';
 
 @Component({
-  selector: 'app-timer',
-  templateUrl: './timer.component.html',
-  styleUrls: ['./timer.component.css'],
-    template :'<countdown [config]="{leftTime: distance}">$!d!:$!h!:$!m!:$!s!</countdown>'
-
+  selector: 'app-starttimer',
+  templateUrl: './starttimer.component.html',
+  styleUrls: ['./starttimer.component.css'],
+  template :'<countdown [config]="{leftTime: distance}">$!d!:$!h!:$!m!:$!s!</countdown>'
 
 })
-
-export class TimerComponent implements OnInit {
+export class StarttimerComponent implements OnInit {
   currentelection :Election;
   date;
   stime;
@@ -27,8 +25,8 @@ etime;
       res=>{
         this.currentelection =res as Election;
 
-          this.stime=  this.currentelection.stime;
-          this.etime=  this.currentelection.etime;
+          this.stime=this.currentelection.stime;
+          this.etime=this.currentelection.etime;
 
         if(!this.stime)
         {
@@ -36,17 +34,15 @@ etime;
         }
         else
         {
-        this.countDownDate = new Date(this.etime).getTime()/1000;
+        this.countDownDate = new Date(this.stime).getTime()/1000;
         }
-        this.now = new Date(this.stime).getTime()/1000;
+        this.now = new Date().getTime()/1000;
         this.distance = (this.countDownDate - this.now);
 
       })
 
   }
 
-  ngOnChange(){
 
-  }
 
 }

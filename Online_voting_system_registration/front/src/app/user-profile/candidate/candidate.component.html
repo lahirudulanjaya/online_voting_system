@@ -3,8 +3,14 @@
 <div class="example-container">
 
   <div class ="btn" >
-    <h3>Election will close within </h3>
+    <div *ngIf="other">
+    <h3>Election will closed within </h3>
     <app-timer></app-timer>
+    </div>
+    <div *ngIf="show">
+    <h3>Election will starts within </h3>
+    <app-starttimer></app-starttimer>
+    </div>
     <div>
   <button mat-raised-button color="primary" type ="button" (click)="vote()" *ngIf="show">Click here to Vote</button>
   </div>

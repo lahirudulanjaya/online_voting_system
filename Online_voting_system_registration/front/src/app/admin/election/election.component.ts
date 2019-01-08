@@ -23,6 +23,8 @@ export class ElectionComponent implements OnInit {
   showSucessMessage: boolean;
   serverErrorMessages: string;
 elections:Election[];
+currentelection:Election;
+date;
 constructor(private electionService: ElectionService) { }
 displayedColumns: string[] = ['Name', 'date', 'stime', 'etime'];
 dataSource = this.elections;
@@ -31,7 +33,15 @@ dataSource = this.elections;
       res=>{
       this.elections=res as Election[];
 
+
     })
+    this.electionService.getcurrentelection().subscribe(
+      res=>{
+        this.currentelection =res as Election;
+
+
+        
+      })
   }
 
   onSubmit(form: NgForm) {
@@ -46,6 +56,7 @@ dataSource = this.elections;
           this.serverErrorMessages = err.error;
       }
     );
+
   }
 
 }
