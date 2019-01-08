@@ -69,7 +69,7 @@ export class VoteComponent implements OnInit {
       }
   check(){
     if(this.user.isvote==false){
-      alert('verifyed');
+      alert('Verified');
     if((this.arr.length ==4) &&(this.vote.ED && this.vote.SE && this.vote.TR && this.vote.VP && this.vote.PR)){//check voter's vote is elibible or not
         if(confirm("Confirm your Vote"))
         {
@@ -85,7 +85,7 @@ export class VoteComponent implements OnInit {
   }
   else
   {
-    this.serverErrorMessages='you have already voted';
+    this.serverErrorMessages='You have already voted!';
     this.isDisabled=true;
   }
   }
@@ -96,7 +96,7 @@ export class VoteComponent implements OnInit {
     this.vote.registrationnumber = this.user.registrationnumber;
     this.vote.signature=this.voteservice.createsignature(this.pri,this.vote)
     this.pri=null;
-    alert(this.vote.signature);
+    
     this.voteservice.postvote(this.vote).subscribe(
       res=>{
 
