@@ -54,7 +54,7 @@ distance;
       reader.readAsDataURL(file);
     }
   ngOnInit() {
-    this.countDownDate = new Date("Jan 9,2019 15:00").getTime()/1000;
+    this.countDownDate = new Date("Jan 10,2019 15:00").getTime()/1000;
     this.now = new Date().getTime()/1000;
     this.distance = (this.countDownDate - this.now);
     if(this.distance<0){

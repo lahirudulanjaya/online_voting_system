@@ -29,6 +29,7 @@ export class SignInComponent implements OnInit {
    this.userService.getUserProfile().subscribe(
      res => {
        this.userDetails = res['user'];
+      
      },
      err => {
        console.log(err);
@@ -39,7 +40,7 @@ export class SignInComponent implements OnInit {
   onSubmit(form : NgForm){
     this.userService.login(form.value).subscribe(
       res => {
-  this.userService.setToken(res['token']);
+       
        this.show=true;
        if(form.value.userName=="Admin")
        {
@@ -60,7 +61,8 @@ export class SignInComponent implements OnInit {
         //       res=>{
         //         this.valid =res as boolean
         //         if(this.valid){
-                this.router.navigateByUrl('/userprofile/overview');
+          this.userService.setToken(res['token']);
+          this.router.navigateByUrl('/userprofile/overview');
           //       }
           //       else{
           //         this.serverErrorMessages="Invalid Code";
@@ -85,7 +87,8 @@ export class SignInComponent implements OnInit {
           res=>{
             this.valid =res as boolean
             alert(this.valid);
-            if(this.valid){
+            if(this.valid)
+            {
             this.router.navigateByUrl('/userprofile/overview');
             }
         }

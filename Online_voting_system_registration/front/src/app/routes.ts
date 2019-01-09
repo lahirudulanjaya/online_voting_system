@@ -46,7 +46,7 @@ export const appRoutes: Routes = [
         path: 'verify', component: VerifyComponent,
     },
     {
-        path: 'admin', component: AdminComponent,
+        path: 'admin', component: AdminComponent,canActivate:[AuthGuard],
         children: [
             { path: 'overview', component: DashboardComponent, },
             { path: 'election', component: ElectionComponent, },

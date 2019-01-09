@@ -26,5 +26,9 @@ export class UserheaderComponent implements OnInit {
       }
     );
   }
+  logout(){
+    this.userService.deleteToken();
+    this.router.navigate(['/login']);
+  }
 
 }
