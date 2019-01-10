@@ -67,6 +67,14 @@ export class UserService {
       return false;
   }
 
+  isadminloggedin(){
+    var userPayload = this.getUserPayload();
+    if ((userPayload) && (userPayload.exp > Date.now() / 1000) &&(userPayload.admin))
+      return true;
+    else
+      return false;
+  }
+
   getUserProfiles() {
   return this.http.get(environment.apiBaseUrl + '/getuserprofiles');
 }

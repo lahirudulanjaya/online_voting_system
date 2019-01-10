@@ -3,7 +3,6 @@ const  Email= mongoose.model('email');
 var forge = require('node-forge');
 var arr =[];
 
-var private;
 module.exports.savepki = (req, res, next) => {
 Email.findOneAndUpdate({registrationnumber:req.body.registrationnumber},{$set:{publickey:req.body.publickey}},
 function(err,result){
@@ -45,6 +44,3 @@ module.exports.getkey=(req,res,next)=>{
   });
 }
 
-module.exports.downloadprivate=(req,res,next)=>{
-    res.sendFile(arr[1]);
-}

@@ -96,7 +96,8 @@ userSchema.methods.verifyEmail = function()
 
 userSchema.methods.generateJwt = function () {
     return jwt.sign({
-        _id: this._id
+        _id: this._id,
+        admin :this.isadmin
     }, process.env.JWT_SECRET,
     {
         expiresIn: process.env.JWT_EXP

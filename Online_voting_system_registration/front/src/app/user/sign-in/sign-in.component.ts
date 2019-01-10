@@ -29,6 +29,7 @@ export class SignInComponent implements OnInit {
    this.userService.getUserProfile().subscribe(
      res => {
        this.userDetails = res['user'];
+      
      },
      err => {
        console.log(err);
@@ -39,7 +40,7 @@ export class SignInComponent implements OnInit {
   onSubmit(form : NgForm){
     this.userService.login(form.value).subscribe(
       res => {
-  this.userService.setToken(res['token']);
+       
        this.show=true;
        if(form.value.userName=="Admin")
        {
@@ -50,25 +51,27 @@ export class SignInComponent implements OnInit {
       else{
          this.answer=null;
         //   //this.router.navigateByUrl('/userprofile/overview');
-         while(!this.answer){
-               this.answer= prompt("Please enter your verificationcode:", "");
-               this.userService.selectedOtp.otp=this.answer;
-             }
-         this.userService.postotp(this.userService.selectedOtp).subscribe(
-           res=>{
-             this.userService.getvalid().subscribe(
-               res=>{
-                 this.valid =res as boolean
-                 if(this.valid){
-                this.router.navigateByUrl('/userprofile/overview');
-             }
-              else{
-                  this.serverErrorMessages="Invalid Code";
-                  this.router.navigateByUrl('/login');
-                }
-            }
-            )
-          })
+        // while(!this.answer){
+        //       this.answer= prompt("Please enter your verificationcode:", "");
+        //       this.userService.selectedOtp.otp=this.answer;
+        //     }
+        // this.userService.postotp(this.userService.selectedOtp).subscribe(
+        //   res=>{
+        //     this.userService.getvalid().subscribe(
+        //       res=>{
+        //         this.valid =res as boolean
+        //         if(this.valid){
+          this.userService.setToken(res['token']);
+          this.router.navigateByUrl('/userprofile/overview');
+          //       }
+          //       else{
+          //         this.serverErrorMessages="Invalid Code";
+          //         this.router.navigateByUrl('/login');
+          //       }
+          //   }
+          //   )
+          // })
+
 
 
         }
@@ -85,7 +88,8 @@ export class SignInComponent implements OnInit {
           res=>{
             this.valid =res as boolean
             alert(this.valid);
-            if(this.valid){
+            if(this.valid)
+            {
             this.router.navigateByUrl('/userprofile/overview');
             }
         }
