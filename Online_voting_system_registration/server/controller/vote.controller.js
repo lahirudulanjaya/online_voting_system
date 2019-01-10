@@ -5,6 +5,7 @@ const ctrlEmail = require('./email.controller');
 const Email = mongoose.model('email');
 const User = mongoose.model('user');
 
+//class Votee
 function Votee(PR,VP,SE,TR,ED,CM,registrationnumber) {
     this.PR=PR,
     this.VP=VP,
@@ -24,23 +25,25 @@ module.exports.postvote=(req,res,next)=>{
      vote.CM = req.body.CM;
  var sigg = req.body.signature;
  var votee= new Votee(req.body.PR,req.body.VP,req.body.SE,req.body.TR,req.body.ED,req.body.CM,req.body.registrationnumber);
-//var publickey=ctrlEmail.findpub(req.body.registrationnumber);
+// get the vote object from client side
 
-
+//search the corresponding public key to user 
 Email.findOne({registrationnumber:req.body.registrationnumber},function(err,result){
      if(err)
              throw err;
      else
-     {
-         console.log(result.publickey);
-         let pubbKey =  forge.pki.publicKeyFromPem(result.publickey);
-         console.log(pubbKey);
-         var bytes = forge.util.hexToBytes(sigg);
-         const mmd = forge.md.sha256.create();
-         mmd.update(JSON.stringify(votee),"utf8");
-         console.log(JSON.stringify(votee));
+     {       
+        
+        let pubbKey =  forge.pki.publicKeyFromPem(result.publickey); // covert the pem format to forged public key
+        
+        var signaturebytes = forge.util.hexToBytes(sigg);  //convert signature to bytes
+       
+         const mmd = forge.md.sha256.create();  
+         mmd.update(JSON.stringify(votee),"utf8"); // get vote object and hash it
+
+
          try{
-         var verified = pubbKey.verify(mmd.digest().bytes(), bytes);
+         var verified = pubbKey.verify(mmd.digest().bytes(), signaturebytes); // compare the two hash values
          if(verified){
          vote.save(function(err,doc){
                   if(err){
@@ -63,7 +66,8 @@ Email.findOne({registrationnumber:req.body.registrationnumber},function(err,resu
                 res.status(422).send("you are not valid voter");
             }
           }
-          catch(err){
+          catch(err)
+          {
             res.status(422).send("You are not a valid user");
           }
 

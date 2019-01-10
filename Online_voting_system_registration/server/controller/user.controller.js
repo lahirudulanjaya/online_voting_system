@@ -37,11 +37,8 @@ module.exports.register = (req, res, next) => {
         <br/><br/>
         Have a pleasant day.` ;
 
-console.log(user.randomstring);
-console.log(req.body.email);
 
         Email.findOne({registrationnumber:user.registrationnumber},function(err,result){
-          console.log(result);
             if(err)
                 throw err;
             else if(!result)

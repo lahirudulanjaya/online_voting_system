@@ -58,6 +58,7 @@ export class VoteComponent implements OnInit {
           this.candidates= candidates as Candidate[];
         })
     }
+    //file upload event
     fileUpload(event) {
       var reader = new FileReader();
         reader.readAsText(event.srcElement.files[0]);
@@ -67,6 +68,7 @@ export class VoteComponent implements OnInit {
           me.pri=reader.result.trim()
         }
       }
+      //check vote is valid or not
   check(){
     if(this.user.isvote==false){
       alert('Verified');
@@ -92,14 +94,16 @@ export class VoteComponent implements OnInit {
 
   postvote()
   {
-    this.vote.CM=this.arr;
-    this.vote.registrationnumber = this.user.registrationnumber;
-    this.vote.signature=this.voteservice.createsignature(this.pri,this.vote)
+    this.vote.CM=this.arr;//set commite members votes
+
+    this.vote.registrationnumber = this.user.registrationnumber;// set voter registration number
+
+    this.vote.signature=this.voteservice.createsignature(this.pri,this.vote) //create a signature
+
     this.pri=null;
     
     this.voteservice.postvote(this.vote).subscribe(
       res=>{
-
       this.serverErrorMessages='';
       this.showSucessMessage = true;
       setTimeout(() => this.showSucessMessage = false, 4000);
