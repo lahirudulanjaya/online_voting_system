@@ -26,7 +26,6 @@ var upload = multer({ storage: store });
 router.post('/register', ctrlUser.register);
 router.post('/setelection', ctrlElection.setelection);
 router.post('/authenticate', ctrlUser.authenticate);
-router.post('/setrules', ctrlRules.setrules);
 router.get('/userprofile', Jwtverify.verifyJwtToken, ctrlUser.userprofile);
 router.post('/setemail', ctrlEmail.setemail);
 router.put('/verify', ctrlToken.verify);
@@ -43,6 +42,16 @@ router.post('/postvote', ctrlVote.postvote);
 router.put('/updatecandiate', ctrlCandidate.putcandidateprofile);
 router.delete('/deletecandidate/:id', ctrlCandidate.deletecandidateprofile);
 router.post('/upload', upload.single('image'));
+router.post('/verifyotp',ctrlUser.verify);
+router.get('/getvalid',ctrlUser.getverify);
+router.get('/getallelections',ctrlElection.getallelections);
+router.get('/getcandidatename/:id', ctrlResult.getCandidateName);
+router.put('/putrandom',ctrlToken.updaterandomstring);
+router.get('/getcurrentelection',ctrlElection.getcurrentelection);
+router.put('/startelection',ctrlElection.startvote);
+router.put('/endelection',ctrlElection.endvote);
+
+// Analytics
 router.get('/countvotes', ctrlResult.totalVotes);
 router.get('/countcandidates', ctrlResult.totalCandidates);
 router.get('/countregisteredvoters', ctrlResult.totalRegisteredVoters);
@@ -52,16 +61,12 @@ router.get('/secretaryresult', ctrlResult.secretaryResult);
 router.get('/treasurerresult', ctrlResult.treasurerResult);
 router.get('/editorresult', ctrlResult.editorResult);
 router.get('/committeeresult', ctrlResult.committeeResult);
-router.post('/verifyotp',ctrlUser.verify);
-router.get('/getvalid',ctrlUser.getverify);
-router.get('/getallelections',ctrlElection.getallelections);
-router.get('/getcandidatename/:id', ctrlResult.getCandidateName);
+
+// Rules
+router.post('/setrules', ctrlRules.setRules);
 router.get('/getrules', ctrlRules.getRules);
 router.put('/updaterule', ctrlRules.putRules);
-router.put('/putrandom',ctrlToken.updaterandomstring);
-router.get('/getcurrentelection',ctrlElection.getcurrentelection);
 router.delete('/deleterule/:id', ctrlRules.deleteRule);
 router.delete('/deleteallrules', ctrlRules.deleteAllRules);
-router.put('/startelection',ctrlElection.startvote);
-router.put('/endelection',ctrlElection.endvote);
+
 module.exports = router

@@ -29,11 +29,6 @@
 <div class="container">
   <div class="row">
     <div class="election-table">
-      <!-- Search bar -->
-      <mat-form-field appearance="standard">
-        <mat-label>Search</mat-label>
-        <input matInput (keyup)="applyFilter($event.target.value)">
-      </mat-form-field>
 
       <!-- Voters table -->
       <div class="mat-elevation-z8">
@@ -63,50 +58,8 @@
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
 
-        <!-- Pagination option -->
-        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
       </div>
     </div>
-
-    <!-- <div class="col-4">
-      <mat-card class="election-card"> -->
-
-        <!-- Card Header with election timer -->
-        <!-- <mat-card-header>
-          <mat-card-title>Election starts in:</mat-card-title>
-        </mat-card-header>
-
-        <mat-card-header>
-          <mat-card-title class="election-timer"><app-starttimer></app-starttimer></mat-card-title>
-        </mat-card-header> -->
-
-        <!-- Election details-->
-        <!-- <div class="election-details"> -->
-          <!-- <mat-card-content>
-            <ul>
-              <li>
-                <mat-label><b>Election Name:</b></mat-label>
-              </li>
-              <li>
-                <mat-label><b>Election Date:</b></mat-label>
-              </li>
-              <li>
-                <mat-label><b>Start Time:</b></mat-label>
-              </li>
-              <li>
-                <mat-label><b>End Time:</b></mat-label>
-              </li>
-            </ul>
-          </mat-card-content> -->
-
-          <!-- Buttons to Edit and Delete Candidates -->
-          <!-- <mat-card-actions>
-            <button mat-flat-button color="primary" data-toggle="modal" data-target="#editCandidateModal">Edit Election</button>
-            <button mat-stroked-button color="warn" (click)="Ondelete(candidateService.selectedCandidate._id)">Delete Election</button>
-          </mat-card-actions> -->
-        <!-- </div> -->
-      <!-- </mat-card>
-    </div> -->
   </div>
 </div>
 

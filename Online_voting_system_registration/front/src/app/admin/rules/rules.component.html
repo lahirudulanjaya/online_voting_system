@@ -64,6 +64,7 @@
 
         <!-- Modal Body -->
         <div class="modal-body">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="rulesService.selectedRules._id">
 
           <!-- Rules -->
           <mat-form-field appearance="standard">
@@ -86,9 +87,6 @@
             {{serverErrorMessages}}
           </div>
         </div>
-
-
-
       </div>
     </div>
   </div>
