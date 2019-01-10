@@ -16,9 +16,9 @@
 <div class="key-container">
 	<form #rsaform="ngForm" id=form (ngSubmit)="Onsave(rsaform)">
 
-		<p>Click on the "Generate Key Pair" button to create your Public Key and Private Key.</p>
+		<p><b>Step 1: </b>Before voting, click on the "Generate Key Pair" button to create your Public Key and Private Key.</p>
 	
-		<p>Please download your key file now. If you do not download the key file now, you will not be able to retrieve your Private Key later. <b>For your protection, store your secret Private Key securely and do not share it.</b></p>
+		<p><b>Step 2: </b>Download your key file now. If you do not download the key file now, you will not be able to retrieve your Private Key later. <b>For your protection, store your secret Private Key securely and do not share it.</b></p>
 	
 		<input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="rsaService.selectedrsa._id">
 	
