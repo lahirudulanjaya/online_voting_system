@@ -13,7 +13,8 @@ export class ElectionService {
   selectedElection:Election ={
     Name: '',
     stime: '',
-    etime: ''
+    etime: '',
+    state:null
   };
 
 

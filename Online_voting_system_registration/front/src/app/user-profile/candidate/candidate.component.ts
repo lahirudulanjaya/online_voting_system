@@ -7,6 +7,9 @@ import { UserService } from '../../shared/user.service';
 import { User } from '../../shared/user.model';
 import { Router } from "@angular/router";
 import { ImageSnippet } from '../../shared/candidate.model';
+import{Election } from '../../shared/election.model';
+import{ElectionService } from '../../shared/election.service';
+
 
 @Component({
   selector: 'app-candidate',
@@ -16,50 +19,51 @@ import { ImageSnippet } from '../../shared/candidate.model';
 
 export class CandidateComponent implements OnInit {
   now = new Date().getTime()/1000;
-  show = true;
+  show = false;
   other=false;
   alist :any[];
+  currentelection:Election[];
   showSucessMessage: boolean;
   serverErrorMessages: string;
   userDetails :User;
   countDownDate;
-stime;
-etime;
-distance;
-  selectedFile: ImageSnippet;
-  constructor(private candidateService :CandidateService,private userService: UserService, private router: Router){
+  stime;
+  etime;
+  distance;
+  starttime;
+  constructor(private candidateService :CandidateService,private userService: UserService, private router: Router,private electionService: ElectionService){
    // this.uploader.onCompleteItem =(item :any,response :any,status:any,header :any)=>{
    //   this.alist.push(JSON.parse(response));
    // }
   }
 
 
-  processFile(imageInput: any) {
-      const file: File = imageInput.files[0];
-      const reader = new FileReader();
 
-      reader.addEventListener('load', (event: any) => {
-
-        this.selectedFile = new ImageSnippet(event.target.result, file);
-
-        this.candidateService.uploadImage(this.selectedFile.file).subscribe(
-          (res) => {
-            alert('success');
-          },
-          (err) => {
-            alert('failed');
-          })
-      });
-
-      reader.readAsDataURL(file);
-    }
   ngOnInit() {
-    this.countDownDate = new Date("Jan 10,2019 15:00").getTime()/1000;
-    this.now = new Date().getTime()/1000;
-    this.distance = (this.countDownDate - this.now);
-    if(this.distance<0){
-      this.show=false;
-    }
+    this.electionService.getallelections().subscribe
+    (
+      res=>{
+        this.currentelection =res as Election[];
+          this.currentelection.forEach(element => {
+            if(element.state==true)
+            {
+              alert(element.stime)
+              this.stime=element.stime;
+              this.etime=element.etime
+            }
+            
+          });
+       
+        this.starttime = new Date(this.stime).getTime()/1000;
+        this.now = new Date().getTime()/1000;
+        this.distance = (this.now-this.starttime);
+        alert(this.distance);
+        if(this.distance<0){
+          this.show=true;
+        }
+    
+      })
+    
 
     // this.userService.getUserProfile().subscribe(
     //   res => {
