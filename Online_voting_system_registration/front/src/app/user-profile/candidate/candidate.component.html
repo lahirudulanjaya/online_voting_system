@@ -11,16 +11,23 @@
 </div>
 
 
-<div class="example-container">
+<div class="example-container" *ngIf="show">
     <div *ngIf="show">
     <h3>Election will starts within </h3>
     <app-starttimer></app-starttimer>
     </div>
-    <div>
-  <button mat-raised-button color="primary" type ="button" (click)="vote()" *ngIf="show">Click here to Vote</button>
-  </div>
+   
 </div>
 
+<div class="example-container" *ngIf="!show">
+  <div >
+  <h3>Election will ends within </h3>
+  <app-timer></app-timer>
+  </div>
+  <div>
+<button mat-raised-button color="primary" type ="button" (click)="vote()" >Vote</button>
+</div>
+</div>
 <div class="candidate-container">
   <form #candidateform="ngForm" (ngSubmit)="candidateform.valid && Onsubmit(candidateform)">
     <h2>Register Candidate</h2>

@@ -62,7 +62,7 @@ export class SignInComponent implements OnInit {
         //         this.valid =res as boolean
         //         if(this.valid){
           this.userService.setToken(res['token']);
-          this.router.navigateByUrl('/userprofile/overview');
+          this.router.navigateByUrl('/userprofile/getkeys');
           //       }
           //       else{
           //         this.serverErrorMessages="Invalid Code";
