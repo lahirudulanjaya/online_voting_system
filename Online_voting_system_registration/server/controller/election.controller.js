@@ -44,3 +44,30 @@ module.exports.getcurrentelection=(req,res,next)=>{
 
   })
 }
+module.exports.startvote=(req,res,next)=>{
+Election.findOneAndUpdate({Name:req.body.Name},{$set:{state:true}},function(err,result){
+    if(!err){
+      res.send(result);
+    }
+    else if(!result){
+      res.status(422).send("not found");
+    
+    }
+    else{
+      res.status(422).send("Failed");
+    }
+
+
+})
+}
+
+module.exports.endvote=(req,res,next)=>{
+  Election.findOneAndUpdate({Name:req.body.Name},{$set:{state:false}},function(err,result){
+      if(!err){
+        res.send(result);
+      }
+      else{
+        res.status(422).send("Failed");
+      }
+  })
+  }

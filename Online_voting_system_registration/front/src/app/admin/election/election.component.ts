@@ -58,5 +58,30 @@ dataSource = this.elections;
     );
 
   }
+  onStart(ele:Election)
+  {
+      this.electionService.startelection(ele).subscribe(
+        res=>{
+          alert("succes");
+
+      },
+      err=>{
+        alert(err.error);
+      }
+      )
+  }
+
+  onend(ele:Election)
+  {
+    this.electionService.endelection(ele).subscribe(
+      res=>{
+        alert('succesfully stoped');
+      },
+      err=>{
+        alert("failed");
+
+      }
+    )
+  }
 
 }

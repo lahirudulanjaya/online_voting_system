@@ -30,6 +30,12 @@ getcurrentelection()
 {
   return this.http.get(environment.apiBaseUrl+'/getcurrentelection');
 }
+startelection(ele:Election){
+  return this.http.put(environment.apiBaseUrl+'/startelection',ele);
+}
+endelection(ele:Election){
+  return this.http.put(environment.apiBaseUrl+'/endelection',ele);
+}
 
 
 }

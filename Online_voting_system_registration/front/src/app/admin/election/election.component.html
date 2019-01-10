@@ -45,21 +45,19 @@
             <td mat-cell *matCellDef="let element" (click)="Onedit(element)"> {{element.Name}} </td>
           </ng-container>
 
-         <!-- Registration No. Column -->
-          <ng-container matColumnDef="date">
-            <th mat-header-cell *matHeaderCellDef> Date </th>
-            <td mat-cell *matCellDef="let element" (click)="Onedit(element)"> {{element.date}} </td>
-          </ng-container>
-
-          <!-- Phone number -->
           <ng-container matColumnDef="stime">
             <th mat-header-cell *matHeaderCellDef> Start Time </th>
             <td mat-cell *matCellDef="let element" (click)="Onedit(element)" > {{element.stime}} </td>
           </ng-container>
+       
 
           <ng-container matColumnDef="etime">
-            <th mat-header-cell *matHeaderCellDef> End Time </th>
-            <td mat-cell *matCellDef="let element" (click)="Onedit(element)"><div> <button type="button" name="button"> start Election</button></div> </td>
+            <th mat-header-cell *matHeaderCellDef> Start Electoion </th>
+            <td mat-cell *matCellDef="let element" (click)="Onedit(element)"><div> <button type="button" (click)="onStart(element)" name="button"> start Election</button></div> </td>
+          </ng-container>
+          <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef> Stop Election </th>
+            <td mat-cell *matCellDef="let element" (click)="Onedit(element)"><div> <button type="button" (click)="onend(element)" name="button"> stop Election</button></div></td>
           </ng-container>
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

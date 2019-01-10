@@ -31,6 +31,9 @@ export class CandidateComponent implements OnInit {
   etime;
   distance;
   starttime;
+  endtime;
+  edistance;
+  clse=true;
   constructor(private candidateService :CandidateService,private userService: UserService, private router: Router,private electionService: ElectionService){
    // this.uploader.onCompleteItem =(item :any,response :any,status:any,header :any)=>{
    //   this.alist.push(JSON.parse(response));
@@ -47,19 +50,23 @@ export class CandidateComponent implements OnInit {
           this.currentelection.forEach(element => {
             if(element.state==true)
             {
-              alert(element.stime)
               this.stime=element.stime;
               this.etime=element.etime
             }
             
+            
           });
        
         this.starttime = new Date(this.stime).getTime()/1000;
+        this.endtime = new Date(this.etime).getTime()/1000;
         this.now = new Date().getTime()/1000;
-        this.distance = (this.now-this.starttime);
-        alert(this.distance);
-        if(this.distance<0){
+        this.distance = (this.starttime-this.now);
+        this.edistance=(this.endtime-this.now);
+        if(this.distance>0){
           this.show=true;
+        }
+        if(this.edistance<0){
+          this.clse=false;
         }
     
       })

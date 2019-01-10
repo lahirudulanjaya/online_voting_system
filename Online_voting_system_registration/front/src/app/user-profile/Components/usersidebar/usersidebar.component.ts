@@ -23,11 +23,9 @@ export class UsersidebarComponent implements OnInit {
     (
       res=>{
         this.currentelection =res as Election[];
-          alert(this.stime);
           this.currentelection.forEach(element => {
             if(element.state==true)
             {
-              alert(element.stime)
               this.stime=element.stime;
               this.etime=element.etime
             }
@@ -38,7 +36,6 @@ export class UsersidebarComponent implements OnInit {
         this.endtime =  new Date(this.etime).getTime()/1000;
         this.now = new Date().getTime()/1000;
         this.distance = (this.endtime-this.now);
-        alert(this.distance)
     
       })
   }

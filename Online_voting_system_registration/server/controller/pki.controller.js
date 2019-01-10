@@ -36,8 +36,10 @@ module.exports.putpki=(req,res,next) =>{
 }
 
 
-module.exports.getkey=(req,res,next)=>{
-  var pair=forge.pki.rsa.generateKeyPair({bits:1024, workers: 5}, function(err, keypair) {
+module.exports.getkey=(req,res,next)=>
+{
+  var pair=forge.pki.rsa.generateKeyPair({bits:1024, workers: 5}, function(err, keypair) 
+  {
   arr[0] = forge.pki.publicKeyToPem(keypair.publicKey);
   arr[1] =forge.pki.privateKeyToPem(keypair.privateKey);
   res.send(arr);

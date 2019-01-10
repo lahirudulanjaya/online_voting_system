@@ -25,11 +25,9 @@ etime;
     (
       res=>{
         this.currentelection =res as Election[];
-          alert(this.stime);
           this.currentelection.forEach(element => {
             if(element.state==true)
             {
-              alert(element.stime)
               this.stime=element.stime;
               this.etime=element.etime
             }           

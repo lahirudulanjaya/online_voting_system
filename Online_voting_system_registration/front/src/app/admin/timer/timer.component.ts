@@ -27,11 +27,9 @@ etime;
     (
       res=>{
         this.currentelection =res as Election[];
-          alert(this.stime);
           this.currentelection.forEach(element => {
             if(element.state==true)
             {
-              alert(element.stime)
               this.stime=element.stime;
               this.etime=element.etime
             }
@@ -41,8 +39,7 @@ etime;
         this.starttime = new Date(this.stime).getTime()/1000;
         this.endtime =  new Date(this.etime).getTime()/1000;
         this.now = new Date().getTime()/1000;
-        this.distance = (this.endtime-this.starttime);
-        alert(this.distance)
+        this.distance = (this.endtime-this.now);
     
       })
 
