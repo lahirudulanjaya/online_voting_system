@@ -9,6 +9,14 @@
 i {
     vertical-align: middle;
 }
+
+button {
+    background-color: #1C2A39;
+    color: white;
+    border: none;
+    padding-left: 16px;
+}
+
 .sidenav {
     height: 100%; /* Full-height: remove this if you want "auto" height */
     width: 220px; /* Set the width of the sidebar */
@@ -37,5 +45,10 @@ i {
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
     color: #9fa8da;
+}
+
+.sidenav button:hover {
+    color: #9fa8da;
+    cursor: pointer;
 }
 
