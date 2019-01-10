@@ -24,11 +24,6 @@
 <div class="container">
   <div class="row">
     <div class="col-6">
-      <!-- Search bar -->
-      <mat-form-field appearance="standard">
-        <mat-label>Search</mat-label>
-        <input matInput (keyup)="applyFilter($event.target.value)">
-      </mat-form-field>
 
       <!-- Voters table -->
       <div class="mat-elevation-z8">
@@ -60,9 +55,6 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
-
-        <!-- Pagination option -->
-        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
       </div>
     </div>
 
