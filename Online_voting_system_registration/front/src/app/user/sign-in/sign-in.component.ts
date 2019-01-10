@@ -49,7 +49,7 @@ export class SignInComponent implements OnInit {
 
         }
       else{
-        // this.answer=null;
+         this.answer=null;
         //   //this.router.navigateByUrl('/userprofile/overview');
         // while(!this.answer){
         //       this.answer= prompt("Please enter your verificationcode:", "");
@@ -71,6 +71,7 @@ export class SignInComponent implements OnInit {
           //   }
           //   )
           // })
+
 
 
         }
