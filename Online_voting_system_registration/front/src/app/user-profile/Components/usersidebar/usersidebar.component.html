@@ -1,33 +1,36 @@
 <!-- Side navigation -->
 <div class="sidenav">
 
-    <ul class="sidebar-nav">
-        <li>
-            <a href="userprofile/getkeys">
-                <i class="material-icons">vpn_key</i>
-                &nbsp; Key Pair
-            </a>
-        </li>
-
-        <li>
-            <button  (click)="verify()">
-                <i class="material-icons">home</i>
-                &nbsp; Overview
-            </button>
-        </li>
-
-        <li>
-            <a href="userprofile/election">
-                <i class="material-icons">how_to_vote</i>
-                &nbsp; Election
-            </a>
-        </li>
-
-        <li>
-            <a href="userprofile/rules">
-                <i class="material-icons">event_available</i>
-                &nbsp; Rules & Regulations
-            </a>
-        </li>
-    </ul>
-</div>
+        <ul class="sidebar-nav">
+            <li>
+                    <a [routerLink]="['/userprofile/getkeys']" routerLinkActive="router-link-active"  >
+    
+                    <i class="material-icons">vpn_key</i>
+                    &nbsp; Key Pair
+                </a>
+            </li>
+    
+            <li>
+                <button  (click)="verify()">
+                    <i class="material-icons">home</i>
+                    &nbsp; Overview
+                </button>
+            </li>
+    
+            <li>
+                    <a [routerLink]="['/userprofile/election']" routerLinkActive="router-link-active"  >
+                    <i class="material-icons">how_to_vote</i>
+                    &nbsp; Election
+                </a>
+            </li>
+    
+            <li>
+                    <a [routerLink]="['/userprofile/rules']" routerLinkActive="router-link-active"  >
+                    <i class="material-icons">event_available</i>
+                    &nbsp; Rules & Regulations
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    

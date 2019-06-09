@@ -28,7 +28,7 @@
 <button mat-raised-button color="primary" type ="button" (click)="vote()" >Vote</button>
 </div>
 </div>
-<div class="candidate-container">
+<div class="candidate-container" *ngIf="!(!show && clse)">
   <form #candidateform="ngForm" (ngSubmit)="candidateform.valid && Onsubmit(candidateform)">
     <h2>Register Candidate</h2>
 

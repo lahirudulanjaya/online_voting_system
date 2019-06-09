@@ -49,6 +49,12 @@ dataSource = this.elections;
       res => {
         this.serverErrorMessages = '';
         this.showSucessMessage = true;
+        this.electionService.getallelections().subscribe(
+          res=>{
+          this.elections=res as Election[];
+    
+    
+        })
         setTimeout(() => this.showSucessMessage = false, 4000);
 
       },

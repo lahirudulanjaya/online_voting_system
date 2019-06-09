@@ -1,40 +1,48 @@
+
+
+
 <!-- Side navigation -->
 <div class="sidenav">
 
-    <ul class="sidebar-nav">
-        <li>
-            <a href="admin/overview">
-                <i class="material-icons">home</i>
-                &nbsp; Overview
-            </a>
-        </li>
+        <ul class="sidebar-nav">
+            <li>
+                    <a class="nav-link" [routerLink]="['/admin/overview']" routerLinkActive="router-link-active" >
+                    <i class="material-icons">home</i>
+                    &nbsp; Overview
+                </a>
+            </li>
+    
+            <li>
+                <a [routerLink]="['/admin/election']" routerLinkActive="router-link-active"  >
+                    <i class="material-icons">how_to_vote</i>
+                    &nbsp; Elections
+                </a>
+            </li>
+    
+            <li>    
 
-        <li>
-            <a href="admin/election">
-                <i class="material-icons">how_to_vote</i>
-                &nbsp; Elections
-            </a>
-        </li>
+<a [routerLink]="['/admin/candidates']" routerLinkActive="router-link-active"  >
+    <i class="material-icons">people</i>
+    &nbsp; Candidates
+</a>
+</li>
 
-        <li>
-            <a href="admin/candidates">
-                <i class="material-icons">people</i>
-                &nbsp; Candidates
-            </a>
-        </li>
+<li>
+    <a [routerLink]="['/admin/voter']" routerLinkActive="router-link-active"  >
 
-        <li>
-            <a href="admin/voter">
-                <i class="material-icons">how_to_reg</i>
-                &nbsp; Voters
-            </a>
-        </li>
+    <i class="material-icons">how_to_reg</i>
+    &nbsp; Voters
+</a>
+</li>
 
-        <li>
-            <a href="admin/rules">
-                <i class="material-icons">event_available</i>
-                &nbsp; Rules & Regulations
-            </a>
-        </li>
-    </ul>
+<li>
+    <a [routerLink]="['/admin/rules']" routerLinkActive="router-link-active"  >
+
+    <i class="material-icons">event_available</i>
+    &nbsp; Rules & Regulations
+</a>
+</li>
+</ul>
 </div>
+
+
