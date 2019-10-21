@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-lg fixed-top shadow">
+  <img src="/src/assets/img/Copy of UCSC_logo-Converted-white (1).png" width="40" height="40" class="d-inline-block align-top"
+    alt="">
+  <li class="navbar-brand">UCSC Online Voting System</li>
+</nav>
+
+<form #verifyForm="ngForm" class="verifyform" (ngSubmit)="verifyForm.valid && onSubmit(verifyForm)">
+
+  <!-- Form content -->
+  <div class="verify-email-container formContent">
+
+    <h3>Confirm your Account</h3>
+    <p>Enter your activation code below to confirm your account.</p>
+
+    <!-- Activation Code -->
+    <mat-form-field appearance="standard">
+      <mat-label>Activation Code</mat-label>
+      <input matInput type="text" #randomstring="ngModel" [(ngModel)]="tokenService.selectedToken.randomstring"  name="randomstring" required  [ngClass]="{'invalid-textbox' :verifyForm.submitted && !randomstring.valid}">
+
+    </mat-form-field>
+
+    <div *ngIf="verifyForm.submitted && !randomstring.valid">
+      <label class="validation-message"></label>
+    </div>
+
+    <!-- Submit -->
+    <input type="submit" value="Submit">
+    <button mat-button (click)="resend()">Resend Activation Code</button>
+
+    <div class="success" *ngIf="showSucessMessage">
+      Saved successfully
+    </div>
+    <div class="alert" *ngIf="serverErrorMessages">
+      {{serverErrorMessages}}
+    </div>
+  </div>
+  <div class="success" *ngIf="showSendMessage">
+    Please check your email.
+  </div>
+
+
+</form>
+
+<!-- <div id ="confirm"><h1>Confirm Your Email</h1></div>
+  <form #verifyForm="ngForm" class="verifyform" (ngSubmit)="verifyForm.valid && onSubmit(verifyForm)">
+    <label>Please enter your activation code here<label class="red-text"> *</label></label><br><br>
+    <input type="text" #randomstring="ngModel" [(ngModel)]="tokenService.selectedToken.randomstring"  name="randomstring" placeholder="Paste your token here"
+    required  [ngClass]="{'invalid-textbox' :verifyForm.submitted && !randomstring.valid}">
+    <div *ngIf="verifyForm.submitted && !randomstring.valid">
+      <label class="validation-message"></label>
+    </div><br><br>
+      <input type="submit" value="Submit">
+      </form>
+
+      <div class="success" *ngIf="showSucessMessage">
+          Saved successfully
+        </div>
+        <div class="alert" *ngIf="serverErrorMessages">
+          {{serverErrorMessages}}
+        </div>
+         -->

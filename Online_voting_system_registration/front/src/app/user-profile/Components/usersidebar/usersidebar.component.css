@@ -1,0 +1,54 @@
+.sidebar-nav {
+    list-style-type: none;
+    padding: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 0;
+}
+
+i {
+    vertical-align: middle;
+}
+
+button {
+    background-color: #1C2A39;
+    color: white;
+    border: none;
+    padding-left: 16px;
+}
+
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 220px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #1C2A39;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+
+    margin-top: 70px;
+
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 10px 8px 10px 16px;
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+
+    display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #9fa8da;
+}
+
+.sidenav button:hover {
+    color: #9fa8da;
+    cursor: pointer;
+}
+

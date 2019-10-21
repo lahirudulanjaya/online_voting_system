@@ -1,0 +1,229 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="candidate-toolbar">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <!-- Page title -->
+      <span class="toolbar-title">
+        <i class="material-icons">people</i>
+        &nbsp; Voters
+      </span>
+
+      <!-- Delete Candidates buttons -->
+      <span class="toolbar-spacer"></span>
+      
+      <button mat-stroked-button color="warn" class="toolbar-button">
+        <i class="material-icons">delete</i>
+        &nbsp; Delete All
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+
+      <!-- Voters table -->
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="users">
+ 
+          <!-- Name Column -->
+          <ng-container matColumnDef="userName">
+            <th mat-header-cell *matHeaderCellDef> User Name </th>
+            <td mat-cell *matCellDef="let element" (click)="Onedit(element)" class="blah"> {{element.userName}} </td>
+          </ng-container>
+
+         <!-- Registration No. Column -->
+          <ng-container matColumnDef="registrationnumber">
+            <th mat-header-cell *matHeaderCellDef> Registration Number </th>
+            <td mat-cell *matCellDef="let element" (click)="Onedit(element)"> {{element.registrationnumber}} </td>
+          </ng-container>
+
+          <!-- Phone number -->
+          <ng-container matColumnDef="phonenumber">
+            <th mat-header-cell *matHeaderCellDef> Telephone No </th>
+            <td mat-cell *matCellDef="let element" (click)="Onedit(element)" > {{element.phonenumber}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let element" (click)="Onedit(element)"> {{element.email}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <mat-card class="candidate-card">
+
+        <!-- Card Header with candidate image and name -->
+        <mat-card-header>
+          <div mat-card-avatar class="candidate-header-image"></div>
+        </mat-card-header>
+        <mat-card-header>
+          <mat-card-title>{{userService.selectedUser.userName}}</mat-card-title>
+        </mat-card-header>
+
+        <!-- Candidate details-->
+        <div class="candidate-details">
+          <mat-card-content>
+            <ul>
+              <li>
+                <mat-label><b>Registration Number:</b>&nbsp; {{userService.selectedUser.registrationnumber}} </mat-label>
+              </li>
+              <li>
+                <mat-label><b>Telephone No.:</b>&nbsp; {{userService.selectedUser.phonenumber}}</mat-label>
+              </li>
+              <li>
+                <mat-label><b>Email:</b>&nbsp; {{userService.selectedUser.email}}</mat-label>
+              </li>
+
+            </ul>
+          </mat-card-content>
+
+          <!-- Buttons to Edit and Delete Candidates -->
+          <mat-card-actions>
+            <button mat-flat-button color="primary" data-toggle="modal" data-target="#editCandidateModal">Edit Candidate</button>
+            <button mat-stroked-button color="warn" (click)="Ondelete(userService.selectedUser._id)">Delete Candidate</button>
+          </mat-card-actions>
+        </div>
+      </mat-card>
+
+    </div>
+  </div>
+</div>
+
+<!-- Edit Candidate Modal -->
+<form #memberform="ngForm" (ngSubmit)="memberform.valid && Onsubmit(memberform) ">
+
+<div class="modal fade" id="editCandidateModal" tabindex="-1" role="dialog" aria-labelledby="editCandidateTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title" id="editCandidateTitle">Edit Voter</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+          <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedUser._id">
+      
+          <!-- User Name -->
+          <mat-form-field appearance="standard">
+            <mat-label>User Name</mat-label>
+            <input matInput type="text" name="userName" #userName="ngModel" [(ngModel)]="userService.selectedUser.userName"
+              required>
+          </mat-form-field>
+
+          <!-- Registration Number -->
+          <mat-form-field appearance="standard">
+            <mat-label>Registration Number</mat-label>
+            <input matInput type="text" name="registrationnumber" #registrationnumber="ngModel"
+              [(ngModel)]="userService.selectedUser.registrationnumber" required>
+          </mat-form-field>
+
+          <!-- Phone Number -->
+          <mat-form-field appearance="standard">
+            <mat-label>Phone Number</mat-label>
+            <input matInput type="text" name="phonenumber" #phonenumber="ngModel" [(ngModel)]="userService.selectedUser.phonenumber"
+              required>
+          </mat-form-field>
+
+          <!-- Email Address -->
+          <mat-form-field appearance="standard">
+            <mat-label>Email Address</mat-label>
+            <input matInput type="email" name="email" #email="ngModel" [(ngModel)]="userService.selectedUser.email"
+              required>
+          </mat-form-field>      
+       
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button mat-button type="button" data-dismiss="modal">Cancel</button>
+        <button mat-raised-button color="primary" type="submit">Save changes</button>
+      </div>
+   
+    </div>
+  </div>
+</div>
+<div class="success" *ngIf="showSucessMessage">
+    Saved successfully
+  </div>
+  
+
+  <div class="alert" *ngIf="serverErrorMessages">
+    {{serverErrorMessages}}
+  </div>
+</form>
+
+<!-- <div class="row">
+<div class="column">
+    <h2 class ="head"> Member Details</h2>  
+<form #memberform ="ngForm" (ngSubmit)="memberform.valid && Onsubmit(memberform) ">
+
+  <div class="example-container">
+
+      <input type="hidden" name ="_id" #_id ="ngModel" [(ngModel)]="userService.selectedUser._id">
+    
+    <mat-form-field>
+      <input matInput type="text" placeholder="User Name" name ="userName" #userName = "ngModel" [(ngModel)]="userService.selectedUser.userName" required>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" placeholder="Registration Number" name ="registrationnumber" #registrationnumber = "ngModel" [(ngModel)]="userService.selectedUser.registrationnumber" required>
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput type="text" placeholder="Phone Number" name ="phonenumber" #phonenumber = "ngModel" [(ngModel)]="userService.selectedUser.phonenumber" required>
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput type="email" placeholder="Email Address" name ="email" #email = "ngModel" [(ngModel)]="userService.selectedUser.email" required>
+      </mat-form-field>
+
+      <div class="example-button-row">
+          <button mat-raised-button color="primary" type="submit">Update</button>
+      </div>
+     
+      
+  </div>
+  </form>
+    </div>
+    
+  <div class="column">
+
+ <h2 class ="head">Registered Members</h2>  
+  <table class ="members">
+   
+      <thead>
+        <tr>
+          <th>User Name</th>
+          <th>Registration Number</th>
+          <th>Phone Number</th>
+          <th>Email</th>
+          
+          <tr *ngFor ="let member of users">
+            <td>{{member.userName}}</td>
+            <td>{{member.registrationnumber}}</td>
+            <td>{{member.phonenumber}}</td>
+            <td>{{member.email}}</td>
+            <td><mat-icon (click)="Onedit(member)">create</mat-icon></td>
+            <td><mat-icon (click) ="Ondelete(member._id)">delete</mat-icon></td>
+          </tr>
+      
+      </thead>
+    
+    </table>
+  </div>
+  </div> -->
+    
+  
+
+  

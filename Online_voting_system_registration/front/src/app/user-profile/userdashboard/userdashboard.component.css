@@ -1,0 +1,46 @@
+.overview-toolbar {
+  margin-top: 75px;
+}
+
+.toolbar-title {
+  margin-left: 230px;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar-button {
+  margin: 10px;
+}
+
+.mat-toolbar {
+  background-color: #ebedf7;
+}
+
+i {
+  vertical-align: middle;
+}
+
+.container {
+  margin-top: 20px;
+  margin-left: 300px;
+  margin-bottom: 40px;
+}
+
+.number-card {
+  height: 150px;
+  background-color: #3F51B5;
+}
+
+.card-text {
+  text-align: right;
+}
+
+.material-icons {
+  font-size: 35px;
+}
+
+.card-deck {
+  margin-bottom: 30px;
+}

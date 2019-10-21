@@ -27,6 +27,7 @@
             ],
             "scripts": []
           },
+         
           "configurations": {
             "production": {
               "fileReplacements": [

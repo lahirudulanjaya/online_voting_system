@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { UserService } from '../../shared/user.service';
 import {NgForm} from '@angular/forms';
-var admin=0;
+import{Otp} from '../../shared/user.model';
 
 @Component({
   selector: 'app-sign-in',
@@ -10,8 +10,14 @@ var admin=0;
   styleUrls: ['./sign-in.component.css']
 
 })
+
 export class SignInComponent implements OnInit {
+  answer;
+   admin=0;
+   valid=false;
+   show =false;
   userDetails;
+  hide = true;
 
   constructor(private userService: UserService,private router : Router) { }
   model ={
@@ -23,6 +29,7 @@ export class SignInComponent implements OnInit {
    this.userService.getUserProfile().subscribe(
      res => {
        this.userDetails = res['user'];
+      
      },
      err => {
        console.log(err);
@@ -31,27 +38,62 @@ export class SignInComponent implements OnInit {
    );
  }
   onSubmit(form : NgForm){
-
     this.userService.login(form.value).subscribe(
-
       res => {
-       this.userService.setToken(res['token']);
-       if(form.value.userName=="Admin"){
-          this.router.navigateByUrl('/dashboard');
-          admin=1;
+       
+       this.show=true;
+       if(form.value.userName=="Admin")
+       {
+         this.userService.setToken(res['token']);
+          this.router.navigateByUrl('/admin/overview');
+
         }
       else{
-          this.router.navigateByUrl('/userprofile');
+         this.answer=null;
+        //   //this.router.navigateByUrl('/userprofile/overview');
+        // while(!this.answer){
+        //       this.answer= prompt("Please enter your verificationcode:", "");
+        //       this.userService.selectedOtp.otp=this.answer;
+        //     }
+        // this.userService.postotp(this.userService.selectedOtp).subscribe(
+        //   res=>{
+        //     this.userService.getvalid().subscribe(
+        //       res=>{
+        //         this.valid =res as boolean
+        //         if(this.valid){
+          this.userService.setToken(res['token']);
+          this.router.navigateByUrl('/userprofile/getkeys');
+          //       }
+          //       else{
+          //         this.serverErrorMessages="Invalid Code";
+          //         this.router.navigateByUrl('/login');
+          //       }
+          //   }
+          //   )
+          // })
+
+
+
         }
-
-
       },
       err => {
-
         this.serverErrorMessages = err.error.message;
       }
     );
   }
-
-
+  onOtp(form: NgForm){
+    this.userService.postotp(form.value).subscribe(
+      res=>{
+        this.userService.getvalid().subscribe(
+          res=>{
+            this.valid =res as boolean
+            alert(this.valid);
+            if(this.valid)
+            {
+            this.router.navigateByUrl('/userprofile/overview');
+            }
+        }
+        )
+      })
+}
 }

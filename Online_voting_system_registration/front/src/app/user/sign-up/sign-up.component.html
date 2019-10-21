@@ -1,61 +1,86 @@
-<div>
-  <img src="/assets/img/User.png" id="icon" alt="User Icon" />
-</div>
+<nav class="navbar navbar-expand-lg fixed-top shadow">
+  <img src="/src/assets/img/Copy of UCSC_logo-Converted-white (1).png" width="40" height="40" class="d-inline-block align-top"
+    alt="">
+  <li class="navbar-brand">UCSC Online Voting System</li>
+</nav>
 
 <form #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
-  <input type="text" #userName="ngModel" [(ngModel)]="userService.selectedUser.userName" name="userName" placeholder="User Name"
-  required  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !userName.valid }">
-  <div *ngIf="signUpForm.submitted && !userName.valid">
-    <label class="validation-message">This field is required.</label>
+  <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedUser._id">
+
+  <!-- Form content -->
+  <div class="signup-container">
+
+    <!-- User Name -->
+    <mat-form-field appearance="standard">
+      <mat-label>User Name</mat-label>
+      <input matInput #userName="ngModel" [(ngModel)]="userService.selectedUser.userName" name="userName" required
+        [ngClass]="{'invalid-textbox' :signUpForm.submitted && !userName.valid }">
+    </mat-form-field>
+   
+
+    <!-- Registration Number -->
+    <mat-form-field appearance="standard">
+      <mat-label>Registration Number</mat-label>
+      <input matInput #registrationnumber="ngModel" [(ngModel)]="userService.selectedUser.registrationnumber" name="registrationnumber" matTooltip="eg: 2014CS123" required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !registrationnumber.valid }">
+    </mat-form-field>
+  
+
+    <!-- Email -->
+    <mat-form-field appearance="standard">
+      <mat-label>Email</mat-label>
+      <input matInput #email="ngModel" [(ngModel)]="userService.selectedUser.email" name="email" required [pattern]="emailRegex"
+        [ngClass]="{'invalid-textbox' :signUpForm.submitted && !email.valid }">
+    </mat-form-field>
+    <div *ngIf="signUpForm.submitted && email.errors">
+      <mat-error href="#" *ngIf="email.errors.required" data-toggle="popover" data-content="Required"></mat-error>
+      <mat-error *ngIf="email.errors.pattern">Invalid email address.</mat-error>
+    </div>
+
+    <!-- Phone Number -->
+    <mat-form-field appearance="standard">
+      <mat-label>Phone Number</mat-label>
+      <input matInput #phonenumber="ngModel" [(ngModel)]="userService.selectedUser.phonenumber" name="phonenumber" matTooltip="eg: +94XXXXXXXXX"
+        required [pattern]="phone" [ngClass]="{'invalid-textbox' :signUpForm.submitted && !registrationnumber.valid }">
+    </mat-form-field>
+    <div *ngIf="signUpForm.submitted && !phonenumber.valid">
+      <mat-error *ngIf="phonenumber.errors.required"></mat-error>
+      <mat-error *ngIf="phonenumber.errors.pattern">Invalid Phone Number.</mat-error>
+    </div>
+
+    <!-- Password -->
+    <mat-form-field appearance="standard">
+      <mat-label>Password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" #password="ngModel" [(ngModel)]="userService.selectedUser.password"
+        name="password" matTooltip="Password must include at least 8 characters including one number, one
+        upper case letter and one lower case letter" minlength="8" required [pattern]="re" [ngClass]="{'invalid-textbox' :signUpForm.submitted && !password.valid }">
+    </mat-form-field>
+    <div *ngIf="signUpForm.submitted && password.errors">
+      <mat-error *ngIf="password.errors.required"></mat-error>
+      <mat-error *ngIf="password.errors.minlength">Enter atleast 8 characters.<br></mat-error>
+      <mat-error *ngIf="password.errors.pattern">Password must include at least one number, one
+        upper case letter and one lower case letter</mat-error>
+    </div>
+
+    <!-- Confirm Password-->
+    <mat-form-field appearance="standard">
+      <mat-label>Confirm Password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" appConfirmEqualValidator="password" #cpassword="ngModel"
+        [(ngModel)]="userService.selectedUser.cpassword" name="cpassword" minlength="8" required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !cpassword.valid }">
+    </mat-form-field>
+    <div *ngIf="signUpForm.submitted && cpassword.errors">
+      <mat-error *ngIf="cpassword.errors.required"></mat-error>
+      <mat-error *ngIf="cpassword.errors.minlength">Enter at least 8 characters.<br></mat-error>
+      <mat-error *ngIf="cpassword.errors.notEqual">Password and confirm password doesn't match</mat-error>
+    </div>
+
+    <!-- Submit -->
+    <input type="submit" value="Sign Up">
   </div>
-
-  <input type="text" #registrationnumber="ngModel" [(ngModel)]="userService.selectedUser.registrationnumber" name="registrationnumber" placeholder="Registration Number"
-  required   [ngClass]="{'invalid-textbox' :signUpForm.submitted && !registrationnumber.valid }">
-  <div *ngIf="signUpForm.submitted && !registrationnumber.valid">
-    <label class="validation-message">This field is required.</label>
-  </div>
-
-
-  <input type="text" #email="ngModel" [(ngModel)]="userService.selectedUser.email" name="email" placeholder="Email"
-  required [pattern]="emailRegex"  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !email.valid }">
-  <div *ngIf="signUpForm.submitted && email.errors">
-    <label *ngIf="email.errors.required" class="validation-message">This field is required.</label>
-    <label *ngIf="email.errors.pattern" class="validation-message">Invalid email address.</label>
-  </div>
-
-  <input type="text" #phonenumber="ngModel" [(ngModel)]="userService.selectedUser.phonenumber" name="phonenumber" placeholder="Phone Number"
-  required [pattern]="phone"  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !registrationnumber.valid }">
-  <div *ngIf="signUpForm.submitted && !phonenumber.valid">
-    <label *ngIf="phonenumber.errors.required" class="validation-message">This field is required.<br></label>
-    <label *ngIf="phonenumber.errors.pattern" class="validation-message">Invalid Phonenumber.</label>
-
-  </div>
-
-  <input type="password"  #password="ngModel" [(ngModel)]="userService.selectedUser.password" name="password" placeholder="Password"
-  minlength="8" required [pattern]="re" [ngClass]="{'invalid-textbox' :signUpForm.submitted && !password.valid }">
-  <div *ngIf="signUpForm.submitted && password.errors">
-    <label *ngIf="password.errors.required" class="validation-message">This field is required.</label>
-    <label *ngIf="password.errors.minlength" class="validation-message">Enter atleast 8 characters.<br></label>
-    <label *ngIf="password.errors.pattern" class="validation-message">Password must include atleast one number, one upper case letter and one lower case letter</label>
-
-  </div>
-
-  <input type="password" appConfirmEqualValidator = "password" #cpassword="ngModel" [(ngModel)]="userService.selectedUser.cpassword" name="cpassword" placeholder="Confirm Password"
-  minlength="8" required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !cpassword.valid }">
-  <div *ngIf="signUpForm.submitted && cpassword.errors">
-    <label *ngIf="cpassword.errors.required" class="validation-message">This field is required.</label>
-    <label *ngIf="cpassword.errors.minlength" class="validation-message">Enter atleast 8 characters.<br></label>
-    <label *ngIf="cpassword.errors.notEqual" class="validation-message">Password and confirm password doesn't match</label>
-
-  </div>
-
-
-  <input type="submit" value="Sign Up">
 </form>
 
 <!-- Success message -->
 <div class="success" *ngIf="showSucessMessage">
-  Saved successfully
+  Saved successfully. Please Verify your email address.
 </div>
 
 <!-- Error message -->

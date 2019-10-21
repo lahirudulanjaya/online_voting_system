@@ -3,7 +3,8 @@
     "PORT" : 4000,
     "mongodb_url":"mongodb://localhost:27017/MEAN",
     "JWT_SECRET" :"SECRET#123",
-    "JWT_EXP" : "1m"
+    "JWT_EXP" : "20m",
+    "pass" : "ucsc@123"
   },
   "production": {
         "PORT": 80,

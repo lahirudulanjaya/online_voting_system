@@ -1,0 +1,91 @@
+.candidate-card {
+  max-width: 100%;
+}
+
+.mat-radio-button {
+  size: 0mm;
+}
+#ss{
+  width: 1em;
+}
+
+.key > * {
+  width: 100%;
+}
+
+.alert {
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 15px;
+  width:50%;
+  margin-left: 100px;
+
+
+}
+
+.success{
+  padding: 20px;
+  background-color:#249424; /* Green */
+  color: white;
+  margin-bottom: 15px;
+  width:50%;
+  margin-left: 100px;
+}
+
+.voting-toolbar {
+  margin-top: 75px;
+}
+
+.toolbar-title {
+  margin-left: 230px;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar-button {
+  margin: 10px;
+}
+
+.mat-toolbar {
+  background-color: #ebedf7;
+}
+
+i {
+  vertical-align: middle;
+}
+
+.candidate-container {
+  margin-top: 50px;
+  margin-left: 17%;
+  margin-right: 3%;
+}
+
+.candidate-header-image {
+  background-image: url('/assets/img/user-icon.jpg');
+  background-size: cover;
+}
+
+.mat-card-avatar {
+  height: 100px;
+  width: 100px;
+}
+
+.mat-card-title {
+  font-size: 18px;
+}
+
+ul {
+  list-style: none;
+  padding: 0px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar-button {
+  margin: 10px;
+}

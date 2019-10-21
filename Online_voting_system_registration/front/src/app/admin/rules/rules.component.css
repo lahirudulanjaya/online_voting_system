@@ -1,0 +1,83 @@
+  .rules-container {
+    display: flex;
+    flex-direction: column;
+    margin-top:30px;
+    margin-bottom: 20px;
+    margin-left: 300px;
+    margin-right: 5%;
+  }
+  
+  .rules-container > * {
+    width: 100%;
+  }
+
+  .alert {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    width:100%;
+  }
+  
+  .success{
+    padding: 20px;
+    background-color:#249424; /* Green */
+    color: white;
+    width:100%;
+  }
+
+  .rules-toolbar {
+    margin-top: 75px;
+  }
+  
+  .toolbar-title {
+    margin-left: 230px;
+  }
+  
+  .mat-toolbar-row {
+    background-color: #ebedf7;
+  }
+  
+  i {
+    vertical-align: middle;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .toolbar-button {
+    margin: 10px;
+  }
+
+  .mat-card {
+    padding: 0px;
+  }
+
+  .mat-card-header {
+    background-color: #1C2A39;
+    padding: 24px 24px 0px 24px;
+    justify-content: left;
+  }
+  
+  .mat-card-title {
+    color: white;
+    font-size: 16px;
+    padding: 0px;
+  }
+
+  .rules-details {
+    padding: 24px;
+  }
+
+  .mat-card-actions {
+    padding-right: 10px;
+    float: right;
+  }
+  
+  .mat-card-actions .mat-stroked-button {
+    margin-left: 20px;
+  }
+
+  .mat-form-field {
+    width: 100%;
+  }

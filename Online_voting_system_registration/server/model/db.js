@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.mongodb_url,(err) =>{
+mongoose.connect("mongodb+srv://laiya:123@ucsc-union-election-7i44v.mongodb.net/MEAN?retryWrites=true",
+{ useNewUrlParser: true },(err) =>{
   if(!err){
     console.log("connection success");
   }
@@ -12,3 +13,7 @@ mongoose.connect(process.env.mongodb_url,(err) =>{
 require('./user.model');
 require('./election.model');
 require('./rules.model');
+require('./email.model');
+require('./candidate.model');
+require('./pki.model');
+require('./vote.model');

@@ -1,12 +1,11 @@
 const mongoose = require('mongoose');
 
 var rulesSchema = new mongoose.Schema({
-    content: {
-        type: String,
-        required: 'Name can\'t be empty',
+  rule: {
+    type: String,
+    required: 'Please Enter rules',
+  }
 
-    }
+});
 
-  });
-
-  mongoose.model('rules', rulesSchema);
+mongoose.model('rules', rulesSchema);

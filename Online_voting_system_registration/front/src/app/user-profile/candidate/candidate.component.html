@@ -1,0 +1,80 @@
+<div class="overview-toolbar">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <!-- Page title -->
+      <span class="toolbar-title">
+        <i class="material-icons">how_to_vote</i>
+        &nbsp; Election
+      </span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+
+
+<div class="example-container" *ngIf="show && clse">
+    <div *ngIf="show">
+    <h3>Election will starts within </h3>
+    <app-starttimer></app-starttimer>
+    </div>
+   
+</div>
+
+<div class="example-container" *ngIf="!show && clse">
+  <div >
+  <h3>Election will ends within </h3>
+  <app-timer></app-timer>
+  </div>
+  <div>
+<button mat-raised-button color="primary" type ="button" (click)="vote()" >Vote</button>
+</div>
+</div>
+<div class="candidate-container" *ngIf="!(!show && clse)">
+  <form #candidateform="ngForm" (ngSubmit)="candidateform.valid && Onsubmit(candidateform)">
+    <h2>Register Candidate</h2>
+
+    <mat-form-field hidden>
+      <input matInput type="text" placeholder="Candidate Name" name="candidatename" #candidatename="ngModel"
+        [(ngModel)]="candidateService.selectedCandidate.candidatename" required>
+    </mat-form-field><br>
+
+    <mat-form-field hidden>
+      <input matInput type="text" placeholder="Registration Number" name="regnumber" #regnumber="ngModel" [(ngModel)]="candidateService.selectedCandidate.regnumber"
+        required>
+    </mat-form-field><br>
+
+    <mat-form-field>
+      <mat-select placeholder="Select Your post" name="post" #post="ngModel" [(ngModel)]="candidateService.selectedCandidate.post"
+        required>
+        <mat-option value="PR">President</mat-option>
+        <mat-option value="VP">Vice President</mat-option>
+        <mat-option value="SE">Secretary</mat-option>
+        <mat-option value="TR">Treasurer</mat-option>
+        <mat-option value="ED">Editor</mat-option>
+        <mat-option value="CM">Committee Member</mat-option>
+      </mat-select>
+    </mat-form-field><br>
+
+    <mat-form-field>
+      <mat-select placeholder="Select Your Course" name="iscs" #icsc="ngModel" [(ngModel)]="candidateService.selectedCandidate.iscs"
+        required>
+        <mat-option value="cs">Computer Science</mat-option>
+        <mat-option value="is">Information System</mat-option>
+      </mat-select>
+    </mat-form-field><br>
+
+    <input #imageInput type="file" accept="image/*" (change)="processFile(imageInput)">
+
+    <div class="btn">
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+    </div>
+  </form>
+</div>
+
+<div class="success" *ngIf="showSucessMessage">
+  Saved successfully
+</div>
+
+<!-- Error message -->
+<div class="alert" *ngIf="serverErrorMessages">
+  {{serverErrorMessages}}
+</div>

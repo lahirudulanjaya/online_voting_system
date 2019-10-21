@@ -1,0 +1,175 @@
+<div class="container" id="spacing">
+  <h3>Student Union Election 2018</h3>
+</div>
+
+<div class="container" id="spacing">
+  <div class="row justify-content-md-center">
+    <div class="col-12">
+      <div class="card-deck">
+        <div class="card text-white number-card">
+          <div class="card-body">
+            <div class="card-icon">
+              <i class="material-icons">people</i>
+            </div>
+            <div class="card-text">
+              <h2 class="card-title">{{ totalCandidates }}</h2>
+              <h4 class="card-title">Candidates</h4>
+            </div>
+          </div>
+        </div>
+        <div class="card text-white number-card">
+          <div class="card-body">
+            <div class="card-icon">
+              <i class="material-icons">how_to_reg</i>
+            </div>
+            <div class="card-text">
+              <h2 class="card-title">{{ totalRegisteredVoters }}</h2>
+              <h4 class="card-title">Registered Voters</h4>
+            </div>
+          </div>
+        </div>
+        <div class="card text-white number-card">
+          <div class="card-body">
+            <div class="card-icon">
+              <i class="material-icons">how_to_vote</i>
+            </div>
+            <div class="card-text">
+              <h2 class="card-title">{{ totalVotes }}</h2>
+              <h4 class="card-title">Total Votes</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="candidate-container">
+        <div class="card">
+          <h3>Executive Committee 17/18</h3>
+          <ul class="list-unstyled">
+            <li class="media my-4">
+              <img class="align-self-center mr-3" alt="...">
+              <div class="media-body">
+                <h5 class="mt-0 mb-1">President</h5>
+              </div>
+            </li>
+            <li class="media my-4">
+              <img src="..." class="mr-3" alt="...">
+              <div class="media-body">
+                <h5 class="mt-0 mb-1">Vice President</h5>
+              </div>
+            </li>
+            <li class="media my-4">
+              <img src="..." class="mr-3" alt="...">
+              <div class="media-body">
+                <h5 class="mt-0 mb-1">Secretary</h5>
+              </div>
+            </li>
+            <li class="media my-4">
+              <img class="align-self-center mr-3" alt="...">
+              <div class="media-body">
+                <h5 class="mt-0 mb-1">Treasurer</h5>
+              </div>
+            </li>
+            <li class="media my-4">
+              <img class="align-self-center mr-3" alt="...">
+              <div class="media-body">
+                <h5 class="mt-0 mb-1">Editor</h5>
+              </div>
+            </li>
+            <li class="media my-4">
+              <img class="align-self-center mr-3" alt="...">
+              <div class="media-body">
+                <h5 class="mt-0 mb-1">Committee Member</h5>
+              </div>
+            </li>
+            <li class="media my-4">
+              <img class="align-self-center mr-3" alt="...">
+              <div class="media-body">
+                <h5 class="mt-0 mb-1">Committee Member</h5>
+              </div>
+            </li>
+            <li class="media my-4">
+              <img class="align-self-center mr-3" alt="...">
+              <div class="media-body">
+                <h5 class="mt-0 mb-1">Committee Member</h5>
+              </div>
+            </li>
+            <li class="media my-4">
+              <img class="align-self-center mr-3" alt="...">
+              <div class="media-body">
+                <h5 class="mt-0 mb-1">Committee Member</h5>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div> -->
+
+      <h4 id="stat">Statistics</h4>
+
+      <div class="card-deck">
+        <!-- President -->
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">President</h4>
+            <div style="display: block">
+              <canvas id="pChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vice President -->
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Vice President</h4>
+            <div style="display: block">
+              <canvas id="vpChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-deck">
+        <!-- Secretary -->
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Secretary</h4>
+            <div style="display: block">
+              <canvas id="secChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Treasurer -->
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Treasurer</h4>
+            <div style="display: block">
+              <canvas id="trChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-deck">
+        <!-- Editor -->
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Editor</h4>
+            <div style="display: block">
+              <canvas id="edChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Committee Members -->
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Committee Members</h4>
+            <div style="display: block">
+              <canvas id="comChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

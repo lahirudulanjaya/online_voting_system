@@ -1,0 +1,71 @@
+i {
+  vertical-align: middle;
+}
+
+.container {
+  margin-top: 20px;
+  margin-left: 300px;
+  margin-bottom: 40px;
+}
+
+.number-card {
+  height: 150px;
+  background-color: #3F51B5;
+}
+
+.card-text {
+  text-align: right;
+}
+
+.material-icons {
+  font-size: 35px;
+}
+
+.card {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.candidate-card {
+  max-width: 100%;
+}
+
+.candidate-container {
+  margin-top: 50px;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+img {
+  background-image: url('/assets/img/user-icon.jpg');
+  background-size: cover;
+  margin-left: 10px;
+}
+
+.mat-card-avatar {
+  height: 100px;
+  width: 100px;
+}
+
+.mat-card-title {
+  font-size: 18px;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0px;
+}
+
+.mat-grid-list {
+  margin-bottom: -50px;
+}
+
+h3 {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#stat {
+  margin-top: 60px;
+}

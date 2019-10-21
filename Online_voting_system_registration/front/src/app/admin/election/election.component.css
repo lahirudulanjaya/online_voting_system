@@ -1,33 +1,244 @@
-* {
-    box-sizing: border-box;
-    width: 100%;
+.election-toolbar {
+  margin-top: 75px;
 }
 
-input[type=date], select, textarea {
-    width: 50%;
-    color: blue;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-    font-size: 15px;
+.toolbar-title {
+  margin-left: 230px;
 }
-input[type=time], select, textarea {
-    width: 50%;
-    color: blue;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-    font-size: 15px;
+
+.mat-toolbar {
+  background-color: #ebedf7;
 }
-input[type=submit] {
-    background-color: blue;
-    color: white;
-    width:35%;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    float: center;
+
+i {
+  vertical-align: middle;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar-button {
+  margin: 10px;
+}
+
+#icon{
+  margin-top: 10px;
+  margin-left :500px;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+label.validation-message
+{
+  width: 200px;
+  color:#ed5558;
+  margin-left: 260px;
+}
+
+#setelection{
+  margin-left: 500px;
+  margin-top: 100px;
+
+}
+input[type=text],input[type=password],input[type=time],input[type=date],select{
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+}
+
+label{
+  width: 300px;
+  display :inline-block;
+  color: black;
+  font-size: 18px;
+
+}
+input[type=submit]:disabled{
+  background-color: grey;
+  color: white;
+  width :100px;
+
+}
+
+input[type=button], input[type=submit], input[type=reset]  {
+  width:150px;
+  cursor: pointer;
+  background-color: #56baed;
+  border: none;
+  color: white;
+  padding: 15px 0px;
+
+  text-transform: uppercase;
+  font-size: 13px;
+  -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+  box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  margin: 5px 20px 40px 20px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+  background-color: #39ace7;
+
+}
+
+input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
+  -moz-transform: scale(0.95);
+  -webkit-transform: scale(0.95);
+  -o-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+  width:100px;
+}
+
+input[type=submit]:disabled{
+  background-color: grey;
+  color: white;
+  width:100px;
+}
+
+.alert {
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 15px;
+  width: 40%;
+  margin-left: 100px;
+}
+
+.success{
+  padding: 20px;
+  background-color:#249424; /* Green */
+  color: white;
+  margin-bottom: 15px;
+  width: 40%;
+  margin-left: 100px;
+}
+
+  input[type=text].invalid-textbox,input[type=password].invalid-textbox{
+    border-bottom: 2px solid #ed5558;
+  }
+
+  *:focus {
+    outline: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.toolbar-title {
+  margin-left: 230px;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar-button {
+  margin: 10px;
+}
+
+.mat-toolbar {
+  background-color: #ebedf7;
+}
+
+i {
+  vertical-align: middle;
+}
+
+.container {
+  margin-top: 20px;
+  margin-left: 300px;
+  margin-bottom: 40px;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-header-cell {
+  color: white;
+  background-color: #3F51B5;
+}
+
+.election-card {
+  width: 450px;
+  height: 510px;
+}
+
+.mat-card {
+  padding: 0px;
+}
+
+.mat-card-header {
+  background-color: #1C2A39;
+  padding: 24px 24px 0px 24px;
+  justify-content: center;
+}
+
+.mat-card-title {
+  color: white;
+  font-size: 24px;
+  padding: 0px;
+}
+
+.election-details {
+  padding: 24px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+ul li {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.mat-card-avatar {
+  height: 120px;
+  width: 120px;
+}
+
+.col-4 {
+  margin-left: 100px;
+}
+
+.mat-card-actions {
+  padding-right: 10px;
+  float: right;
+}
+
+.mat-card-actions .mat-stroked-button {
+  margin-left: 20px;
+}
+
+.election-timer {
+  font-size: 50px;
+}
+
+td {
+  cursor: pointer;
+}
+
+.election-table {
+  width:100%;
 }

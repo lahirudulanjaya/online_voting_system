@@ -1,27 +1,66 @@
-
-<div>
-  <img src="/assets/img/login.png" id="icon" alt="User Icon" />
-</div>
-
-
+<nav class="navbar navbar-expand-lg fixed-top shadow">
+  <img src="/src/assets/img/Copy of UCSC_logo-Converted-white (1).png" width="40" height="40" class="d-inline-block align-top"
+    alt="">
+  <li class="navbar-brand">UCSC Online Voting System</li>
+</nav>
 
 <form #signInForm="ngForm" (ngSubmit)="signInForm.valid && onSubmit(signInForm)">
-   <input type="text" name="userName" #userName="ngModel" [(ngModel)]="model.userName" placeholder="User Name"  required
-     [ngClass]="{'invalid-textbox' :signInForm.submitted && !userName.valid }">
-     <div *ngIf="signInForm.submitted && !userName.valid">
-       <label class="validation-message">This field is required.</label>
-     </div>
 
-   <input type="password" name="password" #password="ngModel" [(ngModel)]="model.password" placeholder="Password" required minlength="4"
-     [ngClass]="{'invalid-textbox' :signInForm.submitted && !password.valid }">
-   <div *ngIf="signInForm.submitted && password.errors?.minlength">
-     <label class="validation-message">Minimum 4 characters.</label>
-   </div>
-   <input type="submit" value="Sign In">
+  <!-- Form content -->
+  <div class="login-container">
 
- </form>
+    <!-- User Name -->
+    <mat-form-field appearance="standard">
+      <mat-label>User Name</mat-label>
+      <input matInput name="userName" #userName="ngModel" [(ngModel)]="model.userName" required [ngClass]="{'invalid-textbox' :signInForm.submitted && !userName.valid }">
+    </mat-form-field>
 
+    <!-- Password -->
+    <mat-form-field appearance="standard">
+      <mat-label>Password</mat-label>
+      <input matInput [type]="hide? 'password' : 'text'" name="password" #password="ngModel" [(ngModel)]="model.password"
+        required [ngClass]="{'invalid-textbox' :signInForm.submitted && !password.valid }">
+    </mat-form-field>
+    <div *ngIf="signInForm.submitted && password.errors?.minlength">
+      <!-- <label class="validation-message">Minimum 4 characters.</label> -->
+    </div>
 
- <div class="alert" *ngIf="serverErrorMessages">
-    {{serverErrorMessages}}
+    <!-- Submit -->
+    <input type="submit" value="Log In" data-toggle="modal"  data-target="#insertOTPModal">
   </div>
+
+</form>
+
+<div class="alert" *ngIf="serverErrorMessages">
+  {{serverErrorMessages}}
+</div>
+
+<!-- Insert OTP Modal -->
+<!-- <div class="modal fade" id="insertOTPModal" tabindex="-1" role="dialog" aria-labelledby="confirmOTPTitle" aria-hidden="true" *ngIf="show">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content"> -->
+
+      <!-- Modal Header -->
+      <!-- <div class="modal-header">
+        <h5 class="modal-title" id="confirmOTPTitle">OTP Verification</h5>
+      </div> -->
+
+      <!-- Modal Body -->
+      <!-- <div class="modal-body">
+        <form #otpForm="ngForm" (ngSubmit)="onOtp(otpForm)">
+          <mat-form-field appearance="standard">
+            <mat-label>Enter Your Verify Code</mat-label>
+            <input matInput name="otp" #otp="ngModel" [(ngModel)]="this.userService.selectedOtp.otp" required>
+          </mat-form-field>
+          <!-- Modal Footer -->
+          <!-- <div class="modal-footer">
+            <button mat-button type="button" data-dismiss="modal">Cancel</button>
+            <input mat-raised-button color="primary" type="submit" value="Verify">
+          </div>
+        </form>
+      </div> -->
+
+
+    <!-- </div>
+  </div>
+</div> -->

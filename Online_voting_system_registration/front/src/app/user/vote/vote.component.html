@@ -1,0 +1,259 @@
+<app-userheader></app-userheader>
+<app-usersidebar></app-usersidebar>
+
+<div class="voting-toolbar">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <!-- Page title -->
+      <span class="toolbar-title">
+        <i class="material-icons">how_to_vote</i>
+        &nbsp; UCSC Student Union Election 2019
+      </span>
+
+      <!-- Submit & Cancel Vote buttons -->
+      <span class="example-spacer"></span>
+
+      <button mat-button type="button">Cancel</button>
+
+      <button mat-flat-button color="primary" class="toolbar-button" data-toggle="modal" data-target="#insertKeyModal">Submit Vote</button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+
+<div class="candidate-container">
+
+  <!-- Candidates for the post of Vice President -->
+  <mat-grid-list cols="3" rowHeight="3:2">
+    <h3>President</h3>
+    <div *ngFor="let candidate of candidates ; let i = index">
+      <div *ngIf="(candidate.post == 'PR')">
+        <mat-grid-tile>
+          <mat-card class="candidate-card">
+
+            <mat-card-header>
+              <div mat-card-avatar class="candidate-header-image"></div>
+              <ul>
+                <li>
+                    <mat-card-title><b>Name:</b> {{candidate.candidatename}}</mat-card-title>
+                </li>
+
+                <li>
+                    <mat-card-subtitle><b>Registration Number:</b> {{candidate.regnumber}}</mat-card-subtitle>
+                </li><br>
+
+                <li>
+                    <mat-radio-group name="PR">
+                        <mat-radio-button color="primary" value="1" (change)="vote.PR=candidate.regnumber">VOTE</mat-radio-button>
+                      </mat-radio-group>
+                </li>
+              </ul>
+            </mat-card-header>
+          </mat-card>
+        </mat-grid-tile>
+      </div>
+    </div>
+  </mat-grid-list>
+
+  <!-- Candidates for the post of Vice President -->
+  <mat-grid-list cols="3" rowHeight="3:2">
+    <h3>Vice President</h3>
+    <div *ngFor="let candidate of candidates ; let i = index">
+      <div *ngIf="(candidate.post == 'VP')">
+        <mat-grid-tile>
+          <mat-card class="candidate-card">
+
+            <mat-card-header>
+              <div mat-card-avatar class="candidate-header-image"></div>
+              <ul>
+                <li>
+                    <mat-card-title><b>Name:</b> {{candidate.candidatename}}</mat-card-title>
+                </li>
+
+                <li>
+                    <mat-card-subtitle><b>Registration Number:</b> {{candidate.regnumber}}</mat-card-subtitle>
+                </li><br>
+
+                <li>
+                    <mat-radio-group name="VP">
+                        <mat-radio-button color="primary" value="1" (change)="vote.VP=candidate.regnumber">VOTE</mat-radio-button>
+                      </mat-radio-group>
+                </li>
+              </ul>
+            </mat-card-header>
+          </mat-card>
+        </mat-grid-tile>
+      </div>
+    </div>
+  </mat-grid-list>
+
+  <!-- Candidates for the post of Secretary -->
+  <mat-grid-list cols="3" rowHeight="3:2">
+    <h3>Secretary</h3>
+    <div *ngFor="let candidate of candidates ; let i = index">
+      <div *ngIf="(candidate.post == 'SE')">
+        <mat-grid-tile>
+          <mat-card class="candidate-card">
+            <mat-card-header>
+              <div mat-card-avatar class="candidate-header-image"></div>
+              <ul>
+                <li>
+                  <mat-card-title><b>Name:</b> {{candidate.candidatename}}</mat-card-title>
+                </li>
+
+                <li>
+                  <mat-card-subtitle><b>Registration Number:</b> {{candidate.regnumber}}</mat-card-subtitle>
+                </li><br>
+
+                <li>
+                  <mat-radio-group name="SE">
+                    <mat-radio-button color="primary" value="" (change)="vote.SE=candidate.regnumber">VOTE</mat-radio-button>
+                  </mat-radio-group>
+                </li>
+              </ul>
+            </mat-card-header>
+          </mat-card>
+        </mat-grid-tile>
+      </div>
+    </div>
+  </mat-grid-list>
+
+  <!-- Candidates for the post of Treasurer -->
+  <mat-grid-list cols="3" rowHeight="3:2">
+    <h3>Treasurer</h3>
+    <div *ngFor="let candidate of candidates ; let i = index">
+      <div *ngIf="(candidate.post == 'TR')">
+        <mat-grid-tile>
+          <mat-card class="candidate-card">
+            <mat-card-header>
+              <div mat-card-avatar class="candidate-header-image"></div>
+              <ul>
+                <li>
+                  <mat-card-title><b>Name:</b> {{candidate.candidatename}}</mat-card-title>
+                </li>
+
+                <li>
+                  <mat-card-subtitle><b>Registration Number:</b> {{candidate.regnumber}}</mat-card-subtitle>
+                </li><br>
+
+                <li>
+                  <mat-radio-group name="TR">
+                    <mat-radio-button color="primary" value="1" (change)="vote.TR=candidate.regnumber">VOTE</mat-radio-button>
+                  </mat-radio-group>
+                </li>
+              </ul>
+            </mat-card-header>
+          </mat-card>
+        </mat-grid-tile>
+      </div>
+    </div>
+  </mat-grid-list>
+
+  <!-- Candidates for the post of Editor -->
+  <mat-grid-list cols="3" rowHeight="3:2">
+    <h3>Editor</h3>
+    <div *ngFor="let candidate of candidates ; let i = index">
+      <div *ngIf="(candidate.post == 'ED')">
+        <mat-grid-tile>
+          <mat-card class="candidate-card">
+            <mat-card-header>
+              <div mat-card-avatar class="candidate-header-image"></div>
+              <ul>
+                <li>
+                  <mat-card-title><b>Name:</b> {{candidate.candidatename}}</mat-card-title>
+                </li>
+
+                <li>
+                  <mat-card-subtitle><b>Registration number:</b> {{candidate.regnumber}}</mat-card-subtitle>
+                </li><br>
+
+                <li>
+                  <mat-radio-group name="ED">
+                    <mat-radio-button color="primary" value="1" (change)="vote.ED=candidate.regnumber">VOTE</mat-radio-button>
+                  </mat-radio-group>
+                </li>
+              </ul>
+            </mat-card-header>
+          </mat-card>
+        </mat-grid-tile>
+      </div>
+    </div>
+  </mat-grid-list>
+
+  <!-- Candidates for the post of Committee Member -->
+  <mat-grid-list cols="3" rowHeight="3:2">
+    <h3>Committee Members</h3>
+    <div *ngFor="let candidate of candidates ; let i = index">
+      <div *ngIf="(candidate.post == 'CM')">
+        <mat-grid-tile>
+          <mat-card class="candidate-card">
+            <mat-card-header>
+              <div mat-card-avatar class="candidate-header-image"></div>
+              <ul>
+                <li>
+                  <mat-card-title><b>Name:</b> {{candidate.candidatename}}</mat-card-title>
+                </li>
+
+                <li>
+                  <mat-card-subtitle><b>Registration Number:</b> {{candidate.regnumber}}</mat-card-subtitle>
+                </li><br>
+
+                <li>
+                  <mat-checkbox color="primary" [(ngModel)]="candidate.checked" (ngModelChange)="change()" [disabled]="!candidate.checked && num>3">VOTE
+                  </mat-checkbox>
+                </li>
+              </ul>
+            </mat-card-header>
+          </mat-card>
+        </mat-grid-tile>
+      </div>
+    </div>
+  </mat-grid-list>
+</div>
+
+<!-- Insert Key Modal -->
+<div class="modal fade" id="insertKeyModal" tabindex="-1" role="dialog" aria-labelledby="confirmKeyTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmKeyTitle">Confirm Key</h5>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+          <form>
+            <div class=key>
+
+              <mat-form-field class="private" hidden>
+                <textarea matInput type="text" placeholder="Enter your Private Key here" name="private" [(ngModel)]="pri"
+                  matTextareaAutosize matAutosizeMinRows=10 matAutosizeMaxRows=20 required></textarea>
+              </mat-form-field>
+              <label><h2>Insert your key file</h2></label>
+              <input id="file-upload"
+                    type="file"
+                    accept="text/plain"
+                        (change)="fileUpload($event)">
+
+            </div>
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+              <button mat-button type="button" data-dismiss="modal">Cancel</button>
+              <button mat-raised-button color="primary" [disabled]="isDisabled" (click)="check()">Vote Now</button>
+
+
+            </div>
+            <!-- Success Message -->
+            <div class="success" *ngIf="showSucessMessage">
+              Your Vote Saved successfully
+            </div>
+
+            <!-- Error message -->
+            <div class="alert" *ngIf="serverErrorMessages">
+              {{serverErrorMessages}}
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>

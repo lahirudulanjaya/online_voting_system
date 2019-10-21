@@ -1,70 +1,120 @@
-<div>
-  <img src="/assets/img/time.png" id="icon" alt="User Icon" />
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="election-toolbar">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <!-- Page title -->
+      <span class="toolbar-title">
+        <i class="material-icons">how_to_vote</i>
+        &nbsp; Elections
+      </span>
+
+      <!-- Add & Delete Elections buttons -->
+      <span class="example-spacer"></span>
+
+      <button mat-flat-button color="primary" class="toolbar-button" data-toggle="modal" data-target="#addElectionModal">
+        <i class="material-icons">add</i>
+        &nbsp; Add Election
+      </button>
+
+      <button mat-stroked-button color="warn" class="toolbar-button">
+        <i class="material-icons">delete</i>
+        &nbsp; Delete All
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
 </div>
 
+<div class="container">
+  <div class="row">
+    <div class="election-table">
 
-  <form #electionForm="ngForm"  (ngSubmit)="electionForm.valid && onSubmit(electionForm)" >
+      <!-- Voters table -->
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="elections">
 
+          <!-- Name Column -->
+          <ng-container matColumnDef="Name">
+            <th mat-header-cell *matHeaderCellDef> Election </th>
+            <td mat-cell *matCellDef="let element" (click)="Onedit(element)"> {{element.Name}} </td>
+          </ng-container>
 
-    <label>Election Name</label>
-    <input type="text" #Name="ngModel" [(ngModel)]="electionService.selectedElection.Name" name="Name" placeholder="Election Name"
-    required  [ngClass]="{'invalid-textbox' :electionForm.submitted && !Name.valid }">
-    <div *ngIf="electionForm.submitted && !Name.valid">
-      <label class="validation-message">This field is required.</label>
+          <ng-container matColumnDef="stime">
+            <th mat-header-cell *matHeaderCellDef> Start Time </th>
+            <td mat-cell *matCellDef="let element" (click)="Onedit(element)" > {{element.stime}} </td>
+          </ng-container>
+       
+
+          <ng-container matColumnDef="etime">
+            <th mat-header-cell *matHeaderCellDef> Start Electoion </th>
+            <td mat-cell *matCellDef="let element" (click)="Onedit(element)"><div> <button type="button" (click)="onStart(element)" name="button"> start Election</button></div> </td>
+          </ng-container>
+          <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef> Stop Election </th>
+            <td mat-cell *matCellDef="let element" (click)="Onedit(element)"><div> <button type="button" (click)="onend(element)" name="button"> stop Election</button></div></td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+      </div>
     </div>
-
-  <div>
-
-
-        <label for="electiondate">Election Date</label>
-        <input type="date"  [(ngModel)]="electionService.selectedElection.date" name="date" placeholder="Election Date"
-               value="2018-07-22"
-               min="2018-01-01" max="2020-12-31" >
-
-               <input type="text"  #date="ngModel" [(ngModel)]="electionService.selectedElection.date" name="date" placeholder="Election Date"
-               required [ngClass]="{'invalid-textbox' :electionForm.submitted && !date.valid }">
-               <div *ngIf="electionForm.submitted && !date.valid">
-                 <label class="validation-message">This field is required.</label>
-               </div>
   </div>
-
-
-
-    <div >
-            <label>Start Time:</label>
-            <input type="time" [(ngModel)]="electionService.selectedElection.stime" name="stime" placeholder="Starting TIme"
-                   min="9:00" max="18:00">
-
-                   <input type="text" #stime="ngModel"  [(ngModel)]="electionService.selectedElection.stime" name="stime" placeholder="Starting TIme"
-                   required [ngClass]="{'invalid-textbox' :electionForm.submitted && !stime.valid }">
-                   <div *ngIf="electionForm.submitted && !stime.valid" >
-                     <label class="validation-message">This field is required.</label>
-                   </div>
-    </div>
-
-
-    <div >
-            <label>End Time:</label>
-            <input type="time" [(ngModel)]="electionService.selectedElection.etime" name="etime" placeholder="Ending TIme"
-                   min="9:00" max="18:00" >
-               <input type="text" #etime="ngModel" [(ngModel)]="electionService.selectedElection.etime" name="etime" placeholder="Ending TIme"
-                   required [ngClass]="{'invalid-textbox' :electionForm.submitted && !date.valid }">
-                   <div *ngIf="electionForm.submitted  && !etime.valid">
-                     <label class="validation-message">This field is required.</label>
-                   </div>
-    </div>
-
-
-      <input type="submit" value="Set Election">
-
-</form>
-
-
-
-<div class="success" *ngIf="showSucessMessage">
-  Saved successfully
 </div>
 
-<div class="alert" *ngIf="serverErrorMessages">
-  {{serverErrorMessages}}
+<!-- Add Election Modal -->
+<div class="modal fade" id="addElectionModal" tabindex="-1" role="dialog" aria-labelledby="addElectionTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title" id="addElectionTitle">New Election</h5>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <form #electionForm="ngForm" class="electionform" (ngSubmit)="electionForm.valid && onSubmit(electionForm)">
+          <!-- <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedUser._id"> -->
+
+          <!-- Election name -->
+          <mat-form-field appearance="standard">
+            <mat-label>Election Name</mat-label>
+            <input matInput #Name="ngModel" [(ngModel)]="electionService.selectedElection.Name" name="Name" required>
+          </mat-form-field><br>
+
+          <!-- Election Date -->
+
+            <mat-label>Election Starting time </mat-label>
+              <div>
+             <input  placeholder="Election Date" #date="ngModel" [(ngModel)]="electionService.selectedElection.stime"
+              name="stime" type="datetime-local" required>
+          </div>
+            <!-- <input type="text" #date="ngModel" [(ngModel)]="electionService.selectedElection.date" name="date" placeholder="Election Date"
+              required [ngClass]="{'invalid-textbox' :electionForm.submitted && !date.valid }"> -->
+
+            <mat-label>Election ending time </mat-label>
+          <div>
+          <input type="datetime-local" [(ngModel)]="electionService.selectedElection.etime" #etime="ngModel" name="etime" placeholder="Ending TIme"
+          ><br>
+      </div>
+
+          <div class="modal-footer">
+            <button mat-button type="button" data-dismiss="modal">Cancel</button>
+            <button mat-raised-button color="primary" type="submit">Set Election</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="success" *ngIf="showSucessMessage">
+        Saved successfully
+      </div>
+
+      <div class="alert" *ngIf="serverErrorMessages">
+        {{serverErrorMessages}}
+      </div>
+    </div>
+  </div>
 </div>
